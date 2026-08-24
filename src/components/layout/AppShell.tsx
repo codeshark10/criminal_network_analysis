@@ -1,0 +1,25 @@
+import { useEffect, useMemo, useState } from 'react'
+import { Bell, ChevronLeft, ChevronRight, Command, Database, LayoutDashboard, Menu, Network, Search, Settings, ShieldCheck, SlidersHorizontal, TriangleAlert, UserRoundSearch, UsersRound, X } from 'lucide-react'
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { cases, entities, evidence } from '../../data/mockData'
+import { EntityIcon } from '../common'
+
+const navItems = [
+  ['/overview', 'Overview', LayoutDashboard], ['/investigations', 'Investigations', UserRoundSearch], ['/network', 'Network Analysis', Network], ['/persons', 'Persons of Interest', UsersRound], ['/evidence', 'Evidence Intelligence', Database], ['/timeline', 'Timeline', SlidersHorizontal], ['/alerts', 'Alerts', TriangleAlert], ['/sources', 'Data Sources', Database], ['/analytics', 'Analytics', Network], ['/settings', 'Settings', Settings],
+] as const
+
+export function AppShell() {
+  const [collapsed, setCollapsed] = useState(false); const [mobileOpen, setMobileOpen] = useState(false); const [search, setSearch] = useState(''); const [notifications, setNotifications] = useState(false); const navigate = useNavigate()
+  const results = useMemo(() => { const q = search.trim().toLowerCase(); if (!q) return []; return [...entities.filter(item => item.label.toLowerCase().includes(q)).slice(0, 6).map(item => ({ key: item.id, label: item.label, kind: item.type, path: item.type === 'PERSON' ? `/persons/${item.id}` : '/network' })), ...evidence.filter(item => item.id.toLowerCase().includes(q)).slice(0, 3).map(item => ({ key: item.id, label: item.id, kind: 'EVIDENCE', path: `/evidence/${item.id}` })), ...cases.filter(item => item.id.toLowerCase().includes(q) || item.name.toLowerCase().includes(q)).slice(0, 2).map(item => ({ key: item.id, label: item.name, kind: 'CASE', path: '/investigations' }))] }, [search])
+  useEffect(() => { const close = (event: KeyboardEvent) => { if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); document.getElementById('global-search')?.focus() } }; window.addEventListener('keydown', close); return () => window.removeEventListener('keydown', close) }, [])
+  const handleNav = () => setMobileOpen(false)
+  return <div className={`app-shell ${collapsed ? 'sidebar-collapsed' : ''}`}>
+    {mobileOpen && <button aria-label="Close navigation" className="mobile-backdrop" onClick={() => setMobileOpen(false)} />}
+    <aside className={`sidebar ${mobileOpen ? 'mobile-open' : ''}`}>
+      <div className="brand"><div className="brand-mark"><Network size={21} /></div>{!collapsed && <div><b>NEXUS</b><span>Criminal Network Intelligence</span></div>}<button className="mobile-close" aria-label="Close navigation" onClick={() => setMobileOpen(false)}><X size={18} /></button></div>
+      <nav aria-label="Primary navigation">{navItems.map(([path, label, Icon]) => <NavLink key={path} to={path} onClick={handleNav} title={collapsed ? label : undefined} className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}><Icon size={18} /><span>{label}</span></NavLink>)}</nav>
+      <div className="sidebar-footer"><div className="system-state"><ShieldCheck size={15} /><span>System operational</span></div><button className="collapse-button" onClick={() => setCollapsed(item => !item)} aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}>{collapsed ? <ChevronRight size={17} /> : <><ChevronLeft size={17} /><span>Collapse</span></>}</button></div>
+    </aside>
+    <main className="main-area"><header className="topbar"><button className="mobile-menu" aria-label="Open navigation" onClick={() => setMobileOpen(true)}><Menu size={20} /></button><div className="case-switcher"><span>ACTIVE CASE</span><b>CASE-2026-014</b><i>Organized Financial Network</i></div><div className="topbar-actions"><div className="global-search"><Search size={17} /><input id="global-search" value={search} onChange={event => setSearch(event.target.value)} placeholder="Search entities, evidence, cases…" aria-label="Global search" /><kbd><Command size={11} /> K</kbd>{search && <div className="search-results">{results.length ? results.map(result => <button key={result.key} onClick={() => { navigate(result.path); setSearch('') }}><span>{result.kind in { PERSON: 1, ORGANIZATION: 1, LOCATION: 1, PHONE: 1, VEHICLE: 1, ACCOUNT: 1, TRANSACTION: 1, EVENT: 1 } ? <EntityIcon type={result.kind as typeof entities[number]['type']} /> : <Search size={14} />}</span><div><small>{result.kind}</small>{result.label}</div></button>) : <p>No matching intelligence records.</p>}</div>}</div><button className="icon-button notification-button" onClick={() => setNotifications(item => !item)} aria-label="Notifications"><Bell size={19} /><em>4</em></button><div className="profile">AR</div></div>{notifications && <div className="notification-popover"><b>New intelligence alerts</b><p>4 items require review</p><button onClick={() => { navigate('/alerts'); setNotifications(false) }}>View alerts</button></div>}</header><div className="page-content"><Outlet /></div></main>
+  </div>
+}
