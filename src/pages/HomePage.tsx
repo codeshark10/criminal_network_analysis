@@ -6,53 +6,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Users, FileText, Network, Database,
-  AlertTriangle, BarChart3, Activity,
+  FolderOpen, Clock, PlusSquare, Server, Inbox, Search, Activity
 } from 'lucide-react';
 import CasesCircle from '../components/home/CasesCircle';
 import FloatingModule from '../components/home/FloatingModule';
 import InvestigationModes from '../components/home/InvestigationModes';
-import { getActiveCases, getPastCases } from '../data/cases';
-import { persons } from '../data/persons';
-import { evidenceRecords } from '../data/evidence';
-import { alerts } from '../data/alerts';
-import { networkMetrics, dataSources } from '../data/alerts';
+import { cases, getActiveCases, getPastCases, getGlobalStats } from '../data/cases';
 
-// Mini bar chart component for modules
-const MiniBarChart: React.FC<{ bars: number[] }> = ({ bars }) => {
-  const max = Math.max(...bars);
-  return (
-    <div style={{ display: 'flex', alignItems: 'flex-end', gap: '2px', height: '24px' }}>
-      {bars.map((v, i) => (
-        <div
-          key={i}
-          style={{
-            flex: 1,
-            background: i === bars.length - 1 ? 'var(--accent)' : 'var(--border-base)',
-            height: `${(v / max) * 100}%`,
-            minHeight: '2px',
-            transition: 'height 0.3s',
-          }}
-        />
-      ))}
-    </div>
-  );
-};
 
-// Mini network viz for Networks module
-const MiniNetworkViz: React.FC = () => (
-  <svg width="100%" height="28" viewBox="0 0 130 28">
-    {/* Nodes */}
-    {[[20,14],[65,6],[65,22],[110,14],[40,6],[90,6]].map(([x,y],i) => (
-      <circle key={i} cx={x} cy={y} r={i===0||i===3?4:2.5}
-        fill="none" stroke={i===0||i===3?"rgba(201,184,106,0.6)":"rgba(201,184,106,0.25)"} strokeWidth="0.8" />
-    ))}
-    {/* Edges */}
-    {[[20,14,65,6],[20,14,65,22],[65,6,110,14],[65,22,110,14],[20,14,40,6],[65,6,90,6]].map(([x1,y1,x2,y2],i) => (
-      <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="rgba(201,184,106,0.12)" strokeWidth="0.8" />
-    ))}
-  </svg>
-);
 
 // CCTV frame overlay component
 const CCTVOverlay: React.FC = () => {
@@ -158,18 +119,10 @@ const HomePage: React.FC = () => {
 
   const activeCases = getActiveCases();
   const pastCases = getPastCases();
+  const globalStats = getGlobalStats();
 
-  const activePersons = persons.filter((p) => p.status === 'ACTIVE').length;
-  const underReview = persons.filter((p) => p.status === 'UNDER_REVIEW').length;
-  const archivedPersons = persons.filter((p) => p.status === 'ARCHIVED').length;
-
-  const processedEvidence = evidenceRecords.filter((e) => e.status === 'PROCESSED').length;
-  const pendingEvidence = evidenceRecords.filter((e) => e.status === 'PENDING').length;
-  const flaggedEvidence = evidenceRecords.filter((e) => e.flagged).length;
-
-  const highAlerts = alerts.filter((a) => a.severity === 'HIGH' && a.status === 'ACTIVE').length;
-  const medAlerts = alerts.filter((a) => a.severity === 'MEDIUM' && a.status === 'ACTIVE').length;
-  const lowAlerts = alerts.filter((a) => a.severity === 'LOW' && a.status === 'ACTIVE').length;
+  const processingCount = cases.filter(c => c.extractionStatus && c.extractionStatus !== 'COMPLETED').length;
+  const underReviewCount = cases.filter(c => c.status === 'UNDER_REVIEW').length;
 
   // Container size for SVG connections
   useEffect(() => {
@@ -244,26 +197,7 @@ const HomePage: React.FC = () => {
       {/* ── CCTV Overlay ── */}
       <CCTVOverlay />
 
-      {/* ── Disclaimer banner ── */}
-      <div
-        style={{
-          position: 'absolute',
-          top: '10px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          background: 'var(--bg-surface)',
-          border: '1px solid var(--border-dim)',
-          padding: '4px 16px',
-          fontFamily: 'var(--font-mono)',
-          fontSize: '0.5rem',
-          color: 'var(--text-muted)',
-          letterSpacing: '0.12em',
-          whiteSpace: 'nowrap',
-          zIndex: 10,
-        }}
-      >
-        ⚠ SYNTHETIC DEMONSTRATION DATA — AI insights require investigator verification
-      </div>
+
 
       {/* ── Main Layout ── */}
       <div
@@ -280,14 +214,8 @@ const HomePage: React.FC = () => {
       >
         {/* ── Central Intelligence Hub ── */}
         <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '420px',
-          }}
+          className="hub-container"
+          style={{ minHeight: '520px', position: 'relative', zIndex: 10 }}
         >
           {/* SVG connecting lines */}
           <svg
@@ -328,115 +256,94 @@ const HomePage: React.FC = () => {
 
           {/* Central CASES Circle */}
           <div style={{ position: 'relative', zIndex: 10 }}>
-            <CasesCircle activeCount={activeCases.length} pastCount={pastCases.length} />
+            <CasesCircle
+              activeCount={activeCases.length}
+              pastCount={pastCases.length}
+              totalCount={globalStats.total}
+              underReviewCount={globalStats.underReview}
+            />
           </div>
 
           {/* ── Floating Modules — positioned around circle ── */}
 
-          {/* MODULE 1: PERSONS — top-left */}
+          {/* MODULE 1: ACTIVE INVESTIGATIONS */}
           <FloatingModule
-            id="persons"
-            title="PERSONS"
-            value={persons.length}
-            subtitle="Persons of Interest"
-            icon={Users}
-            items={[
-              { label: 'Active',       value: activePersons },
-              { label: 'Under Review', value: underReview },
-              { label: 'Archived',     value: archivedPersons },
-            ]}
-            path="/persons"
+            id="active-investigations"
+            title="ACTIVE INVESTIGATIONS"
+            value={String(activeCases.length).padStart(2, '0')}
+            subtitle="Cases currently under investigation"
+            icon={FolderOpen}
+            path="/cases?tab=active"
             animationDelay={0}
-            style={{ top: '10%', left: 'calc(50% - 340px)' }}
+            style={{ top: '80px', left: 'calc(50% - 360px)' }}
           />
 
-          {/* MODULE 2: EVIDENCE — top-right */}
+          {/* MODULE 2: RECENT CASES */}
           <FloatingModule
-            id="evidence"
-            title="EVIDENCE"
-            value={8742}
-            subtitle="Evidence Records"
-            icon={FileText}
-            items={[
-              { label: 'Processed', value: 7981 },
-              { label: 'Pending',   value: 524 },
-              { label: 'Flagged',   value: flaggedEvidence },
-            ]}
-            miniViz={<MiniBarChart bars={[42,58,61,87,78,94,66,81]} />}
-            path="/evidence"
+            id="recent-cases"
+            title="RECENT CASES"
+            value={String(activeCases.length > 3 ? 3 : activeCases.length).padStart(2, '0')}
+            subtitle="Recently updated investigations"
+            icon={Clock}
+            path="/cases?tab=active"
             animationDelay={1}
-            style={{ top: '10%', right: 'calc(50% - 340px)' }}
+            style={{ top: '80px', right: 'calc(50% - 360px)' }}
           />
 
-          {/* MODULE 3: NETWORKS — left middle */}
+          {/* MODULE 3: CASE INTAKE */}
           <FloatingModule
-            id="networks"
-            title="NETWORKS"
-            value={networkMetrics.communityCount}
-            subtitle="Detected Networks"
-            icon={Network}
-            items={[
-              { label: 'Active Clusters', value: 14 },
-              { label: 'Bridge Nodes',    value: networkMetrics.bridgeNodes },
-              { label: 'Max Centrality',  value: networkMetrics.maxCentrality.toFixed(2) },
-            ]}
-            miniViz={<MiniNetworkViz />}
-            path="/network"
+            id="case-intake"
+            title="CASE INTAKE"
+            value="NEW"
+            subtitle="Upload intelligence and create a case"
+            icon={PlusSquare}
+            path="/cases?create=true"
             animationDelay={2}
-            style={{ top: '45%', left: 'calc(50% - 400px)', transform: 'translateY(-50%)' }}
+            style={{ top: '260px', left: 'calc(50% - 400px)' }}
           />
 
-          {/* MODULE 4: ALERTS — right middle */}
+          {/* MODULE 4: DATA PROCESSING */}
           <FloatingModule
-            id="alerts"
-            title="ALERTS"
-            value={alerts.filter((a) => a.status === 'ACTIVE').length}
-            subtitle="Active Intelligence Alerts"
-            icon={AlertTriangle}
+            id="data-processing"
+            title="DATA PROCESSING"
+            value={String(processingCount).padStart(2, '0')}
+            subtitle="Cases currently processing"
+            icon={Server}
             items={[
-              { label: 'High Priority', value: highAlerts },
-              { label: 'Medium',        value: medAlerts },
-              { label: 'Low',           value: lowAlerts },
+              { label: 'DOCUMENT', value: '↓' },
+              { label: 'CHUNKS', value: '↓' },
+              { label: 'CLASSIFICATION', value: '↓' },
             ]}
-            path="/alerts"
+            path="/cases"
             animationDelay={3}
-            style={{ top: '45%', right: 'calc(50% - 400px)', transform: 'translateY(-50%)' }}
+            style={{ top: '260px', right: 'calc(50% - 400px)' }}
           />
 
-          {/* MODULE 5: DATA SOURCES — bottom-left */}
+          {/* MODULE 5: INVESTIGATION QUEUE */}
           <FloatingModule
-            id="data-sources"
-            title="DATA SOURCES"
-            value={String(dataSources.length).padStart(2, '0')}
-            subtitle="Connected Intel. Sources"
-            icon={Database}
+            id="investigation-queue"
+            title="INVESTIGATION QUEUE"
+            value={String(underReviewCount).padStart(2, '0')}
+            subtitle="Items requiring review"
+            icon={Inbox}
             items={[
-              { label: 'FIR / Police', value: 'ONLINE' },
-              { label: 'CDR',          value: 'ONLINE' },
-              { label: 'Financial',    value: 'ONLINE' },
-              { label: 'Surveillance', value: 'ONLINE' },
+              { label: 'High Priority', value: cases.filter(c => c.status === 'UNDER_REVIEW' && c.priority === 'HIGH').length },
             ]}
-            path="/data-sources"
+            path="/cases?tab=review"
             animationDelay={4}
-            style={{ bottom: '10%', left: 'calc(50% - 340px)' }}
+            style={{ top: '380px', left: 'calc(50% - 360px)' }}
           />
 
-          {/* MODULE 6: ANALYTICS — bottom-right */}
+          {/* MODULE 6: INTELLIGENCE SEARCH */}
           <FloatingModule
-            id="analytics"
-            title="ANALYTICS"
-            value={63}
-            subtitle="Detected Anomalies"
-            icon={BarChart3}
-            items={[
-              { label: 'Network Density', value: networkMetrics.density.toFixed(3) },
-              { label: 'Avg Degree',      value: networkMetrics.avgDegree.toFixed(1) },
-              { label: 'Communities',     value: networkMetrics.communityCount },
-            ]}
-            miniViz={<MiniBarChart bars={[20,35,28,52,44,63,57,70]} />}
-            path="/analytics"
+            id="intelligence-search"
+            title="INTELLIGENCE SEARCH"
+            value="SEARCH"
+            subtitle="Find cases, people, locations or entities"
+            icon={Search}
+            path="/cases"
             animationDelay={5}
-            style={{ bottom: '10%', right: 'calc(50% - 340px)' }}
+            style={{ top: '380px', right: 'calc(50% - 360px)' }}
           />
         </div>
 
@@ -450,12 +357,12 @@ const HomePage: React.FC = () => {
           }}
         >
           {[
-            { label: 'ANALYSIS ENGINE', value: 'READY',       ok: true },
-            { label: 'DATA PIPELINE',   value: 'ACTIVE',      ok: true },
-            { label: 'GRAPH DATABASE',  value: 'ONLINE',      ok: true },
-            { label: 'NLP PROCESSOR',   value: 'STANDBY',     ok: true },
-            { label: 'ENTITY INDEX',    value: '687 NODES',   ok: true },
-            { label: 'EVIDENCE INDEX',  value: '8,742',       ok: true },
+          { label: 'ANALYSIS ENGINE', value: 'READY',                          ok: true },
+            { label: 'DATA PIPELINE',   value: 'ACTIVE',                          ok: true },
+            { label: 'GRAPH DATABASE',  value: 'ONLINE',                          ok: true },
+            { label: 'NLP PROCESSOR',   value: 'STANDBY',                         ok: true },
+            { label: 'TOTAL ENTITIES',  value: globalStats.totalEntities.toLocaleString(),   ok: true },
+            { label: 'CHUNKS INDEXED',  value: globalStats.totalChunks.toLocaleString(),     ok: true },
           ].map((item) => (
             <div
               key={item.label}
@@ -489,7 +396,7 @@ const HomePage: React.FC = () => {
             {activeCases.slice(0, 3).map((c) => (
               <div
                 key={c.id}
-                onClick={() => navigate(`/cases/${c.id}`)}
+            onClick={() => navigate(`/cases/${c.id}/overview`)}
                 style={{
                   background: 'var(--bg-surface)',
                   border: '1px solid var(--border-dim)',
@@ -544,64 +451,6 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <InvestigationModes />
-        </div>
-
-        {/* ── Pipeline visualization ── */}
-        <div
-          style={{
-            width: '100%',
-            maxWidth: '900px',
-            background: 'var(--bg-surface)',
-            border: '1px solid var(--border-dim)',
-            padding: '16px',
-          }}
-        >
-          <div className="section-header" style={{ marginBottom: '14px' }}>AI-ASSISTED INTELLIGENCE PIPELINE</div>
-          <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
-            {[
-              'FRAGMENTED DATA',
-              'ENTITY EXTRACTION',
-              'ENTITY RESOLUTION',
-              'RELATIONSHIP DISCOVERY',
-              'KNOWLEDGE GRAPH',
-              'NETWORK ANALYSIS',
-              'INVESTIGATION CANDIDATES',
-              'EVIDENCE-BACKED INSIGHTS',
-            ].map((step, i, arr) => (
-              <React.Fragment key={step}>
-                <div
-                  style={{
-                    padding: '5px 10px',
-                    background: 'var(--bg-elevated)',
-                    border: '1px solid var(--border-base)',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.55rem',
-                    letterSpacing: '0.1em',
-                    color: i === arr.length - 1 ? 'var(--accent)' : 'var(--text-muted)',
-                  }}
-                >
-                  {step}
-                </div>
-                {i < arr.length - 1 && (
-                  <span style={{ color: 'var(--accent-dim)', fontSize: '0.7rem' }}>›</span>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-          <div
-            style={{
-              marginTop: '12px',
-              padding: '8px 10px',
-              background: 'var(--bg-elevated)',
-              border: '1px solid var(--border-dim)',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.58rem',
-              color: 'var(--text-muted)',
-              lineHeight: 1.5,
-            }}
-          >
-            AI-generated investigation insights are intended to assist investigators and require human verification. Synthetic data is used for this demonstration.
-          </div>
         </div>
 
         {/* Padding */}

@@ -6,7 +6,6 @@
    ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap');
-@import "tailwindcss";
 
 /* ── CSS Custom Properties ─────────────────────────────────── */
 :root {
@@ -54,7 +53,7 @@
 
 html {
   height: 100%;
-  font-size: 14px;
+  font-size: 15px; /* Increased from 14px for better readability */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -67,6 +66,7 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  line-height: 1.5;
 }
 
 #root {
@@ -88,7 +88,7 @@ body {
 /* ── Intelligence Label ────────────────────────────────────── */
 .intel-label {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.65rem; /* Up from 0.6rem */
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -101,7 +101,7 @@ body {
 
 /* ── Section Header ────────────────────────────────────────── */
 .section-header {
-  font-size: 0.65rem;
+  font-size: 0.7rem; /* Up from 0.65rem */
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -221,6 +221,12 @@ body {
 
 .animate-progress { animation: progress-fill 0.8s ease-out forwards; }
 
+/* ── Processing fill animations ────────────────────────────── */
+@keyframes fill-87 { from { width: 0% } to { width: 87% } }
+@keyframes fill-62 { from { width: 0% } to { width: 62% } }
+@keyframes fill-38 { from { width: 0% } to { width: 38% } }
+@keyframes fill-100 { from { width: 0% } to { width: 100% } }
+
 /* ── Dot Blink ─────────────────────────────────────────────── */
 @keyframes dot-blink {
   0%, 100% { opacity: 1; }
@@ -234,6 +240,13 @@ body {
   50%       { border-color: transparent; }
 }
 .cursor-blink { border-right: 2px solid var(--accent); animation: cursor-blink 1s step-end infinite; }
+
+/* ── Slide in from right ────────────────────────────────────── */
+@keyframes slide-in-right {
+  from { transform: translateX(20px); opacity: 0; }
+  to   { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in { animation: slide-in-right 0.3s ease-out forwards; }
 
 /* ── Graph Styles ──────────────────────────────────────────── */
 .graph-node {
@@ -260,7 +273,7 @@ body {
   border: 1px solid var(--border-base);
   padding: 10px 14px;
   pointer-events: none;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   z-index: 9999;
   min-width: 160px;
 }
@@ -290,19 +303,19 @@ body {
 .intel-table { width: 100%; border-collapse: collapse; }
 .intel-table th {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.65rem; /* Up from 0.6rem */
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding: 8px 12px;
+  padding: 9px 12px;
   border-bottom: 1px solid var(--border-dim);
   text-align: left;
 }
 .intel-table td {
-  padding: 10px 12px;
+  padding: 11px 12px; /* Slightly more padding */
   border-bottom: 1px solid var(--border-faint);
-  font-size: 0.78rem;
+  font-size: 0.82rem; /* Up from 0.78rem */
   color: var(--text-primary);
 }
 .intel-table tr:hover td { background: var(--bg-raised); }
@@ -313,8 +326,8 @@ body {
   border: 1px solid var(--border-base);
   color: var(--text-primary);
   font-family: var(--font-sans);
-  font-size: 0.8rem;
-  padding: 8px 12px;
+  font-size: 0.85rem; /* Up from 0.8rem */
+  padding: 9px 12px;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -329,8 +342,8 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
-  font-size: 0.75rem;
+  padding: 9px 18px; /* Slightly larger touch target */
+  font-size: 0.78rem; /* Up from 0.75rem */
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -385,12 +398,12 @@ body {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(5, 6, 8, 0.85);
+  background: rgba(5, 6, 8, 0.88);
   z-index: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 .modal {
   background: var(--bg-panel);
@@ -402,12 +415,12 @@ body {
 /* ── Micro data values ─────────────────────────────────────── */
 .data-value {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.8rem; /* Up from 0.75rem */
   color: var(--text-primary);
 }
 .data-key {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.63rem; /* Up from 0.6rem */
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
@@ -455,12 +468,12 @@ body {
 
 /* ── Tabs ──────────────────────────────────────────────────── */
 .intel-tab {
-  font-size: 0.7rem;
+  font-size: 0.73rem; /* Up from 0.7rem */
   font-weight: 500;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
-  padding: 8px 16px;
+  padding: 9px 16px;
   border-bottom: 2px solid transparent;
   cursor: pointer;
   transition: color 0.2s, border-color 0.2s;
@@ -478,7 +491,7 @@ body {
   align-items: center;
   gap: 4px;
   padding: 2px 8px;
-  font-size: 0.6rem;
+  font-size: 0.62rem; /* Slightly up */
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -490,9 +503,154 @@ body {
 .badge--medium   { background: rgba(162, 140, 70, 0.08); color: var(--accent-dim); border: 1px solid rgba(162,140,70,0.2); }
 .badge--low      { background: transparent; color: var(--text-muted); border: 1px solid var(--border-dim); }
 .badge--critical { background: var(--critical-soft); color: #C07070; border: 1px solid var(--critical); }
+.badge--review   { background: rgba(107, 90, 42, 0.15); color: #B0943A; border: 1px solid rgba(107,90,42,0.3); }
+
+/* ── Case Context Banner ───────────────────────────────────── */
+.case-context-banner {
+  padding: 8px 12px;
+  background: var(--accent-faint);
+  border-bottom: 1px solid var(--accent-soft);
+  border-top: 1px solid var(--accent-soft);
+}
+
+/* ── Case Sidebar Nav Item ──────────────────────────────────── */
+.case-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-family: var(--font-sans);
+  border-left: 2px solid transparent;
+  transition: all 0.15s;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.case-nav-item:hover {
+  color: var(--text-primary);
+  background: var(--bg-raised);
+}
+.case-nav-item--active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background: var(--accent-faint);
+}
+
+.case-nav-section {
+  padding: 10px 12px 4px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ── Upload Drop Zone ───────────────────────────────────────── */
+.upload-dropzone {
+  border: 1.5px dashed var(--border-base);
+  background: var(--bg-void);
+  padding: 32px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.upload-dropzone:hover,
+.upload-dropzone--active {
+  border-color: var(--accent-dim);
+  background: var(--accent-faint);
+}
+
+/* ── Processing Stage Item ──────────────────────────────────── */
+.processing-stage {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-faint);
+}
+.processing-stage:last-child { border-bottom: none; }
+
+.processing-stage__icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+}
+.processing-stage__icon--done     { background: var(--operational-soft); border: 1px solid var(--operational); color: #6A9E6A; }
+.processing-stage__icon--active   { background: var(--accent-faint); border: 1px solid var(--accent-dim); color: var(--accent); }
+.processing-stage__icon--waiting  { background: var(--bg-elevated); border: 1px solid var(--border-base); color: var(--text-faint); }
+
+/* ── Chunk Card ─────────────────────────────────────────────── */
+.chunk-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.chunk-card:hover {
+  background: var(--bg-raised);
+  border-color: var(--border-base);
+}
+.chunk-card--selected {
+  background: var(--accent-faint);
+  border-color: var(--accent-dim);
+  border-left: 2px solid var(--accent);
+}
+
+/* ── Category Pill ──────────────────────────────────────────── */
+.category-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+}
+.category-pill--fir            { background: rgba(139,58,58,0.12); color: #C07070; border-color: rgba(139,58,58,0.3); }
+.category-pill--cdr            { background: rgba(58,90,139,0.12); color: #7090C0; border-color: rgba(58,90,139,0.3); }
+.category-pill--financial      { background: rgba(201,184,106,0.1); color: var(--accent); border-color: rgba(201,184,106,0.3); }
+.category-pill--surveillance   { background: rgba(90,139,58,0.12); color: #80B060; border-color: rgba(90,139,58,0.3); }
+.category-pill--intelligence   { background: rgba(139,100,58,0.12); color: #B08060; border-color: rgba(139,100,58,0.3); }
+.category-pill--criminal_history { background: rgba(100,58,139,0.12); color: #9070B0; border-color: rgba(100,58,139,0.3); }
+.category-pill--social_intelligence { background: rgba(58,139,139,0.12); color: #60A0A0; border-color: rgba(58,139,139,0.3); }
+
+/* ── Homepage Hub Container ─────────────────────────────────── */
+.hub-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 20px 100px;
+  overflow: visible;
+}
 
 /* ── Responsive helpers ────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .hub-container {
+    padding: 80px 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .hide-mobile { display: none !important; }
   .ticker-value { font-size: 1.5rem; }
+  html { font-size: 14px; }
+}
+
+@media (max-width: 900px) {
+  .hide-tablet { display: none !important; }
 }

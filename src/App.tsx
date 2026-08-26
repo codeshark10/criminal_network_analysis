@@ -1,70 +1,80 @@
 // ============================================================
 // NEXUS — App Router
-// SIH26189 | AI-Powered Criminal Network Analysis
+// SIH26189 | AI-Powered Criminal Network Analysis System
+// Multi-Case Architecture: Global Layout + Case-Specific Layout
 // ============================================================
 
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
+import CaseLayout from './components/layout/CaseLayout';
 
-// Pages
+// Global pages
 import HomePage from './pages/HomePage';
 import CasesPage from './pages/CasesPage';
-import InvestigationsPage from './pages/InvestigationsPage';
-import KnownSuspectPage from './pages/KnownSuspectPage';
-import UnknownSuspectPage from './pages/UnknownSuspectPage';
-import NetworkAnalysisPage from './pages/NetworkAnalysisPage';
 import PersonsPage from './pages/PersonsPage';
 import PersonProfilePage from './pages/PersonProfilePage';
+import AlertsPage from './pages/AlertsPage';
+import AnalyticsPage from './pages/AnalyticsPage';
+import DataSourcesPage from './pages/DataSourcesPage';
+
+// Case-specific pages
+import CaseOverviewPage from './pages/case/CaseOverviewPage';
+import CaseDataPage from './pages/case/CaseDataPage';
+import CaseChunksPage from './pages/case/CaseChunksPage';
+import NetworkAnalysisPage from './pages/NetworkAnalysisPage';
+import KnownSuspectPage from './pages/KnownSuspectPage';
+import UnknownSuspectPage from './pages/UnknownSuspectPage';
 import EvidencePage from './pages/EvidencePage';
 import TimelinePage from './pages/TimelinePage';
-import AlertsPage from './pages/AlertsPage';
-import DataSourcesPage from './pages/DataSourcesPage';
-import AnalyticsPage from './pages/AnalyticsPage';
 
-// Placeholder for settings
+// Settings placeholder
 const SettingsPage = () => (
-  <div style={{ padding: '24px' }}>
-    <div className="section-header" style={{ marginBottom: '8px' }}>SYSTEM SETTINGS</div>
-    <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.75rem' }}>
+  <div style={{ padding: '28px' }}>
+    <div className="section-header" style={{ marginBottom: '10px' }}>SYSTEM SETTINGS</div>
+    <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
       Settings and configuration — Coming in Phase 12 implementation
     </p>
   </div>
 );
 
-// Case workspace placeholder
-const CaseWorkspacePage = () => {
-  const { id } = { id: window.location.pathname.split('/').pop() };
-  return (
-    <div style={{ padding: '24px' }}>
-      <div className="section-header" style={{ marginBottom: '8px' }}>CASE WORKSPACE</div>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--accent)' }}>{id}</div>
-      <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginTop: '8px' }}>
-        Case workspace — Navigate using the sidebar to investigate network, evidence, and persons.
-      </p>
-    </div>
-  );
-};
-
 const App: React.FC = () => (
   <BrowserRouter>
     <Routes>
+      {/* ── GLOBAL LAYOUT (no sidebar) ──────────────────────── */}
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path="cases" element={<CasesPage />} />
-        <Route path="cases/:id" element={<CaseWorkspacePage />} />
-        <Route path="investigations" element={<InvestigationsPage />} />
-        <Route path="investigations/known-suspect" element={<KnownSuspectPage />} />
-        <Route path="investigations/unknown-suspect" element={<UnknownSuspectPage />} />
+        <Route path="persons" element={<PersonsPage />} />
+        <Route path="persons/:id" element={<PersonProfilePage />} />
+        <Route path="alerts" element={<AlertsPage />} />
+        <Route path="analytics" element={<AnalyticsPage />} />
+        <Route path="data-sources" element={<DataSourcesPage />} />
+        <Route path="settings" element={<SettingsPage />} />
+      </Route>
+
+      {/* ── CASE-SPECIFIC LAYOUT (with case sidebar) ────────── */}
+      <Route path="/cases/:caseId" element={<CaseLayout />}>
+        {/* Default: redirect to overview */}
+        <Route index element={<Navigate to="overview" replace />} />
+        <Route path="overview" element={<CaseOverviewPage />} />
+
+        {/* Data pipeline pages */}
+        <Route path="data" element={<CaseDataPage />} />
+        <Route path="chunks" element={<CaseChunksPage />} />
+
+        {/* Investigation pages */}
         <Route path="network" element={<NetworkAnalysisPage />} />
         <Route path="persons" element={<PersonsPage />} />
         <Route path="persons/:id" element={<PersonProfilePage />} />
         <Route path="evidence" element={<EvidencePage />} />
         <Route path="timeline" element={<TimelinePage />} />
         <Route path="alerts" element={<AlertsPage />} />
-        <Route path="data-sources" element={<DataSourcesPage />} />
         <Route path="analytics" element={<AnalyticsPage />} />
-        <Route path="settings" element={<SettingsPage />} />
+
+        {/* Investigation modes */}
+        <Route path="investigations/known-suspect" element={<KnownSuspectPage />} />
+        <Route path="investigations/unknown-suspect" element={<UnknownSuspectPage />} />
       </Route>
     </Routes>
   </BrowserRouter>
