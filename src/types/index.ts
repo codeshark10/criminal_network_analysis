@@ -1,92 +1,281 @@
-export type EntityType = 'PERSON' | 'ORGANIZATION' | 'LOCATION' | 'PHONE' | 'VEHICLE' | 'ACCOUNT' | 'TRANSACTION' | 'EVENT'
-export type Priority = 'HIGH' | 'MEDIUM' | 'LOW'
+// ============================================================
+// NEXUS CRIMINAL NETWORK INTELLIGENCE SYSTEM
+// SIH26189 — AI-Powered Criminal Network Analysis System
+// NCRB, Ministry of Home Affairs
+// SYNTHETIC DEMONSTRATION DATA — Not real law enforcement data
+// ============================================================
 
-export interface Entity {
-  id: string
-  type: EntityType
-  label: string
-  properties: Record<string, string | number | boolean | string[]>
-  caseIds: string[]
+export type CaseStatus = 'ACTIVE' | 'CLOSED' | 'ARCHIVED' | 'UNDER_REVIEW';
+export type CasePriority = 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW';
+export type CaseType =
+  | 'ORGANIZED_CRIME'
+  | 'FINANCIAL_CRIME'
+  | 'CYBERCRIME'
+  | 'NARCOTICS'
+  | 'TERRORISM'
+  | 'HUMAN_TRAFFICKING'
+  | 'MONEY_LAUNDERING'
+  | 'FRAUD';
+
+export type PersonStatus = 'ACTIVE' | 'UNDER_REVIEW' | 'ARCHIVED' | 'CLEARED';
+export type InvestigationPriorityLevel = 'HIGH' | 'MEDIUM' | 'LOW';
+
+export type EvidenceType =
+  | 'FIR'
+  | 'CDR'
+  | 'FINANCIAL'
+  | 'SURVEILLANCE'
+  | 'WIRETAP'
+  | 'SOCIAL_INTELLIGENCE'
+  | 'CRIMINAL_HISTORY'
+  | 'INTELLIGENCE_REPORT';
+
+export type EvidenceStatus = 'PROCESSED' | 'PENDING' | 'FLAGGED' | 'ARCHIVED';
+
+export type AlertSeverity = 'HIGH' | 'MEDIUM' | 'LOW';
+export type AlertStatus = 'ACTIVE' | 'ACKNOWLEDGED' | 'RESOLVED';
+
+export type DataSourceType =
+  | 'FIR'
+  | 'CDR'
+  | 'FINANCIAL'
+  | 'SURVEILLANCE'
+  | 'SOCIAL_INTELLIGENCE'
+  | 'CRIMINAL_HISTORY'
+  | 'INTELLIGENCE_REPORT';
+
+// ── Case ──────────────────────────────────────────────────────
+export interface Case {
+  id: string;
+  name: string;
+  type: CaseType;
+  status: CaseStatus;
+  priority: CasePriority;
+  description: string;
+  investigatingOfficer: string;
+  createdAt: string;
+  updatedAt: string;
+  closedAt?: string;
+  personsOfInterestCount: number;
+  evidenceCount: number;
+  entityCount: number;
+  relationshipCount: number;
+  networkSize: number;
+  outcome?: string;
+  tags: string[];
 }
 
-export interface Person extends Entity {
-  type: 'PERSON'
-  properties: Entity['properties'] & {
-    alias: string
-    priority: number
-    role: string
-    status: string
-    locations: string[]
-    evidenceCount: number
-  }
+// ── Person ────────────────────────────────────────────────────
+export interface Person {
+  id: string;
+  name: string;
+  aliases: string[];
+  status: PersonStatus;
+  investigationPriority: number; // 0–100
+  priorityLevel: InvestigationPriorityLevel;
+  age?: number;
+  gender?: string;
+  nationality?: string;
+  occupation?: string;
+  organizations: string[];
+  knownLocations: string[];
+  vehicleIds: string[];
+  phoneNumbers: string[];
+  accountIds: string[];
+  caseIds: string[];
+  evidenceCount: number;
+  connectionCount: number;
+  networkCentrality: number; // 0–1
+  lastObserved?: string;
+  notes?: string;
+  // Evidence breakdown
+  cdrRecords: number;
+  financialRecords: number;
+  surveillanceReports: number;
+  wiretapReferences: number;
+  intelligenceReports: number;
 }
 
-export interface Relationship {
-  id: string
-  source: string
-  target: string
-  type: 'COMMUNICATED_WITH' | 'ASSOCIATED_WITH' | 'LOCATED_AT' | 'USED' | 'TRANSFERRED_TO' | 'OBSERVED_AT' | 'OWNED_BY' | 'MENTIONED_IN'
-  properties: { evidenceCount: number; confidence: number; lastObserved: string }
+// ── Organization ──────────────────────────────────────────────
+export interface Organization {
+  id: string;
+  name: string;
+  type: string;
+  registrationNumber?: string;
+  location?: string;
+  caseIds: string[];
+  personIds: string[];
+  evidenceCount: number;
+  investigationPriority: number;
+  notes?: string;
 }
 
-export interface CaseFile {
-  id: string
-  name: string
-  type: string
-  status: 'ACTIVE' | 'UNDER REVIEW' | 'CLOSED'
-  priority: Priority
-  persons: number
-  evidence: number
-  relationships: number
-  entities: number
-  locations: number
-  financialEvents: number
-  lastActivity: string
+// ── Location ──────────────────────────────────────────────────
+export interface Location {
+  id: string;
+  name: string;
+  type: string; // warehouse, residence, office, etc.
+  address?: string;
+  city: string;
+  state?: string;
+  coordinates?: { lat: number; lng: number };
+  caseIds: string[];
+  personIds: string[];
+  visitCount: number;
+  lastActivity?: string;
 }
 
+// ── Phone ─────────────────────────────────────────────────────
+export interface Phone {
+  id: string;
+  number: string;
+  carrier?: string;
+  personId?: string;
+  caseIds: string[];
+  callCount: number;
+  lastActivity?: string;
+}
+
+// ── Vehicle ───────────────────────────────────────────────────
+export interface Vehicle {
+  id: string;
+  make: string;
+  model: string;
+  color: string;
+  registrationNumber: string;
+  ownerId?: string;
+  caseIds: string[];
+  sightingCount: number;
+  lastSeen?: string;
+  lastLocation?: string;
+}
+
+// ── Bank Account ──────────────────────────────────────────────
+export interface BankAccount {
+  id: string;
+  accountNumber: string;
+  bankName: string;
+  accountType: string;
+  holderId?: string;
+  caseIds: string[];
+  totalTransactions: number;
+  flagged: boolean;
+  balance?: number;
+}
+
+// ── Transaction ───────────────────────────────────────────────
+export interface Transaction {
+  id: string;
+  amount: number;
+  currency: string;
+  fromAccountId: string;
+  toAccountId: string;
+  date: string;
+  type: string;
+  caseIds: string[];
+  evidenceIds: string[];
+  flagged: boolean;
+  notes?: string;
+}
+
+// ── Evidence ──────────────────────────────────────────────────
 export interface Evidence {
-  id: string
-  type: 'FIR' | 'CDR' | 'FINANCIAL' | 'SURVEILLANCE' | 'WIRETAP' | 'SOCIAL' | 'CRIMINAL HISTORY' | 'INTELLIGENCE REPORT'
-  date: string
-  entities: string[]
-  location: string
-  status: 'Processed' | 'Under review' | 'Verified'
-  confidence: number
-  source: string
-  caseId: string
-  summary: string
+  id: string;
+  type: EvidenceType;
+  status: EvidenceStatus;
+  date: string;
+  time?: string;
+  location?: string;
+  city?: string;
+  caseIds: string[];
+  relatedPersonIds: string[];
+  relatedOrgIds: string[];
+  relatedLocationIds: string[];
+  relatedPhoneIds: string[];
+  relatedVehicleIds: string[];
+  relatedTransactionIds: string[];
+  confidence: number; // 0–100
+  source: string;
+  summary: string;
+  extractedRelationships: string[];
+  flagged: boolean;
 }
 
-export interface InvestigationCandidate {
-  personId: string
-  score: number
-  priority: Priority
-  relationship: string
-  evidenceSources: string[]
-  evidenceCount: number
-  connections: number
-  lastActivity: string
-  indicators: string[]
-  rationale: { label: string; value: number }[]
+// ── Event ─────────────────────────────────────────────────────
+export interface InvestigationEvent {
+  id: string;
+  type: string;
+  timestamp: string;
+  date: string;
+  time: string;
+  description: string;
+  caseIds: string[];
+  personIds: string[];
+  locationId?: string;
+  evidenceIds: string[];
+  importance: 'HIGH' | 'MEDIUM' | 'LOW';
 }
 
+// ── Alert ─────────────────────────────────────────────────────
 export interface Alert {
-  id: string
-  priority: Priority
-  title: string
-  subject: string
-  description: string
-  timestamp: string
-  relatedId: string
+  id: string;
+  title: string;
+  description: string;
+  severity: AlertSeverity;
+  status: AlertStatus;
+  caseId?: string;
+  personIds: string[];
+  evidenceIds: string[];
+  detectedAt: string;
+  acknowledgedAt?: string;
+  category: string;
 }
 
-export interface TimelineEvent {
-  id: string
-  time: string
-  date: string
-  title: string
-  description: string
-  type: 'Communication' | 'Financial' | 'Surveillance' | 'Location' | 'Association'
-  entityIds: string[]
-  location: string
+// ── Data Source ───────────────────────────────────────────────
+export interface DataSource {
+  id: string;
+  type: DataSourceType;
+  name: string;
+  description: string;
+  recordCount: number;
+  processedCount: number;
+  pendingCount: number;
+  lastUpdated: string;
+  status: 'ONLINE' | 'DEGRADED' | 'OFFLINE';
+  caseIds: string[];
+}
+
+// ── Investigation Candidate ───────────────────────────────────
+export interface InvestigationCandidate {
+  personId: string;
+  rank: number;
+  priority: number; // 0–100
+  priorityLevel: InvestigationPriorityLevel;
+  networkCentrality: number;
+  crossSourceEvidence: number;
+  financialIndicators: number;
+  communicationPatterns: number;
+  locationCorrelation: number;
+  behavioralAnomalies: number;
+  reasons: string[];
+  evidenceCount: number;
+  connectionCount: number;
+}
+
+// ── Analytics ─────────────────────────────────────────────────
+export interface NetworkMetrics {
+  nodeCount: number;
+  edgeCount: number;
+  density: number;
+  avgDegree: number;
+  communityCount: number;
+  bridgeNodes: number;
+  isolatedNodes: number;
+  maxCentrality: number;
+}
+
+export interface ChartDataPoint {
+  label: string;
+  value: number;
+  secondaryValue?: number;
 }

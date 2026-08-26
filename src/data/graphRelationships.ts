@@ -1,0 +1,66 @@
+// ============================================================
+// NEXUS — Graph Relationships (Neo4j Compatible)
+// SYNTHETIC DEMONSTRATION DATA | SIH26189
+// Every relationship is backed by meaningful investigation data
+// ============================================================
+
+import type { GraphRelationship } from '../types/graph';
+
+export const graphRelationships: GraphRelationship[] = [
+  // ── PERSON → PERSON: COMMUNICATED_WITH ───────────────────
+  { id: 'rel-001', source: 'person-001', target: 'person-002', type: 'COMMUNICATED_WITH', directed: false, properties: { confidence: 0.94, evidenceCount: 7, evidenceIds: ['EV-00124', 'EV-00187', 'EV-00231', 'EV-01101'], firstObserved: '2026-07-15', lastObserved: '2026-08-22', description: 'Repeated phone calls via Airtel and Vodafone CDR. Wiretap confirms coded conversation.' } },
+  { id: 'rel-002', source: 'person-001', target: 'person-003', type: 'COMMUNICATED_WITH', directed: false, properties: { confidence: 0.88, evidenceCount: 4, evidenceIds: ['EV-00231', 'EV-01141'], firstObserved: '2026-07-20', lastObserved: '2026-08-20', description: 'CDR and wiretap records confirm communication between Marcus Thorne and Victor Hale.' } },
+  { id: 'rel-003', source: 'person-001', target: 'person-006', type: 'COMMUNICATED_WITH', directed: false, properties: { confidence: 0.79, evidenceCount: 2, evidenceIds: ['EV-00342'], firstObserved: '2026-08-01', lastObserved: '2026-08-20', description: 'CDR records confirm communication between Marcus Thorne and David Park.' } },
+  { id: 'rel-004', source: 'person-002', target: 'person-003', type: 'COMMUNICATED_WITH', directed: false, properties: { confidence: 0.86, evidenceCount: 3, evidenceIds: ['EV-00301'], firstObserved: '2026-07-25', lastObserved: '2026-08-17', description: 'Cross-city CDR. Sarah Lin and Victor Hale in regular contact.' } },
+  { id: 'rel-005', source: 'person-003', target: 'person-005', type: 'COMMUNICATED_WITH', directed: false, properties: { confidence: 0.74, evidenceCount: 2, evidenceIds: [], firstObserved: '2026-08-05', lastObserved: '2026-08-18', description: 'Victor Hale and Elena Rostova in contact. Both connected to Pacific Trading.' } },
+  { id: 'rel-006', source: 'person-003', target: 'person-013', type: 'COMMUNICATED_WITH', directed: false, properties: { confidence: 0.81, evidenceCount: 3, evidenceIds: [], firstObserved: '2026-07-10', lastObserved: '2026-08-18', description: 'Victor Hale and Omar Shaikh in regular contact. Both observed at Ambattur Estate.' } },
+  // ── PERSON → ORGANIZATION: ASSOCIATED_WITH / WORKS_FOR ───
+  { id: 'rel-010', source: 'person-001', target: 'org-001', type: 'ASSOCIATED_WITH', directed: false, properties: { confidence: 0.95, evidenceCount: 6, evidenceIds: ['EV-00501', 'EV-01001', 'EV-01201'], firstObserved: '2026-07-01', lastObserved: '2026-08-22', description: 'Marcus Thorne directly associated with Apex Freight International.' } },
+  { id: 'rel-011', source: 'person-001', target: 'org-002', type: 'ASSOCIATED_WITH', directed: false, properties: { confidence: 0.88, evidenceCount: 4, evidenceIds: ['EV-01201'], firstObserved: '2026-07-05', lastObserved: '2026-08-18', description: 'Marcus Thorne associated with Apex Holdings. Social intelligence confirms undisclosed link.' } },
+  { id: 'rel-012', source: 'person-002', target: 'org-001', type: 'WORKS_FOR', directed: true, properties: { confidence: 0.92, evidenceCount: 5, evidenceIds: ['EV-00541'], firstObserved: '2026-07-01', lastObserved: '2026-08-25', description: 'Sarah Lin employed by Apex Freight International. Financial records confirm salary routing.' } },
+  { id: 'rel-013', source: 'person-003', target: 'org-003', type: 'WORKS_FOR', directed: true, properties: { confidence: 0.85, evidenceCount: 4, evidenceIds: ['EV-00901'], firstObserved: '2026-07-01', lastObserved: '2026-08-20', description: 'Victor Hale associated with Pacific Trading Co. Import-export records confirmed.' } },
+  { id: 'rel-014', source: 'person-004', target: 'org-002', type: 'WORKS_FOR', directed: true, properties: { confidence: 0.83, evidenceCount: 3, evidenceIds: ['EV-00541'], firstObserved: '2026-07-05', lastObserved: '2026-08-18', description: 'Carlos Mendez manages accounts associated with Apex Holdings.' } },
+  { id: 'rel-015', source: 'person-013', target: 'org-003', type: 'ASSOCIATED_WITH', directed: false, properties: { confidence: 0.77, evidenceCount: 3, evidenceIds: ['EV-01041'], firstObserved: '2026-06-01', lastObserved: '2026-08-22', description: 'Omar Shaikh associated with Pacific Trading Co.' } },
+  { id: 'rel-016', source: 'person-006', target: 'org-001', type: 'WORKS_FOR', directed: true, properties: { confidence: 0.81, evidenceCount: 3, evidenceIds: ['EV-00801'], firstObserved: '2026-07-01', lastObserved: '2026-08-24', description: 'David Park manages warehouse for Apex Freight.' } },
+  { id: 'rel-017', source: 'person-015', target: 'org-001', type: 'WORKS_FOR', directed: true, properties: { confidence: 0.79, evidenceCount: 2, evidenceIds: ['EV-00841'], firstObserved: '2026-07-01', lastObserved: '2026-08-24', description: 'Harish Nair is transport manager for Apex Freight.' } },
+  // ── PERSON → LOCATION: LOCATED_AT / OBSERVED_AT ──────────
+  { id: 'rel-020', source: 'person-001', target: 'loc-001', type: 'LOCATED_AT', directed: true, properties: { confidence: 0.89, evidenceCount: 5, evidenceIds: ['EV-00801', 'EV-00961'], firstObserved: '2026-07-15', lastObserved: '2026-08-25', description: 'Marcus Thorne repeatedly observed at Dharavi Warehouse Complex. 24 total visits recorded.' } },
+  { id: 'rel-021', source: 'person-001', target: 'loc-007', type: 'LOCATED_AT', directed: true, properties: { confidence: 0.91, evidenceCount: 4, evidenceIds: ['EV-00841'], firstObserved: '2026-08-01', lastObserved: '2026-08-25', description: 'Marcus Thorne observed at JN Port. Vehicle sightings confirmed.' } },
+  { id: 'rel-022', source: 'person-002', target: 'loc-001', type: 'OBSERVED_AT', directed: true, properties: { confidence: 0.84, evidenceCount: 3, evidenceIds: ['EV-00961'], firstObserved: '2026-08-10', lastObserved: '2026-08-22', description: 'Sarah Lin observed at Dharavi Warehouse on multiple occasions.' } },
+  { id: 'rel-023', source: 'person-003', target: 'loc-004', type: 'LOCATED_AT', directed: true, properties: { confidence: 0.83, evidenceCount: 3, evidenceIds: ['EV-00901'], firstObserved: '2026-07-20', lastObserved: '2026-08-18', description: 'Victor Hale observed at Ambattur Industrial Estate.' } },
+  { id: 'rel-024', source: 'person-006', target: 'loc-001', type: 'LOCATED_AT', directed: true, properties: { confidence: 0.87, evidenceCount: 4, evidenceIds: ['EV-00801', 'EV-00961'], firstObserved: '2026-07-10', lastObserved: '2026-08-24', description: 'David Park regularly at Dharavi Warehouse. Role confirmed.' } },
+  // ── PERSON → VEHICLE: USES ────────────────────────────────
+  { id: 'rel-030', source: 'person-001', target: 'vehicle-001', type: 'USES', directed: true, properties: { confidence: 0.91, evidenceCount: 4, evidenceIds: ['EV-00801', 'EV-00841'], firstObserved: '2026-08-01', lastObserved: '2026-08-25', description: 'Silver Audi Q7 registered to Marcus Thorne. Confirmed via surveillance.' } },
+  { id: 'rel-031', source: 'person-003', target: 'vehicle-003', type: 'USES', directed: true, properties: { confidence: 0.83, evidenceCount: 3, evidenceIds: ['EV-00901'], firstObserved: '2026-07-20', lastObserved: '2026-08-18', description: 'Toyota Innova used by Victor Hale. Registration confirmed.' } },
+  // ── PERSON → PHONE: USES ─────────────────────────────────
+  { id: 'rel-040', source: 'person-001', target: 'phone-001', type: 'USES', directed: true, properties: { confidence: 0.97, evidenceCount: 8, evidenceIds: ['EV-00124', 'EV-00187', 'EV-00401'], firstObserved: '2026-07-01', lastObserved: '2026-08-25', description: 'Primary phone of Marcus Thorne. 84 calls recorded. Spike detected.' } },
+  { id: 'rel-041', source: 'person-002', target: 'phone-003', type: 'USES', directed: true, properties: { confidence: 0.93, evidenceCount: 6, evidenceIds: ['EV-00124', 'EV-00301'], firstObserved: '2026-07-01', lastObserved: '2026-08-25', description: 'Primary phone of Sarah Lin.' } },
+  { id: 'rel-042', source: 'person-003', target: 'phone-004', type: 'USES', directed: true, properties: { confidence: 0.91, evidenceCount: 5, evidenceIds: ['EV-00231', 'EV-01141'], firstObserved: '2026-07-01', lastObserved: '2026-08-20', description: 'Primary phone of Victor Hale. CDR confirmed.' } },
+  // ── FINANCIAL: TRANSFERRED / RECEIVED ────────────────────
+  { id: 'rel-050', source: 'person-001', target: 'tx-001', type: 'INVOLVED_IN', directed: true, properties: { confidence: 0.92, evidenceCount: 3, evidenceIds: ['EV-00501', 'EV-01101'], firstObserved: '2026-08-10', lastObserved: '2026-08-10', description: 'Marcus Thorne involved in TX-00124. ₹32.7 lakh transfer flagged.' } },
+  { id: 'rel-051', source: 'tx-001', target: 'person-002', type: 'RECEIVED', directed: true, properties: { confidence: 0.92, evidenceCount: 3, evidenceIds: ['EV-00501', 'EV-00541'], firstObserved: '2026-08-10', lastObserved: '2026-08-10', description: 'Sarah Lin receives TX-00124 funds.' } },
+  { id: 'rel-052', source: 'person-001', target: 'tx-002', type: 'INVOLVED_IN', directed: true, properties: { confidence: 0.96, evidenceCount: 4, evidenceIds: ['EV-00612'], firstObserved: '2026-08-18', lastObserved: '2026-08-18', description: 'Marcus Thorne involved in large TX-00281. ₹3.97 crore cross-network transfer.' } },
+  { id: 'rel-053', source: 'tx-002', target: 'person-004', type: 'RECEIVED', directed: true, properties: { confidence: 0.90, evidenceCount: 3, evidenceIds: ['EV-00612'], firstObserved: '2026-08-18', lastObserved: '2026-08-18', description: 'Carlos Mendez receives TX-00281 funds via Apex Holdings.' } },
+  // ── PERSON → ACCOUNT ─────────────────────────────────────
+  { id: 'rel-060', source: 'person-001', target: 'account-001', type: 'OWNS', directed: true, properties: { confidence: 0.98, evidenceCount: 5, evidenceIds: ['EV-00501', 'EV-01301'], firstObserved: '2026-07-01', lastObserved: '2026-08-25', description: 'HDFC Current account owned by Marcus Thorne. Flagged for unusual activity.' } },
+  { id: 'rel-061', source: 'person-002', target: 'account-003', type: 'OWNS', directed: true, properties: { confidence: 0.97, evidenceCount: 4, evidenceIds: ['EV-00501'], firstObserved: '2026-07-01', lastObserved: '2026-08-25', description: 'SBI Current account owned by Sarah Lin.' } },
+  // ── ORGANIZATION → ORGANIZATION ──────────────────────────
+  { id: 'rel-070', source: 'org-001', target: 'org-002', type: 'CONNECTED_TO', directed: false, properties: { confidence: 0.84, evidenceCount: 3, evidenceIds: ['EV-01301'], firstObserved: '2026-07-15', lastObserved: '2026-08-18', description: 'Intelligence report confirms coordination between Apex Freight and Apex Holdings entities.' } },
+  { id: 'rel-071', source: 'org-003', target: 'org-001', type: 'CONNECTED_TO', directed: false, properties: { confidence: 0.71, evidenceCount: 2, evidenceIds: [], firstObserved: '2026-07-20', lastObserved: '2026-08-18', description: 'Pacific Trading Co. and Apex Freight linked through shared financial flows.' } },
+  // ── MEETING_WITH ─────────────────────────────────────────
+  { id: 'rel-080', source: 'person-001', target: 'person-006', type: 'MEETING_WITH', directed: false, properties: { confidence: 0.89, evidenceCount: 3, evidenceIds: ['EV-00801'], firstObserved: '2026-08-12', lastObserved: '2026-08-24', description: 'In-person meeting at Dharavi Warehouse. Surveillance confirmed.' } },
+  { id: 'rel-081', source: 'person-001', target: 'person-015', type: 'MEETING_WITH', directed: false, properties: { confidence: 0.87, evidenceCount: 2, evidenceIds: ['EV-00841'], firstObserved: '2026-08-15', lastObserved: '2026-08-24', description: 'Meeting at JN Port Complex confirmed by surveillance.' } },
+  { id: 'rel-082', source: 'person-001', target: 'person-002', type: 'MEETING_WITH', directed: false, properties: { confidence: 0.93, evidenceCount: 4, evidenceIds: ['EV-00961'], firstObserved: '2026-08-10', lastObserved: '2026-08-22', description: 'In-person meeting confirmed by surveillance. Repeated location overlap.' } },
+  { id: 'rel-083', source: 'person-003', target: 'person-013', type: 'MEETING_WITH', directed: false, properties: { confidence: 0.83, evidenceCount: 2, evidenceIds: ['EV-00901'], firstObserved: '2026-08-18', lastObserved: '2026-08-18', description: 'Victor Hale and Omar Shaikh meeting at Ambattur Estate.' } },
+];
+
+export const getRelationshipById = (id: string): GraphRelationship | undefined =>
+  graphRelationships.find((r) => r.id === id);
+
+export const getRelationshipsForNode = (nodeId: string): GraphRelationship[] =>
+  graphRelationships.filter((r) => r.source === nodeId || r.target === nodeId);
+
+export const getRelationshipsForCase = (caseId: string, nodes: { id: string; caseIds: string[] }[]): GraphRelationship[] => {
+  const caseNodeIds = new Set(nodes.filter((n) => n.caseIds.includes(caseId)).map((n) => n.id));
+  return graphRelationships.filter((r) => caseNodeIds.has(r.source as string) || caseNodeIds.has(r.target as string));
+};
