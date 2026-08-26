@@ -1,0 +1,86 @@
+FEDERAL BUREAU OF INVESTIGATION
+Date of Transcription: 02/16/2026
+FD-302 ENTRY 1 OF 3
+Reporting Office: New York Field Office
+File Number: 265A-NY-910482-RICO
+Date of Interview: 02/14/2026
+Location: Undisclosed Location, Queens, NY
+Interviewee: Confidential Human Source (CHS-4819)
+Investigative Personnel: Special Agent Marcus Vance, Special Agent Elena Rostova
+INVESTIGATIVE SUMMARY & ENTITY RECORD
+On February 14, 2026, Special Agents Marcus Vance and Elena Rostova interviewed CHS-4819 regarding the narcotics distribution and money laundering network operating under the moniker "Eastern Seaboard Logistics Group."
+Entity Declarations & Cross-References:
+Primary Target: Victor "The Mechanic" Vance (DOB: 11/14/1979, SSN: XXX-XX-4819, Alias: "Mechanic-X")
+Corporate Entity: Apex Freight Logistics LLC (EIN: 84-9102847, Registered Address: 1404 Industrial Parkway, Newark, NJ)
+Offshore Shell Company: Ironclad Holdings Ltd. (Nevis Registration: NV-2023-8819)
+Logistics Node: Pier 42, Port Newark Container Terminal (Lat/Long: 40.6721° N, 74.1482° W)
+Narrative Details:
+CHS-4819 provided explicit details concerning the structural hierarchy of Apex Freight Logistics LLC. CHS-4819 stated that Apex Freight Logistics LLC operates as a primary front company for receiving maritime cargo containers originating from Guayaquil, Ecuador. Victor Vance serves as the operational director but maintains no legal ownership on paper. Legal documentation lists Vance's sister, Clara Vance-Moreno, as the Managing Member.
+According to CHS-4819, illicit cargo arrives under falsified manifest bill of lading #BL-EC-90184-X listed as "Commercial Refrigeration Units." Once offloaded at Pier 42 in Port Newark, the containers are picked up by Apex Freight Logistics commercial drivers operating 2023 Freightliner Cascadia trucks (VIN: 1FUJGLDR8PLKP9012, NJ License Plate: X78-PL9).
+Payments for transport and offload crews are routed through Ironclad Holdings Ltd., an entity registered in Nevis. CHS-4819 observed wire transfers executed from Ironclad Holdings Ltd. to domestic bank accounts held at First National Commerce Bank (Routing: 021000021, Account: 4910-8819-02) under the disguise of "Equipment Lease Payments."
+[Guayaquil Port] --(Manifest #BL-EC-90184-X)--> [Pier 42, Port Newark]
+                                                       |
+                                            (Apex Freight Logistics LLC)
+                                                       |
+                                    [Ironclad Holdings Ltd. (Nevis)]
+                                                       |
+                                    [First National Commerce Bank]
+FD-302 ENTRY 2 OF 3
+Reporting Office: New York Field Office / Financial Crimes Division
+File Number: 265A-NY-910482-RICO
+Date of Interview: 03/02/2026
+Location: Metropolitan Correctional Center (MCC), New York, NY
+Interviewee: Julian Thorne (Former Chief Financial Officer, Apex Freight Logistics)
+Investigative Personnel: Special Agent Marcus Vance, Senior Financial Analyst Sarah Jenkins
+INVESTIGATIVE SUMMARY & ENTITY RECORD
+On March 02, 2026, Julian Thorne was interviewed in the presence of defense counsel Arthur Pendelton, Esq. Thorne agreed to provide proffer testimony detailing the cryptocurrency laundering mechanics executed on behalf of the syndicate.
+Entity Declarations & Cross-References:
+Financial Target: Julian Thorne (DOB: 03/22/1984, Alias: "Quant-JT")
+OTC Crypto Desk: TetherBridge Global Capital (Virtual Office: Zug, Switzerland)
+Primary Crypto Wallet (USDT-TRC20): TX9rP1mN8qZ4kLw2vY7sB3c5x1Q8mR0A9e
+Receiving Crypto Wallet (BTC): bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
+Real Estate Front: Solstice Properties Group LLC (Miami, FL, State ID: L2200049182)
+Narrative Details:
+Thorne corroborated CHS-4819's identification of Victor Vance as the primary decision-maker. Thorne explained that cash generated from domestic sales was converted into cryptocurrency using an Over-the-Counter (OTC) broker operating under the name TetherBridge Global Capital.
+Thorne utilized encrypted communication channels (Telegram Handle: @Quant_JT_Ops) to schedule cash drops at a commercial warehouse located at 881 Metropolitan Ave, Brooklyn, NY. Cash amounts ranging from $250,000 to $500,000 per delivery were handed to a courier known only as "Gaston" (Described as male, Hispanic, late 30s, 6'1", tattoo of a dragon on the right forearm).
+Upon physical delivery of cash, TetherBridge Global Capital initiated transfers of USDT to primary wallet TX9rP1mN8qZ4kLw2vY7sB3c5x1Q8mR0A9e. Thorne then executed a multi-chain split across four secondary unhosted wallets:
+TX1_SubWallet_Alpha -> 25% allocation to bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh (Converted to BTC)
+TX2_SubWallet_Beta -> 35% allocation to Ethereum Smart Contract 0x71C7656EC7ab88b098defB751B7401B5f6d8976F
+TX3_SubWallet_Gamma -> 20% transferred directly to Solstice Properties Group LLC bank account at SunState Bank (Account: 8840-1928-33) for luxury real estate acquisition in Sunny Isles, FL.
+TX4_SubWallet_Delta -> 20% retained as operational buffer for fuel, driver pay, and legal retainers.
+Thorne confirmed that Solstice Properties Group LLC is controlled by Mateo "El Bravo" Silva, an associate operating out of Miami, FL.
+FD-302 ENTRY 3 OF 3
+Reporting Office: Miami Field Office / Violent Crime & Gang Task Force
+File Number: 265A-NY-910482-RICO
+Date of Interview: 04/18/2026
+Location: FBI Miami Field Office, Miramar, FL
+Interviewee: Surveillance Operative / Task Force Officer Raymond Gomez
+Investigative Personnel: Special Agent Elena Rostova, TFO Raymond Gomez
+INVESTIGATIVE SUMMARY & ENTITY RECORD
+On April 18, 2026, Task Force Officer Raymond Gomez documented physical surveillance logs and Title III electronic intercept findings relating to target Mateo Silva and his connections back to the New York logistics pipeline.
+Entity Declarations & Cross-References:
+Secondary Target: Mateo "El Bravo" Silva (DOB: 08/05/1982, FL DL: S510-492-82-285-0)
+Surveillance Vehicle: 2024 Ford Transit Custom Van (Gray, VIN: 1FTNE3Y85RKA91823, FL Plate: 99B-WXZ)
+Arms Broker Entity: Balkan Arms & Tactical Logistics Corp (Registration: Delaware #6910284)
+Safehouse Location: 3491 NW 17th Terrace, Opa-locka, FL (Lat/Long: 25.9012° N, 80.2481° W)
+Narrative Details:
+On April 14, 2026, at approximately 14:15 hours, physical surveillance units established visual contact with Mateo Silva exiting the safehouse property at 3491 NW 17th Terrace, Opa-locka, FL. Silva entered a gray 2024 Ford Transit Custom Van bearing FL license plate 99B-WXZ.
+Surveillance units tracked the vehicle to a commercial marine yard at 1102 River Drive, Miami, FL. At 15:30 hours, Title III Intercept Session #4091 captured a phone call between Mateo Silva (Line #305-555-0192) and Victor Vance (Line #201-555-0144).
+Transcript Summary (Intercept #4091):
+Silva: "The wire from Solstice cleared. We got the green light on the hardware."
+Vance: "Make sure the driver uses the Newark route. The guys at Pier 42 are expecting the 24-foot box truck by Friday morning."
+Silva: "Understood. Balkan Arms signed off. The manifests line up with the Apex paperwork."
+At 16:10 hours, surveillance observed three large wooden crates transferred from a cargo vessel registered as M/V Starling (IMO Number: 9182740, Flag: Panama) into the rear of Silva's Ford Transit van. Serial numbers recovered during a subsequent consensual search of the marina manifest indicated the crates were consigned to Balkan Arms & Tactical Logistics Corp.
+[M/V Starling (IMO 9182740)]
+         | (3 Crates)
+         v
+[Ford Transit (VIN: 1FTNE3Y85RKA91823)] <-- (Mateo Silva)
+         |
+         v
+[Balkan Arms & Tactical Logistics Corp] --(Clears via Wire)--> [Solstice Properties Group LLC]
+AGENT CERTIFICATION
+I certify that the above transcription represents an accurate summary of interview records, physical surveillance reports, and financial intelligence gathered under Operation "Broken Chain."
+Signed:
+Special Agent Marcus Vance
+Special Agent Elena Rostova
+Federal Bureau of Investigation

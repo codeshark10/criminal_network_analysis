@@ -1,0 +1,3435 @@
+{
+  "summary": {
+    "total_raw_chunks": 351,
+    "total_canonical_entities": 96,
+    "total_resolved_triplets": 387
+  },
+  "entities": [
+    {
+      "canonical_name": "Tariq Mansoor",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [
+        "Ghost",
+        "Marcus Thorne",
+        "Enforcer"
+      ],
+      "mention_count": 384
+    },
+    {
+      "canonical_name": "Victor Vance",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 112
+    },
+    {
+      "canonical_name": "The Tailor",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 88
+    },
+    {
+      "canonical_name": "Pacific Import Export Co. (San Diego, CA)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "SUSPECT",
+      "aliases": [
+        "Pacific Import Export Co."
+      ],
+      "mention_count": 78
+    },
+    {
+      "canonical_name": "First National Bank Acc #8839-10294-US",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 47
+    },
+    {
+      "canonical_name": "+1-619-555-0122",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [
+        "+1-202-555-0143",
+        "Device A"
+      ],
+      "mention_count": 97
+    },
+    {
+      "canonical_name": "1428 Elmwood Avenue, Chicago, IL",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [
+        "Apex Freight HQ"
+      ],
+      "mention_count": 105
+    },
+    {
+      "canonical_name": "Elena Rostova",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [
+        "Sarah Lin",
+        "Carlos Mendez",
+        "Accountant"
+      ],
+      "mention_count": 356
+    },
+    {
+      "canonical_name": "Apex Freight Logistics",
+      "entity_type": "ORGANIZATION",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 52
+    },
+    {
+      "canonical_name": "304 Pier Road, Gary, IN",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [
+        "Lakeside Bistro"
+      ],
+      "mention_count": 88
+    },
+    {
+      "canonical_name": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [
+        "Silver Audi Q7"
+      ],
+      "mention_count": 61
+    },
+    {
+      "canonical_name": "El Toro",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 111
+    },
+    {
+      "canonical_name": "Meridian Holdings LLC",
+      "entity_type": "ORGANIZATION",
+      "master_role": "SUSPECT",
+      "aliases": [
+        "Shell Entity #8840"
+      ],
+      "mention_count": 88
+    },
+    {
+      "canonical_name": "White Freightliner Semi-Truck",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [
+        "TRK-9901"
+      ],
+      "mention_count": 62
+    },
+    {
+      "canonical_name": "Bank of America Acc #5540-1920-3341",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 55
+    },
+    {
+      "canonical_name": "San Diego, CA",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 37
+    },
+    {
+      "canonical_name": "Crypto Wallet 0x71C...3A9D",
+      "entity_type": "CRYPTO_WALLET",
+      "master_role": "CRYPTO_WALLET",
+      "aliases": [
+        "0x71C...3A9D",
+        "Darknet Link"
+      ],
+      "mention_count": 77
+    },
+    {
+      "canonical_name": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [
+        "Pier 4, Gary Port Facility, Gary, IN",
+        "412 Oak Street, Paterson, NJ",
+        "304 Pier Road, Gary, IN (Lakeside Bistro)",
+        "T-902",
+        "412 Oak Street, Paterson, NJ (Safehouse Alpha)",
+        "Safehouse Alpha"
+      ],
+      "mention_count": 273
+    },
+    {
+      "canonical_name": "Sarah Lin / Pacific Import Export Co.",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "SA Sarah Jenkins",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "+1-619-555-0199",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [
+        "+1-312-555-0188",
+        "+1-312-555-0199",
+        "Device B"
+      ],
+      "mention_count": 137
+    },
+    {
+      "canonical_name": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 21
+    },
+    {
+      "canonical_name": "The Tsaritsa",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 93
+    },
+    {
+      "canonical_name": "Sarah Lin (+1-619-555-0122)",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tariq Mansoor (+1-973-555-0167)",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Pier 4",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 20
+    },
+    {
+      "canonical_name": "Gary Port Facility",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [
+        "Gary, IN"
+      ],
+      "mention_count": 45
+    },
+    {
+      "canonical_name": "Lic: TRK-9901",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 24
+    },
+    {
+      "canonical_name": "SA Michael Chang",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "88 Industrial Parkway, Newark, NJ",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [
+        "Warehouse Depot"
+      ],
+      "mention_count": 93
+    },
+    {
+      "canonical_name": "Horizon Global Transfer (Account HGT-9011)",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 23
+    },
+    {
+      "canonical_name": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 10
+    },
+    {
+      "canonical_name": "Black 2021 Ford Explorer",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [
+        "IL Plate: 7XYZ-89"
+      ],
+      "mention_count": 46
+    },
+    {
+      "canonical_name": "Horizon Global Transfer",
+      "entity_type": "ORGANIZATION",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 39
+    },
+    {
+      "canonical_name": "Destination Account",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Pier 4, Gary Port Facility",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "1428 Elmwood Ave, Chicago IL",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 41
+    },
+    {
+      "canonical_name": "Silver Audi Q7 (WA1VAAFE4CD019283)",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 5
+    },
+    {
+      "canonical_name": "sealed package",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Account HGT-9011",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 12
+    },
+    {
+      "canonical_name": "+1-973-555-0167",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [],
+      "mention_count": 49
+    },
+    {
+      "canonical_name": "First National Bank",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 17
+    },
+    {
+      "canonical_name": "Phone +1-619-555-0122",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "White Freightliner",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 7
+    },
+    {
+      "canonical_name": "Marcus Thorne / Pacific Import Export Co.",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 8
+    },
+    {
+      "canonical_name": "Meridian Holdings LLC (Shell Entity #8840)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 13
+    },
+    {
+      "canonical_name": "First National Bank Acc #8839-1029-10294-US",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "VIN: WA1VAAFE4CD019283",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "7XYZ-89",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Cell Tower Sector",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 5
+    },
+    {
+      "canonical_name": "Cell Tower Sector Location",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "HGT-9011",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Phone +1-312-555-0188",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Elena Rostova and Carlos Mendez",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Device A (+1-312-555-0188)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Device B (+1-619-555-0122)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Transaction",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "$59,000.00 USD",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "$392,000",
+      "entity_type": "AMOUNT_OF_MONEY",
+      "master_role": "AMOUNT_OF_MONEY",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Phone +1-202-555-0143",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "$249,000.00 USD",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "entity_type": "CRYPTO_WALLET",
+      "master_role": "CRYPTO_WALLET",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Victor Vance / Pacific Import Export Co.",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Acc #8839-10294-US",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Phone +1-619-555-0199",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Gary Port Facility, Gary, IN",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "$137,000.00 USD",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "1428 Elmwood Ave, Chicago IL (Apex Freight Logistics)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Carlos Mendez / Pacific Import Export Co.",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "8839-10294-US",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "$838,000.00 USD",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "TRUE",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Marcus Thorne and Sarah Lin",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Elena Rostova / Pacific Import Export Co.",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "$563,000.00 USD",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Tariq Mansoor and Elena Rostova",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Apex",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tariq Mansoor (Ghost)",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Cell Tower Sector T-902",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "358000",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Suspicious activity",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Pacific Import Export",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tariq Mansoor's phone",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sarah Lin's phone",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "133,000 USD",
+      "entity_type": "AMOUNT_OF_MONEY",
+      "master_role": "AMOUNT_OF_MONEY",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Cellular Device A",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Cellular Device B",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Tariq Mansoor and Victor Vance",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "clandestine meeting",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Operations",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Tariq Mansoor, Victor Vance",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "The White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "The White Freightliner Semi-Truck",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    }
+  ],
+  "triplets": [
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OWNS",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Originator: Marcus Thorne / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0000"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "TRANSFERRED_FUNDS_FROM",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Originator: Marcus Thorne / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0000"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "SPOTTED_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Notes: Linked to phone +1-202-555-0143 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0000"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Elena Rostova",
+      "evidence": "'Did you authorize the release for Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0001"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "'It is pending at 304 Pier Road, Gary, IN (Lakeside Bistro). We need $397,000 sent to First National Bank Acc #8839-10294-US.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0001"
+    },
+    {
+      "subject": "White Freightliner Semi-Truck",
+      "predicate": "OPERATES",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Marcus Thorne: 'It is pending at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0002"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OWNS",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Originator: Sarah Lin / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0003"
+    },
+    {
+      "subject": "Crypto Wallet 0x71C...3A9D",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Sarah Lin / Pacific Import Export Co.",
+      "evidence": "Destination Account: Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "chunk_id": "268A-CH-90412_CHUNK_0003"
+    },
+    {
+      "subject": "Sarah Lin / Pacific Import Export Co.",
+      "predicate": "SPOTTED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0003"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "SPOTTED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (412 Oak Street, Paterson, NJ (Safehouse Alpha))",
+      "chunk_id": "268A-CH-90412_CHUNK_0004"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "SPOTTED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cellular intercept data: Cell Tower Sector: T-902 (412 Oak Street, Paterson, NJ (Safehouse Alpha))",
+      "chunk_id": "268A-CH-90412_CHUNK_0005"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $433,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0006"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "It is pending at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0006"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "Make sure El Toro handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0006"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATED_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Cellular intercept data: Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0007"
+    },
+    {
+      "subject": "Sarah Lin (+1-619-555-0122)",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Tariq Mansoor (+1-973-555-0167)",
+      "evidence": "Cellular intercept data shows a call between Device A: Sarah Lin (+1-619-555-0122) and Device B: Tariq Mansoor (+1-973-555-0167).",
+      "chunk_id": "268A-CH-90412_CHUNK_0008"
+    },
+    {
+      "subject": "Sarah Lin (+1-619-555-0122)",
+      "predicate": "SPOTTED_AT",
+      "object": "Pier 4",
+      "evidence": "Cellular intercept data confirms both subjects in proximity to Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN).",
+      "chunk_id": "268A-CH-90412_CHUNK_0008"
+    },
+    {
+      "subject": "Tariq Mansoor (+1-973-555-0167)",
+      "predicate": "SPOTTED_AT",
+      "object": "Pier 4",
+      "evidence": "Cellular intercept data confirms both subjects in proximity to Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN).",
+      "chunk_id": "268A-CH-90412_CHUNK_0008"
+    },
+    {
+      "subject": "Pier 4",
+      "predicate": "LOCATED_IN",
+      "object": "Gary Port Facility",
+      "evidence": "Cellular intercept data confirms both subjects in proximity to Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN).",
+      "chunk_id": "268A-CH-90412_CHUNK_0008"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Originator: Elena Rostova / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0009"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "+1-619-555-0199",
+      "evidence": "Notes: Linked to phone +1-312-555-0188 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0009"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "SPOTTED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-312-555-0188 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0009"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "surveillance team observed Carlos Mendez operating White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0010"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "'Did you authorize the release for Horizon Global Transfer (Account HGT-9011)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0013"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Victor Vance",
+      "evidence": "'It is pending at Pier 4, Gary Port Facility, Gary, IN. We need $353,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0013"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OWNS",
+      "object": "Meridian Holdings LLC",
+      "evidence": "FILE REF: 268A-CH-90412",
+      "chunk_id": "268A-CH-90412_CHUNK_0014"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "Originator: Marcus Thorne / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0014"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "SPOTTED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Linked to phone +1-202-555-0143 active at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0014"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "surveillance team observed Victor Vance operating Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0015"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "MET_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Pacific Import Export Co. (San Diego, CA).",
+      "chunk_id": "268A-CH-90412_CHUNK_0015"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OWNS",
+      "object": "Horizon Global Transfer",
+      "evidence": "Originator: Elena Rostova / Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0016"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "Originator: Elena Rostova / Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0016"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Linked to phone +1-312-555-0188 active at 412 Oak Street, Paterson, NJ (Safehouse Alpha).",
+      "chunk_id": "268A-CH-90412_CHUNK_0016"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "surveillance team observed Marcus Thorne operating Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "chunk_id": "268A-CH-90412_CHUNK_0017"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Meridian Holdings LLC",
+      "evidence": "subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0017"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Elena Rostova",
+      "evidence": "'Did you authorize the release for Pacific Import Export Co. (San Diego, CA)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0018"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Victor Vance",
+      "evidence": "'It is pending at Pier 4, Gary Port Facility, Gary, IN. We need $64,000 sent to First National Bank Acc #8839-10294-US.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0018"
+    },
+    {
+      "subject": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "predicate": "OPERATES",
+      "object": "Elena Rostova",
+      "evidence": "'Make sure El Toro handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0018"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (WA1VAAFE4CD019283)",
+      "evidence": "surveillance team observed Marcus Thorne operating Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "chunk_id": "268A-CH-90412_CHUNK_0020"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRAVELED_TO",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Subject traveled directly to 304 Pier Road, Gary, IN (Lakeside Bistro)",
+      "chunk_id": "268A-CH-90412_CHUNK_0020"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "MEET_WITH",
+      "object": "Elena Rostova",
+      "evidence": "Subjects were observed discussing operations related to Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0020"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "WORKS_FOR",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Subjects were observed discussing operations related to Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0020"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "CARRIES",
+      "object": "sealed package",
+      "evidence": "Subject Sarah Lin was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0020"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Horizon Global Transfer",
+      "evidence": "Originator: Victor Vance / Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0021"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Destination Account: Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "chunk_id": "268A-CH-90412_CHUNK_0021"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "OPERATES_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-312-555-0199 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0021"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRAVELED_TO",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Subject traveled directly to 304 Pier Road, Gary, IN (Lakeside Bistro)",
+      "chunk_id": "268A-CH-90412_CHUNK_0022"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "MEET_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0022"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "CARRIED",
+      "object": "sealed package",
+      "evidence": "Subject Marcus Thorne was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0022"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "+1-619-555-0199",
+      "evidence": "Device A: Carlos Mendez (+1-619-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0023"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "+1-619-555-0199",
+      "evidence": "Device B: Victor Vance (+1-312-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0023"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Cell Tower Sector: T-902 (304 Pier Road, Gary, IN (Lakeside Bistro))",
+      "chunk_id": "268A-CH-90412_CHUNK_0023"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_PHONE",
+      "object": "+1-619-555-0122",
+      "evidence": "Device A: Sarah Lin (+1-619-555-0122)",
+      "chunk_id": "268A-CH-90412_CHUNK_0024"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "HAS_PHONE",
+      "object": "+1-619-555-0199",
+      "evidence": "Device B: Victor Vance (+1-312-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0024"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Apex Freight Logistics",
+      "evidence": "Originator: Marcus Thorne / Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0025"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Originator: Marcus Thorne / Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)  Destination Account: Crypto Wallet 0x71C...3A9D (Darknet Link)  Amount: $779,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0025"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-202-555-0143 active at 412 Oak Street, Paterson, NJ (Safehouse Alpha).",
+      "chunk_id": "268A-CH-90412_CHUNK_0025"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Meridian Holdings LLC",
+      "evidence": "Originator: Victor Vance / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0026"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "Originator: Victor Vance / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0026"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "LOCATED_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Linked to phone +1-312-555-0199 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0026"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "surveillance team observed Elena Rostova operating Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "chunk_id": "268A-CH-90412_CHUNK_0027"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRAVELED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject traveled directly to 88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "chunk_id": "268A-CH-90412_CHUNK_0027"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "ENTERED",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject Marcus Thorne was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0027"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "LOCATED_AT",
+      "object": "1428 Elmwood Ave, Chicago IL",
+      "evidence": "discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0027"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Pier 4, Gary Port Facility, Gary, IN. We need $156,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0028"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTS",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "Make sure Accountant handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0028"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Meridian Holdings LLC",
+      "evidence": "Originator: Sarah Lin / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0029"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Originator: Sarah Lin / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0029"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "LINKED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0029"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0030"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0030"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0030"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "surveillance team observed Marcus Thorne operating White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "chunk_id": "268A-CH-90412_CHUNK_0031"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRAVELED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject traveled directly to 412 Oak Street, Paterson, NJ (Safehouse Alpha)",
+      "chunk_id": "268A-CH-90412_CHUNK_0031"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DISCUSSES_OPERATIONS",
+      "object": "Meridian Holdings LLC",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0031"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Originator: Sarah Lin / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0032"
+    },
+    {
+      "subject": "First National Bank",
+      "predicate": "HAS_ACCOUNT",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US",
+      "chunk_id": "268A-CH-90412_CHUNK_0032"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Sarah Lin / Pacific Import Export Co.",
+      "evidence": "Originator: Sarah Lin / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0032"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Linked to phone +1-619-555-0122 active at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0032"
+    },
+    {
+      "subject": "Phone +1-619-555-0122",
+      "predicate": "ACTIVE_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0033"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "+1-973-555-0167",
+      "evidence": "Device A: Tariq Mansoor (+1-973-555-0167)",
+      "chunk_id": "268A-CH-90412_CHUNK_0034"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATED_AT",
+      "object": "Pier 4",
+      "evidence": "",
+      "chunk_id": "268A-CH-90412_CHUNK_0034"
+    },
+    {
+      "subject": "Pier 4",
+      "predicate": "LOCATED_AT",
+      "object": "Gary Port Facility",
+      "evidence": "",
+      "chunk_id": "268A-CH-90412_CHUNK_0034"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "It is pending at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0035"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $424,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0035"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "USES_VEHICLE",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "Sarah Lin: 'Make sure Enforcer handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0035"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "OPERATES",
+      "object": "Elena Rostova",
+      "evidence": "Originator: Carlos Mendez / Meridian Holdings LLC",
+      "chunk_id": "268A-CH-90412_CHUNK_0036"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Meridian Holdings LLC",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US",
+      "chunk_id": "268A-CH-90412_CHUNK_0036"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Linked to phone +1-619-555-0199 active at 304 Pier Road, Gary, IN",
+      "chunk_id": "268A-CH-90412_CHUNK_0036"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "'We need $174,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0037"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "'It is pending at Pier 4, Gary Port Facility, Gary, IN.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0037"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATED_AT",
+      "object": "Gary Port Facility",
+      "evidence": "",
+      "chunk_id": "268A-CH-90412_CHUNK_0038"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Horizon Global Transfer",
+      "evidence": "Originator: Elena Rostova / Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0039"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0039"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Notes: Linked to phone +1-312-555-0188 active at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0039"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Meridian Holdings LLC",
+      "evidence": "Originator: Marcus Thorne / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0040"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "+1-619-555-0122",
+      "evidence": "Device A: Sarah Lin (+1-619-555-0122)",
+      "chunk_id": "268A-CH-90412_CHUNK_0041"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "+1-619-555-0199",
+      "evidence": "Call duration 160 seconds",
+      "chunk_id": "268A-CH-90412_CHUNK_0041"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Meridian Holdings LLC",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0042"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Linked to phone +1-619-555-0122 active at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0042"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTERED",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject Sarah Lin was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0043"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "We need $130,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0044"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTS",
+      "object": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "evidence": "Make sure Enforcer handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0044"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Originator: Marcus Thorne / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0045"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Marcus Thorne / Pacific Import Export Co.",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US\n  Amount: $207,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0045"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "LINKED_TO",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Notes: Linked to phone +1-202-555-0143 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0045"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "REQUIRES_FUNDS_TRANSFER",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "We need $118,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0048"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTS_VEHICLE_USE",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure Enforcer handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0048"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (WA1VAAFE4CD019283)",
+      "evidence": "surveillance team observed Victor Vance operating Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "chunk_id": "268A-CH-90412_CHUNK_0049"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "MEETS",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0049"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "MEETS",
+      "object": "Victor Vance",
+      "evidence": "Subjects were observed discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0049"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "CARRIES",
+      "object": "sealed package",
+      "evidence": "Subject Marcus Thorne was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0049"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "evidence": "discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0049"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Originator: Tariq Mansoor / Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0052"
+    },
+    {
+      "subject": "+1-973-555-0167",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Linked to phone +1-973-555-0167 active at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0052"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "surveillance team observed Carlos Mendez operating Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "chunk_id": "268A-CH-90412_CHUNK_0053"
+    },
+    {
+      "subject": "Phone +1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Linked to phone +1-619-555-0122 active at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0054"
+    },
+    {
+      "subject": "Horizon Global Transfer (Account HGT-9011)",
+      "predicate": "OPERATES",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "It is pending at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0055"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "We need $393,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0055"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUIRES_TRANSPORT",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "Make sure The Tsaritsa handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0055"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTS",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure Accountant handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0056"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Apex Freight Logistics",
+      "evidence": "Originator: Elena Rostova / Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0057"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "Originator: Elena Rostova / Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0057"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "First National Bank Acc #8839-1029-10294-US",
+      "evidence": "We need $188,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0058"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTS",
+      "object": "Tariq Mansoor",
+      "evidence": "Make sure Ghost handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0058"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure Ghost handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0058"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "ENTERED",
+      "object": "1428 Elmwood Ave, Chicago IL",
+      "evidence": "Subject Tariq Mansoor was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0059"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRAVELED_TO",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subject traveled directly to 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "chunk_id": "268A-CH-90412_CHUNK_0060"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "CARRIED",
+      "object": "sealed package",
+      "evidence": "Subject Carlos Mendez was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0060"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "HAS_BANK_ACCOUNT",
+      "object": "Account HGT-9011",
+      "evidence": "Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0060"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "HAS_PHONE",
+      "object": "+1-973-555-0167",
+      "evidence": "Device B: Tariq Mansoor (+1-973-555-0167)",
+      "chunk_id": "268A-CH-90412_CHUNK_0061"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "IN_PROXIMITY",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Event: Call duration 255 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0061"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "IN_PROXIMITY",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Event: Call duration 255 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0061"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRAVELED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject traveled directly to 304 Pier Road, Gary, IN (Lakeside Bistro)",
+      "chunk_id": "268A-CH-90412_CHUNK_0062"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $466,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0064"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Apex Freight Logistics",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US",
+      "chunk_id": "268A-CH-90412_CHUNK_0066"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $248,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0068"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Tariq Mansoor: 'Make sure The Tailor handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0068"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "LOCATED_AT",
+      "object": "Gary Port Facility",
+      "evidence": "It is pending at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0068"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTED_TRANSPORT",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "'Make sure The Tsaritsa handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0069"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Victor Vance: 'We need $240,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0070"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Victor Vance: 'It is pending at 412 Oak Street, Paterson, NJ (Safehouse Alpha).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0070"
+    },
+    {
+      "subject": "Black 2021 Ford Explorer",
+      "predicate": "HAS_PLATE",
+      "object": "7XYZ-89",
+      "evidence": "Elena Rostova: 'Make sure The Tailor handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0070"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES_NEAR",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (304 Pier Road, Gary, IN (Lakeside Bistro))",
+      "chunk_id": "268A-CH-90412_CHUNK_0072"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES_NEAR",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Cell Tower Sector: T-902 (304 Pier Road, Gary, IN (Lakeside Bistro))",
+      "chunk_id": "268A-CH-90412_CHUNK_0072"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES_NEAR",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (304 Pier Road, Gary, IN (Lakeside Bistro))",
+      "chunk_id": "268A-CH-90412_CHUNK_0072"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES_NEAR",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Cell Tower Sector: T-902 (304 Pier Road, Gary, IN (Lakeside Bistro))",
+      "chunk_id": "268A-CH-90412_CHUNK_0072"
+    },
+    {
+      "subject": "Crypto Wallet 0x71C...3A9D",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Apex Freight Logistics",
+      "evidence": "Destination Account: Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "chunk_id": "268A-CH-90412_CHUNK_0074"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Horizon Global Transfer",
+      "evidence": "Originator: Marcus Thorne / Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0077"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "It is pending at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0078"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-619-555-0199 active at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0079"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "Originator: Elena Rostova / Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0082"
+    },
+    {
+      "subject": "Phone +1-312-555-0188",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-312-555-0188 active at 412 Oak Street, Paterson, NJ (Safehouse Alpha).",
+      "chunk_id": "268A-CH-90412_CHUNK_0082"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "HAS_PHONE",
+      "object": "+1-619-555-0122",
+      "evidence": "Device B: Marcus Thorne (+1-202-555-0143)",
+      "chunk_id": "268A-CH-90412_CHUNK_0083"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Call duration 180 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0083"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "BELONGS_TO",
+      "object": "Elena Rostova",
+      "evidence": "Device A: Carlos Mendez (+1-619-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0084"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "BELONGS_TO",
+      "object": "Tariq Mansoor",
+      "evidence": "Device B: Tariq Mansoor (+1-973-555-0167)",
+      "chunk_id": "268A-CH-90412_CHUNK_0084"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "CELL_TOWER_SECTOR",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Cell Tower Sector: T-902 (88 Industrial Parkway, Newark, NJ (Warehouse Depot))",
+      "chunk_id": "268A-CH-90412_CHUNK_0084"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "IN_PROXIMITY",
+      "object": "Tariq Mansoor",
+      "evidence": "Event: Call duration 222 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0084"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "LOCATED_AT",
+      "object": "Gary Port Facility",
+      "evidence": "Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN)",
+      "chunk_id": "268A-CH-90412_CHUNK_0085"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "It is pending at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0086"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "REQUIRES_FUNDS_TRANSFER",
+      "object": "Horizon Global Transfer (Account HGT-9011)",
+      "evidence": "'Did you authorize the release for Horizon Global Transfer (Account HGT-9011)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0086"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "REQUIRES_FUNDS_TRANSFER",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "'We need $331,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0086"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "USES_VEHICLE",
+      "object": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "evidence": "'Make sure The Tailor handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0086"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Apex Freight Logistics",
+      "evidence": "Originator: Victor Vance / Apex Freight Logistics",
+      "chunk_id": "268A-CH-90412_CHUNK_0087"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTER",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject Carlos Mendez was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0088"
+    },
+    {
+      "subject": "Meridian Holdings LLC (Shell Entity #8840)",
+      "predicate": "OPERATIONS_INVOLVED",
+      "object": "Elena Rostova and Carlos Mendez",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0088"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Device A (+1-312-555-0188)",
+      "evidence": "Device A: Elena Rostova (+1-312-555-0188)",
+      "chunk_id": "268A-CH-90412_CHUNK_0089"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Device B (+1-619-555-0122)",
+      "evidence": "Device B: Sarah Lin (+1-619-555-0122)",
+      "chunk_id": "268A-CH-90412_CHUNK_0089"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "The Tsaritsa",
+      "evidence": "Make sure The Tsaritsa handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0092"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRAVELED_TO",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subject traveled directly to 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "chunk_id": "268A-CH-90412_CHUNK_0094"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "ENTERED",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subject Marcus Thorne was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0094"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "OPERATION_INVOLVED",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0094"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "El Toro",
+      "evidence": "We need $70,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0097"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_SAFEHOUSE",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "It is pending at 412 Oak Street, Paterson, NJ (Safehouse Alpha).",
+      "chunk_id": "268A-CH-90412_CHUNK_0097"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_VEHICLE",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "Make sure El Toro handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0097"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTS",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure Accountant handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0099"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DISCUSSES_OPERATIONS",
+      "object": "Horizon Global Transfer (Account HGT-9011)",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0101"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "CARRIES_PACKAGE",
+      "object": "sealed package",
+      "evidence": "Subject Sarah Lin was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0101"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "MEETS_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0102"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "MEETS_WITH",
+      "object": "Elena Rostova",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0102"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRAVELS_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject traveled directly to Pier 4, Gary Port Facility, Gary, IN where a clandestine meeting occurred with Marcus Thorne",
+      "chunk_id": "268A-CH-90412_CHUNK_0102"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "MEET_WITH",
+      "object": "Elena Rostova",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0103"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRANSFER_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject Carlos Mendez was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0103"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Horizon Global Transfer (Account HGT-9011)",
+      "evidence": "discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0103"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "+1-619-555-0122",
+      "evidence": "Device B: Marcus Thorne (+1-202-555-0143)",
+      "chunk_id": "268A-CH-90412_CHUNK_0106"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATED_IN",
+      "object": "Gary Port Facility",
+      "evidence": "Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN)",
+      "chunk_id": "268A-CH-90412_CHUNK_0106"
+    },
+    {
+      "subject": "+1-973-555-0167",
+      "predicate": "LINKED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-973-555-0167 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0107"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "MEET_WITH",
+      "object": "Victor Vance",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0108"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DISCUSSED_OPERATIONS_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0108"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "CARRIED",
+      "object": "sealed package",
+      "evidence": "Subject Victor Vance was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0108"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "HAS_PHONE",
+      "object": "+1-619-555-0199",
+      "evidence": "Linked to phone +1-619-555-0199 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0110"
+    },
+    {
+      "subject": "Transaction",
+      "predicate": "INVOLVES",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Destination Account: Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "chunk_id": "268A-CH-90412_CHUNK_0110"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Horizon Global Transfer (Account HGT-9011)",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0112"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRAVELED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject traveled directly to 88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "chunk_id": "268A-CH-90412_CHUNK_0113"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Pier 4",
+      "evidence": "It is pending at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0115"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Make sure Enforcer handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0115"
+    },
+    {
+      "subject": "+1-973-555-0167",
+      "predicate": "ACTIVE_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-973-555-0167 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0116"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_PHONE",
+      "object": "+1-619-555-0199",
+      "evidence": "Device B: Carlos Mendez (+1-619-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0117"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Cell Tower Sector: T-902 (88 Industrial Parkway, Newark, NJ (Warehouse Depot))",
+      "chunk_id": "268A-CH-90412_CHUNK_0117"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "LOCATED_IN",
+      "object": "San Diego, CA",
+      "evidence": "Originator: Marcus Thorne / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0120"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Tariq Mansoor",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0120"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "AMOUNT",
+      "object": "$59,000.00 USD",
+      "evidence": "Amount: $59,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0120"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-202-555-0143 active at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0120"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $362,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0122"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "evidence": "Make sure Ghost handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0122"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "It is pending at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0126"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $299,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0126"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "USES_VEHICLE",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure The Tailor handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0126"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES_NEAR",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0127"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRAVELED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject traveled directly to 88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "chunk_id": "268A-CH-90412_CHUNK_0128"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "MEET_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0128"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "OPERATES_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0130"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "surveillance team observed Victor Vance operating White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "chunk_id": "268A-CH-90412_CHUNK_0131"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRAVELED_TO",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Subject traveled directly to 304 Pier Road, Gary, IN (Lakeside Bistro)",
+      "chunk_id": "268A-CH-90412_CHUNK_0131"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "REQUIRES_TRANSPORT",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Make sure Enforcer handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0132"
+    },
+    {
+      "subject": "Phone +1-202-555-0143",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-202-555-0143 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0133"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRAVELS_TO",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject traveled directly to 88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "chunk_id": "268A-CH-90412_CHUNK_0134"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (WA1VAAFE4CD019283)",
+      "evidence": "surveillance team observed Elena Rostova operating Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "chunk_id": "268A-CH-90412_CHUNK_0135"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "HAS_TRANSACTION",
+      "object": "$249,000.00 USD",
+      "evidence": "Amount: $249,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0136"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "We need $63,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0137"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ALIAS",
+      "object": "El Toro",
+      "evidence": "Carlos Mendez (El Toro)",
+      "chunk_id": "268A-CH-90412_CHUNK_0138"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "IS_RELATED_TO",
+      "object": "Elena Rostova",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0139"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "We need $73,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0144"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTS_TRANSPORT",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure The Tailor handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0144"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "evidence": "We need $66,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0146"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Originator: Victor Vance / Pacific Import Export Co.",
+      "chunk_id": "268A-CH-90412_CHUNK_0149"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Victor Vance / Pacific Import Export Co.",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0149"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRAVELED_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject traveled directly to 412 Oak Street, Paterson, NJ (Safehouse Alpha)",
+      "chunk_id": "268A-CH-90412_CHUNK_0150"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRAVELED_TO",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subject traveled directly to 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "chunk_id": "268A-CH-90412_CHUNK_0151"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "MEET_WITH",
+      "object": "Victor Vance",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840). Subject Carlos Mendez was seen carrying a sealed package into the facility.",
+      "chunk_id": "268A-CH-90412_CHUNK_0151"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUIRES_FUNDS_TRANSFER",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $446,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0153"
+    },
+    {
+      "subject": "The Tsaritsa",
+      "predicate": "HANDLES_TRANSPORT",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "Make sure The Tsaritsa handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0153"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $210,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0154"
+    },
+    {
+      "subject": "El Toro",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure El Toro handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0154"
+    },
+    {
+      "subject": "El Toro",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "It is pending at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0154"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "surveillance team observed Sarah Lin operating Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "chunk_id": "268A-CH-90412_CHUNK_0156"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "TRAVELED_TO",
+      "object": "1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "evidence": "Subject traveled directly to 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "chunk_id": "268A-CH-90412_CHUNK_0156"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTERED",
+      "object": "1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "evidence": "Subject Elena Rostova was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0156"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $378,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0160"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTS",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "Make sure The Tailor handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0160"
+    },
+    {
+      "subject": "Crypto Wallet 0x71C...3A9D",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Elena Rostova",
+      "evidence": "Destination Account: Crypto Wallet 0x71C...3A9D (Darknet Link)",
+      "chunk_id": "268A-CH-90412_CHUNK_0164"
+    },
+    {
+      "subject": "Phone +1-619-555-0199",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-619-555-0199 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0164"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "IN_PROXIMITY",
+      "object": "Victor Vance",
+      "evidence": "Call duration 271 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0169"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATION_OF",
+      "object": "Tariq Mansoor",
+      "evidence": "Cell Tower Sector: T-902 (412 Oak Street, Paterson, NJ (Safehouse Alpha))",
+      "chunk_id": "268A-CH-90412_CHUNK_0169"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATION_OF",
+      "object": "Victor Vance",
+      "evidence": "Cell Tower Sector: T-902 (412 Oak Street, Paterson, NJ (Safehouse Alpha))",
+      "chunk_id": "268A-CH-90412_CHUNK_0169"
+    },
+    {
+      "subject": "Sarah Lin / Pacific Import Export Co.",
+      "predicate": "HAS_TRANSACTION",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US",
+      "chunk_id": "268A-CH-90412_CHUNK_0170"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "HAS_AMOUNT",
+      "object": "$137,000.00 USD",
+      "evidence": "Amount: $137,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0170"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "HAS_SUSPICIOUS_ACTIVITY_FLAG",
+      "object": "Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0170"
+    },
+    {
+      "subject": "Phone +1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Suspicious activity flag triggered. Linked to phone +1-619-555-0122 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0170"
+    },
+    {
+      "subject": "+1-973-555-0167",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Notes: Linked to phone +1-973-555-0167 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0172"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTERED",
+      "object": "1428 Elmwood Ave, Chicago IL (Apex Freight Logistics)",
+      "evidence": "Subject Sarah Lin was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0174"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "It is pending at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0175"
+    },
+    {
+      "subject": "Phone +1-619-555-0199",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Linked to phone +1-619-555-0199 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0176"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "It is pending at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0180"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS_TRANSPORT",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Make sure The Tailor handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0180"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "surveillance team observed Victor Vance operating Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "chunk_id": "268A-CH-90412_CHUNK_0184"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTERED",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject Carlos Mendez was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0184"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Carlos Mendez / Pacific Import Export Co.",
+      "evidence": "Transaction Record: Originator: Carlos Mendez / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0187"
+    },
+    {
+      "subject": "White Freightliner Semi-Truck",
+      "predicate": "REGISTERED_TO",
+      "object": "Tariq Mansoor",
+      "evidence": "Elena Rostova: 'Make sure Enforcer handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0188"
+    },
+    {
+      "subject": "First National Bank",
+      "predicate": "HAS_ACCOUNT",
+      "object": "8839-10294-US",
+      "evidence": "Marcus Thorne: 'We need $251,000 sent to First National Bank Acc #8839-10294-US.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0188"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_PHONE",
+      "object": "+1-973-555-0167",
+      "evidence": "TARGET LINE: +1-973-555-0167 (Tariq Mansoor) -> +1-619-555-0122 (Sarah Lin)",
+      "chunk_id": "268A-CH-90412_CHUNK_0189"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_BANK_ACCOUNT",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $417,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0189"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "HAS_VEHICLE",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Tariq Mansoor: 'Make sure Accountant handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0189"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS_TRANSPORT",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Tariq Mansoor: 'Make sure El Toro handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0190"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0191"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "HAS_TRANSACTION",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "Transaction Record: Originator: Victor Vance / Pacific Import Export Co. (San Diego, CA) -> Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0191"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "HAS_TRANSACTION_AMOUNT",
+      "object": "$838,000.00 USD",
+      "evidence": "Transaction Record: Amount: $838,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0191"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "HAS_SUSPICIOUS_ACTIVITY_FLAG",
+      "object": "TRUE",
+      "evidence": "Transaction Record: Notes: Suspicious activity flag triggered.",
+      "chunk_id": "268A-CH-90412_CHUNK_0191"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "It is pending at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0196"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Cellular intercept data shows both subjects in proximity to 88 Industrial Parkway, Newark, NJ.",
+      "chunk_id": "268A-CH-90412_CHUNK_0198"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "PROXIMITY",
+      "object": "Elena Rostova",
+      "evidence": "Event: Call duration 276 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0200"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "LOCATED_AT",
+      "object": "Pier 4",
+      "evidence": "Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN)",
+      "chunk_id": "268A-CH-90412_CHUNK_0200"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "ASKED",
+      "object": "Elena Rostova",
+      "evidence": "'Did you authorize the release for Horizon Global Transfer (Account HGT-9011)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0205"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HANDLE_TRANSPORT",
+      "object": "Tariq Mansoor",
+      "evidence": "'Make sure Accountant handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0205"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "DESTINATION",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $499,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0205"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "LOCATION",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "It is pending at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0205"
+    },
+    {
+      "subject": "+1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Linked to phone +1-202-555-0143 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0207"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "OPERATIONS_INVOLVED",
+      "object": "Marcus Thorne and Sarah Lin",
+      "evidence": "Subjects were observed discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0208"
+    },
+    {
+      "subject": "White Freightliner Semi-Truck",
+      "predicate": "OPERATED_BY",
+      "object": "Tariq Mansoor",
+      "evidence": "Make sure Enforcer handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0210"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "The Tailor",
+      "evidence": "Make sure The Tailor handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0211"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $51,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0211"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "IN_PROXIMITY",
+      "object": "Tariq Mansoor",
+      "evidence": "Event: Call duration 419 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0214"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Elena Rostova / Pacific Import Export Co.",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0215"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "It is pending at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0218"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $165,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0218"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "TRAVELS_TO",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject traveled directly to 412 Oak Street, Paterson, NJ (Safehouse Alpha)",
+      "chunk_id": "268A-CH-90412_CHUNK_0221"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "MEETS_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Subjects were observed discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0221"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTERED",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subject Carlos Mendez was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0224"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "HAS_TRANSACTION",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Originator: Victor Vance / Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0225"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Amount: $492,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0225"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "HAS_TRANSACTION",
+      "object": "$563,000.00 USD",
+      "evidence": "Amount: $563,000.00 USD",
+      "chunk_id": "268A-CH-90412_CHUNK_0226"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "Tariq Mansoor: 'Make sure The Tailor handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0228"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure Enforcer handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0229"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "COMMUNICATES_WITH",
+      "object": "Tariq Mansoor",
+      "evidence": "Did you authorize the release for Pacific Import Export Co. (San Diego, CA)?",
+      "chunk_id": "268A-CH-90412_CHUNK_0230"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "MEETS",
+      "object": "Elena Rostova",
+      "evidence": "subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0231"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DISCUSSES_OPERATIONS_WITH",
+      "object": "Elena Rostova",
+      "evidence": "subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0231"
+    },
+    {
+      "subject": "Meridian Holdings LLC (Shell Entity #8840)",
+      "predicate": "OPERATIONS_RELATED_TO",
+      "object": "Tariq Mansoor and Elena Rostova",
+      "evidence": "subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0231"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "ENTERED",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Subject Victor Vance was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0232"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "LOCATED_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0234"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "ENTER",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject Victor Vance was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0235"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "Meridian Holdings LLC (Shell Entity #8840)",
+      "evidence": "discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0235"
+    },
+    {
+      "subject": "Meridian Holdings LLC (Shell Entity #8840)",
+      "predicate": "OPERATIONS_RELATED_TO",
+      "object": "Elena Rostova and Carlos Mendez",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0236"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $201,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0242"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HANDLE_TRANSPORT",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "Make sure El Toro handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0242"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "OPERATES_IN",
+      "object": "San Diego, CA",
+      "evidence": "discussing operations related to Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0244"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES_IN",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Event: Call duration 444 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0247"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES_IN",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Event: Call duration 444 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0247"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "USES_VEHICLE",
+      "object": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "evidence": "Make sure Enforcer handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0249"
+    },
+    {
+      "subject": "Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "predicate": "OPERATIONS_INVOLVED",
+      "object": "Elena Rostova",
+      "evidence": "Subjects were observed discussing operations related to Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0250"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRAVELS_TO",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subject traveled directly to 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ)",
+      "chunk_id": "268A-CH-90412_CHUNK_0251"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUESTS_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $135,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0253"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTS_TRANSPORT",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Make sure El Toro handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0253"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DIRECTED",
+      "object": "The Tsaritsa",
+      "evidence": "Make sure The Tsaritsa handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0256"
+    },
+    {
+      "subject": "Phone +1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Linked to phone +1-619-555-0122 active at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0257"
+    },
+    {
+      "subject": "Phone +1-619-555-0122",
+      "predicate": "OPERATES",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Linked to phone +1-619-555-0122 active at 304 Pier Road, Gary, IN (Lakeside Bistro).",
+      "chunk_id": "268A-CH-90412_CHUNK_0257"
+    },
+    {
+      "subject": "Horizon Global Transfer (Account HGT-9011)",
+      "predicate": "OPERATES_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0258"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "LOCATED_AT",
+      "object": "Cell Tower Sector T-902",
+      "evidence": "Cell Tower Sector: T-902 (88 Industrial Parkway, Newark, NJ (Warehouse Depot))",
+      "chunk_id": "268A-CH-90412_CHUNK_0259"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "LOCATED_AT",
+      "object": "Cell Tower Sector T-902",
+      "evidence": "Cell Tower Sector: T-902 (88 Industrial Parkway, Newark, NJ (Warehouse Depot))",
+      "chunk_id": "268A-CH-90412_CHUNK_0259"
+    },
+    {
+      "subject": "White Freightliner Semi-Truck",
+      "predicate": "TRANSFERRED_TO",
+      "object": "Tariq Mansoor",
+      "evidence": "Sarah Lin instructs 'Enforcer' to handle the transport in the White Freightliner Semi-Truck.",
+      "chunk_id": "268A-CH-90412_CHUNK_0262"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Apex Freight Logistics",
+      "evidence": "Marcus Thorne requests $200,000 to be sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0262"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "INSTRUCTS",
+      "object": "The Tsaritsa",
+      "evidence": "'Make sure The Tsaritsa handles the transport'",
+      "chunk_id": "268A-CH-90412_CHUNK_0266"
+    },
+    {
+      "subject": "The Tsaritsa",
+      "predicate": "OPERATES",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "chunk_id": "268A-CH-90412_CHUNK_0266"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "It is pending at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0267"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "ASKED",
+      "object": "Meridian Holdings LLC",
+      "evidence": "'Did you authorize the release for Meridian Holdings LLC (Shell Entity #8840)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0268"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "358000",
+      "evidence": "'We need $358,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0268"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES_FROM",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "'It is pending at 412 Oak Street, Paterson, NJ (Safehouse Alpha).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0268"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "HAS_FLAG",
+      "object": "Suspicious activity",
+      "evidence": "Notes: Suspicious activity flag triggered.",
+      "chunk_id": "268A-CH-90412_CHUNK_0269"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "DISCUSSED_OPERATIONS_WITH",
+      "object": "Victor Vance",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0277"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Gary Port Facility",
+      "evidence": "Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN)",
+      "chunk_id": "268A-CH-90412_CHUNK_0278"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "PROXIMITY",
+      "object": "Victor Vance",
+      "evidence": "Event: Call duration 284 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0282"
+    },
+    {
+      "subject": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "predicate": "LOCATES",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Cell Tower Sector: T-902 (304 Pier Road, Gary, IN (Lakeside Bistro))",
+      "chunk_id": "268A-CH-90412_CHUNK_0282"
+    },
+    {
+      "subject": "The Tsaritsa",
+      "predicate": "OPERATES",
+      "object": "Silver Audi Q7 (VIN: WA1VAAFE4CD019283)",
+      "evidence": "Make sure The Tsaritsa handles the transport in the Silver Audi Q7 (VIN: WA1VAAFE4CD019283).",
+      "chunk_id": "268A-CH-90412_CHUNK_0283"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES_IN",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN)",
+      "chunk_id": "268A-CH-90412_CHUNK_0284"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES_IN",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (Pier 4, Gary Port Facility, Gary, IN)",
+      "chunk_id": "268A-CH-90412_CHUNK_0284"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS",
+      "object": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "evidence": "Tariq Mansoor: 'Make sure El Toro handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0286"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES_NEAR",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Cell Tower Sector: T-902 (1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ))",
+      "chunk_id": "268A-CH-90412_CHUNK_0287"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $310,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0288"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "We need $453,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0289"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "IN_PROXIMITY",
+      "object": "Victor Vance",
+      "evidence": "Call duration 61 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0293"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES_NEAR",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Cell Tower Sector: T-902 (88 Industrial Parkway, Newark, NJ (Warehouse Depot))",
+      "chunk_id": "268A-CH-90412_CHUNK_0294"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES_NEAR",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "Cell Tower Sector: T-902 (88 Industrial Parkway, Newark, NJ (Warehouse Depot))",
+      "chunk_id": "268A-CH-90412_CHUNK_0294"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "IN_CALL_WITH",
+      "object": "Elena Rostova",
+      "evidence": "Call duration 311 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0294"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "+1-973-555-0167",
+      "evidence": "Notes: Linked to phone +1-973-555-0167 active at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0295"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "HAS_PHONE",
+      "object": "+1-619-555-0122",
+      "evidence": "Notes: Linked to phone +1-619-555-0122 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0297"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Tariq Mansoor",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US",
+      "chunk_id": "268A-CH-90412_CHUNK_0299"
+    },
+    {
+      "subject": "+1-973-555-0167",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Notes: Linked to phone +1-973-555-0167 active at 304 Pier Road, Gary, IN",
+      "chunk_id": "268A-CH-90412_CHUNK_0299"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Horizon Global Transfer (Account HGT-9011)",
+      "evidence": "Marcus Thorne: 'Did you authorize the release for Horizon Global Transfer (Account HGT-9011)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0302"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUIRES_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "Elena Rostova: 'We need $81,000 sent to Bank of America Acc #5540-1920-3341.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0302"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_VEHICLE",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Elena Rostova: 'Make sure El Toro handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0303"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_VEHICLE_PLATE",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Elena Rostova: 'Make sure El Toro handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0303"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_CRYPTO_WALLET",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "Carlos Mendez: 'It is pending at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ). We need $371,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0303"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "HAS_ORGANIZATION",
+      "object": "Pacific Import Export Co. (San Diego, CA)",
+      "evidence": "Elena Rostova: 'Did you authorize the release for Pacific Import Export Co. (San Diego, CA)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0303"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "PROXIMITY",
+      "object": "Victor Vance",
+      "evidence": "Event: Call duration 261 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0311"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "HANDLE_TRANSPORT",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "'Make sure The Tailor handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0312"
+    },
+    {
+      "subject": "Horizon Global Transfer",
+      "predicate": "TRANSFER_FUNDS",
+      "object": "First National Bank",
+      "evidence": "'It is pending at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ). We need $141,000 sent to First National Bank Acc #8839-10294-US.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0312"
+    },
+    {
+      "subject": "Apex Freight Logistics",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ",
+      "evidence": "It is pending at 88 Industrial Parkway, Newark, NJ (Warehouse Depot).",
+      "chunk_id": "268A-CH-90412_CHUNK_0313"
+    },
+    {
+      "subject": "133,000 USD",
+      "predicate": "TRANSFERRED_TO",
+      "object": "Crypto Wallet 0x71C...3A9D",
+      "evidence": "We need $133,000 sent to Crypto Wallet 0x71C...3A9D (Darknet Link).",
+      "chunk_id": "268A-CH-90412_CHUNK_0313"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTS",
+      "object": "Black 2021 Ford Explorer",
+      "evidence": "Make sure Enforcer handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0314"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "LOCATED_AT",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "It is pending at Pier 4, Gary Port Facility, Gary, IN.",
+      "chunk_id": "268A-CH-90412_CHUNK_0314"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "BELONGS_TO",
+      "object": "Elena Rostova",
+      "evidence": "Device B: Carlos Mendez (+1-619-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0315"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "OPERATES",
+      "object": "Cellular Device A",
+      "evidence": "Device A: Marcus Thorne (+1-202-555-0143)",
+      "chunk_id": "268A-CH-90412_CHUNK_0316"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Cellular Device B",
+      "evidence": "Device B: Carlos Mendez (+1-619-555-0199)",
+      "chunk_id": "268A-CH-90412_CHUNK_0316"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "REQUESTS_FUNDS",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $365,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0319"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTS_VEHICLE_USE",
+      "object": "Black 2021 Ford Explorer (IL Plate: 7XYZ-89)",
+      "evidence": "Make sure Accountant handles the transport in the Black 2021 Ford Explorer (IL Plate: 7XYZ-89).",
+      "chunk_id": "268A-CH-90412_CHUNK_0319"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "OPERATES",
+      "object": "San Diego, CA",
+      "evidence": "Did you authorize the release for Pacific Import Export Co. (San Diego, CA)?",
+      "chunk_id": "268A-CH-90412_CHUNK_0321"
+    },
+    {
+      "subject": "Meridian Holdings LLC",
+      "predicate": "OPERATIONS_INVOLVED",
+      "object": "Tariq Mansoor and Victor Vance",
+      "evidence": "Subjects were observed discussing operations related to Meridian Holdings LLC (Shell Entity #8840)",
+      "chunk_id": "268A-CH-90412_CHUNK_0324"
+    },
+    {
+      "subject": "Phone +1-619-555-0122",
+      "predicate": "LOCATED_AT",
+      "object": "1428 Elmwood Avenue, Chicago, IL",
+      "evidence": "Linked to phone +1-619-555-0122 active at 1428 Elmwood Avenue, Chicago, IL (Apex Freight HQ).",
+      "chunk_id": "268A-CH-90412_CHUNK_0326"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "DIRECTED",
+      "object": "White Freightliner Semi-Truck (Lic: TRK-9901)",
+      "evidence": "'Make sure Accountant handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).'",
+      "chunk_id": "268A-CH-90412_CHUNK_0328"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Horizon Global Transfer (Account HGT-9011)",
+      "evidence": "We need $185,000 sent to First National Bank Acc #8839-10294-US.",
+      "chunk_id": "268A-CH-90412_CHUNK_0328"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Carlos Mendez / Pacific Import Export Co.",
+      "evidence": "Destination Account: First National Bank Acc #8839-10294-US",
+      "chunk_id": "268A-CH-90412_CHUNK_0329"
+    },
+    {
+      "subject": "First National Bank Acc #8839-10294-US",
+      "predicate": "FLAGGED",
+      "object": "Suspicious activity",
+      "evidence": "Notes: Suspicious activity flag triggered.",
+      "chunk_id": "268A-CH-90412_CHUNK_0329"
+    },
+    {
+      "subject": "Horizon Global Transfer (Account HGT-9011)",
+      "predicate": "OPERATIONS_RELATED_TO",
+      "object": "clandestine meeting",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0330"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "ENTERED",
+      "object": "88 Industrial Parkway, Newark, NJ (Warehouse Depot)",
+      "evidence": "Subject Marcus Thorne was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0331"
+    },
+    {
+      "subject": "Horizon Global Transfer (Account HGT-9011)",
+      "predicate": "INVOLVED_IN",
+      "object": "Operations",
+      "evidence": "Subjects were observed discussing operations related to Horizon Global Transfer (Account HGT-9011)",
+      "chunk_id": "268A-CH-90412_CHUNK_0331"
+    },
+    {
+      "subject": "Bank of America Acc #5540-1920-3341",
+      "predicate": "RECEIVED_FUNDS_FROM",
+      "object": "Victor Vance",
+      "evidence": "Destination Account: Bank of America Acc #5540-1920-3341",
+      "chunk_id": "268A-CH-90412_CHUNK_0335"
+    },
+    {
+      "subject": "+1-619-555-0199",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "304 Pier Road, Gary, IN",
+      "evidence": "Linked to phone +1-312-555-0199 active at 304 Pier Road, Gary, IN",
+      "chunk_id": "268A-CH-90412_CHUNK_0335"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "PROXIMITY",
+      "object": "Elena Rostova",
+      "evidence": "Event: Call duration 155 seconds. Ping coordinates confirm both subjects in proximity.",
+      "chunk_id": "268A-CH-90412_CHUNK_0339"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "TRANSFERRED_FUNDS",
+      "object": "First National Bank Acc #8839-10294-US",
+      "evidence": "Originator: Marcus Thorne / Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "chunk_id": "268A-CH-90412_CHUNK_0342"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "ENTERED",
+      "object": "Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)",
+      "evidence": "Subject Carlos Mendez was seen carrying a sealed package into the facility",
+      "chunk_id": "268A-CH-90412_CHUNK_0344"
+    },
+    {
+      "subject": "Elena Rostova",
+      "predicate": "OPERATES",
+      "object": "Gary Port Facility",
+      "evidence": "'It is pending at Pier 4, Gary Port Facility, Gary, IN.'",
+      "chunk_id": "268A-CH-90412_CHUNK_0345"
+    },
+    {
+      "subject": "Pacific Import Export Co. (San Diego, CA)",
+      "predicate": "OPERATIONS_INVOLVED",
+      "object": "Tariq Mansoor, Victor Vance",
+      "evidence": "Subjects were observed discussing operations related to Pacific Import Export Co. (San Diego, CA)",
+      "chunk_id": "268A-CH-90412_CHUNK_0346"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "USES_VEHICLE",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "Make sure The Tailor handles the transport in the White Freightliner Semi-Truck (Lic: TRK-9901).",
+      "chunk_id": "268A-CH-90412_CHUNK_0347"
+    },
+    {
+      "subject": "Victor Vance",
+      "predicate": "HAS_BANK_ACCOUNT",
+      "object": "Bank of America Acc #5540-1920-3341",
+      "evidence": "We need $113,000 sent to Bank of America Acc #5540-1920-3341.",
+      "chunk_id": "268A-CH-90412_CHUNK_0347"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "COMMUNICATES_WITH",
+      "object": "Elena Rostova",
+      "evidence": "[2025-11-11 20:13:00 EST] Tariq Mansoor: 'Did you authorize the release for Apex Freight Logistics (1428 Elmwood Ave, Chicago IL)?'",
+      "chunk_id": "268A-CH-90412_CHUNK_0348"
+    },
+    {
+      "subject": "Tariq Mansoor",
+      "predicate": "DIRECTS",
+      "object": "The Tsaritsa",
+      "evidence": "'Make sure The Tsaritsa handles the transport'",
+      "chunk_id": "268A-CH-90412_CHUNK_0349"
+    },
+    {
+      "subject": "The White Freightliner Semi-Truck",
+      "predicate": "HAS_LICENSE_PLATE",
+      "object": "White Freightliner Semi-Truck",
+      "evidence": "(Lic: TRK-9901)",
+      "chunk_id": "268A-CH-90412_CHUNK_0349"
+    }
+  ]
+}
