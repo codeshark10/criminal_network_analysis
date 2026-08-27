@@ -62,6 +62,24 @@ export interface FileUploadResult {
   size_bytes: number;
 }
 
+export interface DocumentProcessResponse {
+  message: string;
+  files_queued: number;
+}
+
+export interface FileVerificationResult {
+  original_file: string;
+  is_valid: boolean;
+  message: string;
+}
+
+export interface CaseVerificationResponse {
+  case_id: string;
+  overall_valid: boolean;
+  total_files_checked: number;
+  results: FileVerificationResult[];
+}
+
 export interface UploadCasesResponse {
   case_id: string;
   message: string;
@@ -230,6 +248,12 @@ export async function getExecutiveSummary(
 // ── Endpoint: GET /api/cases ───────────────────────────────
 export async function getCases(): Promise<CaseItem[]> {
   return apiFetch<CaseItem[]>(buildUrl('/api/cases'));
+}
+
+// ── Endpoint: GET /api/cases/{case_id}/verify ───────────────────────────────
+export async function verifyCaseIntegrity(caseId: string): Promise<CaseVerificationResponse> {
+  const encoded = encodeURIComponent(caseId);
+  return apiFetch<CaseVerificationResponse>(buildUrl(`/api/cases/${encoded}/verify`));
 }
 
 // ── Endpoint: GET /api/cases/{case_id}/entities/major ─────────

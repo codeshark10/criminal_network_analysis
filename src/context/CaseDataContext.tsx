@@ -30,6 +30,10 @@ interface CaseDataContextValue {
   processUploadedFiles: (caseId: string, files: File[]) => Promise<ProcessingResult>;
   /** Clear all local data for a case */
   clearCase: (caseId: string) => void;
+  /** Add a global alert (caseId = 'global') */
+  addGlobalAlert: (alert: Omit<Alert, 'id' | 'detectedAt'>) => void;
+  /** Add an alert to a specific case */
+  addCaseAlert: (caseId: string, alert: Omit<Alert, 'id' | 'detectedAt'>) => void;
   /** Whether processing is currently in progress */
   isProcessing: boolean;
 }
@@ -152,10 +156,34 @@ export const CaseDataProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     setDocCache((prev) => { const next = { ...prev }; delete next[caseId]; return next; });
   }, []);
 
+  const addGlobalAlert = useCallback((alertData: Omit<Alert, 'id' | 'detectedAt'>) => {
+    const newAlert: Alert = {
+      ...alertData,
+      id: `alert-global-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+      detectedAt: new Date().toISOString()
+    };
+    const currentGlobal = loadAlerts('global');
+    const updated = [newAlert, ...currentGlobal];
+    saveAlerts('global', updated);
+    setAlertCache((prev) => ({ ...prev, 'global': updated }));
+  }, []);
+
+  const addCaseAlert = useCallback((caseId: string, alertData: Omit<Alert, 'id' | 'detectedAt'>) => {
+    const newAlert: Alert = {
+      ...alertData,
+      id: `alert-case-${Date.now()}-${Math.floor(Math.random() * 1000)}`,
+      detectedAt: new Date().toISOString()
+    };
+    const currentCaseAlerts = loadAlerts(caseId);
+    const updated = [newAlert, ...currentCaseAlerts];
+    saveAlerts(caseId, updated);
+    setAlertCache((prev) => ({ ...prev, [caseId]: updated }));
+  }, []);
+
   return (
     <CaseDataContext.Provider value={{
       getChunks, getAlerts, getDocuments,
-      processUploadedFiles, clearCase, isProcessing,
+      processUploadedFiles, clearCase, addGlobalAlert, addCaseAlert, isProcessing,
     }}>
       {children}
     </CaseDataContext.Provider>

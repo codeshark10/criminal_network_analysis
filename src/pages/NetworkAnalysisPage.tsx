@@ -8,7 +8,7 @@ import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight, Loader2, AlertTriangle, Database } from 'lucide-react';
 import NetworkGraph from '../components/graph/NetworkGraph';
-import { getFullGraph, getSuspectRelationships } from '../services/apiClient';
+import { getFullGraph, getSuspectRelationships, getExecutiveSummary } from '../services/apiClient';
 import { adaptApiGraph } from '../services/adapters';
 import type { GraphNode, GraphRelationship, EntityType } from '../types/graph';
 
@@ -72,6 +72,11 @@ const NetworkAnalysisPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);   // true = real backend data
   const [fetchError, setFetchError] = useState<string | null>(null);
+  const [graphMode, setGraphMode] = useState<'full' | 'executive'>('full');
+
+  // ── Exec Summary Params ──────────────────────────────────
+  const [execParams, setExecParams] = useState({ maxNodes: 20, maxRels: 6, minConnections: 1 });
+  const [localExecParams, setLocalExecParams] = useState({ maxNodes: 20, maxRels: 6, minConnections: 1 });
 
   // ── UI state ─────────────────────────────────────────────
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
@@ -81,13 +86,14 @@ const NetworkAnalysisPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [centerId, setCenterId] = useState<string>('');
 
-  // ── Fetch all graph data ──────────────────────────────────
   const fetchGraph = useCallback(async () => {
     if (!caseId) return;
     setLoading(true);
     setFetchError(null);
     try {
-      const result = await getFullGraph(caseId, 500);
+      const result = graphMode === 'executive' 
+        ? await getExecutiveSummary(caseId, execParams.maxNodes, execParams.maxRels, execParams.minConnections) 
+        : await getFullGraph(caseId, 500);
       const adapted = adaptApiGraph(result.nodes, result.edges);
 
       if (adapted.nodes.length === 0) {
@@ -112,7 +118,7 @@ const NetworkAnalysisPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [caseId, graphMode, execParams]);
 
   useEffect(() => { fetchGraph(); }, [fetchGraph]);
 
@@ -215,6 +221,55 @@ const NetworkAnalysisPage: React.FC = () => {
         flexShrink: 0,
       }}>
         <div style={{ width: '200px', padding: '14px', height: '100%', overflowY: 'auto' }}>
+          
+          {graphMode === 'executive' && (
+            <>
+              <div className="section-header" style={{ marginBottom: '12px' }}>EXECUTIVE PARAMS</div>
+              
+              <div className="intel-label" style={{ marginBottom: '4px' }}>MAX NODES (5-50)</div>
+              <input
+                type="number"
+                min={5}
+                max={50}
+                value={localExecParams.maxNodes}
+                onChange={(e) => setLocalExecParams(p => ({ ...p, maxNodes: parseInt(e.target.value) || 5 }))}
+                className="intel-input"
+                style={{ width: '100%', marginBottom: '12px', padding: '4px 8px' }}
+              />
+
+              <div className="intel-label" style={{ marginBottom: '4px' }}>MAX RELS / NODE (1-20)</div>
+              <input
+                type="number"
+                min={1}
+                max={20}
+                value={localExecParams.maxRels}
+                onChange={(e) => setLocalExecParams(p => ({ ...p, maxRels: parseInt(e.target.value) || 1 }))}
+                className="intel-input"
+                style={{ width: '100%', marginBottom: '12px', padding: '4px 8px' }}
+              />
+
+              <div className="intel-label" style={{ marginBottom: '4px' }}>MIN CONNECTIONS</div>
+              <input
+                type="number"
+                min={1}
+                value={localExecParams.minConnections}
+                onChange={(e) => setLocalExecParams(p => ({ ...p, minConnections: parseInt(e.target.value) || 1 }))}
+                className="intel-input"
+                style={{ width: '100%', marginBottom: '12px', padding: '4px 8px' }}
+              />
+
+              <button
+                className="btn btn--accent"
+                style={{ width: '100%', justifyContent: 'center', fontSize: '0.62rem', marginBottom: '12px' }}
+                onClick={() => setExecParams(localExecParams)}
+              >
+                APPLY PARAMS
+              </button>
+              
+              <div className="divider" style={{ margin: '12px 0' }} />
+            </>
+          )}
+
           <div className="section-header" style={{ marginBottom: '12px' }}>FILTERS</div>
 
           {/* Entity type checkboxes */}
@@ -297,8 +352,25 @@ const NetworkAnalysisPage: React.FC = () => {
               <AlertTriangle size={10} /> OFFLINE
             </div>
           )}
-
           <div style={{ flex: 1 }} />
+
+          {/* Mode Toggle */}
+          <div style={{ display: 'flex', background: 'var(--bg-raised)', border: '1px solid var(--border-dim)', borderRadius: '2px', overflow: 'hidden', marginRight: '12px' }}>
+            <button
+              className={`btn ${graphMode === 'full' ? 'btn--accent' : 'btn--ghost'}`}
+              style={{ border: 'none', borderRadius: 0, padding: '4px 10px', fontSize: '0.62rem' }}
+              onClick={() => setGraphMode('full')}
+            >
+              FULL GRAPH
+            </button>
+            <button
+              className={`btn ${graphMode === 'executive' ? 'btn--accent' : 'btn--ghost'}`}
+              style={{ border: 'none', borderRadius: 0, padding: '4px 10px', fontSize: '0.62rem' }}
+              onClick={() => setGraphMode('executive')}
+            >
+              EXECUTIVE SUMMARY
+            </button>
+          </div>
 
           <input
             className="intel-input"

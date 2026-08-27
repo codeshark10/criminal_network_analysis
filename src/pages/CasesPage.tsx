@@ -6,9 +6,11 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Plus, FolderOpen, Archive, Clock, ChevronRight, X, ArrowRight, Upload, FileText, CheckCircle2, Loader2, Network, Database, User } from 'lucide-react';
-import { getCases, uploadCaseDocuments, createCase } from '../services/apiClient';
-import type { UploadCasesResponse, CaseItem } from '../services/apiClient';
+import { Plus, FolderOpen, Archive, Clock, ChevronRight, X, ArrowRight, Upload, FileText, CheckCircle2, Loader2, Network, Database, User, Shield } from 'lucide-react';
+import { getCases, uploadCaseDocuments, createCase, verifyCaseIntegrity } from '../services/apiClient';
+import type { UploadCasesResponse, CaseItem, CaseVerificationResponse } from '../services/apiClient';
+import VerificationModal from '../components/case/VerificationModal';
+import { useCaseData } from '../context/CaseDataContext';
 
 // ── Processing Animation ───────────────────────────────────────
 const PROCESSING_STAGES = [
@@ -654,6 +656,14 @@ const CasesPage: React.FC = () => {
   const [activeCases, setActiveCases] = useState<CaseItem[]>([]);
   const [loadingCases, setLoadingCases] = useState(true);
 
+  const { addGlobalAlert, addCaseAlert } = useCaseData();
+
+  // Verification state
+  const [verifyModalOpen, setVerifyModalOpen] = useState(false);
+  const [verifyLoading, setVerifyLoading] = useState(false);
+  const [verifyResult, setVerifyResult] = useState<CaseVerificationResponse | null>(null);
+  const [verifyError, setVerifyError] = useState<string | null>(null);
+
   useEffect(() => {
     getCases()
       .then(setActiveCases)
@@ -668,6 +678,39 @@ const CasesPage: React.FC = () => {
   const displayCases = searchQuery
     ? allDisplayCases.filter((c) => c.case_name.toLowerCase().includes(searchQuery.toLowerCase()) || c.case_id.toLowerCase().includes(searchQuery.toLowerCase()))
     : allDisplayCases;
+
+  const handleVerify = async (e: React.MouseEvent, caseId: string) => {
+    e.stopPropagation();
+    setVerifyModalOpen(true);
+    setVerifyLoading(true);
+    setVerifyResult(null);
+    setVerifyError(null);
+    try {
+      const res = await verifyCaseIntegrity(caseId);
+      setVerifyResult(res);
+      
+      // Log to global alerts
+      const alertPayload = {
+        title: `Blockchain Integrity Check: ${caseId}`,
+        description: res.overall_valid 
+          ? `All ${res.total_files_checked} files for case ${caseId} passed blockchain integrity verification.`
+          : `Integrity compromised for case ${caseId}. Tampering detected in one or more files.\n\n${res.results.filter(r => !r.is_valid).map(r => `- ${r.original_file}: ${r.message}`).join('\n')}`,
+        severity: res.overall_valid ? ('LOW' as const) : ('HIGH' as const),
+        category: 'SYSTEM INTEGRITY',
+        status: 'ACTIVE' as const,
+        caseId: caseId,
+        evidenceIds: [],
+        personIds: []
+      };
+      
+      addGlobalAlert(alertPayload);
+      addCaseAlert(caseId, alertPayload);
+    } catch (err: any) {
+      setVerifyError(err.message || 'Failed to verify case integrity.');
+    } finally {
+      setVerifyLoading(false);
+    }
+  };
 
   return (
     <div style={{ padding: '24px 28px', maxWidth: '1200px' }}>
@@ -753,7 +796,7 @@ const CasesPage: React.FC = () => {
                 cursor: 'pointer',
                 transition: 'background 0.15s',
                 display: 'grid',
-                gridTemplateColumns: '220px 80px 90px 1fr 1fr 1fr 130px 24px',
+                gridTemplateColumns: '220px 80px 90px 1fr 1fr 1fr 130px 100px 24px',
                 gap: '12px',
                 alignItems: 'center',
               }}
@@ -788,6 +831,16 @@ const CasesPage: React.FC = () => {
                   {new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: '2-digit' })}
                 </div>
               </div>
+              <div>
+                <button
+                  className="btn"
+                  onClick={(e) => handleVerify(e, caseItem.case_id)}
+                  style={{ padding: '4px 8px', fontSize: '0.65rem' }}
+                >
+                  <Shield size={12} style={{ marginRight: '4px' }} />
+                  VERIFY
+                </button>
+              </div>
               <ChevronRight size={14} style={{ color: 'var(--text-muted)' }} />
             </div>
           ))
@@ -796,6 +849,16 @@ const CasesPage: React.FC = () => {
 
       {/* Create Case Modal */}
       {showCreate && <CreateCaseModal onClose={() => setSearchParams({ tab })} />}
+
+      {/* Verification Modal */}
+      {verifyModalOpen && (
+        <VerificationModal
+          onClose={() => setVerifyModalOpen(false)}
+          result={verifyResult}
+          loading={verifyLoading}
+          error={verifyError}
+        />
+      )}
     </div>
   );
 };

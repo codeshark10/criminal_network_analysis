@@ -21,7 +21,7 @@ const InvestigationModes: React.FC = () => {
         'Start with a known person and uncover connected individuals, organizations, locations and activities through network expansion.',
       pipeline: ['Known Person', 'Connected Entities', 'Network Expansion', 'Relationship Analysis', 'Evidence Analysis', 'Investigation Candidates'],
       action: 'START INVESTIGATION',
-      path: '/investigations/known-suspect',
+      path: '/cases?create=true',
     },
     {
       key: 'unknown',
@@ -33,7 +33,7 @@ const InvestigationModes: React.FC = () => {
         'Analyze case intelligence to automatically prioritize persons requiring investigator review using graph analytics and pattern detection.',
       pipeline: ['Case Data', 'Entity Extraction', 'Knowledge Graph', 'Network Analysis', 'Candidate Detection', 'Investigator Review'],
       action: 'ANALYZE CASE',
-      path: '/investigations/unknown-suspect',
+      path: '/cases?create=true',
     },
   ];
 
@@ -51,6 +51,8 @@ const InvestigationModes: React.FC = () => {
               padding: '20px',
               position: 'relative',
               overflow: 'hidden',
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             {/* Corner decoration */}
@@ -95,7 +97,7 @@ const InvestigationModes: React.FC = () => {
             </p>
 
             {/* Pipeline */}
-            <div style={{ marginBottom: '16px' }}>
+            <div style={{ marginBottom: '16px', marginTop: 'auto' }}>
               <div className="intel-label" style={{ marginBottom: '8px' }}>INVESTIGATION PIPELINE</div>
               <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '4px' }}>
                 {mode.pipeline.map((step, i) => (

@@ -6,16 +6,20 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Search, Bell, User, ChevronDown, X } from 'lucide-react';
+import { useCaseData } from '../../context/CaseDataContext';
 
 const GlobalTopNav: React.FC = () => {
   const navigate = useNavigate();
+  const { getAlerts } = useCaseData();
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showNotifications, setShowNotifications] = useState(false);
 
+  const alerts = getAlerts('global');
+  const activeAlerts = alerts.filter(a => a.status === 'ACTIVE');
+  const highAlerts = activeAlerts.filter(a => a.severity === 'HIGH');
+
   const stats = { active: 0, total: 0 };
-  const activeAlerts: any[] = [];
-  const highAlerts: any[] = [];
 
   return (
     <>

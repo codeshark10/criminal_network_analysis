@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import {
   Search, Bell, User, ChevronDown, Shield, Zap, Database
 } from 'lucide-react';
-
-const alerts: any[] = [];
+import { useCaseData } from '../../context/CaseDataContext';
 
 interface TopNavProps {
   onToggleSidebar: () => void;
@@ -19,7 +18,9 @@ const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showNotifications, setShowNotifications] = useState(false);
   const navigate = useNavigate();
+  const { getAlerts } = useCaseData();
 
+  const alerts = getAlerts('global');
   const activeAlerts = alerts.filter((a) => a.status === 'ACTIVE');
   const highAlerts = activeAlerts.filter((a) => a.severity === 'HIGH');
 

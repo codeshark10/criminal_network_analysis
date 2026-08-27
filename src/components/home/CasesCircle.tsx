@@ -64,7 +64,7 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount, total
       )}
 
       {/* Main SVG circle */}
-      <svg width={size} height={size} style={{ display: 'block' }}>
+      <svg width={size} height={size} style={{ display: 'block', overflow: 'visible' }}>
         {/* Outer glow circle */}
         <circle
           cx={cx} cy={cy}

@@ -225,44 +225,59 @@ const HomePage: React.FC = () => {
         {/* ── Central Intelligence Hub ── */}
         <div
           className="hub-container"
-          style={{ minHeight: '520px', position: 'relative', zIndex: 10 }}
+          style={{ minHeight: '650px', position: 'relative', zIndex: 10, marginTop: '20px' }}
         >
-          {/* SVG connecting lines */}
-          <svg
-            style={{
-              position: 'absolute',
-              inset: 0,
-              width: '100%',
-              height: '100%',
-              pointerEvents: 'none',
-              zIndex: 1,
-            }}
-          >
-            <defs>
-              <marker id="arrowhead" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto">
-                <polygon points="0 0, 4 2, 0 4" fill="rgba(201,184,106,0.2)" />
-              </marker>
-            </defs>
-            {/* Lines from center to module positions */}
-            {/* These are approximate — modules are positioned absolutely relative to this container */}
-            {[
-              { x1: '50%', y1: '50%', x2: '12%',  y2: '20%' }, // Persons top-left
-              { x1: '50%', y1: '50%', x2: '12%',  y2: '80%' }, // Networks bottom-left
-              { x1: '50%', y1: '50%', x2: '88%',  y2: '20%' }, // Evidence top-right
-              { x1: '50%', y1: '50%', x2: '88%',  y2: '80%' }, // Alerts bottom-right
-              { x1: '50%', y1: '50%', x2: '20%',  y2: '50%' }, // Data Sources left
-              { x1: '50%', y1: '50%', x2: '80%',  y2: '50%' }, // Analytics right
-            ].map((line, i) => (
-              <line
-                key={i}
-                x1={line.x1} y1={line.y1}
-                x2={line.x2} y2={line.y2}
-                stroke="rgba(201,184,106,0.08)"
-                strokeWidth="1"
-                strokeDasharray="6 8"
-              />
-            ))}
-          </svg>
+          {/* Removed SVG connecting lines as requested */}
+          <style>{`
+            .hub-orbit-container {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 0;
+              height: 0;
+              z-index: 20;
+            }
+            .orbit-card {
+              position: absolute;
+              /* Center the card on its orbital point */
+            }
+            @keyframes orbit-0 {
+              from { transform: translate(-50%, -50%) rotate(0deg) translateX(250px) rotate(0deg); }
+              to { transform: translate(-50%, -50%) rotate(360deg) translateX(250px) rotate(-360deg); }
+            }
+            @keyframes orbit-1 {
+              from { transform: translate(-50%, -50%) rotate(60deg) translateX(250px) rotate(-60deg); }
+              to { transform: translate(-50%, -50%) rotate(420deg) translateX(250px) rotate(-420deg); }
+            }
+            @keyframes orbit-2 {
+              from { transform: translate(-50%, -50%) rotate(120deg) translateX(250px) rotate(-120deg); }
+              to { transform: translate(-50%, -50%) rotate(480deg) translateX(250px) rotate(-480deg); }
+            }
+            @keyframes orbit-3 {
+              from { transform: translate(-50%, -50%) rotate(180deg) translateX(250px) rotate(-180deg); }
+              to { transform: translate(-50%, -50%) rotate(540deg) translateX(250px) rotate(-540deg); }
+            }
+            @keyframes orbit-4 {
+              from { transform: translate(-50%, -50%) rotate(240deg) translateX(250px) rotate(-240deg); }
+              to { transform: translate(-50%, -50%) rotate(600deg) translateX(250px) rotate(-600deg); }
+            }
+            @keyframes orbit-5 {
+              from { transform: translate(-50%, -50%) rotate(300deg) translateX(250px) rotate(-300deg); }
+              to { transform: translate(-50%, -50%) rotate(660deg) translateX(250px) rotate(-660deg); }
+            }
+            @media (max-width: 1200px) {
+              .hub-orbit-container { transform: scale(0.9); }
+            }
+            @media (max-width: 900px) {
+              .hub-orbit-container { transform: scale(0.75); }
+            }
+            @media (max-width: 600px) {
+              .hub-orbit-container { transform: scale(0.5); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .orbit-card { animation-play-state: paused !important; }
+            }
+          `}</style>
 
           {/* Central CASES Circle */}
           <div style={{ position: 'relative', zIndex: 10 }}>
@@ -275,86 +290,99 @@ const HomePage: React.FC = () => {
           </div>
 
           {/* ── Floating Modules — positioned around circle ── */}
+          <div className="hub-orbit-container">
+            {/* MODULE 1: ACTIVE INVESTIGATIONS */}
+            <div className="orbit-card" style={{ animation: 'orbit-0 60s linear infinite' }}>
+              <FloatingModule
+                id="active-investigations"
+                title="ACTIVE INVESTIGATIONS"
+                value={String(activeCases.length).padStart(2, '0')}
+                subtitle="Cases currently under investigation"
+                icon={FolderOpen}
+                path="/cases?tab=active"
+                animationDelay={0}
+                style={{ position: 'relative' }}
+              />
+            </div>
 
-          {/* MODULE 1: ACTIVE INVESTIGATIONS */}
-          <FloatingModule
-            id="active-investigations"
-            title="ACTIVE INVESTIGATIONS"
-            value={String(activeCases.length).padStart(2, '0')}
-            subtitle="Cases currently under investigation"
-            icon={FolderOpen}
-            path="/cases?tab=active"
-            animationDelay={0}
-            style={{ top: '80px', left: 'calc(50% - 360px)' }}
-          />
+            {/* MODULE 2: RECENT CASES */}
+            <div className="orbit-card" style={{ animation: 'orbit-1 60s linear infinite' }}>
+              <FloatingModule
+                id="recent-cases"
+                title="RECENT CASES"
+                value={String(activeCases.length > 3 ? 3 : activeCases.length).padStart(2, '0')}
+                subtitle="Recently updated investigations"
+                icon={Clock}
+                path="/cases?tab=active"
+                animationDelay={1}
+                style={{ position: 'relative' }}
+              />
+            </div>
 
-          {/* MODULE 2: RECENT CASES */}
-          <FloatingModule
-            id="recent-cases"
-            title="RECENT CASES"
-            value={String(activeCases.length > 3 ? 3 : activeCases.length).padStart(2, '0')}
-            subtitle="Recently updated investigations"
-            icon={Clock}
-            path="/cases?tab=active"
-            animationDelay={1}
-            style={{ top: '80px', right: 'calc(50% - 360px)' }}
-          />
+            {/* MODULE 3: CASE INTAKE */}
+            <div className="orbit-card" style={{ animation: 'orbit-2 60s linear infinite' }}>
+              <FloatingModule
+                id="case-intake"
+                title="CASE INTAKE"
+                value="NEW"
+                subtitle="Upload intelligence and create a case"
+                icon={PlusSquare}
+                path="/cases?create=true"
+                animationDelay={2}
+                style={{ position: 'relative' }}
+              />
+            </div>
 
-          {/* MODULE 3: CASE INTAKE */}
-          <FloatingModule
-            id="case-intake"
-            title="CASE INTAKE"
-            value="NEW"
-            subtitle="Upload intelligence and create a case"
-            icon={PlusSquare}
-            path="/cases?create=true"
-            animationDelay={2}
-            style={{ top: '260px', left: 'calc(50% - 400px)' }}
-          />
+            {/* MODULE 4: DATA PROCESSING */}
+            <div className="orbit-card" style={{ animation: 'orbit-3 60s linear infinite' }}>
+              <FloatingModule
+                id="data-processing"
+                title="DATA PROCESSING"
+                value={String(processingCount).padStart(2, '0')}
+                subtitle="Cases currently processing"
+                icon={Server}
+                items={[
+                  { label: 'DOCUMENT', value: '↓' },
+                  { label: 'CHUNKS', value: '↓' },
+                  { label: 'CLASSIFICATION', value: '↓' },
+                ]}
+                path="/cases"
+                animationDelay={3}
+                style={{ position: 'relative' }}
+              />
+            </div>
 
-          {/* MODULE 4: DATA PROCESSING */}
-          <FloatingModule
-            id="data-processing"
-            title="DATA PROCESSING"
-            value={String(processingCount).padStart(2, '0')}
-            subtitle="Cases currently processing"
-            icon={Server}
-            items={[
-              { label: 'DOCUMENT', value: '↓' },
-              { label: 'CHUNKS', value: '↓' },
-              { label: 'CLASSIFICATION', value: '↓' },
-            ]}
-            path="/cases"
-            animationDelay={3}
-            style={{ top: '260px', right: 'calc(50% - 400px)' }}
-          />
+            {/* MODULE 5: INVESTIGATION QUEUE */}
+            <div className="orbit-card" style={{ animation: 'orbit-4 60s linear infinite' }}>
+              <FloatingModule
+                id="investigation-queue"
+                title="INVESTIGATION QUEUE"
+                value={String(underReviewCount).padStart(2, '0')}
+                subtitle="Items requiring review"
+                icon={Inbox}
+                items={[
+                  { label: 'High Priority', value: 0 },
+                ]}
+                path="/cases?tab=review"
+                animationDelay={4}
+                style={{ position: 'relative' }}
+              />
+            </div>
 
-          {/* MODULE 5: INVESTIGATION QUEUE */}
-          <FloatingModule
-            id="investigation-queue"
-            title="INVESTIGATION QUEUE"
-            value={String(underReviewCount).padStart(2, '0')}
-            subtitle="Items requiring review"
-            icon={Inbox}
-            items={[
-              { label: 'High Priority', value: 0 },
-            ]}
-            path="/cases?tab=review"
-            animationDelay={4}
-            style={{ top: '380px', left: 'calc(50% - 360px)' }}
-          />
-
-          {/* MODULE 6: INTELLIGENCE SEARCH */}
-          <FloatingModule
-            id="intelligence-search"
-            title="INTELLIGENCE SEARCH"
-            value="SEARCH"
-            subtitle="Find cases, people, locations or entities"
-            icon={Search}
-            path="/cases"
-            animationDelay={5}
-            style={{ top: '380px', right: 'calc(50% - 360px)' }}
-          />
+            {/* MODULE 6: INTELLIGENCE SEARCH */}
+            <div className="orbit-card" style={{ animation: 'orbit-5 60s linear infinite' }}>
+              <FloatingModule
+                id="intelligence-search"
+                title="INTELLIGENCE SEARCH"
+                value="SEARCH"
+                subtitle="Find cases, people, locations or entities"
+                icon={Search}
+                path="/cases"
+                animationDelay={5}
+                style={{ position: 'relative' }}
+              />
+            </div>
+          </div>
         </div>
 
         {/* ── System Status Strip ── */}

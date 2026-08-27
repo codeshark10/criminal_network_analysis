@@ -10,8 +10,7 @@ import CaseSidebar from './CaseSidebar';
 
 import { getCases } from '../../services/apiClient';
 import type { CaseItem } from '../../services/apiClient';
-
-const alerts: any[] = [];
+import { useCaseData } from '../../context/CaseDataContext';
 
 // ── Case Switcher Modal ────────────────────────────────────────
 const CaseSwitcherModal: React.FC<{ currentCaseId: string; onClose: () => void }> = ({
@@ -129,8 +128,9 @@ const CaseTopNav: React.FC<{
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const caseAlerts = alerts.filter((a) => a.caseId === caseId && a.status === 'ACTIVE');
-  const highAlerts = caseAlerts.filter((a) => a.severity === 'HIGH');
+  const { getAlerts } = useCaseData();
+  const caseAlerts = getAlerts(caseId).filter(a => a.status === 'ACTIVE');
+  const highAlerts = caseAlerts.filter(a => a.severity === 'HIGH');
 
   const priorityColor = caseData?.priority === 'CRITICAL' ? 'var(--critical)'
     : caseData?.priority === 'HIGH' ? 'var(--accent)'

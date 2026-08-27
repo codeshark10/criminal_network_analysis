@@ -79,8 +79,8 @@ const AlertsPage: React.FC = () => {
   const { caseId } = useParams<{ caseId?: string }>();
   const { getAlerts } = useCaseData();
 
-  // In case context load case-specific alerts; globally, show nothing (no global alert source yet)
-  const rawAlerts: Alert[] = caseId ? getAlerts(caseId) : [];
+  // In case context load case-specific alerts; globally, show global alerts
+  const rawAlerts: Alert[] = caseId ? getAlerts(caseId) : getAlerts('global');
 
   const [localAlerts, setLocalAlerts] = useState<Alert[]>(rawAlerts);
   const [severityFilter, setSeverityFilter] = useState<Alert['severity'] | 'ALL'>('ALL');
@@ -88,9 +88,9 @@ const AlertsPage: React.FC = () => {
 
   // Sync when caseId changes (e.g. navigating between cases)
   React.useEffect(() => {
-    setLocalAlerts(caseId ? getAlerts(caseId) : []);
+    setLocalAlerts(caseId ? getAlerts(caseId) : getAlerts('global'));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [caseId]);
+  }, [caseId, getAlerts]);
 
   const handleAck = (alertId: string) => {
     setLocalAlerts((prev) =>
