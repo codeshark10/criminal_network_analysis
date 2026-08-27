@@ -7,10 +7,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Plus, FolderOpen, Archive, Clock, ChevronRight, X, ArrowRight, Upload, FileText, CheckCircle2, Loader2, Network, Database, User } from 'lucide-react';
-import { getCases, uploadCaseDocuments } from '../services/apiClient';
+import { getCases, uploadCaseDocuments, createCase } from '../services/apiClient';
 import type { UploadCasesResponse, CaseItem } from '../services/apiClient';
-import { useCaseData } from '../context/CaseDataContext';
-import { computeChunkCounts } from '../services/documentProcessor';
 
 // ── Processing Animation ───────────────────────────────────────
 const PROCESSING_STAGES = [
@@ -157,15 +155,18 @@ const ExtractionResults: React.FC = () => (
 // ── Create Case Modal ─────────────────────────────────────────
 const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const navigate = useNavigate();
-  const { processUploadedFiles } = useCaseData();
   const fileRef = useRef<HTMLInputElement>(null);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
-    name: '', id: `CASE-2026-0${Math.floor(Math.random() * 90 + 10)}`,
+    name: '',
     type: 'FINANCIAL_CRIME', description: '',
     priority: 'HIGH', officer: '',
     date: new Date().toISOString().split('T')[0],
   });
+
+  // Real backend-generated case ID (set after POST /api/cases succeeds)
+  const [backendCaseId, setBackendCaseId] = useState<string | null>(null);
+
   const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isDragOver, setIsDragOver] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -173,8 +174,14 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadResponse, setUploadResponse] = useState<UploadCasesResponse | null>(null);
   const [validationError, setValidationError] = useState<string | null>(null);
-  const [processingDone, setProcessingDone] = useState(false);
-  const [processedChunkCounts, setProcessedChunkCounts] = useState<ReturnType<typeof computeChunkCounts> | null>(null);
+
+  // Case creation state (Step 1 → Step 2 transition)
+  const [isCreatingCase, setIsCreatingCase] = useState(false);
+  const [caseCreateError, setCaseCreateError] = useState<string | null>(null);
+
+  // Track if upload has been attempted to prevent React 18 StrictMode double-execution
+  // which can cause a secondary failed request to overwrite a successful one
+  const uploadAttempted = useRef(false);
 
   const TOTAL_STEPS = 4;
   const stepLabels = ['CASE INFO', 'UPLOAD DOCUMENTS', 'UPLOADING', 'REVIEW & CREATE'];
@@ -182,25 +189,23 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   // Trigger upload when arriving at step 3 (only once)
   useEffect(() => {
-    if (step === 3 && !isUploading && !uploadDone && !uploadError) {
+    if (step === 3 && !isUploading && !uploadDone && !uploadError && backendCaseId && !uploadAttempted.current) {
+      uploadAttempted.current = true;
       setIsUploading(true);
-      uploadCaseDocuments(form.id, uploadedFiles, true)
+      uploadCaseDocuments(backendCaseId, uploadedFiles, true)
         .then((res) => {
+          setUploadError(null); // Explicitly clear any stale error on success
           setUploadResponse(res);
           setUploadDone(true);
-          // Trigger frontend processing in parallel (non-blocking for the UI flow)
-          processUploadedFiles(form.id, uploadedFiles)
-            .then((result) => {
-              setProcessedChunkCounts(result.chunkCounts);
-              setProcessingDone(true);
-            })
-            .catch(() => {
-              // Frontend processing failed — still let user proceed
-              setProcessingDone(true);
-            });
         })
         .catch((err: Error) => {
-          setUploadError(err.message || 'Upload failed. Please try again.');
+          // If already marked done by a successful race condition, don't overwrite with error
+          setUploadDone((prevDone) => {
+            if (!prevDone) {
+              setUploadError(err.message || 'Upload failed. Please try again.');
+            }
+            return prevDone;
+          });
         })
         .finally(() => {
           setIsUploading(false);
@@ -261,23 +266,46 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     setUploadDone(false);
     setUploadError(null);
     setUploadResponse(null);
+    uploadAttempted.current = false;
   };
 
   const handleCreate = () => {
-    // Navigate to the dashboard where cases are re-fetched.
+    // Navigate to cases list; the useEffect dependency on `showCreate` will
+    // re-fetch the cases list from the backend when the modal closes.
     setTimeout(() => { navigate('/cases'); onClose(); }, 600);
   };
 
   // Determines if NEXT/CREATE button should be disabled
   const isNextDisabled = (
-    (step === 1 && !isFormValid) ||
+    (step === 1 && (!isFormValid || isCreatingCase)) ||
     (step === 2 && uploadedFiles.length === 0) ||
     (step === 3 && (!uploadDone || !!uploadError))
   );
 
   // Handle footer button click
   const handleFooterAction = () => {
-    if (step < TOTAL_STEPS) {
+    if (step === 1) {
+      // ── Step 1 → 2: Create the case in the backend first ──────
+      setCaseCreateError(null);
+      setUploadError(null); // Clear any lingering upload error state on fresh attempt
+      uploadAttempted.current = false;
+      setIsCreatingCase(true);
+      createCase({
+        case_name: form.name.trim(),
+        description: form.description.trim() || undefined,
+        status: 'ACTIVE',
+      })
+        .then((created) => {
+          setBackendCaseId(created.case_id);
+          setStep(2);
+        })
+        .catch((err: Error) => {
+          setCaseCreateError(err.message || 'Failed to create case. Check backend connection.');
+        })
+        .finally(() => {
+          setIsCreatingCase(false);
+        });
+    } else if (step < TOTAL_STEPS) {
       setStep(step + 1);
     } else {
       handleCreate();
@@ -289,8 +317,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     if (step === 1) {
       onClose();
     } else if (step === 3) {
-      // Going back from upload step — abort the upload conceptually (can't cancel fetch,
-      // but we reset all upload state so it will retry if user goes forward again)
+      // Going back from upload step — reset all upload state so it retries if user goes forward again
       resetUploadState();
       setStep(2);
     } else {
@@ -332,12 +359,6 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   <input className="intel-input" style={{ width: '100%' }} placeholder="Investigation name..." value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                 </div>
                 <div style={{ flex: 1 }}>
-                  <div className="data-key" style={{ marginBottom: '4px' }}>CASE ID</div>
-                  <input className="intel-input" style={{ width: '100%', color: 'var(--accent-dim)' }} value={form.id} onChange={(e) => setForm({ ...form, id: e.target.value })} />
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <div style={{ flex: 1 }}>
                   <div className="data-key" style={{ marginBottom: '4px' }}>CASE TYPE</div>
                   <select className="intel-input" style={{ width: '100%' }} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
                     {['FINANCIAL_CRIME', 'ORGANIZED_CRIME', 'CYBERCRIME', 'NARCOTICS', 'MONEY_LAUNDERING', 'FRAUD', 'HUMAN_TRAFFICKING', 'TERRORISM'].map((t) => (
@@ -345,22 +366,22 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                     ))}
                   </select>
                 </div>
+              </div>
+              <div style={{ display: 'flex', gap: '10px' }}>
                 <div style={{ flex: 1 }}>
                   <div className="data-key" style={{ marginBottom: '4px' }}>PRIORITY</div>
                   <select className="intel-input" style={{ width: '100%' }} value={form.priority} onChange={(e) => setForm({ ...form, priority: e.target.value })}>
                     {['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map((p) => <option key={p} value={p}>{p}</option>)}
                   </select>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '10px' }}>
-                <div style={{ flex: 2 }}>
-                  <div className="data-key" style={{ marginBottom: '4px' }}>INVESTIGATING OFFICER *</div>
-                  <input className="intel-input" style={{ width: '100%' }} placeholder="Officer name and rank..." value={form.officer} onChange={(e) => setForm({ ...form, officer: e.target.value })} />
-                </div>
                 <div style={{ flex: 1 }}>
                   <div className="data-key" style={{ marginBottom: '4px' }}>DATE OPENED</div>
                   <input className="intel-input" style={{ width: '100%' }} type="date" value={form.date} onChange={(e) => setForm({ ...form, date: e.target.value })} />
                 </div>
+              </div>
+              <div style={{ flex: 2 }}>
+                <div className="data-key" style={{ marginBottom: '4px' }}>INVESTIGATING OFFICER *</div>
+                <input className="intel-input" style={{ width: '100%' }} placeholder="Officer name and rank..." value={form.officer} onChange={(e) => setForm({ ...form, officer: e.target.value })} />
               </div>
               <div>
                 <div className="data-key" style={{ marginBottom: '4px' }}>DESCRIPTION</div>
@@ -372,6 +393,14 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   onChange={(e) => setForm({ ...form, description: e.target.value })}
                 />
               </div>
+
+              {/* Case creation error */}
+              {caseCreateError && (
+                <div style={{ padding: '10px 14px', background: 'var(--critical-soft)', border: '1px solid var(--critical)', color: 'var(--critical)', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                  <X size={13} style={{ marginTop: '1px', flexShrink: 0 }} />
+                  <span>{caseCreateError}</span>
+                </div>
+              )}
             </div>
           )}
 
@@ -379,6 +408,12 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           {step === 2 && (
             <div>
               <div className="intel-label" style={{ marginBottom: '6px' }}>UPLOAD INVESTIGATION DOCUMENTS</div>
+              {/* Show the real backend case ID for reference */}
+              {backendCaseId && (
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--accent-dim)', marginBottom: '10px', letterSpacing: '0.08em' }}>
+                  CASE ID: {backendCaseId}
+                </div>
+              )}
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
                 Upload raw intelligence data documents (.txt format only).
                 The AI extraction pipeline will parse and build the knowledge graph automatically.
@@ -468,7 +503,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
               )}
 
-              {/* Error state */}
+              {/* Upload error state */}
               {!isUploading && uploadError && (
                 <div style={{ padding: '16px', background: 'var(--critical-soft)', border: '1px solid var(--critical)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
                   <X size={16} style={{ color: 'var(--critical)', marginTop: '2px', flexShrink: 0 }} />
@@ -496,6 +531,10 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   </div>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
+                      <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)' }}>Case ID</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--accent)' }}>{uploadResponse.case_id ?? backendCaseId}</span>
+                    </div>
                     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
                       <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)' }}>Files accepted</span>
                       <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--text-primary)' }}>{uploadResponse.total_uploaded}</span>
@@ -545,7 +584,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginBottom: '16px' }}>
                 {[
                   { label: 'Case Name', value: form.name || '—' },
-                  { label: 'Case ID', value: form.id },
+                  { label: 'Case ID', value: backendCaseId || '—' },
                   { label: 'Type', value: form.type.replace(/_/g, ' ') },
                   { label: 'Priority', value: form.priority },
                   { label: 'Officer', value: form.officer || '—' },
@@ -566,12 +605,17 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           <button
             className="btn btn--ghost"
             onClick={handleBack}
-            disabled={isUploading}
-            style={{ opacity: isUploading ? 0.4 : 1 }}
+            disabled={isUploading || isCreatingCase}
+            style={{ opacity: (isUploading || isCreatingCase) ? 0.4 : 1 }}
           >
             {step > 1 ? 'BACK' : 'CANCEL'}
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            {step === 1 && isCreatingCase && (
+              <span className="intel-label" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <Loader2 size={12} className="animate-spin-slow" /> CREATING...
+              </span>
+            )}
             {step === 3 && isUploading && (
               <span className="intel-label" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                 <Loader2 size={12} className="animate-spin-slow" /> UPLOADING...
@@ -579,14 +623,16 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             )}
             <button
               className="btn btn--accent"
-              disabled={isNextDisabled || isUploading}
+              disabled={isNextDisabled || isUploading || isCreatingCase}
               onClick={handleFooterAction}
-              style={{ opacity: (isNextDisabled || isUploading) ? 0.45 : 1 }}
+              style={{ opacity: (isNextDisabled || isUploading || isCreatingCase) ? 0.45 : 1 }}
             >
               {step === TOTAL_STEPS
                 ? 'CREATE CASE'
                 : step === 3
                 ? (uploadDone ? 'CONTINUE →' : uploadError ? 'FAILED' : 'UPLOADING...')
+                : step === 1
+                ? (isCreatingCase ? 'CREATING...' : 'NEXT')
                 : 'NEXT'}
               {step !== 3 && step !== TOTAL_STEPS && <ArrowRight size={12} />}
             </button>

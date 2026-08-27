@@ -63,6 +63,7 @@ export interface FileUploadResult {
 }
 
 export interface UploadCasesResponse {
+  case_id: string;
   message: string;
   total_uploaded: number;
   files: FileUploadResult[];
@@ -73,6 +74,42 @@ export interface CaseItem {
   case_id: string;
   case_name: string;
   total_entities: number;
+  priority?: string;
+  status?: string;
+}
+
+export interface CaseCreateRequest {
+  case_name: string;
+  description?: string;
+  status?: string;
+}
+
+// ── Endpoint: POST /api/cases ───────────────────────────────
+/**
+ * Creates a new empty case workspace in Neo4j.
+ * Returns the backend-generated case ID (e.g. "CASE_A1B2C3D4").
+ */
+export async function createCase(data: CaseCreateRequest): Promise<CaseItem> {
+  const response = await fetch(buildUrl('/api/cases'), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+
+  if (!response.ok) {
+    let detail = `Case creation failed: ${response.status} ${response.statusText}`;
+    try {
+      const json = await response.json();
+      if (json.detail) {
+        detail = typeof json.detail === 'string' ? json.detail : JSON.stringify(json.detail);
+      }
+    } catch {
+      // keep default
+    }
+    throw new Error(detail);
+  }
+
+  return response.json() as Promise<CaseItem>;
 }
 
 export interface DashboardMetricsResponse {
