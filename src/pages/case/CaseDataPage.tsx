@@ -1,26 +1,29 @@
 // ============================================================
 // NEXUS — Case Data Page
 // Shows source documents and chunk distribution for a case
+// Now powered by frontend-processed document data
 // ============================================================
 
 import React from 'react';
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { FileText, ChevronRight, ArrowRight } from 'lucide-react';
-import { getCaseById } from '../../data/cases';
-import { getDocumentsByCase } from '../../data/caseDocuments';
+import { useCaseData } from '../../context/CaseDataContext';
+import { computeChunkCounts } from '../../services/documentProcessor';
 
 const CaseDataPage: React.FC = () => {
   const { caseId } = useParams<{ caseId: string }>();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { getChunks, getDocuments } = useCaseData();
   const selectedCat = searchParams.get('cat') ?? 'ALL';
 
-  const caseData = getCaseById(caseId ?? '');
-  const docs = getDocumentsByCase(caseId ?? '');
-  const base = `/cases/${caseId}`;
+  // Load real data from context
+  const allChunks = caseId ? getChunks(caseId) : [];
+  const docs = caseId ? getDocuments(caseId) : [];
+  const cc = computeChunkCounts(allChunks);
+  const total = cc.total;
 
-  if (!caseData) return null;
-  const cc = caseData.chunkCounts;
+  const base = `/cases/${caseId}`;
 
   const categories = [
     { key: 'ALL',                  label: 'ALL',             color: 'var(--accent)' },
@@ -34,16 +37,14 @@ const CaseDataPage: React.FC = () => {
   ];
 
   const categoryData = [
-    { key: 'FIR',                  label: 'First Information Report', value: cc?.fir ?? 0, color: '#C07070' },
-    { key: 'CDR',                  label: 'Call Detail Records',       value: cc?.cdr ?? 0, color: '#7090C0' },
-    { key: 'FINANCIAL',            label: 'Financial Intelligence',    value: cc?.financial ?? 0, color: 'var(--accent)' },
-    { key: 'SURVEILLANCE',         label: 'Surveillance Reports',      value: cc?.surveillance ?? 0, color: '#80B060' },
-    { key: 'INTELLIGENCE',         label: 'Intelligence Reports',      value: cc?.intelligence ?? 0, color: '#B08060' },
-    { key: 'CRIMINAL_HISTORY',     label: 'Criminal History',          value: cc?.criminalHistory ?? 0, color: '#9070B0' },
-    { key: 'SOCIAL_INTELLIGENCE',  label: 'Social Intelligence',       value: cc?.socialIntelligence ?? 0, color: '#60A0A0' },
+    { key: 'FIR',                  label: 'First Information Report', value: cc.fir,              color: '#C07070' },
+    { key: 'CDR',                  label: 'Call Detail Records',       value: cc.cdr,              color: '#7090C0' },
+    { key: 'FINANCIAL',            label: 'Financial Intelligence',    value: cc.financial,        color: 'var(--accent)' },
+    { key: 'SURVEILLANCE',         label: 'Surveillance Reports',      value: cc.surveillance,     color: '#80B060' },
+    { key: 'INTELLIGENCE',         label: 'Intelligence Reports',      value: cc.intelligence,     color: '#B08060' },
+    { key: 'CRIMINAL_HISTORY',     label: 'Criminal History',          value: cc.criminalHistory,  color: '#9070B0' },
+    { key: 'SOCIAL_INTELLIGENCE',  label: 'Social Intelligence',       value: cc.socialIntelligence, color: '#60A0A0' },
   ];
-
-  const total = cc?.total ?? 0;
 
   return (
     <div style={{ padding: '24px 28px', maxWidth: '1100px' }}>
@@ -56,7 +57,7 @@ const CaseDataPage: React.FC = () => {
           Investigation Data
         </h1>
         <p style={{ margin: '6px 0 0', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-          Source documents and extracted intelligence data for {caseData.name}
+          Source documents and extracted intelligence data for {caseId}
         </p>
       </div>
 
@@ -112,7 +113,7 @@ const CaseDataPage: React.FC = () => {
                     <span style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: 500 }}>{doc.fileName}</span>
                   </div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                    {doc.description}
+                    Uploaded {new Date(doc.uploadedAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}
                   </div>
                 </div>
                 <div>
@@ -121,14 +122,14 @@ const CaseDataPage: React.FC = () => {
                 </div>
                 <div>
                   <div className="intel-label" style={{ marginBottom: '2px' }}>SIZE</div>
-                  <div className="data-value">{(doc.size / 1024 / 1024).toFixed(1)} MB</div>
+                  <div className="data-value">{(doc.size / 1024).toFixed(1)} KB</div>
                 </div>
                 <div>
                   <span style={{
                     fontFamily: 'var(--font-mono)', fontSize: '0.6rem', padding: '2px 8px',
-                    background: doc.status === 'PROCESSED' ? 'var(--operational-soft)' : 'var(--accent-faint)',
-                    border: `1px solid ${doc.status === 'PROCESSED' ? 'var(--operational)' : 'var(--accent-dim)'}`,
-                    color: doc.status === 'PROCESSED' ? '#6A9E6A' : 'var(--accent)',
+                    background: 'var(--operational-soft)',
+                    border: '1px solid var(--operational)',
+                    color: '#6A9E6A',
                   }}>
                     {doc.status}
                   </span>
@@ -140,8 +141,8 @@ const CaseDataPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Category distribution */}
-      {cc && (
+      {/* Category distribution — only show when there are chunks */}
+      {total > 0 && (
         <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '18px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <div className="section-header">DATA EXTRACTION RESULTS</div>
@@ -195,6 +196,15 @@ const CaseDataPage: React.FC = () => {
           >
             BROWSE ALL EXTRACTED CHUNKS <ArrowRight size={12} />
           </button>
+        </div>
+      )}
+
+      {/* Empty state for category distribution */}
+      {total === 0 && docs.length === 0 && (
+        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '24px', textAlign: 'center' }}>
+          <div style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.72rem' }}>
+            UPLOAD A DOCUMENT TO SEE EXTRACTION RESULTS
+          </div>
         </div>
       )}
     </div>

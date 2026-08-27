@@ -11,7 +11,8 @@ import {
 import CasesCircle from '../components/home/CasesCircle';
 import FloatingModule from '../components/home/FloatingModule';
 import InvestigationModes from '../components/home/InvestigationModes';
-import { cases, getActiveCases, getPastCases, getGlobalStats } from '../data/cases';
+import { getCases } from '../services/apiClient';
+import type { CaseItem } from '../services/apiClient';
 
 
 
@@ -117,12 +118,21 @@ const HomePage: React.FC = () => {
   const [containerSize, setContainerSize] = useState({ w: 0, h: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const activeCases = getActiveCases();
-  const pastCases = getPastCases();
-  const globalStats = getGlobalStats();
+  const [activeCases, setActiveCases] = useState<CaseItem[]>([]);
+  const [loadingCases, setLoadingCases] = useState(true);
 
-  const processingCount = cases.filter(c => c.extractionStatus && c.extractionStatus !== 'COMPLETED').length;
-  const underReviewCount = cases.filter(c => c.status === 'UNDER_REVIEW').length;
+  useEffect(() => {
+    getCases()
+      .then(setActiveCases)
+      .catch(() => setActiveCases([]))
+      .finally(() => setLoadingCases(false));
+  }, []);
+
+  const pastCases: CaseItem[] = [];
+  const globalStats = { total: activeCases.length, underReview: 0, totalEntities: activeCases.reduce((sum, c) => sum + c.total_entities, 0), totalChunks: 0 };
+
+  const processingCount = 0;
+  const underReviewCount = 0;
 
   // Container size for SVG connections
   useEffect(() => {
@@ -327,7 +337,7 @@ const HomePage: React.FC = () => {
             subtitle="Items requiring review"
             icon={Inbox}
             items={[
-              { label: 'High Priority', value: cases.filter(c => c.status === 'UNDER_REVIEW' && c.priority === 'HIGH').length },
+              { label: 'High Priority', value: 0 },
             ]}
             path="/cases?tab=review"
             animationDelay={4}
@@ -393,10 +403,10 @@ const HomePage: React.FC = () => {
             </button>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-            {activeCases.slice(0, 3).map((c) => (
+            {activeCases.slice(0, 3).map((caseItem, idx) => (
               <div
-                key={c.id}
-            onClick={() => navigate(`/cases/${c.id}/overview`)}
+                key={caseItem.case_id}
+                onClick={() => navigate(`/cases/${encodeURIComponent(caseItem.case_id)}/overview`)}
                 style={{
                   background: 'var(--bg-surface)',
                   border: '1px solid var(--border-dim)',
@@ -412,33 +422,43 @@ const HomePage: React.FC = () => {
                 onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--bg-surface)')}
               >
                 <div style={{ minWidth: '120px' }}>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.08em' }}>{c.id}</div>
-                  <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 500 }}>{c.name}</div>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--accent)', letterSpacing: '0.08em' }}>ID-{String(idx + 1).padStart(3, '0')}</div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 500 }}>{caseItem.case_name}</div>
                 </div>
-                <span className={`badge badge--${c.priority === 'CRITICAL' ? 'critical' : c.priority === 'HIGH' ? 'high' : 'medium'}`}>{c.priority}</span>
-                <span className="badge badge--active">{c.status}</span>
+                <span className="badge badge--high">HIGH</span>
+                <span className="badge badge--active">ACTIVE</span>
                 <div style={{ flex: 1, display: 'flex', gap: '16px' }} className="hide-mobile">
                   <div>
                     <div className="intel-label">PERSONS</div>
-                    <div className="data-value">{c.personsOfInterestCount}</div>
+                    <div className="data-value">0</div>
                   </div>
                   <div>
                     <div className="intel-label">EVIDENCE</div>
-                    <div className="data-value">{c.evidenceCount}</div>
+                    <div className="data-value">0</div>
                   </div>
                   <div>
                     <div className="intel-label">ENTITIES</div>
-                    <div className="data-value">{c.entityCount.toLocaleString()}</div>
+                    <div className="data-value">{caseItem.total_entities}</div>
                   </div>
                 </div>
                 <div style={{ textAlign: 'right' }} className="hide-mobile">
                   <div className="intel-label">LAST ACTIVITY</div>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-secondary)' }}>
-                    {new Date(c.updatedAt).toLocaleDateString('en-IN', { day:'2-digit', month:'short' })}
+                    {new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'short' })}
                   </div>
                 </div>
               </div>
             ))}
+            {activeCases.length === 0 && !loadingCases && (
+               <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.75rem', background: 'var(--bg-surface)', border: '1px solid var(--border-dim)' }}>
+                 No active cases. Upload case documents to begin.
+               </div>
+            )}
+            {loadingCases && (
+               <div style={{ padding: '20px', textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.75rem', background: 'var(--bg-surface)', border: '1px solid var(--border-dim)' }}>
+                 Loading cases from NEO4J...
+               </div>
+            )}
           </div>
         </div>
 

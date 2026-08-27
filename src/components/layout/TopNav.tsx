@@ -7,7 +7,8 @@ import { useNavigate } from 'react-router-dom';
 import {
   Search, Bell, User, ChevronDown, Shield, Zap, Database
 } from 'lucide-react';
-import { alerts } from '../../data/alerts';
+
+const alerts: any[] = [];
 
 interface TopNavProps {
   onToggleSidebar: () => void;

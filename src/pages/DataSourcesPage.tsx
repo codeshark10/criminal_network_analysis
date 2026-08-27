@@ -4,7 +4,8 @@
 
 import React from 'react';
 import { Database, CheckCircle, AlertCircle } from 'lucide-react';
-import { dataSources } from '../data/alerts';
+
+const dataSources: any[] = [];
 
 const DataSourcesPage: React.FC = () => (
   <div style={{ padding: '24px', maxWidth: '800px' }}>

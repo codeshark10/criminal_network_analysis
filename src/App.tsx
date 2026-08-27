@@ -8,6 +8,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from './components/layout/AppLayout';
 import CaseLayout from './components/layout/CaseLayout';
+import { CaseDataProvider } from './context/CaseDataContext';
 
 // Global pages
 import HomePage from './pages/HomePage';
@@ -39,8 +40,9 @@ const SettingsPage = () => (
 );
 
 const App: React.FC = () => (
-  <BrowserRouter>
-    <Routes>
+  <CaseDataProvider>
+    <BrowserRouter>
+      <Routes>
       {/* ── GLOBAL LAYOUT (no sidebar) ──────────────────────── */}
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
@@ -78,6 +80,7 @@ const App: React.FC = () => (
       </Route>
     </Routes>
   </BrowserRouter>
+</CaseDataProvider>
 );
 
 export default App;

@@ -7,8 +7,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Plus, FolderOpen, Archive, Clock, ChevronRight, X, ArrowRight, Upload, FileText, CheckCircle2, Loader2, Network, Database, User } from 'lucide-react';
-import { cases, getActiveCases, getPastCases, getUnderReviewCases, addCase } from '../data/cases';
-import type { Case, CasePriority, CaseType } from '../types';
+import { getCases, uploadCaseDocuments } from '../services/apiClient';
+import type { UploadCasesResponse, CaseItem } from '../services/apiClient';
+import { useCaseData } from '../context/CaseDataContext';
+import { computeChunkCounts } from '../services/documentProcessor';
 
 // ── Processing Animation ───────────────────────────────────────
 const PROCESSING_STAGES = [
@@ -91,7 +93,7 @@ const ProcessingStages: React.FC<{ fileName: string; onComplete: () => void }> =
           <CheckCircle2 size={16} style={{ color: '#6A9E6A' }} />
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#6A9E6A', letterSpacing: '0.08em' }}>EXTRACTION PIPELINE COMPLETE</div>
-            <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', marginTop: '2px' }}>243 chunks extracted · Knowledge graph ready</div>
+            <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', marginTop: '2px' }}>Document text processed · Knowledge graph queued</div>
           </div>
         </div>
       )}
@@ -155,64 +157,145 @@ const ExtractionResults: React.FC = () => (
 // ── Create Case Modal ─────────────────────────────────────────
 const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const navigate = useNavigate();
+  const { processUploadedFiles } = useCaseData();
   const fileRef = useRef<HTMLInputElement>(null);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState({
     name: '', id: `CASE-2026-0${Math.floor(Math.random() * 90 + 10)}`,
-    type: 'FINANCIAL_CRIME' as CaseType, description: '',
-    priority: 'HIGH' as CasePriority, officer: '',
+    type: 'FINANCIAL_CRIME', description: '',
+    priority: 'HIGH', officer: '',
     date: new Date().toISOString().split('T')[0],
   });
-  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
   const [isDragOver, setIsDragOver] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadDone, setUploadDone] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [uploadResponse, setUploadResponse] = useState<UploadCasesResponse | null>(null);
+  const [validationError, setValidationError] = useState<string | null>(null);
   const [processingDone, setProcessingDone] = useState(false);
+  const [processedChunkCounts, setProcessedChunkCounts] = useState<ReturnType<typeof computeChunkCounts> | null>(null);
 
   const TOTAL_STEPS = 4;
-  const stepLabels = ['CASE INFO', 'UPLOAD DOCUMENT', 'PROCESSING', 'REVIEW & CREATE'];
+  const stepLabels = ['CASE INFO', 'UPLOAD DOCUMENTS', 'UPLOADING', 'REVIEW & CREATE'];
   const isFormValid = form.name.trim().length > 2 && form.officer.trim().length > 1;
 
-  const handleFileSelect = (file: File) => {
-    setUploadedFile(file);
+  // Trigger upload when arriving at step 3 (only once)
+  useEffect(() => {
+    if (step === 3 && !isUploading && !uploadDone && !uploadError) {
+      setIsUploading(true);
+      uploadCaseDocuments(form.id, uploadedFiles, true)
+        .then((res) => {
+          setUploadResponse(res);
+          setUploadDone(true);
+          // Trigger frontend processing in parallel (non-blocking for the UI flow)
+          processUploadedFiles(form.id, uploadedFiles)
+            .then((result) => {
+              setProcessedChunkCounts(result.chunkCounts);
+              setProcessingDone(true);
+            })
+            .catch(() => {
+              // Frontend processing failed — still let user proceed
+              setProcessingDone(true);
+            });
+        })
+        .catch((err: Error) => {
+          setUploadError(err.message || 'Upload failed. Please try again.');
+        })
+        .finally(() => {
+          setIsUploading(false);
+        });
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step]);
+
+  /** Validate and add files to state. Only .txt allowed. */
+  const addFiles = (fileList: FileList | File[]) => {
+    setValidationError(null);
+    const valid: File[] = [];
+    const rejected: string[] = [];
+
+    Array.from(fileList).forEach((file) => {
+      if (file.name.toLowerCase().endsWith('.txt')) {
+        // Avoid exact duplicate filenames
+        if (!uploadedFiles.some((f) => f.name === file.name && f.size === file.size)) {
+          valid.push(file);
+        }
+      } else {
+        rejected.push(file.name);
+      }
+    });
+
+    if (rejected.length > 0) {
+      setValidationError(
+        `Only .txt files are accepted. Rejected: ${rejected.join(', ')}`
+      );
+    }
+
+    if (valid.length > 0) {
+      setUploadedFiles((prev) => [...prev, ...valid]);
+    }
+  };
+
+  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      addFiles(e.target.files);
+      // Reset input so the same file can be re-added after removal
+      e.target.value = '';
+    }
   };
 
   const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault(); setIsDragOver(false);
-    const file = e.dataTransfer.files[0];
-    if (file) handleFileSelect(file);
+    e.preventDefault();
+    setIsDragOver(false);
+    if (e.dataTransfer.files) addFiles(e.dataTransfer.files);
+  };
+
+  const removeFile = (index: number) => {
+    setUploadedFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  /** Reset upload-specific state when going back to step 2 */
+  const resetUploadState = () => {
+    setIsUploading(false);
+    setUploadDone(false);
+    setUploadError(null);
+    setUploadResponse(null);
   };
 
   const handleCreate = () => {
-    const newCase: Case = {
-      id: form.id,
-      name: form.name,
-      type: form.type,
-      status: 'ACTIVE',
-      priority: form.priority,
-      description: form.description,
-      investigatingOfficer: form.officer,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      personsOfInterestCount: 17,
-      evidenceCount: 342,
-      entityCount: 687,
-      relationshipCount: 1492,
-      networkSize: 23,
-      tags: [form.type.toLowerCase().replace(/_/g, '-'), 'new-case'],
-      extractionStatus: 'COMPLETED',
-      documentCount: 1,
-      chunkCounts: {
-        total: 243,
-        fir: 24,
-        cdr: 87,
-        financial: 42,
-        surveillance: 31,
-        intelligence: 18,
-        criminalHistory: 12,
-        socialIntelligence: 29,
-      }
-    };
-    addCase(newCase);
-    setTimeout(() => { navigate(`/cases/${form.id}/overview`); onClose(); }, 1200);
+    // Navigate to the dashboard where cases are re-fetched.
+    setTimeout(() => { navigate('/cases'); onClose(); }, 600);
+  };
+
+  // Determines if NEXT/CREATE button should be disabled
+  const isNextDisabled = (
+    (step === 1 && !isFormValid) ||
+    (step === 2 && uploadedFiles.length === 0) ||
+    (step === 3 && (!uploadDone || !!uploadError))
+  );
+
+  // Handle footer button click
+  const handleFooterAction = () => {
+    if (step < TOTAL_STEPS) {
+      setStep(step + 1);
+    } else {
+      handleCreate();
+    }
+  };
+
+  // Handle BACK button
+  const handleBack = () => {
+    if (step === 1) {
+      onClose();
+    } else if (step === 3) {
+      // Going back from upload step — abort the upload conceptually (can't cancel fetch,
+      // but we reset all upload state so it will retry if user goes forward again)
+      resetUploadState();
+      setStep(2);
+    } else {
+      setStep(step - 1);
+    }
   };
 
   return (
@@ -256,7 +339,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div style={{ display: 'flex', gap: '10px' }}>
                 <div style={{ flex: 1 }}>
                   <div className="data-key" style={{ marginBottom: '4px' }}>CASE TYPE</div>
-                  <select className="intel-input" style={{ width: '100%' }} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value as CaseType })}>
+                  <select className="intel-input" style={{ width: '100%' }} value={form.type} onChange={(e) => setForm({ ...form, type: e.target.value })}>
                     {['FINANCIAL_CRIME', 'ORGANIZED_CRIME', 'CYBERCRIME', 'NARCOTICS', 'MONEY_LAUNDERING', 'FRAUD', 'HUMAN_TRAFFICKING', 'TERRORISM'].map((t) => (
                       <option key={t} value={t}>{t.replace(/_/g, ' ')}</option>
                     ))}
@@ -264,7 +347,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
                 <div style={{ flex: 1 }}>
                   <div className="data-key" style={{ marginBottom: '4px' }}>PRIORITY</div>
-                  <select className="intel-input" style={{ width: '100%' }} value={form.priority} onChange={(e) => setForm({ ...form, priority: e.target.value as CasePriority })}>
+                  <select className="intel-input" style={{ width: '100%' }} value={form.priority} onChange={(e) => setForm({ ...form, priority: e.target.value })}>
                     {['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map((p) => <option key={p} value={p}>{p}</option>)}
                   </select>
                 </div>
@@ -292,83 +375,171 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             </div>
           )}
 
-          {/* Step 2: Upload Document */}
+          {/* Step 2: Upload Documents */}
           {step === 2 && (
             <div>
-              <div className="intel-label" style={{ marginBottom: '6px' }}>UPLOAD INVESTIGATION DOCUMENT</div>
+              <div className="intel-label" style={{ marginBottom: '6px' }}>UPLOAD INVESTIGATION DOCUMENTS</div>
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                Upload a single consolidated PDF document containing all raw intelligence data — FIR, CDR records, financial data, surveillance logs, and any other evidence. The AI extraction pipeline will automatically parse and categorize the content.
+                Upload raw intelligence data documents (.txt format only).
+                The AI extraction pipeline will parse and build the knowledge graph automatically.
               </div>
 
-              {!uploadedFile ? (
-                <div
-                  className={`upload-dropzone ${isDragOver ? 'upload-dropzone--active' : ''}`}
-                  style={{ minHeight: '160px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px' }}
-                  onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
-                  onDragLeave={() => setIsDragOver(false)}
-                  onDrop={handleDrop}
-                  onClick={() => fileRef.current?.click()}
-                >
-                  <Upload size={32} style={{ color: isDragOver ? 'var(--accent)' : 'var(--text-muted)', transition: 'color 0.2s' }} />
-                  <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: isDragOver ? 'var(--accent)' : 'var(--text-secondary)', letterSpacing: '0.08em', marginBottom: '4px' }}>
-                      DROP DOCUMENT HERE OR CLICK TO BROWSE
-                    </div>
-                    <div className="intel-label" style={{ fontSize: '0.6rem' }}>SUPPORTED: PDF / DOCX — SINGLE FILE, UP TO 50MB</div>
-                  </div>
-                  <input
-                    ref={fileRef}
-                    type="file"
-                    accept=".pdf,.docx"
-                    style={{ display: 'none' }}
-                    onChange={(e) => { if (e.target.files?.[0]) handleFileSelect(e.target.files[0]); }}
-                  />
-                </div>
-              ) : (
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '14px 16px', background: 'var(--bg-surface)', border: '1px solid var(--accent-dim)', borderLeft: '3px solid var(--accent)' }}>
-                  <FileText size={22} style={{ color: 'var(--accent)', flexShrink: 0 }} />
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-primary)', fontWeight: 500, marginBottom: '2px' }}>{uploadedFile.name}</div>
-                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.63rem', color: 'var(--text-muted)' }}>
-                      {(uploadedFile.size / 1024 / 1024).toFixed(2)} MB · {uploadedFile.type || 'Document'}
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setUploadedFile(null)}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)' }}
-                  ><X size={14} /></button>
+              {/* Validation error */}
+              {validationError && (
+                <div style={{ padding: '10px 14px', marginBottom: '14px', background: 'var(--critical-soft)', border: '1px solid var(--critical)', color: 'var(--critical)', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                  <X size={13} style={{ marginTop: '1px', flexShrink: 0 }} />
+                  <span>{validationError}</span>
                 </div>
               )}
 
-              {!uploadedFile && (
-                <div style={{ marginTop: '16px', padding: '12px 14px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
-                  <div className="intel-label" style={{ marginBottom: '6px' }}>FOR DEMONSTRATION</div>
-                  <div
-                    style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--accent)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
-                    onClick={() => {
-                      const demoFile = new File(['demo'], 'investigation_records_demo.pdf', { type: 'application/pdf' });
-                      handleFileSelect(demoFile);
-                    }}
-                  >
-                    → LOAD DEMO DOCUMENT (investigation_records_demo.pdf · 4.5 MB)
+              {/* Drop zone */}
+              <div
+                className={`upload-dropzone ${isDragOver ? 'upload-dropzone--active' : ''}`}
+                style={{ minHeight: '120px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '12px', marginBottom: '16px', cursor: 'pointer' }}
+                onDragOver={(e) => { e.preventDefault(); setIsDragOver(true); }}
+                onDragLeave={() => setIsDragOver(false)}
+                onDrop={handleDrop}
+                onClick={() => fileRef.current?.click()}
+              >
+                <Upload size={28} style={{ color: isDragOver ? 'var(--accent)' : 'var(--text-muted)', transition: 'color 0.2s' }} />
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: isDragOver ? 'var(--accent)' : 'var(--text-secondary)', letterSpacing: '0.08em', marginBottom: '4px' }}>
+                    DROP .TXT FILES HERE OR CLICK TO BROWSE
+                  </div>
+                  <div className="intel-label" style={{ fontSize: '0.6rem' }}>ONLY .TXT FILES — MULTIPLE FILES SUPPORTED</div>
+                </div>
+                <input
+                  ref={fileRef}
+                  type="file"
+                  multiple
+                  accept=".txt,text/plain"
+                  style={{ display: 'none' }}
+                  onChange={handleFileSelect}
+                />
+              </div>
+
+              {/* File list */}
+              {uploadedFiles.length > 0 && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div className="intel-label" style={{ fontSize: '0.6rem' }}>QUEUED FILES ({uploadedFiles.length})</div>
+                  <div style={{ maxHeight: '180px', overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    {uploadedFiles.map((file, i) => (
+                      <div key={`${file.name}-${i}`} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '9px 12px', background: 'var(--bg-surface)', border: '1px solid var(--border-base)', borderLeft: '3px solid var(--accent-dim)' }}>
+                        <FileText size={14} style={{ color: 'var(--accent)', flexShrink: 0 }} />
+                        <div style={{ flex: 1, minWidth: 0 }}>
+                          <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{file.name}</div>
+                          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)' }}>{(file.size / 1024).toFixed(1)} KB</div>
+                        </div>
+                        <button
+                          onClick={(e) => { e.stopPropagation(); removeFile(i); }}
+                          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text-muted)', padding: '2px', display: 'flex' }}
+                          title="Remove file"
+                        >
+                          <X size={13} />
+                        </button>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}
             </div>
           )}
 
-          {/* Step 3: Processing */}
+          {/* Step 3: Uploading */}
           {step === 3 && (
-            <ProcessingStages
-              fileName={uploadedFile?.name ?? 'investigation_document.pdf'}
-              onComplete={() => setProcessingDone(true)}
-            />
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '20px', padding: '12px', background: 'var(--bg-elevated)', border: '1px solid var(--border-base)' }}>
+                <Upload size={14} style={{ color: 'var(--accent-dim)' }} />
+                <div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 500 }}>Uploading Documents</div>
+                  <div className="intel-label" style={{ fontSize: '0.58rem' }}>
+                    TRANSMITTING {uploadedFiles.length} FILE{uploadedFiles.length !== 1 ? 'S' : ''} TO NEXUS CORE
+                  </div>
+                </div>
+              </div>
+
+              {/* Loading state */}
+              {isUploading && (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', padding: '40px 0' }}>
+                  <Loader2 size={32} className="animate-spin-slow" style={{ color: 'var(--accent)' }} />
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--text-secondary)' }}>
+                    UPLOADING... DO NOT CLOSE WINDOW
+                  </div>
+                </div>
+              )}
+
+              {/* Error state */}
+              {!isUploading && uploadError && (
+                <div style={{ padding: '16px', background: 'var(--critical-soft)', border: '1px solid var(--critical)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                  <X size={16} style={{ color: 'var(--critical)', marginTop: '2px', flexShrink: 0 }} />
+                  <div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--critical)', letterSpacing: '0.08em' }}>UPLOAD FAILED</div>
+                    <div style={{ fontSize: '0.7rem', color: 'var(--text-primary)', marginTop: '6px', lineHeight: 1.5 }}>{uploadError}</div>
+                    <div style={{ marginTop: '12px', fontSize: '0.68rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                      ← Use BACK to return and try again.
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Success state */}
+              {!isUploading && uploadDone && uploadResponse && !uploadError && (
+                <div className="animate-fade-in-up">
+                  <div style={{ padding: '12px', background: 'var(--operational-soft)', border: '1px solid var(--operational)', display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+                    <CheckCircle2 size={16} style={{ color: '#6A9E6A', flexShrink: 0 }} />
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: '#6A9E6A', letterSpacing: '0.08em' }}>UPLOAD COMPLETE</div>
+                      <div style={{ fontSize: '0.68rem', color: 'var(--text-secondary)', marginTop: '2px' }}>
+                        {uploadResponse.message}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
+                      <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)' }}>Files accepted</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--text-primary)' }}>{uploadResponse.total_uploaded}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
+                      <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)' }}>Pipeline status</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent)' }}>{uploadResponse.pipeline_status}</span>
+                    </div>
+                    {uploadResponse.files.length > 0 && (
+                      <div style={{ marginTop: '4px' }}>
+                        <div className="intel-label" style={{ fontSize: '0.58rem', marginBottom: '6px' }}>UPLOADED FILES</div>
+                        {uploadResponse.files.map((f) => (
+                          <div key={f.filename} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 10px', background: 'var(--bg-surface)', border: '1px solid var(--border-faint)', marginBottom: '3px' }}>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-secondary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '60%' }}>{f.filename}</span>
+                            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: '#6A9E6A' }}>{f.status}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </div>
           )}
 
           {/* Step 4: Review & Create */}
           {step === 4 && (
             <div>
-              <ExtractionResults />
+              {uploadResponse && (
+                <div style={{ marginBottom: '16px' }}>
+                  <div className="intel-label" style={{ marginBottom: '10px' }}>UPLOAD RESULTS</div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '16px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
+                      <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)' }}>Files uploaded</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'var(--text-primary)' }}>{uploadResponse.total_uploaded}</span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-dim)' }}>
+                      <span style={{ fontSize: '0.73rem', color: 'var(--text-muted)' }}>Pipeline status</span>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--accent)' }}>{uploadResponse.pipeline_status}</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div className="divider" style={{ margin: '16px 0' }} />
               <div className="intel-label" style={{ marginBottom: '10px' }}>CASE SUMMARY</div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginBottom: '16px' }}>
@@ -378,7 +549,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   { label: 'Type', value: form.type.replace(/_/g, ' ') },
                   { label: 'Priority', value: form.priority },
                   { label: 'Officer', value: form.officer || '—' },
-                  { label: 'Document', value: uploadedFile?.name ?? 'demo.pdf' },
+                  { label: 'Documents', value: `${uploadedFiles.length} file(s)` },
                 ].map(({ label, value }) => (
                   <div key={label} style={{ padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-base)' }}>
                     <div className="data-key" style={{ marginBottom: '2px' }}>{label}</div>
@@ -392,30 +563,32 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
         {/* Footer */}
         <div style={{ padding: '12px 20px', borderTop: '1px solid var(--border-dim)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <button className="btn btn--ghost" onClick={() => step > 1 ? setStep(step - 1) : onClose()}>
+          <button
+            className="btn btn--ghost"
+            onClick={handleBack}
+            disabled={isUploading}
+            style={{ opacity: isUploading ? 0.4 : 1 }}
+          >
             {step > 1 ? 'BACK' : 'CANCEL'}
           </button>
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            {step === 3 && !processingDone && (
+            {step === 3 && isUploading && (
               <span className="intel-label" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <Loader2 size={12} className="animate-spin-slow" /> PROCESSING...
+                <Loader2 size={12} className="animate-spin-slow" /> UPLOADING...
               </span>
             )}
             <button
               className="btn btn--accent"
-              disabled={
-                (step === 1 && !isFormValid) ||
-                (step === 2 && !uploadedFile) ||
-                (step === 3 && !processingDone)
-              }
-              onClick={() => {
-                if (step < TOTAL_STEPS) setStep(step + 1);
-                else handleCreate();
-              }}
-              style={{ opacity: ((step === 1 && !isFormValid) || (step === 2 && !uploadedFile) || (step === 3 && !processingDone)) ? 0.5 : 1 }}
+              disabled={isNextDisabled || isUploading}
+              onClick={handleFooterAction}
+              style={{ opacity: (isNextDisabled || isUploading) ? 0.45 : 1 }}
             >
-              {step === TOTAL_STEPS ? 'CREATE CASE' : step === 3 ? (processingDone ? 'VIEW RESULTS' : 'PROCESSING...') : 'NEXT'}
-              {step !== 3 && <ArrowRight size={12} />}
+              {step === TOTAL_STEPS
+                ? 'CREATE CASE'
+                : step === 3
+                ? (uploadDone ? 'CONTINUE →' : uploadError ? 'FAILED' : 'UPLOADING...')
+                : 'NEXT'}
+              {step !== 3 && step !== TOTAL_STEPS && <ArrowRight size={12} />}
             </button>
           </div>
         </div>
@@ -432,19 +605,23 @@ const CasesPage: React.FC = () => {
   const showCreate = searchParams.get('create') === 'true';
   const [searchQuery, setSearchQuery] = useState('');
 
-  const activeCases = getActiveCases();
-  const pastCases = getPastCases();
-  const underReview = getUnderReviewCases();
+  const [activeCases, setActiveCases] = useState<CaseItem[]>([]);
+  const [loadingCases, setLoadingCases] = useState(true);
+
+  useEffect(() => {
+    getCases()
+      .then(setActiveCases)
+      .catch(() => setActiveCases([]))
+      .finally(() => setLoadingCases(false));
+  }, [showCreate]); // re-fetch when modal closes
+
+  const pastCases: CaseItem[] = [];
+  const underReview: CaseItem[] = [];
 
   const allDisplayCases = tab === 'active' ? activeCases : tab === 'past' ? pastCases : underReview;
   const displayCases = searchQuery
-    ? allDisplayCases.filter((c) => c.name.toLowerCase().includes(searchQuery.toLowerCase()) || c.id.toLowerCase().includes(searchQuery.toLowerCase()))
+    ? allDisplayCases.filter((c) => c.case_name.toLowerCase().includes(searchQuery.toLowerCase()) || c.case_id.toLowerCase().includes(searchQuery.toLowerCase()))
     : allDisplayCases;
-
-  const priorityBorderColor = (c: typeof cases[0]) =>
-    c.priority === 'CRITICAL' ? 'var(--critical)'
-    : c.priority === 'HIGH' ? 'var(--accent-dim)'
-    : 'var(--border-base)';
 
   return (
     <div style={{ padding: '24px 28px', maxWidth: '1200px' }}>
@@ -509,19 +686,23 @@ const CasesPage: React.FC = () => {
 
       {/* Cases list */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
-        {displayCases.length === 0 ? (
+        {loadingCases ? (
           <div style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
-            NO CASES MATCH YOUR SEARCH
+            LOADING CASES FROM NEO4J...
+          </div>
+        ) : displayCases.length === 0 ? (
+          <div style={{ padding: '40px', textAlign: 'center', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.78rem' }}>
+            {searchQuery ? 'NO CASES MATCH YOUR SEARCH' : 'NO CASES AVAILABLE. UPLOAD DOCUMENTS TO BEGIN.'}
           </div>
         ) : (
-          displayCases.map((c) => (
+          displayCases.map((caseItem, idx) => (
             <div
-              key={c.id}
-              onClick={() => navigate(`/cases/${c.id}/overview`)}
+              key={caseItem.case_id}
+              onClick={() => navigate(`/cases/${encodeURIComponent(caseItem.case_id)}/overview`)}
               style={{
                 background: 'var(--bg-surface)',
                 border: '1px solid var(--border-dim)',
-                borderLeft: `2px solid ${priorityBorderColor(c)}`,
+                borderLeft: '2px solid var(--accent-dim)',
                 padding: '14px 16px',
                 cursor: 'pointer',
                 transition: 'background 0.15s',
@@ -534,31 +715,31 @@ const CasesPage: React.FC = () => {
               onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--bg-surface)')}
             >
               <div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--accent)', letterSpacing: '0.08em' }}>{c.id}</div>
-                <div style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: 500, marginTop: '2px' }}>{c.name}</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--accent)', letterSpacing: '0.08em' }}>ID-{String(idx + 1).padStart(3, '0')}</div>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: 500, marginTop: '2px' }}>{caseItem.case_name}</div>
               </div>
-              <span className={`badge badge--${c.status === 'ACTIVE' ? 'active' : c.status === 'UNDER_REVIEW' ? 'review' : 'closed'}`}>
-                {c.status.replace('_', ' ')}
+              <span className="badge badge--active">
+                ACTIVE
               </span>
-              <span className={`badge badge--${c.priority === 'CRITICAL' ? 'critical' : c.priority === 'HIGH' ? 'high' : 'medium'}`}>
-                {c.priority}
+              <span className="badge badge--high">
+                HIGH
               </span>
               <div>
                 <div className="intel-label">PERSONS</div>
-                <div className="data-value">{c.personsOfInterestCount}</div>
+                <div className="data-value">0</div>
               </div>
               <div>
                 <div className="intel-label">EVIDENCE</div>
-                <div className="data-value">{c.evidenceCount}</div>
+                <div className="data-value">0</div>
               </div>
               <div>
                 <div className="intel-label">ENTITIES</div>
-                <div className="data-value">{c.entityCount.toLocaleString()}</div>
+                <div className="data-value">{caseItem.total_entities}</div>
               </div>
               <div>
                 <div className="intel-label">LAST ACTIVITY</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-secondary)' }}>
-                  {new Date(c.updatedAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: '2-digit' })}
+                  {new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: '2-digit' })}
                 </div>
               </div>
               <ChevronRight size={14} style={{ color: 'var(--text-muted)' }} />

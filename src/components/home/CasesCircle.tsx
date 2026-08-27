@@ -118,28 +118,29 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount, total
         />
 
         {/* Animated arc segments on outer ring */}
-        {[0, 90, 180, 270].map((startAngle, i) => {
-          const r = cx - 6;
-          const arcLen = 60;
-          const totalArc = 360;
-          const sa = ((startAngle + tick * 1.5) % totalArc) * Math.PI / 180;
-          const ea = sa + (arcLen * Math.PI / 180);
-          const x1 = cx + r * Math.cos(sa);
-          const y1 = cy + r * Math.sin(sa);
-          const x2 = cx + r * Math.cos(ea);
-          const y2 = cy + r * Math.sin(ea);
-          return (
-            <path
-              key={i}
-              d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
-              fill="none"
-              stroke="rgba(201,184,106,0.35)"
-              strokeWidth="1.5"
-              className="animate-spin-slow"
-              style={{ transformOrigin: `${cx}px ${cy}px` }}
-            />
-          );
-        })}
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from={`0 ${cx} ${cy}`} to={`360 ${cx} ${cy}`} dur="20s" repeatCount="indefinite" />
+          {[0, 90, 180, 270].map((startAngle, i) => {
+            const r = cx - 6;
+            const arcLen = 60;
+            const totalArc = 360;
+            const sa = (startAngle * Math.PI) / 180;
+            const ea = sa + (arcLen * Math.PI) / 180;
+            const x1 = cx + r * Math.cos(sa);
+            const y1 = cy + r * Math.sin(sa);
+            const x2 = cx + r * Math.cos(ea);
+            const y2 = cy + r * Math.sin(ea);
+            return (
+              <path
+                key={i}
+                d={`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`}
+                fill="none"
+                stroke="rgba(201,184,106,0.35)"
+                strokeWidth="1.5"
+              />
+            );
+          })}
+        </g>
 
         {/* Data markers on outer ring */}
         {markers.map((deg, i) => {
@@ -160,7 +161,8 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount, total
         })}
 
         {/* Rotating indicator on second ring */}
-        <g style={{ transformOrigin: `${cx}px ${cy}px`, animation: 'spin-slow 15s linear infinite' }}>
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from={`0 ${cx} ${cy}`} to={`360 ${cx} ${cy}`} dur="15s" repeatCount="indefinite" />
           {[0, 120, 240].map((deg, i) => {
             const rad = deg * Math.PI / 180;
             const r = cx - 20;
@@ -181,7 +183,8 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount, total
         </g>
 
         {/* Reverse rotating indicator */}
-        <g style={{ transformOrigin: `${cx}px ${cy}px`, animation: 'spin-reverse-slow 25s linear infinite' }}>
+        <g>
+          <animateTransform attributeName="transform" type="rotate" from={`360 ${cx} ${cy}`} to={`0 ${cx} ${cy}`} dur="25s" repeatCount="indefinite" />
           {[60, 180, 300].map((deg, i) => {
             const rad = deg * Math.PI / 180;
             const r = cx - 40;

@@ -1,14 +1,16 @@
 // ============================================================
 // NEXUS — Case Chunks Page
 // Displays all extracted chunks for a case with filters
+// Now powered by frontend-processed document data
 // ============================================================
 
 import React, { useState, useMemo } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
-import { Search, ChevronRight, X, Filter } from 'lucide-react';
-import { getCaseById } from '../../data/cases';
-import { getChunksByCase } from '../../data/caseChunks';
+import { Search, ChevronRight, X } from 'lucide-react';
+
 import type { ChunkCategory, ExtractedChunk } from '../../types';
+import { useCaseData } from '../../context/CaseDataContext';
+import { computeChunkCounts } from '../../services/documentProcessor';
 
 const categoryColors: Record<string, string> = {
   FIR: '#C07070',
@@ -77,33 +79,19 @@ const ChunkDetail: React.FC<{ chunk: ExtractedChunk; onClose: () => void }> = ({
       </div>
     </div>
 
-    {/* Entities */}
+    {/* Matched keywords (stored in entities field) */}
     {chunk.entities && chunk.entities.length > 0 && (
       <div style={{ marginBottom: '14px' }}>
-        <div className="intel-label" style={{ marginBottom: '8px' }}>EXTRACTED ENTITIES</div>
+        <div className="intel-label" style={{ marginBottom: '8px' }}>MATCHED SIGNALS</div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px' }}>
-          {chunk.entities.map((ent) => (
-            <span key={ent} style={{
+          {chunk.entities.map((kw) => (
+            <span key={kw} style={{
               fontFamily: 'var(--font-mono)', fontSize: '0.65rem', padding: '2px 8px',
               background: 'var(--bg-elevated)', border: '1px solid var(--border-base)',
               color: 'var(--text-secondary)',
-            }}>{ent}</span>
+            }}>{kw}</span>
           ))}
         </div>
-      </div>
-    )}
-
-    {/* Relationships */}
-    {chunk.relationships && chunk.relationships.length > 0 && (
-      <div style={{ marginBottom: '14px' }}>
-        <div className="intel-label" style={{ marginBottom: '8px' }}>EXTRACTED RELATIONSHIPS</div>
-        {chunk.relationships.map((rel, i) => (
-          <div key={i} style={{ padding: '7px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-base)', marginBottom: '4px' }}>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-primary)' }}>{rel.from}</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--accent-dim)', margin: '0 6px' }}>→ {rel.type} →</span>
-            <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-primary)' }}>{rel.to}</span>
-          </div>
-        ))}
       </div>
     )}
 
@@ -131,9 +119,12 @@ const CaseChunksPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedChunk, setSelectedChunk] = useState<ExtractedChunk | null>(null);
+  const { getChunks, getDocuments } = useCaseData();
 
-  const caseData = getCaseById(caseId ?? '');
-  const allChunks = getChunksByCase(caseId ?? '');
+  // Load chunks and documents from context (localStorage-backed)
+  const allChunks = caseId ? getChunks(caseId) : [];
+  const docs = caseId ? getDocuments(caseId) : [];
+  const cc = computeChunkCounts(allChunks);
   const selectedCat = searchParams.get('cat') ?? 'ALL';
 
   const categories: Array<{ key: string; label: string }> = [
@@ -150,7 +141,7 @@ const CaseChunksPage: React.FC = () => {
   const filteredChunks = useMemo(() => {
     let result = allChunks;
     if (selectedCat !== 'ALL') {
-      result = result.filter((c) => c.category === selectedCat);
+      result = result.filter((c) => c.category === (selectedCat as ChunkCategory));
     }
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -161,9 +152,6 @@ const CaseChunksPage: React.FC = () => {
     }
     return result;
   }, [allChunks, selectedCat, searchQuery]);
-
-  if (!caseData) return null;
-  const cc = caseData.chunkCounts;
 
   return (
     <div style={{ display: 'flex', height: '100%', overflow: 'hidden' }}>
@@ -178,7 +166,7 @@ const CaseChunksPage: React.FC = () => {
             Intelligence Chunks
           </h1>
           <p style={{ margin: '6px 0 0', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            {allChunks.length} chunks extracted from {caseData.documentCount} document{caseData.documentCount !== 1 ? 's' : ''} · Click a chunk to view details and traceability
+            {allChunks.length} chunks extracted from {docs.length} document{docs.length !== 1 ? 's' : ''} · Click a chunk to view details and traceability
           </p>
         </div>
 
@@ -188,7 +176,7 @@ const CaseChunksPage: React.FC = () => {
           <input
             className="intel-input"
             style={{ width: '100%', paddingLeft: '32px' }}
-            placeholder="Search chunk text, entities..."
+            placeholder="Search chunk text, signals..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -198,13 +186,13 @@ const CaseChunksPage: React.FC = () => {
         <div style={{ display: 'flex', borderBottom: '1px solid var(--border-dim)', marginBottom: '16px', flexWrap: 'wrap' }}>
           {categories.map(({ key, label }) => {
             const count = key === 'ALL' ? allChunks.length
-              : key === 'FIR' ? (cc?.fir ?? 0)
-              : key === 'CDR' ? (cc?.cdr ?? 0)
-              : key === 'FINANCIAL' ? (cc?.financial ?? 0)
-              : key === 'SURVEILLANCE' ? (cc?.surveillance ?? 0)
-              : key === 'INTELLIGENCE' ? (cc?.intelligence ?? 0)
-              : key === 'CRIMINAL_HISTORY' ? (cc?.criminalHistory ?? 0)
-              : (cc?.socialIntelligence ?? 0);
+              : key === 'FIR' ? cc.fir
+              : key === 'CDR' ? cc.cdr
+              : key === 'FINANCIAL' ? cc.financial
+              : key === 'SURVEILLANCE' ? cc.surveillance
+              : key === 'INTELLIGENCE' ? cc.intelligence
+              : key === 'CRIMINAL_HISTORY' ? cc.criminalHistory
+              : cc.socialIntelligence;
             return (
               <button
                 key={key}
@@ -270,9 +258,9 @@ const CaseChunksPage: React.FC = () => {
 
                     {chunk.entities && chunk.entities.length > 0 && (
                       <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
-                        {chunk.entities.slice(0, 4).map((ent) => (
-                          <span key={ent} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', background: 'var(--bg-elevated)', border: '1px solid var(--border-faint)', padding: '1px 5px' }}>
-                            {ent}
+                        {chunk.entities.slice(0, 4).map((kw) => (
+                          <span key={kw} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', background: 'var(--bg-elevated)', border: '1px solid var(--border-faint)', padding: '1px 5px' }}>
+                            {kw}
                           </span>
                         ))}
                         {chunk.entities.length > 4 && (

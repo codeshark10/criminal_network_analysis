@@ -4,8 +4,9 @@
 
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { evidenceRecords, getEvidenceByType } from '../data/evidence';
 import type { Evidence } from '../types';
+
+const evidenceRecords: Evidence[] = [];
 
 const EvidencePage: React.FC = () => {
   const [typeFilter, setTypeFilter] = useState<Evidence['type'] | 'ALL'>('ALL');

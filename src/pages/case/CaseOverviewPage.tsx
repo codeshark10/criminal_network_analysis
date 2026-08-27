@@ -3,23 +3,103 @@
 // First page shown when entering a case workspace
 // ============================================================
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   FileText, Users, Network, Shield, Clock, AlertTriangle,
   BarChart3, ArrowRight, Fingerprint, Brain, CheckCircle2,
-  Database, Activity, ChevronRight,
+  Database, Activity, ChevronRight, Loader2,
 } from 'lucide-react';
-import { getCaseById } from '../../data/cases';
-import { getDocumentsByCase } from '../../data/caseDocuments';
-import { getChunksByCase } from '../../data/caseChunks';
-import { getGraphNodesByCase } from '../../data/graphNodes';
-import { alerts } from '../../data/alerts';
+import { getTopSuspects, getExecutiveSummary, getMajorEntities, getDashboardMetrics } from '../../services/apiClient';
+import type { SuspectProfile, ApiGraphResponse, MajorEntitiesResponse, DashboardMetricsResponse } from '../../services/apiClient';
+import { useCaseData } from '../../context/CaseDataContext';
+import { computeChunkCounts } from '../../services/documentProcessor';
 
 const CaseOverviewPage: React.FC = () => {
   const { caseId } = useParams<{ caseId: string }>();
   const navigate = useNavigate();
-  const caseData = getCaseById(caseId ?? '');
+  const { getChunks, getAlerts, getDocuments } = useCaseData();
+
+  // Local processed data (from uploaded .txt files)
+  const localChunks = caseId ? getChunks(caseId) : [];
+  const localAlerts = caseId ? getAlerts(caseId) : [];
+  const localDocs   = caseId ? getDocuments(caseId) : [];
+  const localCounts = computeChunkCounts(localChunks);
+
+  // Create a default case data structure since the backend doesn't provide metadata yet
+  const caseData = {
+    id: caseId ?? 'UNKNOWN',
+    name: caseId ?? 'Unknown Case',
+    type: 'INVESTIGATION',
+    status: 'ACTIVE',
+    priority: 'HIGH',
+    investigatingOfficer: 'Unassigned',
+    description: `Analysis for case: ${caseId}. Documents have been processed and integrated into the global knowledge graph.`,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    personsOfInterestCount: 0,
+    evidenceCount: 0,
+    entityCount: 0,
+    relationshipCount: 0,
+    networkSize: 0,
+    tags: ['dynamic-case'],
+    extractionStatus: 'COMPLETED',
+    documentCount: 0,
+    chunkCounts: {
+      total: 0, fir: 0, cdr: 0, financial: 0, surveillance: 0, intelligence: 0, criminalHistory: 0, socialIntelligence: 0
+    }
+  };
+
+  // ── Live suspects from backend ──────────────────────────
+  const [liveSuspects, setLiveSuspects] = useState<SuspectProfile[] | null>(null);
+  const [suspectsLoading, setSuspectsLoading] = useState(true);
+  const [suspectsLive, setSuspectsLive] = useState(false);
+
+  // ── Metrics from backend ────────────────────────────────
+  const [metrics, setMetrics] = useState<DashboardMetricsResponse | null>(null);
+  const [metricsLoading, setMetricsLoading] = useState(true);
+
+
+  useEffect(() => {
+    if (!caseId) return;
+    setSuspectsLoading(true);
+    getTopSuspects(caseId, 5)
+      .then((data) => {
+        setLiveSuspects(data);
+        setSuspectsLive(true);
+      })
+      .catch(() => {
+        setLiveSuspects(null);
+        setSuspectsLive(false);
+      })
+      .finally(() => setSuspectsLoading(false));
+
+    setMetricsLoading(true);
+    getDashboardMetrics(caseId)
+      .then(setMetrics)
+      .catch(() => setMetrics(null))
+      .finally(() => setMetricsLoading(false));
+
+    setExecLoading(true);
+    getExecutiveSummary(caseId, 20, 6, 1)
+      .then(setExecSummary)
+      .catch(() => setExecSummary(null))
+      .finally(() => setExecLoading(false));
+
+    setEntitiesLoading(true);
+    getMajorEntities(caseId, 50)
+      .then(setMajorEntities)
+      .catch(() => setMajorEntities(null))
+      .finally(() => setEntitiesLoading(false));
+  }, [caseId]);
+
+  // ── Executive Summary & Major Entities ──
+  const [execSummary, setExecSummary] = useState<ApiGraphResponse | null>(null);
+  const [execLoading, setExecLoading] = useState(true);
+
+  const [majorEntities, setMajorEntities] = useState<MajorEntitiesResponse | null>(null);
+  const [entitiesLoading, setEntitiesLoading] = useState(true);
+
 
   if (!caseData) {
     return (
@@ -35,10 +115,10 @@ const CaseOverviewPage: React.FC = () => {
     );
   }
 
-  const docs = getDocumentsByCase(caseId ?? '');
-  const chunks = getChunksByCase(caseId ?? '');
-  const nodes = getGraphNodesByCase(caseId ?? '');
-  const caseAlerts = alerts.filter((a) => a.caseId === caseId && a.status === 'ACTIVE');
+  const docs: any[] = [];
+  const chunks: any[] = [];
+  const nodes: any[] = [];
+  const caseAlerts: any[] = [];
   const base = `/cases/${caseId}`;
 
   const priorityColor = caseData.priority === 'CRITICAL' ? 'var(--critical)'
@@ -104,14 +184,14 @@ const CaseOverviewPage: React.FC = () => {
       {/* ── Stats Row ── */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '1px', marginBottom: '24px' }}>
         {[
-          { label: 'DOCUMENTS', value: caseData.documentCount, icon: FileText },
-          { label: 'CHUNKS', value: cc?.total ?? 0, icon: Database },
-          { label: 'ENTITIES', value: caseData.entityCount.toLocaleString(), icon: Network },
-          { label: 'PERSONS', value: caseData.personsOfInterestCount, icon: Users },
-          { label: 'EVIDENCE', value: caseData.evidenceCount, icon: Shield },
-          { label: 'RELATIONSHIPS', value: caseData.relationshipCount.toLocaleString(), icon: Activity },
-          { label: 'ALERTS', value: caseAlerts.length, icon: AlertTriangle },
-          { label: 'NETWORK SIZE', value: caseData.networkSize, icon: BarChart3 },
+          { label: 'DOCUMENTS',     value: metrics?.documents    || localDocs.length,          icon: FileText },
+          { label: 'CHUNKS',        value: metrics?.chunks        || localCounts.total,          icon: Database },
+          { label: 'ENTITIES',      value: (metrics?.entities ?? 0).toLocaleString(),             icon: Network },
+          { label: 'PERSONS',       value: metrics?.persons ?? 0,                                 icon: Users },
+          { label: 'EVIDENCE',      value: metrics?.evidence ?? 0,                                icon: Shield },
+          { label: 'RELATIONSHIPS', value: (metrics?.relationships ?? 0).toLocaleString(),         icon: Activity },
+          { label: 'ALERTS',        value: metrics?.alerts        || localAlerts.length,           icon: AlertTriangle },
+          { label: 'NETWORK SIZE',  value: metrics?.network_size ?? 0,                            icon: BarChart3 },
         ].map(({ label, value, icon: Icon }) => (
           <div key={label} style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '14px 12px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '5px', marginBottom: '6px' }}>
@@ -119,7 +199,11 @@ const CaseOverviewPage: React.FC = () => {
               <span className="intel-label" style={{ fontSize: '0.58rem' }}>{label}</span>
             </div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.3rem', fontWeight: 300, color: 'var(--text-primary)', lineHeight: 1 }}>
-              {value}
+              {metricsLoading ? (
+                <Loader2 size={16} className="spin" style={{ color: 'var(--text-secondary)' }} />
+              ) : (
+                value
+              )}
             </div>
           </div>
         ))}
@@ -264,6 +348,120 @@ const CaseOverviewPage: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* ── Top Suspects (Live) ── */}
+        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <div className="section-header">TOP SUSPECTS</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              {suspectsLive
+                ? <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: '#6A9E6A', padding: '2px 6px', border: '1px solid var(--operational)', background: 'rgba(58,94,58,0.12)' }}><Database size={9} style={{ display: 'inline', marginRight: '3px' }} />LIVE</span>
+                : <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-faint)', padding: '2px 6px', border: '1px solid var(--border-dim)' }}>OFFLINE</span>
+              }
+              <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px' }} onClick={() => navigate(`${base}/network`)}>
+                GRAPH
+              </button>
+            </div>
+          </div>
+
+          {suspectsLoading && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px 0', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.68rem' }}>
+              <Loader2 size={14} className="animate-spin-slow" style={{ color: 'var(--accent)' }} />
+              QUERYING NEO4J...
+            </div>
+          )}
+
+          {!suspectsLoading && !suspectsLive && (
+            <div style={{ padding: '10px 0', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-faint)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <AlertTriangle size={12} style={{ color: 'var(--warning)' }} />
+              Backend offline — start FastAPI to see live suspect data
+            </div>
+          )}
+
+          {!suspectsLoading && suspectsLive && liveSuspects && liveSuspects.length === 0 && (
+            <div style={{ padding: '10px 0', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-faint)' }}>
+              No suspects found — upload and process documents to populate the graph.
+            </div>
+          )}
+
+          {!suspectsLoading && suspectsLive && liveSuspects && liveSuspects.length > 0 && (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+              {liveSuspects.map((s, i) => (
+                <div key={s.name} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-faint)', borderLeft: `2px solid ${i < 3 ? 'var(--critical)' : 'var(--accent-dim)'}` }}>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: i < 3 ? 'var(--critical)' : 'var(--text-faint)', width: '18px', flexShrink: 0 }}>#{i + 1}</span>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-primary)', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{s.name}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-muted)' }}>{s.mentions} mentions · {s.degree_connections} connections</div>
+                  </div>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', padding: '2px 6px', border: '1px solid var(--border-dim)', color: 'var(--text-muted)', flexShrink: 0 }}>{s.master_role}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Secondary Grid (Executive Summary & Major Entities) ── */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+        
+        {/* Executive Summary */}
+        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <div className="section-header">EXECUTIVE SUMMARY</div>
+            <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px' }} onClick={() => navigate(`${base}/network`)}>
+              FULL GRAPH
+            </button>
+          </div>
+          {execLoading ? (
+            <div style={{ padding: '20px 0', display: 'flex', justifyContent: 'center' }}>
+              <Loader2 size={16} className="animate-spin-slow" style={{ color: 'var(--accent)' }} />
+            </div>
+          ) : execSummary && execSummary.nodes.length > 0 ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {execSummary.nodes.slice(0, 5).map((node) => (
+                <div key={node.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-faint)', borderLeft: '2px solid var(--accent-dim)' }}>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-primary)', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{node.label}</div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-muted)' }}>{node.mentions} mentions</div>
+                  </div>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', padding: '2px 6px', border: '1px solid var(--border-dim)', color: 'var(--text-muted)' }}>{node.type || 'ENTITY'}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ padding: '10px 0', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-faint)' }}>
+              No executive summary available.
+            </div>
+          )}
+        </div>
+
+        {/* Major Entities */}
+        <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <div className="section-header">MAJOR ENTITIES</div>
+          </div>
+          {entitiesLoading ? (
+            <div style={{ padding: '20px 0', display: 'flex', justifyContent: 'center' }}>
+              <Loader2 size={16} className="animate-spin-slow" style={{ color: 'var(--accent)' }} />
+            </div>
+          ) : majorEntities && (majorEntities.people.length > 0 || majorEntities.organizations.length > 0) ? (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {[...majorEntities.organizations, ...majorEntities.people].slice(0, 5).map((ent) => (
+                <div key={ent.id} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '8px 10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-faint)' }}>
+                  <Users size={14} style={{ color: 'var(--accent-dim)', flexShrink: 0 }} />
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ fontSize: '0.78rem', color: 'var(--text-primary)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{ent.name}</div>
+                  </div>
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--text-muted)', flexShrink: 0 }}>{ent.type}</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ padding: '10px 0', fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: 'var(--text-faint)' }}>
+              No major entities identified yet.
+            </div>
+          )}
         </div>
       </div>
 

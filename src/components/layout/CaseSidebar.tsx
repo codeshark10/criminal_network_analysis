@@ -26,7 +26,6 @@ import {
   BookOpen,
   Globe,
 } from 'lucide-react';
-import { getCaseById } from '../../data/cases';
 
 interface CaseSidebarProps {
   collapsed: boolean;
@@ -35,7 +34,12 @@ interface CaseSidebarProps {
 }
 
 const CaseSidebar: React.FC<CaseSidebarProps> = ({ collapsed, caseId, onSwitchCase }) => {
-  const caseData = getCaseById(caseId);
+  const caseData = {
+    id: caseId,
+    name: caseId,
+    status: 'ACTIVE',
+    priority: 'HIGH'
+  };
   const base = `/cases/${caseId}`;
 
   const dataItems = [

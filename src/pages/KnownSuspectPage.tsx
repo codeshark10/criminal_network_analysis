@@ -7,9 +7,9 @@ import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Fingerprint, ArrowRight, User } from 'lucide-react';
 import AnalysisAnimation from '../components/investigation/AnalysisAnimation';
-import { persons } from '../data/persons';
+const persons: any[] = [];
+const getGraphNodesByCase = (id: string) => [];
 import { knownSuspectSteps, investigationCandidates } from '../services/investigationEngine';
-import { getGraphNodesByCase } from '../data/graphNodes';
 
 type Stage = 'select' | 'analyzing' | 'results';
 
@@ -18,10 +18,7 @@ const KnownSuspectPage: React.FC = () => {
   const { caseId } = useParams<{ caseId: string }>();
   const [stage, setStage] = useState<Stage>('select');
 
-  // Get persons that belong to this case via graph nodes
-  const casePersonNodeIds = caseId
-    ? getGraphNodesByCase(caseId).filter((n) => n.type === 'PERSON').map((n) => n.id)
-    : ['person-001', 'person-002', 'person-003', 'person-004', 'person-005'];
+  const casePersonNodeIds: string[] = [];
 
   const defaultPerson = casePersonNodeIds[0] ?? 'person-001';
   const [selectedPerson, setSelectedPerson] = useState<string>(defaultPerson);

@@ -5,8 +5,9 @@
 
 import React, { useState } from 'react';
 import { Clock, Filter } from 'lucide-react';
-import { investigationEvents, getEventsByCase } from '../data/alerts';
 import type { InvestigationEvent } from '../types';
+
+const investigationEvents: InvestigationEvent[] = [];
 
 const importanceColor: Record<InvestigationEvent['importance'], string> = {
   HIGH: 'var(--accent)',

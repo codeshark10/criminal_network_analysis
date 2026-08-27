@@ -7,8 +7,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Brain, ArrowRight } from 'lucide-react';
 import AnalysisAnimation from '../components/investigation/AnalysisAnimation';
-import { cases } from '../data/cases';
-import { persons } from '../data/persons';
+const cases: any[] = [];
+const persons: any[] = [];
 import { unknownCaseSteps, investigationCandidates } from '../services/investigationEngine';
 
 type Stage = 'select' | 'analyzing' | 'results';

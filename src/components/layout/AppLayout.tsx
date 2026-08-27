@@ -6,8 +6,6 @@
 import React, { useState } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { Search, Bell, User, ChevronDown, X } from 'lucide-react';
-import { alerts } from '../../data/alerts';
-import { getGlobalStats } from '../../data/cases';
 
 const GlobalTopNav: React.FC = () => {
   const navigate = useNavigate();
@@ -15,9 +13,9 @@ const GlobalTopNav: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [showNotifications, setShowNotifications] = useState(false);
 
-  const stats = getGlobalStats();
-  const activeAlerts = alerts.filter((a) => a.status === 'ACTIVE');
-  const highAlerts = activeAlerts.filter((a) => a.severity === 'HIGH');
+  const stats = { active: 0, total: 0 };
+  const activeAlerts: any[] = [];
+  const highAlerts: any[] = [];
 
   return (
     <>

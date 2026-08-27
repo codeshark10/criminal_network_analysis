@@ -6,10 +6,10 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Network } from 'lucide-react';
-import { persons } from '../data/persons';
-import { evidenceRecords } from '../data/evidence';
-import { graphRelationships, getRelationshipsForNode } from '../data/graphRelationships';
-import { graphNodes } from '../data/graphNodes';
+const persons: any[] = [];
+const evidenceRecords: any[] = [];
+const graphRelationships: any[] = [];
+const graphNodes: any[] = [];
 
 const PersonProfilePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -35,7 +35,7 @@ const PersonProfilePage: React.FC = () => {
       <div style={{ display: 'flex', gap: '24px', marginBottom: '24px', padding: '20px', background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', borderLeft: '2px solid var(--accent-dim)' }}>
         <div style={{ width: '60px', height: '60px', border: '1px solid var(--border-base)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-elevated)', flexShrink: 0 }}>
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '1.2rem', color: 'var(--accent)' }}>
-            {person.name.split(' ').map((n) => n[0]).join('')}
+            {person.name.split(' ').map((n: string) => n[0]).join('')}
           </span>
         </div>
         <div style={{ flex: 1 }}>

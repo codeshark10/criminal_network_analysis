@@ -3,12 +3,15 @@
 // Wraps individual case pages with case-specific navigation
 // ============================================================
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, useParams, useNavigate, NavLink } from 'react-router-dom';
-import { Search, Bell, User, ChevronDown, Shield, ArrowLeft, ChevronRight, X } from 'lucide-react';
+import { Search, Bell, User, ChevronDown, Shield, ArrowLeft, ChevronRight, X, LayoutGrid } from 'lucide-react';
 import CaseSidebar from './CaseSidebar';
-import { getCaseById, cases } from '../../data/cases';
-import { alerts } from '../../data/alerts';
+
+import { getCases } from '../../services/apiClient';
+import type { CaseItem } from '../../services/apiClient';
+
+const alerts: any[] = [];
 
 // ── Case Switcher Modal ────────────────────────────────────────
 const CaseSwitcherModal: React.FC<{ currentCaseId: string; onClose: () => void }> = ({
@@ -16,45 +19,50 @@ const CaseSwitcherModal: React.FC<{ currentCaseId: string; onClose: () => void }
   onClose,
 }) => {
   const navigate = useNavigate();
-  const activeCases = cases.filter((c) => c.status === 'ACTIVE' || c.status === 'UNDER_REVIEW');
-  const pastCases = cases.filter((c) => c.status === 'CLOSED' || c.status === 'ARCHIVED');
+  const [cases, setCases] = useState<CaseItem[]>([]);
+  useEffect(() => {
+    getCases().then(setCases).catch(console.error);
+  }, []);
+
+  const activeCases = cases; // They are all returned as active essentially.
+  const pastCases: CaseItem[] = [];
 
   const handleSelect = (caseId: string) => {
     navigate(`/cases/${caseId}/overview`);
     onClose();
   };
 
-  const CaseRow: React.FC<{ c: typeof cases[0] }> = ({ c }) => (
+  const CaseRow: React.FC<{ c: CaseItem }> = ({ c }) => (
     <div
-      onClick={() => handleSelect(c.id)}
+      onClick={() => handleSelect(c.case_id)}
       style={{
         padding: '12px 16px',
         borderBottom: '1px solid var(--border-faint)',
         cursor: 'pointer',
-        background: c.id === currentCaseId ? 'var(--accent-faint)' : 'transparent',
-        borderLeft: c.id === currentCaseId ? '2px solid var(--accent)' : '2px solid transparent',
+        background: c.case_id === currentCaseId ? 'var(--accent-faint)' : 'transparent',
+        borderLeft: c.case_id === currentCaseId ? '2px solid var(--accent)' : '2px solid transparent',
         display: 'flex',
         alignItems: 'center',
         gap: '12px',
         transition: 'background 0.15s',
       }}
-      onMouseEnter={(e) => { if (c.id !== currentCaseId) (e.currentTarget as HTMLElement).style.background = 'var(--bg-raised)'; }}
-      onMouseLeave={(e) => { if (c.id !== currentCaseId) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+      onMouseEnter={(e) => { if (c.case_id !== currentCaseId) (e.currentTarget as HTMLElement).style.background = 'var(--bg-raised)'; }}
+      onMouseLeave={(e) => { if (c.case_id !== currentCaseId) (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
     >
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: c.id === currentCaseId ? 'var(--accent)' : 'var(--accent-dim)', letterSpacing: '0.08em', marginBottom: '2px' }}>
-          {c.id} {c.id === currentCaseId && '← CURRENT'}
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: c.case_id === currentCaseId ? 'var(--accent)' : 'var(--accent-dim)', letterSpacing: '0.08em', marginBottom: '2px' }}>
+          {c.case_id} {c.case_id === currentCaseId && '← CURRENT'}
         </div>
         <div style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {c.name}
+          {c.case_name}
         </div>
       </div>
       <div style={{ display: 'flex', gap: '6px', flexShrink: 0 }}>
-        <span className={`badge badge--${c.status === 'ACTIVE' ? 'active' : c.status === 'UNDER_REVIEW' ? 'review' : 'closed'}`}>
-          {c.status.replace('_', ' ')}
+        <span className={`badge badge--active`}>
+          ACTIVE
         </span>
-        <span className={`badge badge--${c.priority === 'CRITICAL' ? 'critical' : c.priority === 'HIGH' ? 'high' : 'medium'}`}>
-          {c.priority}
+        <span className={`badge badge--high`}>
+          HIGH
         </span>
       </div>
       <ChevronRight size={12} style={{ color: 'var(--text-muted)', flexShrink: 0 }} />
@@ -84,12 +92,12 @@ const CaseSwitcherModal: React.FC<{ currentCaseId: string; onClose: () => void }
           <div style={{ padding: '8px 16px', fontFamily: 'var(--font-mono)', fontSize: '0.58rem', letterSpacing: '0.15em', color: 'var(--text-faint)', textTransform: 'uppercase', borderBottom: '1px solid var(--border-faint)' }}>
             Active & Under Review
           </div>
-          {activeCases.map((c) => <CaseRow key={c.id} c={c} />)}
+          {activeCases.map((c) => <CaseRow key={c.case_id} c={c} />)}
 
           <div style={{ padding: '8px 16px', fontFamily: 'var(--font-mono)', fontSize: '0.58rem', letterSpacing: '0.15em', color: 'var(--text-faint)', textTransform: 'uppercase', borderBottom: '1px solid var(--border-faint)', borderTop: '1px solid var(--border-dim)', marginTop: '4px' }}>
             Past Cases
           </div>
-          {pastCases.map((c) => <CaseRow key={c.id} c={c} />)}
+          {pastCases.map((c) => <CaseRow key={c.case_id} c={c} />)}
         </div>
 
         <div style={{ padding: '10px 16px', borderTop: '1px solid var(--border-dim)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -108,7 +116,15 @@ const CaseTopNav: React.FC<{
   onSwitchCase: () => void;
 }> = ({ caseId, onToggleSidebar, onSwitchCase }) => {
   const navigate = useNavigate();
-  const caseData = getCaseById(caseId);
+  const [caseData, setCaseData] = useState<CaseItem | null>(null);
+  
+  useEffect(() => {
+    getCases().then(cases => {
+      const match = cases.find(c => c.case_id === caseId);
+      if (match) setCaseData(match);
+    }).catch(console.error);
+  }, [caseId]);
+
   const [showNotifications, setShowNotifications] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -183,14 +199,14 @@ const CaseTopNav: React.FC<{
           >
             <div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.58rem', color: 'var(--accent)', letterSpacing: '0.1em', lineHeight: 1.2 }}>
-                {caseData.id}
+                {caseData.case_id}
               </div>
               <div style={{ fontFamily: 'var(--font-sans)', fontSize: '0.7rem', color: 'var(--text-secondary)', fontWeight: 500, lineHeight: 1.2 }}>
-                {caseData.name}
+                {caseData.case_name}
               </div>
             </div>
             <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.55rem', color: priorityColor }}>
-              {caseData.priority} ▾
+              HIGH ▾
             </span>
           </div>
         )}

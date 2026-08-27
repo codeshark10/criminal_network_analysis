@@ -4,7 +4,23 @@
 // ============================================================
 
 import React from 'react';
-import { networkMetrics, evidenceDistribution, communicationActivity, topConnectedPersons } from '../data/alerts';
+// Provide empty defaults since backend dynamic data isn't wired yet
+const networkMetrics = {
+  nodeCount: 0,
+  edgeCount: 0,
+  density: 0,
+  avgDegree: 0,
+  communityCount: 0,
+  bridgeNodes: 0,
+  isolatedNodes: 0,
+  maxCentrality: 0,
+  centralization: 0,
+  modularity: 0,
+  avgPathLength: 0
+};
+const evidenceDistribution: {label: string; value: number}[] = [];
+const communicationActivity: {label: string; value: number}[] = [];
+const topConnectedPersons: {label: string; value: number}[] = [];
 
 const BarChart: React.FC<{ data: { label: string; value: number }[]; title: string; unit?: string }> = ({ data, title, unit = '' }) => {
   const max = Math.max(...data.map((d) => d.value));
