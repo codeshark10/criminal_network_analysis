@@ -17,6 +17,26 @@ export type CaseType =
   | 'MONEY_LAUNDERING'
   | 'FRAUD';
 
+export type ExtractionStatus =
+  | 'NOT_STARTED'
+  | 'UPLOADED'
+  | 'PROCESSING'
+  | 'EXTRACTING_CHUNKS'
+  | 'CLASSIFYING'
+  | 'EXTRACTING_ENTITIES'
+  | 'BUILDING_GRAPH'
+  | 'COMPLETED'
+  | 'FAILED';
+
+export type ChunkCategory =
+  | 'FIR'
+  | 'CDR'
+  | 'FINANCIAL'
+  | 'SURVEILLANCE'
+  | 'INTELLIGENCE'
+  | 'CRIMINAL_HISTORY'
+  | 'SOCIAL_INTELLIGENCE';
+
 export type PersonStatus = 'ACTIVE' | 'UNDER_REVIEW' | 'ARCHIVED' | 'CLEARED';
 export type InvestigationPriorityLevel = 'HIGH' | 'MEDIUM' | 'LOW';
 
@@ -44,6 +64,33 @@ export type DataSourceType =
   | 'CRIMINAL_HISTORY'
   | 'INTELLIGENCE_REPORT';
 
+// ── Case Document ──────────────────────────────────────────────
+export interface CaseDocument {
+  id: string;
+  caseId: string;
+  fileName: string;
+  fileType: string;
+  uploadedAt: string;
+  size: number; // bytes
+  status: 'UPLOADED' | 'PROCESSING' | 'PROCESSED' | 'FAILED';
+  chunkCount?: number;
+  description?: string;
+}
+
+// ── Extracted Chunk ────────────────────────────────────────────
+export interface ExtractedChunk {
+  id: string;
+  caseId: string;
+  documentId: string;
+  index: number;
+  text: string;
+  category: ChunkCategory;
+  confidence: number; // 0–100
+  entities?: string[];
+  relationships?: { from: string; type: string; to: string }[];
+  createdAt: string;
+}
+
 // ── Case ──────────────────────────────────────────────────────
 export interface Case {
   id: string;
@@ -63,6 +110,19 @@ export interface Case {
   networkSize: number;
   outcome?: string;
   tags: string[];
+  // Extraction pipeline state
+  extractionStatus: ExtractionStatus;
+  documentCount: number;
+  chunkCounts?: {
+    total: number;
+    fir: number;
+    cdr: number;
+    financial: number;
+    surveillance: number;
+    intelligence: number;
+    criminalHistory: number;
+    socialIntelligence: number;
+  };
 }
 
 // ── Person ────────────────────────────────────────────────────

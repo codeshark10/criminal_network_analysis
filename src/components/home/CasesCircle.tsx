@@ -9,9 +9,11 @@ import { useNavigate } from 'react-router-dom';
 interface CasesCircleProps {
   activeCount: number;
   pastCount: number;
+  totalCount?: number;
+  underReviewCount?: number;
 }
 
-const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount }) => {
+const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount, totalCount, underReviewCount = 0 }) => {
   const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const [tick, setTick] = useState(0);
@@ -22,7 +24,7 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount }) => 
     return () => clearInterval(id);
   }, []);
 
-  const size = 260;
+  const size = 290;
   const cx = size / 2;
   const cy = size / 2;
 
@@ -231,7 +233,19 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount }) => 
           letterSpacing="1.5"
           style={{ userSelect: 'none' }}
         >
-          {activeCount} ACTIVE · {pastCount} CLOSED
+          {activeCount} ACTIVE · {underReviewCount} REVIEW · {pastCount} CLOSED
+        </text>
+        <text
+          x={cx} y={cy + 32}
+          textAnchor="middle"
+          fill="var(--accent-dim)"
+          fontSize="8"
+          fontFamily="'JetBrains Mono', monospace"
+          fontWeight="300"
+          letterSpacing="2"
+          style={{ userSelect: 'none' }}
+        >
+          {totalCount ?? (activeCount + pastCount + underReviewCount)} TOTAL
         </text>
       </svg>
 
@@ -269,7 +283,7 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount }) => 
         INTELLIGENCE CORE // ONLINE
       </div>
 
-      {/* Click actions */}
+      {/* Click actions (Hover Menu) */}
       {hovered && (
         <div
           style={{
@@ -277,10 +291,16 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount }) => 
             top: '50%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
+            width: '180px',
+            height: '180px',
+            background: 'var(--bg-surface)',
+            borderRadius: '50%',
             display: 'flex',
             flexDirection: 'column',
-            gap: '6px',
-            zIndex: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '8px',
+            zIndex: 50,
           }}
         >
           {[
@@ -292,24 +312,27 @@ const CasesCircle: React.FC<CasesCircleProps> = ({ activeCount, pastCount }) => 
               key={label}
               onClick={() => navigate(path)}
               style={{
-                background: 'rgba(13,16,18,0.95)',
-                border: '1px solid var(--accent-dim)',
-                color: label.startsWith('+') ? 'var(--accent)' : 'var(--text-secondary)',
+                background: 'var(--bg-elevated)',
+                border: '1px solid var(--border-dim)',
+                color: label.startsWith('+') ? 'var(--accent)' : 'var(--text-primary)',
                 fontFamily: 'var(--font-mono)',
-                fontSize: '0.6rem',
+                fontSize: '0.65rem',
                 letterSpacing: '0.12em',
-                padding: '6px 14px',
+                padding: '8px 16px',
                 cursor: 'pointer',
                 transition: 'all 0.2s',
                 whiteSpace: 'nowrap',
+                width: '140px',
               }}
               onMouseEnter={(e) => {
                 (e.target as HTMLButtonElement).style.background = 'var(--accent-faint)';
                 (e.target as HTMLButtonElement).style.color = 'var(--accent)';
+                (e.target as HTMLButtonElement).style.borderColor = 'var(--accent-dim)';
               }}
               onMouseLeave={(e) => {
-                (e.target as HTMLButtonElement).style.background = 'rgba(13,16,18,0.95)';
-                (e.target as HTMLButtonElement).style.color = label.startsWith('+') ? 'var(--accent)' : 'var(--text-secondary)';
+                (e.target as HTMLButtonElement).style.background = 'var(--bg-elevated)';
+                (e.target as HTMLButtonElement).style.color = label.startsWith('+') ? 'var(--accent)' : 'var(--text-primary)';
+                (e.target as HTMLButtonElement).style.borderColor = 'var(--border-dim)';
               }}
             >
               {label}

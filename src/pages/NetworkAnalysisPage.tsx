@@ -4,9 +4,10 @@
 // ============================================================
 
 import React, { useState, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight } from 'lucide-react';
 import NetworkGraph from '../components/graph/NetworkGraph';
-import { graphNodes } from '../data/graphNodes';
+import { graphNodes, getGraphNodesByCase } from '../data/graphNodes';
 import { graphRelationships } from '../data/graphRelationships';
 import { getNetworkAtDepth, getConnectedEntities } from '../services/investigationEngine';
 import type { GraphNode, GraphRelationship, EntityType } from '../types/graph';
@@ -25,10 +26,16 @@ const ENTITY_TYPES: { type: EntityType; label: string }[] = [
 ];
 
 const NetworkAnalysisPage: React.FC = () => {
+  const { caseId } = useParams<{ caseId: string }>();
+
+  // Determine default center node based on case
+  const caseNodes = caseId ? getGraphNodesByCase(caseId) : graphNodes;
+  const defaultCenter = caseNodes.find((n) => n.type === 'PERSON')?.id ?? 'person-001';
+
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null);
   const [selectedRel, setSelectedRel] = useState<GraphRelationship | null>(null);
   const [depth, setDepth] = useState(2);
-  const [centerId, setCenterId] = useState('person-001');
+  const [centerId, setCenterId] = useState(defaultCenter);
   const [filterTypes, setFilterTypes] = useState<EntityType[]>(ENTITY_TYPES.map((e) => e.type));
   const [showFilters, setShowFilters] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');

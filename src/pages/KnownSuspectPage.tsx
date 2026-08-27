@@ -4,22 +4,32 @@
 // ============================================================
 
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Fingerprint, ArrowRight, User } from 'lucide-react';
 import AnalysisAnimation from '../components/investigation/AnalysisAnimation';
 import { persons } from '../data/persons';
 import { knownSuspectSteps, investigationCandidates } from '../services/investigationEngine';
+import { getGraphNodesByCase } from '../data/graphNodes';
 
 type Stage = 'select' | 'analyzing' | 'results';
 
 const KnownSuspectPage: React.FC = () => {
   const navigate = useNavigate();
+  const { caseId } = useParams<{ caseId: string }>();
   const [stage, setStage] = useState<Stage>('select');
-  const [selectedPerson, setSelectedPerson] = useState<string>('person-001');
 
-  const selectablePrimary = ['person-001', 'person-002', 'person-003', 'person-004', 'person-005'];
+  // Get persons that belong to this case via graph nodes
+  const casePersonNodeIds = caseId
+    ? getGraphNodesByCase(caseId).filter((n) => n.type === 'PERSON').map((n) => n.id)
+    : ['person-001', 'person-002', 'person-003', 'person-004', 'person-005'];
+
+  const defaultPerson = casePersonNodeIds[0] ?? 'person-001';
+  const [selectedPerson, setSelectedPerson] = useState<string>(defaultPerson);
+
+  const selectablePrimary = casePersonNodeIds.slice(0, 5);
   const primaryPersons = persons.filter((p) => selectablePrimary.includes(p.id));
   const selected = persons.find((p) => p.id === selectedPerson);
+  const base = caseId ? `/cases/${caseId}` : '';
 
   return (
     <div style={{ padding: '24px', maxWidth: '900px' }}>
@@ -118,7 +128,7 @@ const KnownSuspectPage: React.FC = () => {
                 AI-assisted prioritization based on network structure, evidence, and observed activity. Investigator review required.
               </div>
             </div>
-            <button className="btn btn--ghost" onClick={() => navigate('/network?center=person-001')}>
+            <button className="btn btn--ghost" onClick={() => navigate(`${base}/network?center=${selectedPerson}`)}>
               VIEW NETWORK GRAPH
             </button>
           </div>
@@ -138,7 +148,7 @@ const KnownSuspectPage: React.FC = () => {
                     cursor: 'pointer',
                     transition: 'background 0.15s',
                   }}
-                  onClick={() => navigate(`/persons/${c.personId}`)}
+                  onClick={() => navigate(`${base}/persons/${c.personId}`)}
                   onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--bg-raised)')}
                   onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--bg-surface)')}
                 >
