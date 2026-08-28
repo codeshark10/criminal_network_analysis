@@ -7,6 +7,9 @@ from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks, Q
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from neo4j import AsyncGraphDatabase, AsyncDriver
+import re
+import pandas as pd
+import hashlib
 
 # Directory where uploaded case text files are stored
 UPLOAD_DIR = "./uploaded_cases"
@@ -18,6 +21,87 @@ NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
 NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "crick#21")
 driver: Optional[AsyncDriver] = None
 
+
+def convert_dossier_to_table(file_path: str, output_csv: str):
+    """
+    Parses case file, extracts sections by header patterns,
+    and saves a DataFrame with 'id' and 'details' columns to the specified CSV path.
+    """
+    with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+        content = f.read()
+
+    # Regex matching headers like 'SECTION 1', '## Heading', '[SECTION_01]', or '1.0 OVERVIEW'
+    pattern = r'(?m)^(?:#{1,4}\s*|SECTION\s+\d+[\s:]*|\[.*?\]|\d+\.\d*\s+)(.+)$'
+
+    splits = re.split(pattern, content)
+    rows = []
+
+    # Capture preamble if present before the first header
+    if splits and splits[0].strip():
+        rows.append({
+            "id": "SEC_PREAMBLE",
+            "details": splits[0].strip().replace("\n", " ")
+        })
+
+    # Pair header matches with section body details
+    for i in range(1, len(splits), 2):
+        raw_header = splits[i].strip()
+        body_text = splits[i + 1].strip().replace("\n", " ") if (i + 1) < len(splits) else ""
+
+        # Generate a standardized ID slug
+        clean_id = re.sub(r'[^\w\s-]', '', raw_header).strip().replace(' ', '_').upper()
+
+        rows.append({
+            "id": clean_id,
+            "details": body_text
+        })
+
+    df = pd.DataFrame(rows)
+    df.to_csv(output_csv, index=False)
+    print(f"[✓] Converted {len(df)} sections and saved to '{output_csv}'")
+    return df
+
+def generate_blockchain_hash_table(
+    input_csv: str,
+    output_csv: str
+) -> pd.DataFrame:
+    """
+    Generates a cryptographic blockchain audit log table from the dossier records.
+    """
+    df = pd.read_csv(input_csv)
+    chain = []
+    prev_hash = "0" * 64  # 64-character zero string for Genesis block
+
+    for idx, row in df.iterrows():
+        record_id = str(row["id"])
+        details_text = str(row["details"])
+
+        # Extract timestamp from details text if available, fallback to default
+        dt_match = re.search(r'DATE/TIME:\s*([\d\-]+\s+[\d:]+(?:\s+[A-Z]+)?)', details_text)
+        timestamp = dt_match.group(1) if dt_match else "2025-08-01 00:00:00 EST"
+
+        # 1. SHA-256 hash of the evidence payload
+        data_hash = hashlib.sha256(details_text.encode("utf-8")).hexdigest()
+
+        # 2. Block header binding (Index + Timestamp + Record ID + Payload Hash + Previous Block Hash)
+        block_header = f"{idx}|{timestamp}|{record_id}|{data_hash}|{prev_hash}"
+        block_hash = hashlib.sha256(block_header.encode("utf-8")).hexdigest()
+
+        chain.append({
+            "block_index": idx,
+            "record_id": record_id,
+            "timestamp": timestamp,
+            "data_hash": data_hash,
+            "previous_hash": prev_hash,
+            "block_hash": block_hash
+        })
+
+        prev_hash = block_hash
+
+    blockchain_df = pd.DataFrame(chain)
+    blockchain_df.to_csv(output_csv, index=False)
+    print(f"[✓] Successfully generated {len(blockchain_df)} blocks in '{output_csv}'")
+    return blockchain_df
 
 # --- LIFESPAN MANAGEMENT ---
 @asynccontextmanager
@@ -39,10 +123,10 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Enable CORS for frontend integration
+# Enable CORS for React frontend integration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allows all origins (update in production)
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -115,7 +199,7 @@ class FileUploadResult(BaseModel):
 
 
 class UploadCasesResponse(BaseModel):
-    case_id: str  # FIXED: Required so FastAPI doesn't crash on return
+    case_id: str  # Mandatory for response validation
     message: str
     total_uploaded: int
     files: List[FileUploadResult]
@@ -245,8 +329,8 @@ def parse_graph_records(records: List[Dict[str, Any]]) -> GraphResponse:
 
 
 def run_ingestion_pipeline(case_id: str, file_paths: List[str]):
-    """Background task function to process files into graph database."""
-    print(f"\n[BACKGROUND TASK] Processing {len(file_paths)} uploaded file(s) for {case_id}...")
+    """Background task function to process saved file paths safely."""
+    print(f"\n[BACKGROUND TASK] Processing {len(file_paths)} saved file(s) for case: {case_id}...")
     print("[BACKGROUND TASK] Processing completed successfully.\n")
 
 
@@ -259,7 +343,7 @@ async def health_check():
 
 @app.get("/api/cases", response_model=List[CaseItem])
 async def get_all_cases():
-    """Fetches all case names robustly, handling missing properties."""
+    """Fetches all case names robustly."""
     query = """
     MATCH (c:Case)
     OPTIONAL MATCH (c)<-[:BELONGS_TO]-(n)
@@ -313,11 +397,14 @@ async def upload_case_documents(
         files: List[UploadFile] = File(...),
         process_immediately: bool = Query(default=True)
 ):
-    """Uploads documents and dynamically links them to the specified or new Case."""
+    """
+    Uploads documents, saves them to disk, generates a structured CSV table
+    inside the case folder, and updates Neo4j.
+    """
     if not files:
         raise HTTPException(status_code=400, detail="No files provided.")
 
-    if not case_id:
+    if not case_id or case_id.strip() in ["", "null", "undefined"]:
         case_id = f"CASE_{uuid.uuid4().hex[:8].upper()}"
 
     saved_files = []
@@ -329,31 +416,61 @@ async def upload_case_documents(
 
     for file in files:
         if not file.filename.lower().endswith(".txt"):
-            raise HTTPException(status_code=400, detail="Only .txt files supported.")
+            raise HTTPException(status_code=400, detail=f"File '{file.filename}' is not a .txt file.")
 
         destination_path = os.path.join(case_dir, file.filename)
-        with open(destination_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+
+        try:
+            contents = await file.read()
+            with open(destination_path, "wb") as buffer:
+                buffer.write(contents)
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Failed saving '{file.filename}': {str(e)}")
+        finally:
+            await file.close()
+
+        # --- GENERATE THE TABLE CSV INSIDE THE CASE FOLDER ---
+        base_filename = os.path.splitext(file.filename)[0]
+        output_csv_path = os.path.join(case_dir, f"{base_filename}_table.csv")
+        output_csv_path_hash = os.path.join(case_dir, f"{base_filename}_hash_table.csv")
+
+
+        try:
+            convert_dossier_to_table(destination_path, output_csv=output_csv_path)
+            generate_blockchain_hash_table(input_csv=output_csv_path, output_csv=output_csv_path_hash)
+        except Exception as e:
+            print(f"[WARNING] Failed to generate table for {file.filename}: {str(e)}")
+        # ----------------------------------------------------
 
         file_size = os.path.getsize(destination_path)
         saved_paths.append(destination_path)
 
         saved_files.append(FileUploadResult(
-            filename=file.filename, status="UPLOADED",
-            file_path=destination_path, size_bytes=file_size
+            filename=file.filename,
+            status="UPLOADED",
+            file_path=destination_path,
+            size_bytes=file_size
         ))
 
         file_metadata_for_db.append({
-            "filename": file.filename, "file_path": destination_path, "size_bytes": file_size
+            "filename": file.filename,
+            "file_path": destination_path,
+            "size_bytes": file_size
         })
 
+    # Link Case and Document nodes in Neo4j
     query = """
     MERGE (c:Case {id: $case_id})
     ON CREATE SET c.name = 'Uploaded Case ' + substring($case_id, 5), c.created_at = datetime(), c.status = 'ACTIVE'
+    WITH c
     UNWIND $files AS file
     MERGE (d:Entity {name: file.filename, case_id: $case_id})
+    ON CREATE SET 
+        d.type = 'DOCUMENT', 
+        d.file_path = file.file_path, 
+        d.size_bytes = file.size_bytes, 
+        d.uploaded_at = datetime()
     SET d:Document
-    ON CREATE SET d.type = 'DOCUMENT', d.file_path = file.file_path, d.size_bytes = file.size_bytes, d.uploaded_at = datetime()
     MERGE (d)-[:BELONGS_TO]->(c)
     """
 
@@ -367,12 +484,11 @@ async def upload_case_documents(
 
     return UploadCasesResponse(
         case_id=case_id,
-        message=f"Uploaded {len(saved_files)} documents to case {case_id}.",
+        message=f"Uploaded {len(saved_files)} document(s) and generated corresponding CSV tables in case {case_id}.",
         total_uploaded=len(saved_files),
         files=saved_files,
         pipeline_status=pipeline_status
     )
-
 
 # --- CASE-SPECIFIC ENDPOINTS ---
 
@@ -593,6 +709,115 @@ async def get_relationship_between_persons(
         records = await (
             await session.run(query, case_id=case_id, person1=person1, person2=person2, max_depth=max_depth)).data()
     return parse_graph_records(records) if records else GraphResponse(nodes=[], edges=[])
+
+class FileVerificationResult(BaseModel):
+    original_file: str
+    is_valid: bool
+    message: str
+
+class CaseVerificationResponse(BaseModel):
+    case_id: str
+    overall_valid: bool
+    total_files_checked: int
+    results: List[FileVerificationResult]
+
+
+def verify_blockchain_integrity(blockchain_csv: str, dossier_csv: str) -> dict:
+    """
+    Validates chain continuity and verifies data hashes against source records.
+    Returns a dictionary suitable for JSON API responses.
+    """
+    try:
+        bc_df = pd.read_csv(blockchain_csv)
+        raw_df = pd.read_csv(dossier_csv)
+
+        for idx in range(len(bc_df)):
+            current_block = bc_df.iloc[idx]
+            raw_details = str(raw_df.iloc[idx]["details"])
+
+            # 1. Check payload integrity
+            expected_data_hash = hashlib.sha256(raw_details.encode("utf-8")).hexdigest()
+            if current_block["data_hash"] != expected_data_hash:
+                return {"is_valid": False, "message": f"Tampering detected at block {idx}: Data hash mismatch!"}
+
+            # 2. Check previous hash pointer
+            if idx > 0:
+                previous_block = bc_df.iloc[idx - 1]
+                if current_block["previous_hash"] != previous_block["block_hash"]:
+                    return {"is_valid": False, "message": f"Chain broken at block {idx}: Previous hash mismatch!"}
+
+            # 3. Re-compute block hash
+            header = f"{current_block['block_index']}|{current_block['timestamp']}|{current_block['record_id']}|{current_block['data_hash']}|{current_block['previous_hash']}"
+            recalculated_hash = hashlib.sha256(header.encode("utf-8")).hexdigest()
+            if current_block["block_hash"] != recalculated_hash:
+                return {"is_valid": False, "message": f"Invalid block hash at block {idx}!"}
+
+        return {"is_valid": True,
+                "message": f"Blockchain audit complete: All {len(bc_df)} blocks are valid and untampered."}
+
+    except Exception as e:
+        return {"is_valid": False, "message": f"Verification failed due to error reading files: {str(e)}"}
+
+@app.get("/api/cases/{case_id}/verify", response_model=CaseVerificationResponse)
+async def verify_case_integrity(case_id: str):
+    """
+    Automatically finds all processed files for a given case_id and
+    verifies their blockchain integrity.
+    """
+    case_dir = os.path.join(UPLOAD_DIR, case_id)
+
+    if not os.path.exists(case_dir):
+        raise HTTPException(status_code=404, detail=f"No directory found for case {case_id}")
+
+    # Auto-discover all files by looking for standard tables
+    files_in_dir = os.listdir(case_dir)
+    base_filenames = []
+    for f in files_in_dir:
+        # Identify base file names (e.g. "FBI_DOSSIER" from "FBI_DOSSIER_table.csv")
+        if f.endswith("_table.csv") and not f.endswith("_hash_table.csv"):
+            base_name = f.replace("_table.csv", "")
+            base_filenames.append(base_name)
+
+    if not base_filenames:
+        raise HTTPException(status_code=404, detail="No processable CSV tables found in this case.")
+
+    results = []
+    overall_valid = True
+
+    for base_name in base_filenames:
+        original_file_name = f"{base_name}.txt"
+        dossier_csv = os.path.join(case_dir, f"{base_name}_table.csv")
+        blockchain_csv = os.path.join(case_dir, f"{base_name}_hash_table.csv")
+
+        # Check if the hash table actually exists
+        if not os.path.exists(blockchain_csv):
+            results.append(FileVerificationResult(
+                original_file=original_file_name,
+                is_valid=False,
+                message="Hash table missing! Cannot verify integrity."
+            ))
+            overall_valid = False
+            continue
+
+        # Run your cryptographic verification function
+        verification = verify_blockchain_integrity(blockchain_csv, dossier_csv)
+
+        results.append(FileVerificationResult(
+            original_file=original_file_name,
+            is_valid=verification["is_valid"],
+            message=verification["message"]
+        ))
+
+        # If any single file is tampered, the overall case is compromised
+        if not verification["is_valid"]:
+            overall_valid = False
+
+    return CaseVerificationResponse(
+        case_id=case_id,
+        overall_valid=overall_valid,
+        total_files_checked=len(results),
+        results=results
+    )
 
 
 if __name__ == "__main__":
