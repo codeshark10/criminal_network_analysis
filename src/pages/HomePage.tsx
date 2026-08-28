@@ -11,6 +11,7 @@ import {
 import CasesCircle from '../components/home/CasesCircle';
 import FloatingModule from '../components/home/FloatingModule';
 import InvestigationModes from '../components/home/InvestigationModes';
+import MatrixRain from '../components/home/MatrixRain';
 import { getCases } from '../services/apiClient';
 import type { CaseItem } from '../services/apiClient';
 
@@ -173,6 +174,9 @@ const HomePage: React.FC = () => {
     >
       {/* ── Background Grid ── */}
       <div className="intel-grid" />
+      
+      {/* ── Matrix Rain Effect ── */}
+      <MatrixRain />
 
       {/* ── Scanning line ── */}
       <div className="scan-line" />

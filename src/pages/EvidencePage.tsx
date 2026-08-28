@@ -2,18 +2,70 @@
 // NEXUS — Evidence Intelligence Page
 // ============================================================
 
-import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { X, Loader2 } from 'lucide-react';
 import type { Evidence } from '../types';
-
-const evidenceRecords: Evidence[] = [];
+import { getMajorEntities } from '../services/apiClient';
 
 const EvidencePage: React.FC = () => {
+  const { caseId } = useParams<{ caseId: string }>();
+  const [evidenceRecords, setEvidenceRecords] = useState<Evidence[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [typeFilter, setTypeFilter] = useState<Evidence['type'] | 'ALL'>('ALL');
   const [selectedEvidence, setSelectedEvidence] = useState<Evidence | null>(null);
   const [searchQ, setSearchQ] = useState('');
 
-  const types: (Evidence['type'] | 'ALL')[] = ['ALL','FIR','CDR','FINANCIAL','SURVEILLANCE','WIRETAP','SOCIAL_INTELLIGENCE','CRIMINAL_HISTORY','INTELLIGENCE_REPORT'];
+  useEffect(() => {
+    if (!caseId) {
+      setIsLoading(false);
+      return;
+    }
+    
+    setIsLoading(true);
+    getMajorEntities(caseId, 50)
+      .then((data) => {
+        const mappedRecords: Evidence[] = [];
+        
+        const addRecords = (items: any[], type: Evidence['type']) => {
+          items.forEach((item) => {
+            mappedRecords.push({
+              id: item.id,
+              type,
+              status: 'PROCESSED',
+              date: new Date().toISOString().split('T')[0],
+              caseIds: [caseId],
+              relatedPersonIds: [],
+              relatedOrgIds: [],
+              relatedLocationIds: [],
+              relatedPhoneIds: [],
+              relatedVehicleIds: [],
+              relatedTransactionIds: [],
+              confidence: Math.min(100, Math.max(50, item.mentions * 2 + 50)),
+              source: 'Neo4j Graph Analysis',
+              summary: `${item.type || 'Entity'}: ${item.name}. Mentions in case: ${item.mentions}. ${item.aliases?.length ? `Aliases: ${item.aliases.join(', ')}` : ''}`,
+              extractedRelationships: [],
+              flagged: false,
+            });
+          });
+        };
+
+        if (data.phone_numbers) addRecords(data.phone_numbers, 'PHONE_NUMBERS');
+        if (data.financial) addRecords(data.financial, 'FINANCIAL');
+        if (data.vehicles_and_weapons) addRecords(data.vehicles_and_weapons, 'VEHICLES_AND_WEAPONS');
+
+        console.log("EvidencePage API Data:", data);
+        console.log("EvidencePage Mapped Records:", mappedRecords);
+
+        setEvidenceRecords(mappedRecords);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch evidence data:', err);
+      })
+      .finally(() => setIsLoading(false));
+  }, [caseId]);
+
+  const types: (Evidence['type'] | 'ALL')[] = ['ALL', 'PHONE_NUMBERS', 'VEHICLES_AND_WEAPONS', 'FINANCIAL'];
 
   const filtered = evidenceRecords
     .filter((e) => typeFilter === 'ALL' || e.type === typeFilter)
@@ -48,39 +100,45 @@ const EvidencePage: React.FC = () => {
 
       {/* Evidence table */}
       <div style={{ flex: 1, overflowY: 'auto' }}>
-        <table className="intel-table">
-          <thead>
-            <tr>
-              <th>EVIDENCE ID</th>
-              <th>TYPE</th>
-              <th>DATE</th>
-              <th>RELATED ENTITIES</th>
-              <th>LOCATION</th>
-              <th>CONFIDENCE</th>
-              <th>STATUS</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filtered.map((e) => (
-              <tr key={e.id} style={{ cursor: 'pointer' }} onClick={() => setSelectedEvidence(e)}>
-                <td><span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent)', fontSize: '0.7rem' }}>{e.id}</span></td>
-                <td><span className={`badge badge--${e.flagged ? 'high' : 'closed'}`}>{e.type.replace(/_/g,' ')}</span></td>
-                <td><span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-muted)' }}>{e.date}</span></td>
-                <td><span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>{e.relatedPersonIds.length} persons, {e.relatedOrgIds.length} orgs</span></td>
-                <td><span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{e.city || '—'}</span></td>
-                <td>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <div className="progress-track" style={{ width: '50px' }}>
-                      <div className="progress-fill" style={{ width: `${e.confidence}%` }} />
-                    </div>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>{e.confidence}%</span>
-                  </div>
-                </td>
-                <td><span className={`badge badge--${e.status === 'FLAGGED' ? 'critical' : e.status === 'PROCESSED' ? 'active' : 'closed'}`}>{e.status}</span></td>
+        {isLoading ? (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px', color: 'var(--accent)' }}>
+            <Loader2 className="animate-spin-slow" size={24} />
+          </div>
+        ) : (
+          <table className="intel-table">
+            <thead>
+              <tr>
+                <th>EVIDENCE ID</th>
+                <th>TYPE</th>
+                <th>DATE</th>
+                <th>RELATED ENTITIES</th>
+                <th>LOCATION</th>
+                <th>CONFIDENCE</th>
+                <th>STATUS</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filtered.map((e) => (
+                <tr key={e.id} style={{ cursor: 'pointer' }} onClick={() => setSelectedEvidence(e)}>
+                  <td><span style={{ fontFamily: 'var(--font-mono)', color: 'var(--accent)', fontSize: '0.7rem' }}>{e.id}</span></td>
+                  <td><span className={`badge badge--${e.flagged ? 'high' : 'closed'}`}>{e.type.replace(/_/g,' ')}</span></td>
+                  <td><span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'var(--text-muted)' }}>{e.date}</span></td>
+                  <td><span style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>{e.relatedPersonIds.length} persons, {e.relatedOrgIds.length} orgs</span></td>
+                  <td><span style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>{e.city || '—'}</span></td>
+                  <td>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div className="progress-track" style={{ width: '50px' }}>
+                        <div className="progress-fill" style={{ width: `${e.confidence}%` }} />
+                      </div>
+                      <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)' }}>{e.confidence}%</span>
+                    </div>
+                  </td>
+                  <td><span className={`badge badge--${e.status === 'FLAGGED' ? 'critical' : e.status === 'PROCESSED' ? 'active' : 'closed'}`}>{e.status}</span></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
 
       {/* Evidence Detail Drawer */}

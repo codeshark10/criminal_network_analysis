@@ -48,7 +48,9 @@ export type EvidenceType =
   | 'WIRETAP'
   | 'SOCIAL_INTELLIGENCE'
   | 'CRIMINAL_HISTORY'
-  | 'INTELLIGENCE_REPORT';
+  | 'INTELLIGENCE_REPORT'
+  | 'PHONE_NUMBERS'
+  | 'VEHICLES_AND_WEAPONS';
 
 export type EvidenceStatus = 'PROCESSED' | 'PENDING' | 'FLAGGED' | 'ARCHIVED';
 
