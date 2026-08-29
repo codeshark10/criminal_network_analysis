@@ -172,8 +172,11 @@ const UnknownSuspectPage: React.FC = () => {
           </div>
 
           <div style={{ marginTop: '12px', display: 'flex', gap: '10px' }}>
-            <button className="btn btn--ghost" onClick={() => navigate('/network')}>
+            <button className="btn btn--ghost" onClick={() => navigate(`/cases/${chosenCase.id}/network`)}>
               VIEW NETWORK GRAPH
+            </button>
+            <button className="btn btn--ghost" onClick={() => navigate(`/cases/${chosenCase.id}/hypergraph`)} style={{ color: '#9B59B6', borderColor: 'rgba(155, 89, 182, 0.3)' }}>
+              HYPERGRAPH VIEW
             </button>
             <button className="btn btn--ghost" onClick={() => navigate('/evidence')}>
               VIEW EVIDENCE

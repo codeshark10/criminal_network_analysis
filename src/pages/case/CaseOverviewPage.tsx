@@ -171,6 +171,9 @@ const CaseOverviewPage: React.FC = () => {
             <button className="btn btn--ghost" onClick={() => navigate(`${base}/network`)} style={{ fontSize: '0.7rem' }}>
               <Network size={12} /> NETWORK GRAPH
             </button>
+            <button className="btn btn--ghost" onClick={() => navigate(`${base}/hypergraph`)} style={{ fontSize: '0.7rem', color: '#9B59B6', borderColor: 'rgba(155, 89, 182, 0.3)' }}>
+              <Network size={12} /> HYPERGRAPH VIEW
+            </button>
             <button className="btn btn--accent" onClick={() => navigate(`${base}/investigations/known-suspect`)} style={{ fontSize: '0.7rem' }}>
               <Fingerprint size={12} /> INVESTIGATE
             </button>
@@ -362,6 +365,9 @@ const CaseOverviewPage: React.FC = () => {
               <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px' }} onClick={() => navigate(`${base}/network`)}>
                 GRAPH
               </button>
+              <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px', color: '#9B59B6', borderColor: 'rgba(155, 89, 182, 0.3)' }} onClick={() => navigate(`${base}/hypergraph`)}>
+                HYPERGRAPH
+              </button>
             </div>
           </div>
 
@@ -409,9 +415,14 @@ const CaseOverviewPage: React.FC = () => {
         <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '16px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <div className="section-header">EXECUTIVE SUMMARY</div>
-            <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px' }} onClick={() => navigate(`${base}/network`)}>
-              FULL GRAPH
-            </button>
+            <div style={{ display: 'flex', gap: '6px' }}>
+              <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px' }} onClick={() => navigate(`${base}/network`)}>
+                FULL GRAPH
+              </button>
+              <button className="btn btn--ghost" style={{ fontSize: '0.65rem', padding: '5px 10px', color: '#9B59B6', borderColor: 'rgba(155, 89, 182, 0.3)' }} onClick={() => navigate(`${base}/hypergraph`)}>
+                HYPERGRAPH
+              </button>
+            </div>
           </div>
           {execLoading ? (
             <div style={{ padding: '20px 0', display: 'flex', justifyContent: 'center' }}>

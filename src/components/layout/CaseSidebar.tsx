@@ -25,6 +25,7 @@ import {
   Eye,
   BookOpen,
   Globe,
+  MessageSquare,
 } from 'lucide-react';
 
 interface CaseSidebarProps {
@@ -61,6 +62,7 @@ const CaseSidebar: React.FC<CaseSidebarProps> = ({ collapsed, caseId, onSwitchCa
     { icon: FileText,       label: 'Evidence',         path: `${base}/evidence` },
     { icon: Clock,          label: 'Timeline',         path: `${base}/timeline` },
     { icon: AlertTriangle,  label: 'Alerts',           path: `${base}/alerts` },
+    { icon: MessageSquare,  label: 'Command Center',   path: `${base}/command-center` },
     { icon: BarChart3,      label: 'Analytics',        path: `${base}/analytics` },
   ];
 

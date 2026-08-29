@@ -23,7 +23,9 @@ import DataSourcesPage from './pages/DataSourcesPage';
 import CaseOverviewPage from './pages/case/CaseOverviewPage';
 import CaseDataPage from './pages/case/CaseDataPage';
 import CaseChunksPage from './pages/case/CaseChunksPage';
+import IntelCommandCenterPage from './pages/case/IntelCommandCenterPage';
 import NetworkAnalysisPage from './pages/NetworkAnalysisPage';
+import HypergraphPage from './pages/HypergraphPage';
 import KnownSuspectPage from './pages/KnownSuspectPage';
 import UnknownSuspectPage from './pages/UnknownSuspectPage';
 import EvidencePage from './pages/EvidencePage';
@@ -67,6 +69,7 @@ const App: React.FC = () => (
 
         {/* Investigation pages */}
         <Route path="network" element={<NetworkAnalysisPage />} />
+        <Route path="hypergraph" element={<HypergraphPage />} />
         <Route path="persons" element={<PersonsPage />} />
         <Route path="persons/:id" element={<PersonProfilePage />} />
         <Route path="evidence" element={<EvidencePage />} />
@@ -77,6 +80,7 @@ const App: React.FC = () => (
         {/* Investigation modes */}
         <Route path="investigations/known-suspect" element={<KnownSuspectPage />} />
         <Route path="investigations/unknown-suspect" element={<UnknownSuspectPage />} />
+        <Route path="command-center" element={<IntelCommandCenterPage />} />
       </Route>
     </Routes>
   </BrowserRouter>

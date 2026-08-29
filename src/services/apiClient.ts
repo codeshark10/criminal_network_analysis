@@ -62,6 +62,20 @@ export interface FileUploadResult {
   size_bytes: number;
 }
 
+export interface HypergraphEvent {
+  event_id: string;
+  event_type: string;
+  participants: string[];
+}
+
+export interface HypergraphResponse {
+  case_id: string;
+  case_name: string;
+  pipeline_version: string;
+  total_events: number;
+  events: HypergraphEvent[];
+}
+
 export interface DocumentProcessResponse {
   message: string;
   files_queued: number;
@@ -301,4 +315,10 @@ export async function getPersonRelationship(
 export async function getDashboardMetrics(caseId: string): Promise<DashboardMetricsResponse> {
   const encoded = encodeURIComponent(caseId);
   return apiFetch<DashboardMetricsResponse>(buildUrl(`/api/cases/${encoded}/metrics`));
+}
+
+// ── Endpoint: GET /api/cases/{case_id}/hypergraph ─────────
+export async function getHypergraph(caseId: string): Promise<HypergraphResponse> {
+  const encoded = encodeURIComponent(caseId);
+  return apiFetch<HypergraphResponse>(buildUrl(`/api/cases/${encoded}/hypergraph`));
 }

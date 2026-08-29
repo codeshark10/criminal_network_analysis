@@ -125,9 +125,14 @@ const KnownSuspectPage: React.FC = () => {
                 AI-assisted prioritization based on network structure, evidence, and observed activity. Investigator review required.
               </div>
             </div>
-            <button className="btn btn--ghost" onClick={() => navigate(`${base}/network?center=${selectedPerson}`)}>
-              VIEW NETWORK GRAPH
-            </button>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button className="btn btn--ghost" onClick={() => navigate(`${base}/network?center=${selectedPerson}`)}>
+                VIEW NETWORK GRAPH
+              </button>
+              <button className="btn btn--ghost" onClick={() => navigate(`${base}/hypergraph`)} style={{ color: '#9B59B6', borderColor: 'rgba(155, 89, 182, 0.3)' }}>
+                HYPERGRAPH VIEW
+              </button>
+            </div>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>

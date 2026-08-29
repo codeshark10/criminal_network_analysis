@@ -12,7 +12,7 @@ const graphRelationships: any[] = [];
 const graphNodes: any[] = [];
 
 const PersonProfilePage: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { caseId, id } = useParams<{ caseId?: string, id: string }>();
   const navigate = useNavigate();
   const person = persons.find((p) => p.id === id);
 
@@ -61,9 +61,14 @@ const PersonProfilePage: React.FC = () => {
           </div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          <button className="btn btn--accent" onClick={() => navigate(`/network?center=${person.id}`)}>
+          <button className="btn btn--accent" onClick={() => navigate(caseId ? `/cases/${caseId}/network?center=${person.id}` : `/network?center=${person.id}`)}>
             <Network size={11} /> VIEW NETWORK
           </button>
+          {caseId && (
+            <button className="btn btn--ghost" onClick={() => navigate(`/cases/${caseId}/hypergraph`)} style={{ color: '#9B59B6', borderColor: 'rgba(155, 89, 182, 0.3)' }}>
+              <Network size={11} /> HYPERGRAPH VIEW
+            </button>
+          )}
           <button className="btn btn--ghost" onClick={() => navigate(`/investigations/known-suspect`)}>
             INVESTIGATE
           </button>
