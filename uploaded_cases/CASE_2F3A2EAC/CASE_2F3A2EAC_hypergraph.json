@@ -1,0 +1,107 @@
+{
+  "case_id": "CASE_2F3A2EAC",
+  "case_name": "CASE_CASE_2F3A2EAC",
+  "pipeline_version": "4.2.0-Universal",
+  "total_events": 8,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_2F3A2EAC_CHUNK_0000",
+      "event_type": "General_Operation",
+      "participants": [
+        "Trimukh",
+        "Murder",
+        "Parents"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_2F3A2EAC_CHUNK_0001",
+      "event_type": "General_Operation",
+      "participants": [
+        "Trimukh",
+        "Medical Officer",
+        "Victim",
+        "Husband",
+        "Namdeo",
+        "Post-mortem examination",
+        "Parents and brother of Trimukh",
+        "Accused Nos. 2\u20134"
+      ]
+    },
+    {
+      "event_id": "EVT_003_CASE_2F3A2EAC_CHUNK_0002",
+      "event_type": "General_Operation",
+      "participants": [
+        "Trimukh",
+        "Panchayat elders",
+        "Revata",
+        "neighbors",
+        "poisonous snake",
+        "victim's family",
+        "residential house"
+      ]
+    },
+    {
+      "event_id": "EVT_004_CASE_2F3A2EAC_CHUNK_0003",
+      "event_type": "Legal_Action",
+      "participants": [
+        "victim\u2019s maternal family",
+        "victim\u2019s father",
+        "Revata",
+        "local traditional healer/temple",
+        "the accused",
+        "snake venom",
+        "Post-mortem examination",
+        "local police",
+        "village elders",
+        "victim's parents"
+      ]
+    },
+    {
+      "event_id": "EVT_005_CASE_2F3A2EAC_CHUNK_0004",
+      "event_type": "General_Operation",
+      "participants": [
+        "Snakebite Analysis",
+        "Internal Injuries",
+        "body",
+        "External Injuries"
+      ]
+    },
+    {
+      "event_id": "EVT_006_CASE_2F3A2EAC_CHUNK_0005",
+      "event_type": "General_Operation",
+      "participants": [
+        "Accused",
+        "Husband and Wife",
+        "Closed Residential Room",
+        "Primary Health Center",
+        "Manual Strangulation",
+        "Traditional Healer"
+      ]
+    },
+    {
+      "event_id": "EVT_007_CASE_2F3A2EAC_CHUNK_0006",
+      "event_type": "General_Operation",
+      "participants": [
+        "Trimukh and his family",
+        "Trimukh",
+        "police",
+        "Trimukh's family",
+        "village"
+      ]
+    },
+    {
+      "event_id": "EVT_008_CASE_2F3A2EAC_CHUNK_0007",
+      "event_type": "General_Operation",
+      "participants": [
+        "Shared Liability",
+        "Act",
+        "Weak Defense",
+        "Multiple Family Members",
+        "Husband",
+        "Circumstantial Evidence",
+        "Active Incriminating Link",
+        "Objective False Explanation"
+      ]
+    }
+  ]
+}

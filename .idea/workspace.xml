@@ -5,8 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7c367fd-e004-438b-bdd2-1b3fab732934" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/run_pipeline.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/step1_chunking.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/step4_resolution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/entity_resolution.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ingest_neo4j.py" beforeDir="false" afterPath="$PROJECT_DIR$/step5_ingest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/process_chunks.py" beforeDir="false" afterPath="$PROJECT_DIR$/step2_coref.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/relation_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/step3_extraction.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="40" />
+    <option name="cachedIndexableFilesCount" value="43" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,61 +41,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0000002698472152" />
-      <entry key="S60" value="1.00103165905641" />
-      <entry key="M2" value="1.0641280105827613" />
-      <entry key="M5" value="1.7966408801355342" />
-      <entry key="M10" value="4.532198672546999" />
-      <entry key="M15" value="11.29358314636407" />
-      <entry key="M30" value="48.26844948095669" />
-      <entry key="H1" value="128.92753834036415" />
-      <entry key="H2" value="229.64676565825226" />
-      <entry key="H4" value="319.5394524792271" />
-      <entry key="D1" value="447.76144492469183" />
-      <entry key="W1" value="480.13307581597127" />
+      <entry key="MS100" value="1.4149669638975833" />
+      <entry key="MS500" value="3.8696276047175027" />
+      <entry key="S2" value="7.456658860686828" />
+      <entry key="S5" value="8.848707472267103" />
+      <entry key="S10" value="9.398954487903888" />
+      <entry key="S30" value="9.793685289168499" />
+      <entry key="S60" value="9.89607572653509" />
+      <entry key="M2" value="9.947844508114356" />
+      <entry key="M5" value="9.979189194325805" />
+      <entry key="M10" value="10.003538244293479" />
+      <entry key="M15" value="10.066216072139188" />
+      <entry key="M30" value="10.389280584528192" />
+      <entry key="H1" value="11.354603003021825" />
+      <entry key="H2" value="17.181423615538066" />
+      <entry key="H4" value="56.3712590247621" />
+      <entry key="D1" value="372.0824810598451" />
+      <entry key="W1" value="540.6440387559832" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
-      <entry key="S2" value="3.003387110241589E-110" />
-      <entry key="S5" value="1.5525461729487936E-44" />
-      <entry key="S10" value="1.2460121078660486E-22" />
-      <entry key="S30" value="4.9946771459438195E-8" />
-      <entry key="S60" value="2.234877434210632E-4" />
-      <entry key="M2" value="0.014949507766263036" />
-      <entry key="M5" value="0.18642418737112443" />
-      <entry key="M10" value="0.4482416311365581" />
-      <entry key="M15" value="0.6382080539774211" />
-      <entry key="M30" value="1.0543989021672486" />
-      <entry key="H1" value="1.586273495237998" />
-      <entry key="H2" value="2.1767251358506243" />
-      <entry key="H4" value="2.8637693169083236" />
-      <entry key="D1" value="4.410796460571854" />
-      <entry key="W1" value="4.906474427445623" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="1.3220463618420937E-247" />
+      <entry key="M2" value="3.6359958646010945E-124" />
+      <entry key="M5" value="4.216002440977488E-50" />
+      <entry key="M10" value="2.131628348772585E-25" />
+      <entry key="M15" value="3.8883183259727615E-17" />
+      <entry key="M30" value="8.230092396090545E-9" />
+      <entry key="H1" value="1.4014511060597584E-4" />
+      <entry key="H2" value="0.020459901275211592" />
+      <entry key="H4" value="0.2776438144385884" />
+      <entry key="D1" value="2.989569672509658" />
+      <entry key="W1" value="4.64130145551603" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8350879194283694" />
-      <entry key="MS500" value="0.9645981845841383" />
-      <entry key="S2" value="0.9910295632640791" />
-      <entry key="S5" value="0.9964021225885421" />
-      <entry key="S10" value="0.9981994402866303" />
-      <entry key="S30" value="0.9993997683756056" />
-      <entry key="S60" value="1.0009457825229813" />
-      <entry key="M2" value="1.0786318887758055" />
-      <entry key="M5" value="1.9815192963684107" />
-      <entry key="M10" value="4.97810671595072" />
-      <entry key="M15" value="11.928798000652568" />
-      <entry key="M30" value="49.31897698140728" />
-      <entry key="H1" value="130.51021426153233" />
-      <entry key="H2" value="231.82089478182192" />
-      <entry key="H4" value="322.4016058439907" />
-      <entry key="D1" value="452.1718994105126" />
-      <entry key="W1" value="485.03949881111816" />
+      <entry key="MS100" value="1.395179446871661" />
+      <entry key="MS500" value="3.847248907971941" />
+      <entry key="S2" value="7.441324365705839" />
+      <entry key="S5" value="8.840939334563949" />
+      <entry key="S10" value="9.394741777512476" />
+      <entry key="S30" value="9.792201906399344" />
+      <entry key="S60" value="9.895323734338513" />
+      <entry key="M2" value="9.947465905240206" />
+      <entry key="M5" value="9.979037120524366" />
+      <entry key="M10" value="10.003461893407433" />
+      <entry key="M15" value="10.066164555542967" />
+      <entry key="M30" value="10.389253120643971" />
+      <entry key="H1" value="11.354724358858462" />
+      <entry key="H2" value="17.201836155684997" />
+      <entry key="H4" value="56.64871230294971" />
+      <entry key="D1" value="375.07179682371185" />
+      <entry key="W1" value="545.2852874131082" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -99,37 +107,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.case.executor&quot;: &quot;Run&quot;,
-    &quot;Python.clean_db_relations.executor&quot;: &quot;Run&quot;,
-    &quot;Python.clear_json.executor&quot;: &quot;Run&quot;,
-    &quot;Python.entity_resolution.executor&quot;: &quot;Run&quot;,
-    &quot;Python.index.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ingest_neo4j.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.process_chunks.executor&quot;: &quot;Run&quot;,
-    &quot;Python.relation_extraction.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend1&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/amoghagrahari/Documents/PICT hobby projects/crimglass&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.case.executor": "Run",
+    "Python.clean_db_relations.executor": "Run",
+    "Python.clear_json.executor": "Run",
+    "Python.entity_resolution.executor": "Run",
+    "Python.index.executor": "Run",
+    "Python.ingest_neo4j.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.process_chunks.executor": "Run",
+    "Python.relation_extraction.executor": "Run",
+    "Python.run_pipeline.executor": "Run",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "backend1",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/amoghagrahari/Documents/PICT hobby projects/crimglass",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -162,7 +171,8 @@
       <workItem from="1787803041970" duration="7345000" />
       <workItem from="1787824408731" duration="12977000" />
       <workItem from="1787894762031" duration="3320000" />
-      <workItem from="1787903066221" duration="1846000" />
+      <workItem from="1787903066221" duration="10261000" />
+      <workItem from="1787986502640" duration="16914000" />
     </task>
     <servers />
   </component>
@@ -173,32 +183,23 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>398</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/step3_extraction.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/crimglass$process_chunks.coverage" NAME="process_chunks Coverage Results" MODIFIED="1787650980971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$ingest_neo4j.coverage" NAME="ingest_neo4j Coverage Results" MODIFIED="1787732533222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$ingest_neo4j.coverage" NAME="ingest_neo4j Coverage Results" MODIFIED="1787986746428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$entity_resolution.coverage" NAME="entity_resolution Coverage Results" MODIFIED="1787719581799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$case.coverage" NAME="case Coverage Results" MODIFIED="1787675435389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$index.coverage" NAME="index Coverage Results" MODIFIED="1787649995492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$clean_db_relations.coverage" NAME="clean_db_relations Coverage Results" MODIFIED="1787732621608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$main.coverage" NAME="main Coverage Results" MODIFIED="1787903071949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$clean_db_relations.coverage" NAME="clean_db_relations Coverage Results" MODIFIED="1787986813002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utllity" />
+    <SUITE FILE_PATH="coverage/crimglass$main.coverage" NAME="main Coverage Results" MODIFIED="1788004968511" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$relation_extraction.coverage" NAME="relation_extraction Coverage Results" MODIFIED="1787662693468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$clear_json.coverage" NAME="clear_json Coverage Results" MODIFIED="1787680380653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$run_pipeline.coverage" NAME="run_pipeline Coverage Results" MODIFIED="1788004039198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

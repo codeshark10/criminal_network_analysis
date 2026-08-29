@@ -1,0 +1,132 @@
+[
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0000",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 0,
+    "text": "DRISHYAM 1.1\n\nCOMPLAINANT: Mahesh Deshmukh, r/o Panjim, Goa. \nMISSING PERSON: Sameer \"Sam\" Deshmukh, age 19, male. \nINCIDENT DETAILS: Subject has been unreachable since the evening of October 2. Subject's yellow imported car is also missing. Last known location was near Pondolem village, Goa. Subject's mother, IGP Meera Deshmukh, noted his phone has been switched off since 23:45 HRS on Oct 2. Subject was supposed to attend a nature camp. \nINITIAL ACTION: Wireless message flashed across all checkposts in North and South Goa. Local stations instructed to look out for the yellow vehicle. Sub-Inspector Laxmikant Gaitonde assigned to preliminary local inquiry in Pondolem.",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0001",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 1,
+    "text": "BEGIN LOG EXPORT - MSISDN: +91-98XXXXXX21 (SAM DESHMUKH)\nDATE: 02-OCT\n18:30 HRS - TOWER: PONDALEM_NORTH - CALL OUT: +91-98XXXXXX55 (DURATION: 45s)\n20:15 HRS - TOWER: PONDALEM_RURAL - SMS IN: BANK_ALERT\n22:10 HRS - TOWER: PONDALEM_RURAL - CALL IN: UNKNOWN (MISSED)\n23:30 HRS - TOWER: PONDALEM_HIGHWAY_1 - DATA_SYNC_PULSE\n23:45 HRS - TOWER: PONDALEM_HIGHWAY_2 - NETWORK_DISCONNECT (DEVICE POWERED OFF OR DESTROYED)\nEND LOG EXPORT",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0002",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 2,
+    "text": "BEGIN LOG EXPORT - MSISDN: +91-98XXXXXX89 (VIJAY SALGAONKAR)\nDATE: 02-OCT\n14:00 HRS - TOWER: PONDALEM_MARKET - CALL IN: CABLE_SUPPLIER\n23:50 HRS - TOWER: PONDALEM_MARKET - DATA_SYNC_PULSE (DEVICE AT OFFICE CABLE NETWORK HUB)\nDATE: 03-OCT\n01:30 HRS - TOWER: PONDALEM_INDUSTRIAL - DATA_SYNC_PULSE (SOLO MOVEMENT)\n02:15 HRS - TOWER: PONDALEM_QUARRY - DATA_SYNC_PULSE (SOLO MOVEMENT)\n04:30 HRS - TOWER: PONDALEM_HIGHWAY_2 - CALL OUT: UNKNOWN_TRUCK_DRIVER (DURATION 12s)\n05:45 HRS - TOWER: PANJIM_POLICE_STATION_CELL - SMS IN: WEATHER_UPDATE\n09:15 HRS - TOWER: PANJIM_CENTRAL - CALL OUT: RESTAURANT_BOOKING\n14:30 HRS - TOWER: PANJIM_CINEMA - SMS IN: PROMO\nEND LOG EXPORT",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0003",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 3,
+    "text": "FORENSIC_WEB_LOG: MIRAGE_CABLE_OFFICE_IP\nDATE: 01-OCT to 03-OCT\nSEARCH_QUERIES: \"how long does dna last on clothes\", \"cell tower triangulation accuracy\", \"can a switched off phone be tracked\", \"habeas corpus meaning\"\nUSER: V. Salgaonkar (Logged into office PC)",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0004",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 4,
+    "text": "ENTRY 01: Searched the quarry site based on a tip. Found the yellow car belonging to the missing person sunk in the deep water. Suspect foul play.\nENTRY 02: Interrogated Vijay Salgaonkar and his family (Nandini, Anju, Anu). Suspect them due to past enmity between Vijay and myself, and local rumors. \nENTRY 03: Vijay claims his family was in Panjim on Oct 2 and Oct 3. They state they attended Swami Chinmayananda's Maha Satsang on Oct 2, stayed at a lodge, ate Pav Bhaji at Martin's Corner (Wait, Ashok Restaurant), and watched a movie on Oct 3.",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0005",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 5,
+    "text": "ENTRY 04: Cross-verified alibi. Bus conductor confirms they traveled on Oct 2. Lodge manager confirms booking. Swami's CD shows them in the crowd. Restaurant owner remembers Vijay describing the Pav Bhaji. Movie theater clerk confirms ticket purchase. The alibi is completely airtight.\nENTRY 05: Note to self - It feels too perfect. Usually, people forget small details. The entire family is repeating the exact same sequence of events, like a script. \nENTRY 06: Recovered Sam's phone from a truck carrying sand to a different state. Driver claims someone threw it into the back of his truck while it was parked near the highway. Driver described a middle-aged man arriving in a yellow car matching the missing vehicle.",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0006",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 6,
+    "text": "ENTRY 07: Investigated the new Panjim Police Station construction site. The contractor noted Vijay Salgaonkar visited the site alone early morning on Oct 3 to \"inspect cable wiring requirements,\" though no official contract was awarded.",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0007",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 7,
+    "text": "RECEIPT_01: PANJIM_LODGE_GUEST_BILL\nDATE: 02-OCT \nGUEST: V. SALGAONKAR + 3 \nROOM: 204\nSTATUS: PAID_IN_CASH\nNOTES: Signature matches V. Salgaonkar. Register entry dated 02-OCT 19:30 HRS.\n\nRECEIPT_02: ASHOK_RESTAURANT_PANJIM\nDATE: 03-OCT \nITEMS: 4x PAV BHAJI, 2x COLD DRINK\nTOTAL: 350 INR\nPAYMENT: CASH\n\nRECEIPT_03: NEW_ERA_CINEMA_PANJIM\nDATE: 03-OCT\nMOVIE: UNKNOWN (TICKET STUB FADED)\nSEATS: BALCONY D1, D2, D3, D4\nPAYMENT: CASH\n\nRECEIPT_04: PONDALEM_HARDWARE_STORE\nDATE: 03-OCT 01:15 HRS\nITEMS: 1x Heavy Duty Shovel, 2x Nylon Ropes, 1x Tarpaulin Sheet\nTOTAL: 850 INR\nPAYMENT: CASH\nNOTES: Night-shift clerk identified Vijay Salgaonkar as the purchaser.",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0008",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 8,
+    "text": "ATM_LOG: HDFC_PANJIM_ATM_04\nDATE: 02-OCT 23:30 HRS\nCARD: SAMEER DESHMUKH\nWITHDRAWAL: FAILED (PIN INCORRECT)\nCAMERA_FOOTAGE: Subject wearing a cap, face obscured, trying to withdraw cash using missing person's card. Height matches V. Salgaonkar, but inconclusive.\n\nWITNESS: Martin (Diner Owner, Pondolem)\nSTATEMENT: \"Yes, I know Vijay. He runs the Mirage Cable network. Was he here on the 2nd? No, I don't think so. Wait, actually, he told me yesterday that he was in Panjim on the 2nd for the Satsang. If he says he was there, he must have been.\"",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_8A3C3A75_CHUNK_0009",
+    "case_id": "CASE_8A3C3A75",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 9,
+    "text": "WITNESS: Swami Chinmayananda Satsang Organizer\nSTATEMENT: \"We had thousands of devotees on October 2nd. I cannot verify every face. But the police showed me a video recording from the event. You can see Mr. Salgaonkar and his family standing in the back row for about five seconds.\"\n\nWITNESS: Bus Conductor (Route: Pondolem to Panjim)\nSTATEMENT: \"I punch hundreds of tickets a day. I remember Vijay because he argued with me about the change on October 2nd. He gave me a 500 rupee note for tickets that cost 120.\"\n\nWITNESS: Night Watchman (Highway Toll Naka)\nSTATEMENT: \"Around 4 AM on the 3rd, I saw that yellow imported car heading towards the quarry. There was only one person inside. It looked like the cable guy, Vijay. I remember because he usually drives a scooter, not a fancy car.\"",
+    "metadata": {
+      "case_id": "CASE_8A3C3A75",
+      "case_title": "CASE CASE_8A3C3A75",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  }
+]

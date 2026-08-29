@@ -7,7 +7,9 @@ from typing import Dict, List, Any
 
 
 def get_dominant_type(type_counter: Counter) -> str:
-    """Returns the most frequent specific type, skipping generic UNKNOWN/ALIAS where possible."""
+    """
+    Returns the most frequent entity type, skipping generic UNKNOWN or ALIAS markers when possible.
+    """
     if not type_counter:
         return "UNKNOWN"
     most_common = type_counter.most_common()
@@ -17,14 +19,22 @@ def get_dominant_type(type_counter: Counter) -> str:
     return most_common[0][0]
 
 
-def resolve_entities_and_triplets(
-    input_path: str = "extracted_triplets.json",
-    output_path: str = "resolved_graph.json"
-):
-    if not os.path.exists(input_path):
-        raise FileNotFoundError(f"Input file '{input_path}' not found. Ensure Step 3 completed successfully.")
+def run_step4(input_path: str) -> str:
+    """
+    Performs graph resolution: merges aliases into master canonical entities,
+    assigns master roles (SUSPECT, VICTIM, INVESTIGATOR, WITNESS, EVENT),
+    and remaps all relationship triplets to primary entity names.
+    """
+    print(f"\n[STEP 4] Starting Entity & Relationship Resolution...")
 
-    # Robust JSON loading with control character fallback
+    if not os.path.exists(input_path):
+        raise FileNotFoundError(f"Input file '{input_path}' not found.")
+
+    base_dir = os.path.dirname(input_path)
+    base_name = os.path.basename(input_path).replace("_step3_triplets.json", "")
+    output_path = os.path.join(base_dir, f"{base_name}_step4_resolved.json")
+
+    # Robust JSON loading fallback
     with open(input_path, "r", encoding="utf-8", errors="replace") as f:
         try:
             chunk_results = json.load(f, strict=False)
@@ -34,40 +44,46 @@ def resolve_entities_and_triplets(
             sanitized_content = re.sub(r"[\x00-\x1F]+", " ", raw_content)
             chunk_results = json.loads(sanitized_content, strict=False)
 
-    print(f"Loaded {len(chunk_results)} chunk extractions. Resolving entity graph...")
+    print(f"  -> Loaded {len(chunk_results)} chunk extractions. Resolving entity graph...")
 
     raw_entities: Dict[str, Counter] = defaultdict(Counter)  # lower_name -> Counter(types)
-    canonical_names: Dict[str, str] = {}  # lower_name -> original display string
-    alias_edges: List[tuple] = []  # candidate (sub_lower, obj_lower) edges
+    canonical_names: Dict[str, str] = {}                      # lower_name -> longest display string
+    alias_edges: List[tuple] = []                            # candidate (sub_lower, obj_lower) edges
+    all_triplets = []
 
-    # Role score tracking counters
+    # Role scoring counters based on extracted predicates
     suspect_score = Counter()
     victim_score = Counter()
     witness_score = Counter()
     investigator_score = Counter()
 
+    # Predicate lookup sets for role classification
     suspect_predicates = {
-        "SUSPECTED_IN", "SUSPECTED_OF", "OPERATED", "TRANSFERRED_FUNDS",
-        "FLED_TO", "COMMITTED", "LEADER_OF", "MEMBER_OF", "DIRECTED",
-        "OWNED", "LAUNDERED", "PURCHASED", "SMUGGLED", "EXTORTED"
+        "SUSPECTED_IN", "OPERATED", "TRANSFERRED_FUNDS", "FLED_TO",
+        "COMMITTED", "LEADER_OF", "MEMBER_OF", "DIRECTED", "OWNED",
+        "LAUNDERED", "PURCHASED", "SMUGGLED", "EXTORTED", "ORCHESTRATED",
+        "ATTACKED", "ROBBED"
     }
-    victim_predicates = {"VICTIM_OF", "EXTORTED_BY", "TARGETED_BY", "ROBBED_BY", "KILLED_BY", "ATTACKED_BY"}
-    witness_predicates = {"WITNESSED", "REPORTED", "TESTIFIED_ABOUT", "OBSERVED", "INFORMED"}
+    victim_predicates = {
+        "VICTIM_OF", "EXTORTED_BY", "TARGETED_BY", "ROBBED_BY",
+        "KILLED_BY", "ATTACKED_BY", "ASSAULTED_BY"
+    }
+    witness_predicates = {
+        "WITNESSED", "REPORTED", "TESTIFIED_ABOUT", "OBSERVED", "INFORMED"
+    }
     investigator_predicates = {
         "INVESTIGATED", "ASSIGNED_TO", "ARRESTED", "INTERROGATED",
         "SEIZED_EVIDENCE", "FILED_REPORT", "INTERVIEWED", "LEAD_INVESTIGATOR",
         "CONDUCTED_SURVEILLANCE", "ISSUED_WARRANT", "HANDLED", "OPENED_CASE"
     }
 
-    all_triplets = []
-
     # ---------------------------------------------------------------------
-    # STEP 1: PARSE ALL CHUNKS AND STORE RAW ENTITIES / ALIAS CANDIDATES
+    # STEP 1: PARSE ALL CHUNKS, COLLECT RAW ENTITIES & ALIAS EDGES
     # ---------------------------------------------------------------------
     for chunk in chunk_results:
         chunk_id = chunk.get("chunk_id", "")
 
-        # Process entities defined in chunk
+        # Process defined entities
         for ent in chunk.get("entities", []):
             name = ent.get("name", "").strip()
             ent_type = ent.get("type", "UNKNOWN").upper().strip()
@@ -77,11 +93,11 @@ def resolve_entities_and_triplets(
             name_lower = name.lower()
             raw_entities[name_lower][ent_type] += 1
 
-            # Keep cleanest / longest canonical display capitalization
+            # Keep the longest, most formal display capitalization
             if name_lower not in canonical_names or len(name) > len(canonical_names[name_lower]):
                 canonical_names[name_lower] = name
 
-            # Process explicit alias fields in entity definitions
+            # Process explicit aliases
             for alias in ent.get("aliases", []):
                 alias_clean = alias.strip()
                 if alias_clean:
@@ -90,7 +106,7 @@ def resolve_entities_and_triplets(
                     if alias_lower not in canonical_names:
                         canonical_names[alias_lower] = alias_clean
 
-                    # Record candidate alias edge
+                    # Record candidate edge between real name and alias
                     alias_edges.append((name_lower, alias_lower))
 
         # Process triplets
@@ -110,7 +126,7 @@ def resolve_entities_and_triplets(
             if obj_lower not in canonical_names:
                 canonical_names[obj_lower] = obj
 
-            # Alias triplets vs general relation triplets
+            # Alias predicate handling vs standard relationship
             if pred in ["HAS_ALIAS", "KNOWN_AS", "AKA", "CODE_NAME"]:
                 alias_edges.append((sub_lower, obj_lower))
             else:
@@ -122,7 +138,7 @@ def resolve_entities_and_triplets(
                     "chunk_id": chunk_id
                 })
 
-            # Tally role scores
+            # Tally role scores for subject entity
             if pred in suspect_predicates:
                 suspect_score[sub_lower] += 1
             elif pred in victim_predicates:
@@ -133,17 +149,17 @@ def resolve_entities_and_triplets(
                 investigator_score[sub_lower] += 1
 
     # ---------------------------------------------------------------------
-    # STEP 2: BUILD TYPE-GUARDED GRAPH & COMPONENT RESOLUTION
+    # STEP 2: TYPE-GUARDED GRAPH LINKING
     # ---------------------------------------------------------------------
-    entity_dominant_types: Dict[str, str] = {}
-    for name_lower, type_counts in raw_entities.items():
-        entity_dominant_types[name_lower] = get_dominant_type(type_counts)
+    entity_dominant_types: Dict[str, str] = {
+        n: get_dominant_type(c) for n, c in raw_entities.items()
+    }
 
     alias_graph = nx.Graph()
     for name_lower in canonical_names:
         alias_graph.add_node(name_lower)
 
-    # Type Category Mapping for strict separation
+    # Category mappings to prevent cross-category merging (e.g., Location with Person)
     TYPE_CATEGORIES = {
         "PERSON": "PERSON",
         "ALIAS": "PERSON",
@@ -152,6 +168,7 @@ def resolve_entities_and_triplets(
         "AGENT": "PERSON",
         "ORGANIZATION": "ORGANIZATION",
         "LOCATION": "LOCATION",
+        "EVENT": "EVENT",
         "PHONE": "PHONE",
         "VEHICLE": "VEHICLE",
         "BANK_ACCOUNT": "FINANCIAL",
@@ -159,7 +176,6 @@ def resolve_entities_and_triplets(
         "UNKNOWN": "UNKNOWN"
     }
 
-    # Guarded Edge Linking: Only connect if entity categories are compatible
     for sub_lower, obj_lower in alias_edges:
         type_sub = entity_dominant_types.get(sub_lower, "UNKNOWN")
         type_obj = entity_dominant_types.get(obj_lower, "UNKNOWN")
@@ -167,13 +183,13 @@ def resolve_entities_and_triplets(
         cat_sub = TYPE_CATEGORIES.get(type_sub, "UNKNOWN")
         cat_obj = TYPE_CATEGORIES.get(type_obj, "UNKNOWN")
 
-        # Non-person categories can ONLY merge with their exact matching category
-        if cat_sub in ["LOCATION", "PHONE", "VEHICLE", "FINANCIAL", "ORGANIZATION"] or \
-           cat_obj in ["LOCATION", "PHONE", "VEHICLE", "FINANCIAL", "ORGANIZATION"]:
+        # Non-person categories can ONLY merge if exact category matches
+        if cat_sub in ["LOCATION", "EVENT", "PHONE", "VEHICLE", "FINANCIAL", "ORGANIZATION"] or \
+           cat_obj in ["LOCATION", "EVENT", "PHONE", "VEHICLE", "FINANCIAL", "ORGANIZATION"]:
             if cat_sub == cat_obj:
                 alias_graph.add_edge(sub_lower, obj_lower)
         else:
-            # Person / Alias / Unknown can merge
+            # Person / Alias / Unknown can merge freely
             if cat_sub in ["PERSON", "UNKNOWN"] and cat_obj in ["PERSON", "UNKNOWN"]:
                 alias_graph.add_edge(sub_lower, obj_lower)
 
@@ -187,32 +203,38 @@ def resolve_entities_and_triplets(
     for component in alias_components:
         comp_list = list(component)
 
-        # Determine dominant Entity Type for the cluster
+        # Dominant type for cluster
         type_counter = Counter()
         for item in comp_list:
             type_counter.update(raw_entities[item])
 
         master_type = get_dominant_type(type_counter)
 
-        # Pick canonical display name
-        canonical_master_key = max(comp_list, key=lambda x: (len(canonical_names.get(x, x)), x))
+        # Pick the LONGEST, most complete canonical display name as primary key
+        canonical_master_key = max(
+            comp_list,
+            key=lambda x: (len(canonical_names.get(x, x)), x)
+        )
         master_display_name = canonical_names.get(canonical_master_key, canonical_master_key)
 
+        # Collect aliases (all other display names in the cluster)
         aliases = [
             canonical_names.get(item, item)
             for item in comp_list
             if canonical_names.get(item, item).lower() != master_display_name.lower()
         ]
 
-        # Determine aggregate Master Role
+        # Role determination
         total_suspect = sum(suspect_score[item] for item in comp_list)
         total_victim = sum(victim_score[item] for item in comp_list)
         total_witness = sum(witness_score[item] for item in comp_list)
         total_investigator = sum(investigator_score[item] for item in comp_list)
 
-        # Title regex match for law enforcement (e.g. Det. Miller, Agent Smith, Officer Davis)
         has_investigator_title = any(
-            re.search(r'\b(det|detective|officer|agent|inspector|sergeant|deputy|investigator)\b', canonical_names.get(item, "").lower())
+            re.search(
+                r'\b(det|detective|officer|agent|inspector|sergeant|deputy|investigator)\b',
+                canonical_names.get(item, "").lower()
+            )
             for item in comp_list
         )
 
@@ -240,7 +262,7 @@ def resolve_entities_and_triplets(
         }
 
     # ---------------------------------------------------------------------
-    # STEP 4: REWRITE TRIPLETS TO CANONICAL NAMES & DEDUPLICATE
+    # STEP 4: REWRITE ALL TRIPLETS TO MASTER NAMES & DEDUPLICATE
     # ---------------------------------------------------------------------
     resolved_triplets = []
     seen_triplets = set()
@@ -249,10 +271,11 @@ def resolve_entities_and_triplets(
         sub_raw = trip["subject"]
         obj_raw = trip["object"]
 
+        # Transfer relationship from alias to primary master name
         master_sub = node_to_master.get(sub_raw, canonical_names.get(sub_raw, sub_raw))
         master_obj = node_to_master.get(obj_raw, canonical_names.get(obj_raw, obj_raw))
 
-        # Remove self-loops created by entity resolution
+        # Eliminate self-loops created by alias merging
         if master_sub.lower() == master_obj.lower():
             continue
 
@@ -268,7 +291,7 @@ def resolve_entities_and_triplets(
             })
 
     # ---------------------------------------------------------------------
-    # STEP 5: SAVE FINAL DATASET
+    # STEP 5: SAVE RESOLVED OUTPUT
     # ---------------------------------------------------------------------
     final_output = {
         "summary": {
@@ -283,15 +306,14 @@ def resolve_entities_and_triplets(
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(final_output, f, indent=2)
 
-    print("\n--- STEP 4 ENTITY RESOLUTION COMPLETE ---")
-    print(f"Total Chunks Processed   : {len(chunk_results)}")
-    print(f"Canonical Entities Built : {len(master_profiles)}")
-    print(f"Unique Triplets Resolved : {len(resolved_triplets)}")
-    print(f"Output saved to          : '{output_path}'")
+    print(f"  ✓ Resolution complete: Built {len(master_profiles)} profiles and {len(resolved_triplets)} relations.")
+    print(f"  ✓ Output saved to: '{output_path}'")
+    return output_path
 
 
 if __name__ == "__main__":
-    resolve_entities_and_triplets(
-        input_path="extracted_triplets.json",
-        output_path="resolved_graph.json"
-    )
+    import sys
+    if len(sys.argv) > 1:
+        run_step4(sys.argv[1])
+    else:
+        print("Usage: python step4_resolution.py <path_to_step3_triplets.json>")

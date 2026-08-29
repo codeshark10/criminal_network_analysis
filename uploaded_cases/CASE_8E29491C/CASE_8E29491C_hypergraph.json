@@ -1,0 +1,82 @@
+{
+  "case_id": "CASE_8E29491C",
+  "case_name": "CASE_CASE_8E29491C",
+  "pipeline_version": "5.0.0-Universal",
+  "primary_focal_target": "Farooq Bhana",
+  "total_events": 7,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_8E29491C_CHUNK_0001",
+      "event_type": "Operational_Activity",
+      "participants": [
+        "violent crowd",
+        "59 fatalities"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_8E29491C_CHUNK_0002",
+      "event_type": "Conspiracy_And_Planning",
+      "participants": [
+        "Haji Bilal",
+        "Salim Zarda (Paanwala)",
+        "Farooq Bhana",
+        "Razzak Kurkur"
+      ]
+    },
+    {
+      "event_id": "EVT_003_CASE_8E29491C_CHUNK_0003",
+      "event_type": "Operational_Activity",
+      "participants": [
+        "Salim Zarda (Paanwala)",
+        "Maulvi Umarji"
+      ]
+    },
+    {
+      "event_id": "EVT_004_CASE_8E29491C_CHUNK_0004",
+      "event_type": "Operational_Activity",
+      "participants": [
+        "Hasan Charkha",
+        "Mehboob Yakub Mitha",
+        "Shaukat Lalu",
+        "Imran Sheri",
+        "Jabir Binyamin Behera",
+        "Rafiq Bhatuk"
+      ]
+    },
+    {
+      "event_id": "EVT_005_CASE_8E29491C_CHUNK_0005",
+      "event_type": "Communication",
+      "participants": [
+        "Haji Bilal",
+        "Farooq Bhana",
+        "Hasan Charkha",
+        "Salim Paanwala",
+        "Rafiq Bhatuk"
+      ]
+    },
+    {
+      "event_id": "EVT_006_CASE_8E29491C_CHUNK_0007",
+      "event_type": "Operational_Activity",
+      "participants": [
+        "Hasan_Charkha",
+        "Haji_Bilal",
+        "Razzak_Kurkur",
+        "Salim_Paanwala",
+        "Farooq_Bhana",
+        "Rafiq_Bhatuk"
+      ]
+    },
+    {
+      "event_id": "EVT_007_CASE_8E29491C_CHUNK_0008",
+      "event_type": "Operational_Activity",
+      "participants": [
+        "Maulvi_Umarji",
+        "Hasan_Charkha",
+        "Jabir_Behera",
+        "Breached_And_Poured_Fuel",
+        "Farooq_Bhana",
+        "Rafiq_Bhatuk"
+      ]
+    }
+  ]
+}
