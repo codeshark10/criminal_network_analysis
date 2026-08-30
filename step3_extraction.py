@@ -28,8 +28,8 @@ class ChunkExtractionResult(BaseModel):
     triplets: List[Triplet] = Field(description="Relations extracted from the chunk")
 
 
-class AsyncM5QwenExtractor:
-    def __init__(self, model_name: str = "qwen2.5", max_concurrent: int = 3):
+class AsyncM5GemmaExtractor:
+    def __init__(self, model_name: str = "gemma3:12b", max_concurrent: int = 3):
         self.model_name = model_name
         self.semaphore = asyncio.Semaphore(max_concurrent)
         self.client = instructor.from_openai(
@@ -123,7 +123,7 @@ class AsyncM5QwenExtractor:
 
 
 async def run_step3(input_path: str) -> str:
-    print(f"\n[STEP 3] Starting LLM Extraction via Qwen2.5...")
+    print(f"\n[STEP 3] Starting LLM Extraction via Gemma 3 (12B)...")
     base_dir = os.path.dirname(input_path)
     base_name = os.path.basename(input_path).replace("_step2_coref.json", "")
     output_path = os.path.join(base_dir, f"{base_name}_step3_triplets.json")
@@ -131,7 +131,7 @@ async def run_step3(input_path: str) -> str:
     with open(input_path, "r", encoding="utf-8") as f:
         chunks = json.load(f)
 
-    extractor = AsyncM5QwenExtractor()
+    extractor = AsyncM5GemmaExtractor()
     results_map = {}
 
     start_time = time.time()

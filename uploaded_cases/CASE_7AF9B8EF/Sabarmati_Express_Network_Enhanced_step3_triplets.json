@@ -1,0 +1,633 @@
+[
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0000",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Godhra Railway Station",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "A-Cabin Yard",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Panchmahal District",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Sabarmati Express",
+        "type": "VEHICLE",
+        "aliases": [
+          "Train No. 9166"
+        ]
+      },
+      {
+        "name": "Coach S-6",
+        "type": "VEHICLE",
+        "aliases": []
+      },
+      {
+        "name": "Mass Arson",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Homicide",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Criminal Conspiracy",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Riot",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Mass Arson",
+        "predicate": "LOCATED_AT",
+        "object": "Godhra Railway Station",
+        "evidence": "LOCATION: Godhra Railway Station"
+      },
+      {
+        "subject": "Mass Arson",
+        "predicate": "LOCATED_AT",
+        "object": "A-Cabin Yard",
+        "evidence": "LOCATION: A-Cabin Yard"
+      },
+      {
+        "subject": "Mass Arson",
+        "predicate": "LOCATED_AT",
+        "object": "Panchmahal District",
+        "evidence": "LOCATION: Panchmahal District"
+      },
+      {
+        "subject": "Sabarmati Express",
+        "predicate": "LOCATED_AT",
+        "object": "Godhra Railway Station",
+        "evidence": "LOCATION: Godhra Railway Station"
+      },
+      {
+        "subject": "Coach S-6",
+        "predicate": "PART_OF",
+        "object": "Sabarmati Express",
+        "evidence": "TARGET VEHICLE: Sabarmati Express (Train No. 9166), Coach S-6"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0001",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Coach S-6",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "9166 Sabarmati Express",
+        "type": "VEHICLE",
+        "aliases": []
+      },
+      {
+        "name": "A-Cabin",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Godhra Railway Station",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "February 27, 2002 Attack",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Coach S-6",
+        "predicate": "LOCATED_AT",
+        "object": "9166 Sabarmati Express",
+        "evidence": "Coach S-6 of the 9166 Sabarmati Express was subjected to a coordinated attack"
+      },
+      {
+        "subject": "February 27, 2002 Attack",
+        "predicate": "OCCURRED_AT",
+        "object": "A-Cabin",
+        "evidence": "On the morning of February 27, 2002, Coach S-6 of the 9166 Sabarmati Express was subjected to a coordinated attack near A-Cabin"
+      },
+      {
+        "subject": "February 27, 2002 Attack",
+        "predicate": "OCCURRED_AT",
+        "object": "Godhra Railway Station",
+        "evidence": "On the morning of February 27, 2002, Coach S-6 of the 9166 Sabarmati Express was subjected to a coordinated attack near A-Cabin, just outside Godhra Railway Station"
+      },
+      {
+        "subject": "Crowd",
+        "predicate": "PARTICIPATED_IN",
+        "object": "February 27, 2002 Attack",
+        "evidence": "A violent crowd trapped the passengers"
+      },
+      {
+        "subject": "Crowd",
+        "predicate": "EXECUTED",
+        "object": "February 27, 2002 Attack",
+        "evidence": "A violent crowd trapped the passengers inside using heavy stone pelting"
+      },
+      {
+        "subject": "Crowd",
+        "predicate": "TRANSFERRED_ASSET_TO",
+        "object": "February 27, 2002 Attack",
+        "evidence": "A violent crowd poured approximately 140 liters of petrol into the coach corridor"
+      },
+      {
+        "subject": "February 27, 2002 Attack",
+        "predicate": "RESULTED_IN",
+        "object": "59 Fatalities",
+        "evidence": "The petrol was ignited, resulting in 59 fatalities"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0002",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Haji Bilal",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Farooq Bhana",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Razzak Kurkur",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Salim Zarda",
+        "type": "PERSON",
+        "aliases": [
+          "Paanwala"
+        ]
+      },
+      {
+        "name": "Aman Guest House",
+        "type": "ORGANIZATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Haji Bilal",
+        "predicate": "ORCHESTRATED",
+        "object": "Fuel Transport",
+        "evidence": "mobilized the mob and coordinated fuel transport"
+      },
+      {
+        "subject": "Farooq Bhana",
+        "predicate": "DIRECTED",
+        "object": "Petrol Procurement",
+        "evidence": "core conspirator who directed the procurement of 140 liters of petrol"
+      },
+      {
+        "subject": "Razzak Kurkur",
+        "predicate": "LOCATED_AT",
+        "object": "Aman Guest House",
+        "evidence": "Owner of Aman Guest House"
+      },
+      {
+        "subject": "Salim Zarda",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Physical Altercation",
+        "evidence": "initiated the physical altercation"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0003",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Salim Zarda",
+        "type": "PERSON",
+        "aliases": [
+          "Paanwala"
+        ]
+      },
+      {
+        "name": "Maulvi Umarji",
+        "type": "PERSON",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Salim Zarda",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Physical Altercation",
+        "evidence": "initiated the physical altercation with passengers"
+      },
+      {
+        "subject": "Salim Zarda",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Mob",
+        "evidence": "raised the initial alarm to gather the mob"
+      },
+      {
+        "subject": "Maulvi Umarji",
+        "predicate": "INVESTIGATED",
+        "object": "Ideological Instigation",
+        "evidence": "investigated as the ideological instigator"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0004",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Hasan Charkha",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Jabir Binyamin Behera",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Mehboob Yakub Mitha",
+        "type": "PERSON",
+        "aliases": [
+          "Hasan"
+        ]
+      },
+      {
+        "name": "Rafiq Bhatuk",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Imran Sheri",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Shaukat Lalu",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Breach & Arson",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Hasan Charkha",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breach & Arson",
+        "evidence": "Hasan Charkha: Part of the core group that cut the vestibule."
+      },
+      {
+        "subject": "Jabir Binyamin Behera",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breach & Arson",
+        "evidence": "Jabir Binyamin Behera: Admitted (later retracted) to fuel transport and pouring."
+      },
+      {
+        "subject": "Mehboob Yakub Mitha",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breach & Arson",
+        "evidence": "Mehboob Yakub Mitha (alias Hasan): Key participant in fuel transport."
+      },
+      {
+        "subject": "Rafiq Bhatuk",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breach & Arson",
+        "evidence": "Rafiq Bhatuk: Core executioner; part of the group that broke into the coach."
+      },
+      {
+        "subject": "Imran Sheri",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breach & Arson",
+        "evidence": "Imran Sheri & Shaukat Lalu: Identified in the mobilization and direct attack."
+      },
+      {
+        "subject": "Shaukat Lalu",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breach & Arson",
+        "evidence": "Imran Sheri & Shaukat Lalu: Identified in the mobilization and direct attack."
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0005",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Aman Guest House",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Salim Paanwala",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Haji Bilal",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Farooq Bhana",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Hasan Charkha",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Rafiq Bhatuk",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Kalabhai Fuel Pump",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Train Arrival",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Fuel Transfer",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Train Ignition",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Haji Bilal",
+        "predicate": "DIRECTED",
+        "object": "Fuel Transfer",
+        "evidence": "Haji Bilal and Farooq Bhana direct the fuel cart to the tracks."
+      },
+      {
+        "subject": "Farooq Bhana",
+        "predicate": "DIRECTED",
+        "object": "Fuel Transfer",
+        "evidence": "Haji Bilal and Farooq Bhana direct the fuel cart to the tracks."
+      },
+      {
+        "subject": "Hasan Charkha",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Train Ignition",
+        "evidence": "Hasan Charkha, Rafiq Bhatuk, and others breach the vestibule, pour fuel, and ignite it."
+      },
+      {
+        "subject": "Rafiq Bhatuk",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Train Ignition",
+        "evidence": "Hasan Charkha, Rafiq Bhatuk, and others breach the vestibule, pour fuel, and ignite it."
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0006",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [],
+    "triplets": []
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0007",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Farooq Bhana",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Kalabhai Fuel Pump",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Haji Bilal",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Mob Signal Falia",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Razzak Kurkur",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Aman Guest House",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Salim Paanwala",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Sabarmati Express Platform",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Hasan Charkha",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Rafiq Bhatuk",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Coach S6 Vestibule",
+        "type": "LOCATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Farooq Bhana",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Kalabhai Fuel Pump",
+        "evidence": "Farooq_Bhana | Kalabhai_Fuel_Pump | Procured_Fuel_From | Confirmed"
+      },
+      {
+        "subject": "Farooq Bhana",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Haji Bilal",
+        "evidence": "Farooq_Bhana | Haji_Bilal | Co-Conspirator_Coordination | Confirmed"
+      },
+      {
+        "subject": "Haji Bilal",
+        "predicate": "COMMAND",
+        "object": "Mob Signal Falia",
+        "evidence": "Haji_Bilal | Mob_Signal_Falia | Mobilized_Command | Confirmed"
+      },
+      {
+        "subject": "Razzak Kurkur",
+        "predicate": "LOCATED_AT",
+        "object": "Aman Guest House",
+        "evidence": "Razzak_Kurkur | Aman_Guest_House | Owner_Stored_Logistics | Acquitted_Node"
+      },
+      {
+        "subject": "Farooq Bhana",
+        "predicate": "LOCATED_AT",
+        "object": "Aman Guest House",
+        "evidence": "Farooq_Bhana | Aman_Guest_House | Used_As_Staging_Area | Confirmed"
+      },
+      {
+        "subject": "Salim Paanwala",
+        "predicate": "INITIATED",
+        "object": "Sabarmati Express Platform",
+        "evidence": "Salim_Paanwala | Sabarmati_Express_Platform | Initiated_Conflict | Confirmed"
+      },
+      {
+        "subject": "Salim Paanwala",
+        "predicate": "INSTIGATED",
+        "object": "Mob Signal Falia",
+        "evidence": "Salim_Paanwala | Mob_Signal_Falia | Instigated_Gathering | Confirmed"
+      },
+      {
+        "subject": "Haji Bilal",
+        "predicate": "COMMAND",
+        "object": "Hasan Charkha",
+        "evidence": "Haji_Bilal | Hasan_Charkha | Directed_Execution | Confirmed"
+      },
+      {
+        "subject": "Haji Bilal",
+        "predicate": "COMMAND",
+        "object": "Rafiq Bhatuk",
+        "evidence": "Haji_Bilal | Rafiq_Bhatuk | Directed_Execution | Confirmed"
+      },
+      {
+        "subject": "Hasan Charkha",
+        "predicate": "EXECUTED",
+        "object": "Coach S6 Vestibule",
+        "evidence": "Hasan_Charkha | Coach_S6_Vestibule | Breached_And_Poured_Fuel | Confirmed"
+      },
+      {
+        "subject": "Rafiq Bhatuk",
+        "predicate": "EXECUTED",
+        "object": "Coach S6 Vestibule",
+        "evidence": "Rafiq_Bhatuk | Coach_S6_Vestibule | Breached_And_Poured_Fuel | Confirmed"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_7AF9B8EF_CHUNK_0008",
+    "case_id": "CASE_7AF9B8EF",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Hasan Charkha",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Rafiq Bhatuk",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Maulvi Umarji",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Farooq Bhana",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Jabir Behera",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Coach_S6_Vestibule",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Breached_And_Poured_Fuel",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Hasan Charkha",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breached_And_Poured_Fuel",
+        "evidence": "Hasan_Charkha | Coach_S6_Vestibule | Breached_And_Poured_Fuel | Confirmed"
+      },
+      {
+        "subject": "Rafiq Bhatuk",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breached_And_Poured_Fuel",
+        "evidence": "Rafiq_Bhatuk | Coach_S6_Vestibule | Breached_And_Poured_Fuel | Confirmed"
+      },
+      {
+        "subject": "Maulvi Umarji",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Farooq Bhana",
+        "evidence": "Maulvi_Umarji | Farooq_Bhana | Ideological_Influence | Investigated_Acquitted"
+      },
+      {
+        "subject": "Jabir Behera",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Breached_And_Poured_Fuel",
+        "evidence": "Jabir_Behera | Hasan_Charkha | Co-Executioner | Confirmed"
+      }
+    ]
+  }
+]

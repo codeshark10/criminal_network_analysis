@@ -1,0 +1,274 @@
+{
+  "case_id": "CASE_9554ECC9",
+  "case_name": "CASE_CASE_9554ECC9",
+  "pipeline_version": "4.2.0-Universal",
+  "total_events": 19,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_9554ECC9_CHUNK_0001",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "forgery",
+        "market manipulation",
+        "Systemic financial fraud",
+        "Harshad Shantilal Mehta",
+        "criminal conspiracy",
+        "Bombay Stock Exchange (BSE)"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_9554ECC9_CHUNK_0002",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "targeted equities",
+        "Subject",
+        "personal broker accounts",
+        "systemic loopholes",
+        "Ready Forward (RF) Deals",
+        "Banks",
+        "funds",
+        "Bank Receipts (BRs)"
+      ]
+    },
+    {
+      "event_id": "EVT_003_CASE_9554ECC9_CHUNK_0003",
+      "event_type": "Market_Conspiracy",
+      "participants": [
+        "The Times of India",
+        "Sensex",
+        "Associated Cement Company (ACC)",
+        "1992 Stock Market Crash",
+        "Sterlite Industries",
+        "Videocon",
+        "Sucheta Dalal"
+      ]
+    },
+    {
+      "event_id": "EVT_004_CASE_9554ECC9_CHUNK_0004",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "State Bank of India",
+        "SBI transactions",
+        "Harshad Mehta",
+        "Reserve Bank of India",
+        "R. Sitaraman"
+      ]
+    },
+    {
+      "event_id": "EVT_005_CASE_9554ECC9_CHUNK_0005",
+      "event_type": "General_Operation",
+      "participants": [
+        "Bhupendra Dalal",
+        "Securities Shortfall Incident",
+        "A.D. Narottam",
+        "Standard Chartered Bank",
+        "Harshad Mehta",
+        "Arvind Mohanlal",
+        "Kishan Kantilal Kapadia",
+        "R. Sitaraman",
+        "State Bank of India"
+      ]
+    },
+    {
+      "event_id": "EVT_006_CASE_9554ECC9_CHUNK_0006",
+      "event_type": "Market_Conspiracy",
+      "participants": [
+        "Janakiraman Committee",
+        "Dalal Street",
+        "Hero Honda Splendor",
+        "Ramesh Kumar",
+        "Delivery Truck",
+        "Reserve Bank of India",
+        "securities market irregularities"
+      ]
+    },
+    {
+      "event_id": "EVT_007_CASE_9554ECC9_CHUNK_0007",
+      "event_type": "Physical_Meeting",
+      "participants": [
+        "Metropolitan Co-operative Bank",
+        "Standard Chartered",
+        "\u20b9400.35 crore",
+        "State Bank of Saurashtra",
+        "Bank of Karad",
+        "\u20b9174.93 crore",
+        "Harshad Mehta",
+        "+91-22XXXXX11",
+        "\u20b91271.20 crore",
+        "National Housing Bank",
+        "Fake BRs Scheme"
+      ]
+    },
+    {
+      "event_id": "EVT_008_CASE_9554ECC9_CHUNK_0008",
+      "event_type": "General_Operation",
+      "participants": [
+        "State Bank of India",
+        "M.J. Pherwani",
+        "Growmore Account",
+        "Ashwin Mehta",
+        "Manu Manek",
+        "Bear Cartel",
+        "SGL Clearance",
+        "Bank of Karad",
+        "Jyoti Mehta",
+        "Dry Cleaning",
+        "ACC",
+        "National Housing Bank",
+        "R. Sitaraman"
+      ]
+    },
+    {
+      "event_id": "EVT_009_CASE_9554ECC9_CHUNK_0009",
+      "event_type": "General_Operation",
+      "participants": [
+        "Manu Manek",
+        "Sudhakar Ail",
+        "A.D. Narottam",
+        "Bank of Karad",
+        "Ajay Kayan",
+        "Manager, BOK",
+        "State Bank of India"
+      ]
+    },
+    {
+      "event_id": "EVT_010_CASE_9554ECC9_CHUNK_0010",
+      "event_type": "General_Operation",
+      "participants": [
+        "Manu Manek",
+        "Apollo Tyres",
+        "Big Bull",
+        "Toyota Lexus",
+        "Madhuli apartment complex",
+        "Bear Syndicate Sub-broker",
+        "Harshad Mehta",
+        "Sterlite",
+        "State Bank of India"
+      ]
+    },
+    {
+      "event_id": "EVT_011_CASE_9554ECC9_CHUNK_0011",
+      "event_type": "General_Operation",
+      "participants": [
+        "UCO Bank",
+        "Courier from Bank of Karad",
+        "Subject",
+        "Delivery Boy from Udipi Restaurant",
+        "Growmore Research and Asset Management",
+        "Madhuli apartment complex",
+        "Bank of Karad",
+        "K. Margabandhu",
+        "Taj Mahal Palace Hotel",
+        "Pav Bhaji"
+      ]
+    },
+    {
+      "event_id": "EVT_012_CASE_9554ECC9_CHUNK_0012",
+      "event_type": "General_Operation",
+      "participants": [
+        "Hiten Dalal",
+        "Jaideep Jagdish Pathak",
+        "Bank Receipts",
+        "Document Shredding",
+        "Arvind Mohanlal"
+      ]
+    },
+    {
+      "event_id": "EVT_013_CASE_9554ECC9_CHUNK_0013",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "T.B. Ruia",
+        "Securities Account Fraud",
+        "ANDHRA BANK",
+        "Hiten Dalal",
+        "Standard Chartered",
+        "A.D. Narottam",
+        "METROPOLITAN CO-OP BANK (MCB)",
+        "Harshad Mehta",
+        "BANK OF KARAD (BOK)",
+        "Kishan Kantilal Kapadia"
+      ]
+    },
+    {
+      "event_id": "EVT_014_CASE_9554ECC9_CHUNK_0014",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "ANDHRA BANK",
+        "Standard Chartered"
+      ]
+    },
+    {
+      "event_id": "EVT_015_CASE_9554ECC9_CHUNK_0015",
+      "event_type": "General_Operation",
+      "participants": [
+        "State Bank of India",
+        "Bhupendra Dalal",
+        "A.D. Narottam",
+        "Bank of Karad",
+        "April 1992 Exposure",
+        "Sucheta Dalal",
+        "Manager, BOK",
+        "Harshad"
+      ]
+    },
+    {
+      "event_id": "EVT_016_CASE_9554ECC9_CHUNK_0016",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "CBI",
+        "Maker Chambers",
+        "Criminal Syndicate",
+        "Harshad bhai",
+        "Mehta",
+        "Investment Scheme",
+        "Tea Order",
+        "R. Sitaraman",
+        "State Bank of India"
+      ]
+    },
+    {
+      "event_id": "EVT_017_CASE_9554ECC9_CHUNK_0017",
+      "event_type": "Legal_Action",
+      "participants": [
+        "CBI",
+        "S. Ramaswamy",
+        "Sudhakar Ail",
+        "Hiten Dalal",
+        "Standard Chartered Fraud Convictions",
+        "Harshad Mehta",
+        "Manager, BOK",
+        "Santosh Mulgaonkar",
+        "Kishan Kapadia"
+      ]
+    },
+    {
+      "event_id": "EVT_018_CASE_9554ECC9_CHUNK_0018",
+      "event_type": "Market_Conspiracy",
+      "participants": [
+        "Stock Transaction Reform",
+        "Metropolitan Co-operative Bank",
+        "Bank of Karad",
+        "Securities and Exchange Board of India (SEBI)",
+        "Thane Prison",
+        "Harshad Mehta",
+        "Scam",
+        "Vijaya Bank"
+      ]
+    },
+    {
+      "event_id": "EVT_019_CASE_9554ECC9_CHUNK_0019",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "Manu Manek",
+        "Bear Cartel",
+        "SBI Treasury",
+        "Big Bull",
+        "real estate",
+        "ACC",
+        "Reserve Bank of India",
+        "Growmore",
+        "State Bank of India"
+      ]
+    }
+  ]
+}

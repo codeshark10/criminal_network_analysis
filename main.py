@@ -836,6 +836,8 @@ async def create_new_case(request: CaseCreateRequest):
     return CaseItem(case_id=r.get("case_id"), case_name=r.get("case_name"), total_entities=0)
 
 
+from pdf_processor import compile_master_dossier_from_disk
+
 @app.post("/api/cases/upload", response_model=UploadCasesResponse)
 async def upload_case_documents(
         background_tasks: BackgroundTasks,
@@ -844,8 +846,9 @@ async def upload_case_documents(
         process_immediately: bool = Query(default=True)
 ):
     """
-    Uploads documents, saves them to disk, generates a structured CSV table
-    inside the case folder, and updates Neo4j. Launches background processing.
+    Uploads .txt and .pdf documents, saves them to disk, compiles them into a
+    master dossier file, generates verification tables, updates Neo4j with individual
+    file metadata, and triggers background GraphRAG processing on the master dossier.
     """
     if not files:
         raise HTTPException(status_code=400, detail="No files provided.")
@@ -854,15 +857,16 @@ async def upload_case_documents(
         case_id = f"CASE_{uuid.uuid4().hex[:8].upper()}"
 
     saved_files = []
-    saved_paths = []
     file_metadata_for_db = []
 
     case_dir = os.path.join(UPLOAD_DIR, case_id)
     os.makedirs(case_dir, exist_ok=True)
 
+    # 1. Validate extensions (.txt and .pdf) and save raw files locally
     for file in files:
-        if not file.filename.lower().endswith(".txt"):
-            raise HTTPException(status_code=400, detail=f"File '{file.filename}' is not a .txt file.")
+        filename_lower = file.filename.lower()
+        if not (filename_lower.endswith(".txt") or filename_lower.endswith(".pdf")):
+            raise HTTPException(status_code=400, detail=f"File '{file.filename}' must be a .txt or .pdf file.")
 
         destination_path = os.path.join(case_dir, file.filename)
 
@@ -875,21 +879,7 @@ async def upload_case_documents(
         finally:
             await file.close()
 
-        # --- GENERATE THE TABLE CSV INSIDE THE CASE FOLDER ---
-        base_filename = os.path.splitext(file.filename)[0]
-        output_csv_path = os.path.join(case_dir, f"{base_filename}_table.csv")
-        output_csv_path_hash = os.path.join(case_dir, f"{base_filename}_hash_table.csv")
-
-        try:
-            convert_dossier_to_table(destination_path, output_csv=output_csv_path)
-            generate_blockchain_hash_table(input_csv=output_csv_path, output_csv=output_csv_path_hash)
-        except Exception as e:
-            print(f"[WARNING] Failed to generate table for {file.filename}: {str(e)}")
-        # ----------------------------------------------------
-
         file_size = os.path.getsize(destination_path)
-        saved_paths.append(destination_path)
-
         saved_files.append(FileUploadResult(
             filename=file.filename,
             status="UPLOADED",
@@ -903,7 +893,25 @@ async def upload_case_documents(
             "size_bytes": file_size
         })
 
-    # Link Case and Document nodes in Neo4j
+    # 2. Compile all uploaded files into a single Master Dossier File
+    try:
+        master_dossier_path = compile_master_dossier_from_disk(case_dir, files, case_id)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed compiling master dossier: {str(e)}")
+
+    # --- GENERATE MASTER TABLE CSV & HASH TABLE ---
+    base_master_name = f"{case_id}_master_dossier"
+    output_csv_path = os.path.join(case_dir, f"{base_master_name}_table.csv")
+    output_csv_path_hash = os.path.join(case_dir, f"{base_master_name}_hash_table.csv")
+
+    try:
+        convert_dossier_to_table(master_dossier_path, output_csv=output_csv_path)
+        generate_blockchain_hash_table(input_csv=output_csv_path, output_csv=output_csv_path_hash)
+    except Exception as e:
+        print(f"[WARNING] Failed to generate master verification tables: {str(e)}")
+    # ---------------------------------------------
+
+    # 3. Link Case and Document nodes in Neo4j (tracks the original uploaded files)
     query = """
     MERGE (c:Case {id: $case_id})
     ON CREATE SET c.name = 'Uploaded Case ' + substring($case_id, 5), c.created_at = datetime(), c.status = 'ACTIVE'
@@ -922,19 +930,19 @@ async def upload_case_documents(
     async with driver.session(database="neo4j") as session:
         await session.run(query, case_id=case_id, files=file_metadata_for_db)
 
+    # 4. Launch background processing with the Master Dossier path targeting the 5-stage pipeline
     pipeline_status = "Idle"
     if process_immediately:
-        background_tasks.add_task(run_ingestion_pipeline, case_id, saved_paths)
-        pipeline_status = "Pipeline task queued in background"
+        background_tasks.add_task(run_ingestion_pipeline, case_id, [master_dossier_path])
+        pipeline_status = "Master dossier pipeline task queued in background"
 
     return UploadCasesResponse(
         case_id=case_id,
-        message=f"Uploaded {len(saved_files)} document(s). Background GraphRAG pipeline started.",
+        message=f"Uploaded {len(saved_files)} document(s) and compiled into master dossier. Background GraphRAG pipeline started.",
         total_uploaded=len(saved_files),
         files=saved_files,
         pipeline_status=pipeline_status
     )
-
 
 # --- WEBSOCKET ROOM ---
 
@@ -1084,12 +1092,12 @@ async def process_natural_language_insight(case_id: str, request: RawInsightRequ
     try:
         # 2. ASK OLLAMA TO PARSE THE SENTENCE
         response = ollama.chat(
-            model="qwen2.5",
+            model="gemma3:12b",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Investigator Insight: {request.text}"}
             ],
-            format="json",  # Forces strict JSON structure
+            format="json",
             options={"temperature": 0.0}
         )
 
@@ -1432,6 +1440,20 @@ async def verify_case_integrity(case_id: str):
         results=results
     )
 
+
+@app.delete("/api/cases/batch-delete")
+async def delete_multiple_cases(case_ids: List[str]):
+    query = """
+    MATCH (c:Case)
+    WHERE c.id IN $case_ids
+    OPTIONAL MATCH (n {case_id: c.id})
+    DETACH DELETE n, c
+    """
+    async with driver.session(database="neo4j") as session:
+        await session.run(query, case_ids=case_ids)
+
+    return {"status": "success",
+            "message": f"Successfully deleted {len(case_ids)} case(s) and their associated graph data."}
 
 if __name__ == "__main__":
     import uvicorn

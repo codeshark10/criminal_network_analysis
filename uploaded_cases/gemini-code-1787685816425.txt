@@ -1,2 +1,0 @@
-MATCH (s:Entity {master_role: 'SUSPECT'})-[r]->(target)
-RETURN s.name, type(r), target.name, r.evidence LIMIT 25

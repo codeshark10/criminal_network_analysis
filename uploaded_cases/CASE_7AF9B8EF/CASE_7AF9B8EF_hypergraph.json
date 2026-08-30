@@ -1,0 +1,216 @@
+{
+  "case_id": "CASE_7AF9B8EF",
+  "case_name": "CASE_CASE_7AF9B8EF",
+  "pipeline_version": "4.2.0-Universal",
+  "total_events": 13,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_7AF9B8EF_CHUNK_0000",
+      "event_type": "General_Operation",
+      "participants": [
+        "Mass Arson",
+        "Sabarmati Express",
+        "Coach S-6",
+        "Godhra Railway Station",
+        "Panchmahal District",
+        "A-Cabin Yard"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_7AF9B8EF_CHUNK_0001",
+      "event_type": "Legal_Action",
+      "participants": [
+        "59 Fatalities",
+        "FIR No. 9/2002",
+        "Sabarmati Express",
+        "Coach S-6",
+        "Godhra Railway Station",
+        "Godhra Railway Police Station",
+        "Crowd",
+        "A-Cabin",
+        "9166 Sabarmati Express",
+        "February 27, 2002 Attack"
+      ]
+    },
+    {
+      "event_id": "EVT_003_CASE_7AF9B8EF_CHUNK_0002",
+      "event_type": "General_Operation",
+      "participants": [
+        "Salim Zarda",
+        "Haji Bilal",
+        "Petrol Procurement",
+        "Sabarmati Express",
+        "Godhra Railway Station Yard",
+        "Mob",
+        "Coach S-6",
+        "Ayodhya",
+        "Razzak Kurkur",
+        "Farooq Bhana",
+        "Physical Altercation",
+        "Aman Guest House",
+        "Fuel Transport"
+      ]
+    },
+    {
+      "event_id": "EVT_004_CASE_7AF9B8EF_CHUNK_0003",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Salim Zarda",
+        "Kar Sevaks",
+        "Maulvi Umarji",
+        "Mob",
+        "The Mob",
+        "Coach S-6",
+        "Ideological Instigation",
+        "Fire"
+      ]
+    },
+    {
+      "event_id": "EVT_005_CASE_7AF9B8EF_CHUNK_0004",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Breach & Arson",
+        "FIR No. 9/2002",
+        "Jabir Binyamin Behera",
+        "31 individuals",
+        "Nanavati-Mehta Commission",
+        "Mehboob Yakub Mitha",
+        "Gujarat High Court",
+        "Imran Sheri",
+        "Special SIT Court",
+        "Hasan Charkha",
+        "S-6 Coach Burning Incident",
+        "Shaukat Lalu"
+      ]
+    },
+    {
+      "event_id": "EVT_006_CASE_7AF9B8EF_CHUNK_0005",
+      "event_type": "General_Operation",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Sabarmati Express Network",
+        "Haji Bilal",
+        "Mass Arson",
+        "Train Ignition",
+        "Riot",
+        "Criminal Conspiracy",
+        "Hasan Charkha",
+        "Gujarat",
+        "Fuel Transfer",
+        "Godhra Railway Station",
+        "Panchmahal District",
+        "A-Cabin Yard",
+        "Farooq Bhana",
+        "Homicide"
+      ]
+    },
+    {
+      "event_id": "EVT_007_CASE_7AF9B8EF_CHUNK_0007",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Rafiq Bhatuk",
+        "59 Fatalities",
+        "Coach S6 Vestibule",
+        "Sabarmati Express Platform",
+        "Kalabhai Fuel Pump",
+        "February 27, 2002 Attack",
+        "Salim Paanwala",
+        "Haji Bilal",
+        "Mob Signal Falia",
+        "Coach S-6",
+        "Hasan Charkha",
+        "Godhra Railway Station",
+        "Crowd",
+        "Farooq Bhana",
+        "A-Cabin",
+        "9166 Sabarmati Express",
+        "Aman Guest House"
+      ]
+    },
+    {
+      "event_id": "EVT_008_CASE_7AF9B8EF_CHUNK_0008",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Jabir Behera",
+        "Salim Zarda",
+        "Maulvi Umarji",
+        "Breached_And_Poured_Fuel",
+        "Haji Bilal",
+        "Petrol Procurement",
+        "Hasan Charkha",
+        "Razzak Kurkur",
+        "Farooq Bhana",
+        "Physical Altercation",
+        "Aman Guest House",
+        "Fuel Transport"
+      ]
+    },
+    {
+      "event_id": "EVT_009_CASE_7AF9B8EF_CHUNK_0009",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Salim Zarda",
+        "Ideological Instigation",
+        "Mob",
+        "Maulvi Umarji"
+      ]
+    },
+    {
+      "event_id": "EVT_010_CASE_7AF9B8EF_CHUNK_0010",
+      "event_type": "General_Operation",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Breach & Arson",
+        "Jabir Binyamin Behera",
+        "Mehboob Yakub Mitha",
+        "Imran Sheri",
+        "Hasan Charkha",
+        "Shaukat Lalu"
+      ]
+    },
+    {
+      "event_id": "EVT_011_CASE_7AF9B8EF_CHUNK_0011",
+      "event_type": "General_Operation",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Vestibule Breach and Ignition",
+        "Salim Paanwala",
+        "Haji Bilal",
+        "Hasan Charkha",
+        "Fuel Cart Direction",
+        "Farooq Bhana",
+        "Train Arrival"
+      ]
+    },
+    {
+      "event_id": "EVT_012_CASE_7AF9B8EF_CHUNK_0013",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Coach S6 Vestibule",
+        "Sabarmati Express Platform",
+        "Kalabhai Fuel Pump",
+        "Salim Paanwala",
+        "Haji Bilal",
+        "Mob Signal Falia",
+        "Hasan Charkha",
+        "Farooq Bhana",
+        "Aman Guest House"
+      ]
+    },
+    {
+      "event_id": "EVT_013_CASE_7AF9B8EF_CHUNK_0014",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Rafiq Bhatuk",
+        "Jabir Behera",
+        "Maulvi Umarji",
+        "Breached_And_Poured_Fuel",
+        "Hasan Charkha",
+        "Farooq Bhana"
+      ]
+    }
+  ]
+}

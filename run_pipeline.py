@@ -47,7 +47,7 @@ async def run_full_pipeline(case_id: str):
 
 if __name__ == "__main__":
     # Example usage: Change this to whichever case you want to process!
-    TARGET_CASE_ID = "CASE_47186001"
+    TARGET_CASE_ID = "CASE_7AF9B8EF"
 
     # Run the async pipeline loop
     asyncio.run(run_full_pipeline(TARGET_CASE_ID))

@@ -1,0 +1,786 @@
+[
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0000",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Mahesh Deshmukh",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Sameer Deshmukh",
+        "type": "PERSON",
+        "aliases": [
+          "Sam"
+        ]
+      },
+      {
+        "name": "Meera Deshmukh",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Pondolem Village",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Nature Camp",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Laxmikant Gaitonde",
+        "type": "PERSON",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Mahesh Deshmukh",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim, Goa",
+        "evidence": "Mahesh Deshmukh, r/o Panjim, Goa"
+      },
+      {
+        "subject": "Sameer Deshmukh",
+        "predicate": "VICTIM_OF",
+        "object": "MISSING",
+        "evidence": "Subject has been unreachable"
+      },
+      {
+        "subject": "Sameer Deshmukh",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nature Camp",
+        "evidence": "Subject was supposed to attend a nature camp"
+      },
+      {
+        "subject": "Meera Deshmukh",
+        "predicate": "RELATED_TO",
+        "object": "Sameer Deshmukh",
+        "evidence": "Subject's mother, IGP Meera Deshmukh"
+      },
+      {
+        "subject": "Sameer Deshmukh",
+        "predicate": "LOCATED_AT",
+        "object": "Pondolem Village, Goa",
+        "evidence": "Last known location was near Pondolem village, Goa"
+      },
+      {
+        "subject": "Laxmikant Gaitonde",
+        "predicate": "INVESTIGATED",
+        "object": "Sameer Deshmukh",
+        "evidence": "Sub-Inspector Laxmikant Gaitonde assigned to preliminary local inquiry in Pondolem"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0001",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Sam Deshmukh",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Bank Alert",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Sam Deshmukh",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "+91-98XXXXXX55",
+        "evidence": "CALL OUT: +91-98XXXXXX55"
+      },
+      {
+        "subject": "Sam Deshmukh",
+        "predicate": "RECEIVED",
+        "object": "Bank Alert",
+        "evidence": "SMS IN: BANK_ALERT"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0002",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Vijay Salgaonkar",
+        "type": "PERSON",
+        "aliases": [
+          "+91-98XXXXXX89"
+        ]
+      },
+      {
+        "name": "Cable Supplier",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Office Cable Network Hub",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Unknown Truck Driver",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Weather Update",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Restaurant Booking",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Promo",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Cable Supplier",
+        "evidence": "CALL IN: CABLE_SUPPLIER"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Office Cable Network Hub",
+        "evidence": "DATA_SYNC_PULSE (DEVICE AT OFFICE CABLE NETWORK HUB)"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Pondalem_Industrial",
+        "evidence": "DATA_SYNC_PULSE (SOLO MOVEMENT)"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Pondalem_Quarry",
+        "evidence": "DATA_SYNC_PULSE (SOLO MOVEMENT)"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Unknown Truck Driver",
+        "evidence": "CALL OUT: UNKNOWN_TRUCK_DRIVER"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim_Police_Station_Cell",
+        "evidence": "SMS IN: WEATHER_UPDATE"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Restaurant Booking",
+        "evidence": "CALL OUT: RESTAURANT_BOOKING"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim_Cinema",
+        "evidence": "SMS IN: PROMO"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0003",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "V. Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Mirage Cable Office",
+        "type": "ORGANIZATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Mirage Cable Office",
+        "evidence": "V. Salgaonkar (Logged into office PC)"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0004",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Quarry Site",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Yellow Car",
+        "type": "VEHICLE",
+        "aliases": []
+      },
+      {
+        "name": "Vijay Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Nandini Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Anju Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Anu Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Panjim",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Swami Chinmayananda",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Maha Satsang",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Martin's Corner",
+        "type": "ORGANIZATION",
+        "aliases": [
+          "Ashok Restaurant"
+        ]
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Quarry Site",
+        "predicate": "LOCATED_AT",
+        "object": "Deep Water",
+        "evidence": "Searched the quarry site...sunk in the deep water"
+      },
+      {
+        "subject": "Yellow Car",
+        "predicate": "BELONGS_TO",
+        "object": "Missing Person",
+        "evidence": "Found the yellow car belonging to the missing person"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nandini Salgaonkar",
+        "evidence": "Interrogated Vijay Salgaonkar and his family (Nandini, Anju, Anu)"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Anju Salgaonkar",
+        "evidence": "Interrogated Vijay Salgaonkar and his family (Nandini, Anju, Anu)"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Anu Salgaonkar",
+        "evidence": "Interrogated Vijay Salgaonkar and his family (Nandini, Anju, Anu)"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim",
+        "evidence": "Vijay claims his family was in Panjim"
+      },
+      {
+        "subject": "Nandini Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim",
+        "evidence": "Vijay claims his family was in Panjim"
+      },
+      {
+        "subject": "Anju Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim",
+        "evidence": "Vijay claims his family was in Panjim"
+      },
+      {
+        "subject": "Anu Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim",
+        "evidence": "Vijay claims his family was in Panjim"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Maha Satsang",
+        "evidence": "They state they attended Swami Chinmayananda's Maha Satsang"
+      },
+      {
+        "subject": "Nandini Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Maha Satsang",
+        "evidence": "They state they attended Swami Chinmayananda's Maha Satsang"
+      },
+      {
+        "subject": "Anju Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Maha Satsang",
+        "evidence": "They state they attended Swami Chinmayananda's Maha Satsang"
+      },
+      {
+        "subject": "Anu Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Maha Satsang",
+        "evidence": "They state they attended Swami Chinmayananda's Maha Satsang"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "ATE_AT",
+        "object": "Martin's Corner",
+        "evidence": "They ate Pav Bhaji at Martin's Corner"
+      },
+      {
+        "subject": "Nandini Salgaonkar",
+        "predicate": "ATE_AT",
+        "object": "Martin's Corner",
+        "evidence": "They ate Pav Bhaji at Martin's Corner"
+      },
+      {
+        "subject": "Anju Salgaonkar",
+        "predicate": "ATE_AT",
+        "object": "Martin's Corner",
+        "evidence": "They ate Pav Bhaji at Martin's Corner"
+      },
+      {
+        "subject": "Anu Salgaonkar",
+        "predicate": "ATE_AT",
+        "object": "Martin's Corner",
+        "evidence": "They ate Pav Bhaji at Martin's Corner"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0005",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Vijay",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Bus Conductor",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Lodge Manager",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Swami",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Restaurant Owner",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Movie Theater Clerk",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Sam",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Truck Driver",
+        "type": "PERSON",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Bus Conductor",
+        "predicate": "LOCATED_AT",
+        "object": "Oct 2",
+        "evidence": "Bus conductor confirms they traveled on Oct 2"
+      },
+      {
+        "subject": "Lodge Manager",
+        "predicate": "LOCATED_AT",
+        "object": "Lodge",
+        "evidence": "Lodge manager confirms booking"
+      },
+      {
+        "subject": "Swami",
+        "predicate": "LOCATED_AT",
+        "object": "Crowd",
+        "evidence": "Swami's CD shows them in the crowd"
+      },
+      {
+        "subject": "Vijay",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Restaurant Owner",
+        "evidence": "Restaurant owner remembers Vijay describing the Pav Bhaji"
+      },
+      {
+        "subject": "Movie Theater Clerk",
+        "predicate": "LOCATED_AT",
+        "object": "Movie Theater",
+        "evidence": "Movie theater clerk confirms ticket purchase"
+      },
+      {
+        "subject": "Sam",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Phone",
+        "evidence": "Recovered Sam's phone"
+      },
+      {
+        "subject": "Truck Driver",
+        "predicate": "LOCATED_AT",
+        "object": "Highway",
+        "evidence": "Driver claims someone threw it into the back of his truck while it was parked near the highway"
+      },
+      {
+        "subject": "Truck Driver",
+        "predicate": "LOCATED_AT",
+        "object": "Different State",
+        "evidence": "Recovered Sam's phone from a truck carrying sand to a different state"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0006",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Vijay Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Panjim Police Station Construction Site",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Cable Wiring Requirements Inspection",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim Police Station Construction Site",
+        "evidence": "Vijay Salgaonkar visited the site"
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Cable Wiring Requirements Inspection",
+        "evidence": "to 'inspect cable wiring requirements'"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0007",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "V. Salgaonkar",
+        "type": "PERSON",
+        "aliases": [
+          "Salgaonkar"
+        ]
+      },
+      {
+        "name": "Panjim Lodge",
+        "type": "ORGANIZATION",
+        "aliases": [
+          "PANJIM_LODGE"
+        ]
+      },
+      {
+        "name": "Ashok Restaurant",
+        "type": "ORGANIZATION",
+        "aliases": [
+          "ASHOK_RESTAURANT_PANJIM"
+        ]
+      },
+      {
+        "name": "New Era Cinema",
+        "type": "ORGANIZATION",
+        "aliases": [
+          "NEW_ERA_CINEMA_PANJIM"
+        ]
+      },
+      {
+        "name": "Pondalem Hardware Store",
+        "type": "ORGANIZATION",
+        "aliases": [
+          "PONDALEM_HARDWARE_STORE"
+        ]
+      },
+      {
+        "name": "Pav Bhaji",
+        "type": "ITEM",
+        "aliases": []
+      },
+      {
+        "name": "Cold Drink",
+        "type": "ITEM",
+        "aliases": []
+      },
+      {
+        "name": "Heavy Duty Shovel",
+        "type": "ITEM",
+        "aliases": []
+      },
+      {
+        "name": "Nylon Ropes",
+        "type": "ITEM",
+        "aliases": []
+      },
+      {
+        "name": "Tarpaulin Sheet",
+        "type": "ITEM",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Panjim Lodge",
+        "evidence": "GUEST: V. SALGAONKAR + 3"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Panjim Lodge",
+        "evidence": "Signature matches V. Salgaonkar"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Ashok Restaurant",
+        "evidence": "RECEIPT_02: ASHOK_RESTAURANT_PANJIM"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "New Era Cinema",
+        "evidence": "RECEIPT_03: NEW_ERA_CINEMA_PANJIM"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Pondalem Hardware Store",
+        "evidence": "RECEIPT_04: PONDALEM_HARDWARE_STORE"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "PURCHASED",
+        "object": "Heavy Duty Shovel",
+        "evidence": "NOTES: Night-shift clerk identified Vijay Salgaonkar as the purchaser"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "PURCHASED",
+        "object": "Nylon Ropes",
+        "evidence": "NOTES: Night-shift clerk identified Vijay Salgaonkar as the purchaser"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "PURCHASED",
+        "object": "Tarpaulin Sheet",
+        "evidence": "NOTES: Night-shift clerk identified Vijay Salgaonkar as the purchaser"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0008",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Sameer Deshmukh",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "V. Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Vijay",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Martin",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Mirage Cable network",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Satsang",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "HDFC_PANJIM_ATM_04",
+        "type": "LOCATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Sameer Deshmukh",
+        "predicate": "USED",
+        "object": "HDFC_PANJIM_ATM_04",
+        "evidence": "CARD: SAMEER DESHMUKH"
+      },
+      {
+        "subject": "V. Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "HDFC_PANJIM_ATM_04",
+        "evidence": "Height matches V. Salgaonkar, but inconclusive."
+      },
+      {
+        "subject": "Vijay",
+        "predicate": "RUNS",
+        "object": "Mirage Cable network",
+        "evidence": "He runs the Mirage Cable network."
+      },
+      {
+        "subject": "Vijay",
+        "predicate": "COMMUNICATED_WITH",
+        "object": "Martin",
+        "evidence": "he told me yesterday that he was in Panjim on the 2nd"
+      },
+      {
+        "subject": "Vijay",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Satsang",
+        "evidence": "he was in Panjim on the 2nd for the Satsang"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A14047AB_CHUNK_0009",
+    "case_id": "CASE_A14047AB",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Swami Chinmayananda Satsang Organizer",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Salgaonkar",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Vijay Salgaonkar",
+        "type": "PERSON",
+        "aliases": [
+          "Vijay"
+        ]
+      },
+      {
+        "name": "October 2nd Satsang",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "Pondolem to Panjim Bus Route",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Highway Toll Naka",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Yellow Imported Car",
+        "type": "VEHICLE",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "October 2nd Satsang",
+        "evidence": "You can see Mr. Salgaonkar and his family standing in the back row for about five seconds."
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "PARTICIPATED_IN",
+        "object": "Pondolem to Panjim Bus Route",
+        "evidence": "I remember Vijay because he argued with me about the change on October 2nd."
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Yellow Imported Car",
+        "evidence": "It looked like the cable guy, Vijay."
+      },
+      {
+        "subject": "Vijay Salgaonkar",
+        "predicate": "LOCATED_AT",
+        "object": "Highway Toll Naka",
+        "evidence": "I saw that yellow imported car heading towards the quarry."
+      }
+    ]
+  }
+]
