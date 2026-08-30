@@ -216,14 +216,15 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
-  /** Validate and add files to state. Only .txt allowed. */
+  /** Validate and add files to state. Only .txt and .pdf allowed. */
   const addFiles = (fileList: FileList | File[]) => {
     setValidationError(null);
     const valid: File[] = [];
     const rejected: string[] = [];
 
     Array.from(fileList).forEach((file) => {
-      if (file.name.toLowerCase().endsWith('.txt')) {
+      const lowerName = file.name.toLowerCase();
+      if (lowerName.endsWith('.txt') || lowerName.endsWith('.pdf')) {
         // Avoid exact duplicate filenames
         if (!uploadedFiles.some((f) => f.name === file.name && f.size === file.size)) {
           valid.push(file);
@@ -235,7 +236,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
     if (rejected.length > 0) {
       setValidationError(
-        `Only .txt files are accepted. Rejected: ${rejected.join(', ')}`
+        `Only .txt and .pdf files are accepted. Rejected: ${rejected.join(', ')}`
       );
     }
 
@@ -417,7 +418,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
               )}
               <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
-                Upload raw intelligence data documents (.txt format only).
+                Upload raw intelligence data documents (.txt or .pdf format only).
                 The AI extraction pipeline will parse and build the knowledge graph automatically.
               </div>
 
@@ -441,15 +442,15 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <Upload size={28} style={{ color: isDragOver ? 'var(--accent)' : 'var(--text-muted)', transition: 'color 0.2s' }} />
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: isDragOver ? 'var(--accent)' : 'var(--text-secondary)', letterSpacing: '0.08em', marginBottom: '4px' }}>
-                    DROP .TXT FILES HERE OR CLICK TO BROWSE
+                    DROP .TXT OR .PDF FILES HERE OR CLICK TO BROWSE
                   </div>
-                  <div className="intel-label" style={{ fontSize: '0.6rem' }}>ONLY .TXT FILES — MULTIPLE FILES SUPPORTED</div>
+                  <div className="intel-label" style={{ fontSize: '0.6rem' }}>ONLY .TXT OR .PDF FILES — MULTIPLE FILES SUPPORTED</div>
                 </div>
                 <input
                   ref={fileRef}
                   type="file"
                   multiple
-                  accept=".txt,text/plain"
+                  accept=".txt,text/plain,.pdf,application/pdf"
                   style={{ display: 'none' }}
                   onChange={handleFileSelect}
                 />

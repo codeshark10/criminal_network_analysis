@@ -191,7 +191,7 @@ function buildUrl(path: string, params?: Record<string, string | number | boolea
 
 // ── Endpoint: POST /api/cases/upload ───────────────────────
 /**
- * Upload one or more .txt case documents.
+ * Upload one or more .txt or .pdf case documents.
  * Field name must be 'files'. process_immediately is a query param.
  */
 export async function uploadCaseDocuments(
@@ -321,4 +321,26 @@ export async function getDashboardMetrics(caseId: string): Promise<DashboardMetr
 export async function getHypergraph(caseId: string): Promise<HypergraphResponse> {
   const encoded = encodeURIComponent(caseId);
   return apiFetch<HypergraphResponse>(buildUrl(`/api/cases/${encoded}/hypergraph`));
+}
+
+// ── Endpoint: GET /api/cases/{case_id}/mastermind ─────────
+export interface MastermindSuspect {
+  name: string;
+  hyperdegree: number;
+  degree_centrality: number;
+  pagerank: number;
+  betweenness: number;
+  closeness: number;
+  mastermind_index: number;
+}
+
+export interface MastermindResponse {
+  case_id: string;
+  top_suspect: string;
+  suspects: MastermindSuspect[];
+}
+
+export async function getMastermindAnalysis(caseId: string): Promise<MastermindResponse> {
+  const encoded = encodeURIComponent(caseId);
+  return apiFetch<MastermindResponse>(buildUrl(`/api/cases/${encoded}/mastermind`));
 }
