@@ -9,6 +9,7 @@ import { useParams, useNavigate, useSearchParams } from 'react-router-dom';
 import { FileText, ChevronRight, ArrowRight } from 'lucide-react';
 import { useCaseData } from '../../context/CaseDataContext';
 import { computeChunkCounts } from '../../services/documentProcessor';
+import StructuredDataUpload from '../../components/case/StructuredDataUpload';
 
 const CaseDataPage: React.FC = () => {
   const { caseId } = useParams<{ caseId: string }>();
@@ -26,24 +27,24 @@ const CaseDataPage: React.FC = () => {
   const base = `/cases/${caseId}`;
 
   const categories = [
-    { key: 'ALL',                  label: 'ALL',             color: 'var(--accent)' },
-    { key: 'FIR',                  label: 'FIR',             color: '#C07070' },
-    { key: 'CDR',                  label: 'CDR',             color: '#7090C0' },
-    { key: 'FINANCIAL',            label: 'FINANCIAL',       color: 'var(--accent)' },
-    { key: 'SURVEILLANCE',         label: 'SURVEILLANCE',    color: '#80B060' },
-    { key: 'INTELLIGENCE',         label: 'INTELLIGENCE',    color: '#B08060' },
-    { key: 'CRIMINAL_HISTORY',     label: 'CRIM. HISTORY',   color: '#9070B0' },
-    { key: 'SOCIAL_INTELLIGENCE',  label: 'SOCIAL INTEL.',   color: '#60A0A0' },
+    { key: 'ALL', label: 'ALL', color: 'var(--accent)' },
+    { key: 'FIR', label: 'FIR', color: '#C07070' },
+    { key: 'CDR', label: 'CDR', color: '#7090C0' },
+    { key: 'FINANCIAL', label: 'FINANCIAL', color: 'var(--accent)' },
+    { key: 'SURVEILLANCE', label: 'SURVEILLANCE', color: '#80B060' },
+    { key: 'INTELLIGENCE', label: 'INTELLIGENCE', color: '#B08060' },
+    { key: 'CRIMINAL_HISTORY', label: 'CRIM. HISTORY', color: '#9070B0' },
+    { key: 'SOCIAL_INTELLIGENCE', label: 'SOCIAL INTEL.', color: '#60A0A0' },
   ];
 
   const categoryData = [
-    { key: 'FIR',                  label: 'First Information Report', value: cc.fir,              color: '#C07070' },
-    { key: 'CDR',                  label: 'Call Detail Records',       value: cc.cdr,              color: '#7090C0' },
-    { key: 'FINANCIAL',            label: 'Financial Intelligence',    value: cc.financial,        color: 'var(--accent)' },
-    { key: 'SURVEILLANCE',         label: 'Surveillance Reports',      value: cc.surveillance,     color: '#80B060' },
-    { key: 'INTELLIGENCE',         label: 'Intelligence Reports',      value: cc.intelligence,     color: '#B08060' },
-    { key: 'CRIMINAL_HISTORY',     label: 'Criminal History',          value: cc.criminalHistory,  color: '#9070B0' },
-    { key: 'SOCIAL_INTELLIGENCE',  label: 'Social Intelligence',       value: cc.socialIntelligence, color: '#60A0A0' },
+    { key: 'FIR', label: 'First Information Report', value: cc.fir, color: '#C07070' },
+    { key: 'CDR', label: 'Call Detail Records', value: cc.cdr, color: '#7090C0' },
+    { key: 'FINANCIAL', label: 'Financial Intelligence', value: cc.financial, color: 'var(--accent)' },
+    { key: 'SURVEILLANCE', label: 'Surveillance Reports', value: cc.surveillance, color: '#80B060' },
+    { key: 'INTELLIGENCE', label: 'Intelligence Reports', value: cc.intelligence, color: '#B08060' },
+    { key: 'CRIMINAL_HISTORY', label: 'Criminal History', value: cc.criminalHistory, color: '#9070B0' },
+    { key: 'SOCIAL_INTELLIGENCE', label: 'Social Intelligence', value: cc.socialIntelligence, color: '#60A0A0' },
   ];
 
   return (
@@ -76,13 +77,18 @@ const CaseDataPage: React.FC = () => {
       </div>
 
       {/* Documents section */}
-      <div style={{ marginBottom: '24px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-          <div className="section-header">SOURCE DOCUMENTS</div>
-          <button className="btn btn--accent" style={{ fontSize: '0.7rem' }} onClick={() => navigate('/cases?create=true')}>
-            <FileText size={11} /> UPLOAD NEW DOCUMENT
-          </button>
+      {(selectedCat === 'CDR' || selectedCat === 'FINANCIAL') ? (
+        <div style={{ marginBottom: '24px' }}>
+          <StructuredDataUpload caseId={caseId || ''} csvType={selectedCat as 'CDR' | 'FINANCIAL'} />
         </div>
+      ) : (
+        <div style={{ marginBottom: '24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <div className="section-header">SOURCE DOCUMENTS</div>
+            <button className="btn btn--accent" style={{ fontSize: '0.7rem' }} onClick={() => navigate('/cases?create=true')}>
+              <FileText size={11} /> UPLOAD NEW DOCUMENT
+            </button>
+          </div>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1px' }}>
           {docs.length === 0 ? (
             <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '32px', textAlign: 'center' }}>
@@ -140,6 +146,7 @@ const CaseDataPage: React.FC = () => {
           )}
         </div>
       </div>
+      )}
 
       {/* Category distribution — only show when there are chunks */}
       {total > 0 && (

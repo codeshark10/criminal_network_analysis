@@ -10,19 +10,20 @@ import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight, Loader2, AlertTria
 import NetworkGraph from '../components/graph/NetworkGraph';
 import { getFullGraph, getSuspectRelationships, getExecutiveSummary } from '../services/apiClient';
 import { adaptApiGraph } from '../services/adapters';
+import { useCaseData } from '../context/CaseDataContext';
 import type { GraphNode, GraphRelationship, EntityType } from '../types/graph';
 
 // ── Constants ────────────────────────────────────────────────
 
 const ENTITY_TYPES: { type: EntityType; label: string }[] = [
-  { type: 'PERSON',       label: 'People' },
+  { type: 'PERSON', label: 'People' },
   { type: 'ORGANIZATION', label: 'Organizations' },
-  { type: 'LOCATION',     label: 'Locations' },
-  { type: 'PHONE',        label: 'Phones' },
-  { type: 'VEHICLE',      label: 'Vehicles' },
+  { type: 'LOCATION', label: 'Locations' },
+  { type: 'PHONE', label: 'Phones' },
+  { type: 'VEHICLE', label: 'Vehicles' },
   { type: 'BANK_ACCOUNT', label: 'Accounts' },
-  { type: 'TRANSACTION',  label: 'Transactions' },
-  { type: 'EVIDENCE',     label: 'Evidence / Other' },
+  { type: 'TRANSACTION', label: 'Transactions' },
+  { type: 'EVIDENCE', label: 'Evidence / Other' },
 ];
 
 // ── Shared status banner ─────────────────────────────────────
@@ -86,13 +87,16 @@ const NetworkAnalysisPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [centerId, setCenterId] = useState<string>('');
 
+  const { addCaseAlert } = useCaseData();
+  const [wsToast, setWsToast] = useState<string | null>(null);
+
   const fetchGraph = useCallback(async () => {
     if (!caseId) return;
     setLoading(true);
     setFetchError(null);
     try {
-      const result = graphMode === 'executive' 
-        ? await getExecutiveSummary(caseId, execParams.maxNodes, execParams.maxRels, execParams.minConnections) 
+      const result = graphMode === 'executive'
+        ? await getExecutiveSummary(caseId, execParams.maxNodes, execParams.maxRels, execParams.minConnections)
         : await getFullGraph(caseId, 500);
       const adapted = adaptApiGraph(result.nodes, result.edges);
 
@@ -121,6 +125,41 @@ const NetworkAnalysisPage: React.FC = () => {
   }, [caseId, graphMode, execParams]);
 
   useEffect(() => { fetchGraph(); }, [fetchGraph]);
+
+  // ── WebSocket Integration ────────────────────────────────
+  useEffect(() => {
+    if (!caseId) return;
+    const ws = new WebSocket(`ws://localhost:8000/ws/cases/${caseId}`);
+
+    ws.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        if (data.event === 'GRAPH_UPDATE' && data.source === 'STRUCTURED_CSV_UPLOAD') {
+          setWsToast('New structured data ingested. Refreshing graph...');
+          fetchGraph();
+          
+          addCaseAlert(caseId, {
+            title: 'Structured Data Ingested',
+            description: 'New CSV data has been processed and added to the graph.',
+            severity: 'MEDIUM',
+            category: 'DATA_INGESTION',
+            status: 'ACTIVE',
+            caseId: caseId,
+            evidenceIds: [],
+            personIds: []
+          });
+
+          setTimeout(() => setWsToast(null), 4000);
+        }
+      } catch (err) {
+        console.error('WebSocket parse error:', err);
+      }
+    };
+
+    return () => {
+      ws.close();
+    };
+  }, [caseId, fetchGraph, addCaseAlert]);
 
   // ── "Expand network" — fetch suspect-specific subgraph ───
   const expandSuspect = useCallback(async (node: GraphNode) => {
@@ -221,11 +260,11 @@ const NetworkAnalysisPage: React.FC = () => {
         flexShrink: 0,
       }}>
         <div style={{ width: '200px', padding: '14px', height: '100%', overflowY: 'auto' }}>
-          
+
           {graphMode === 'executive' && (
             <>
               <div className="section-header" style={{ marginBottom: '12px' }}>EXECUTIVE PARAMS</div>
-              
+
               <div className="intel-label" style={{ marginBottom: '4px' }}>MAX NODES (5-50)</div>
               <input
                 type="number"
@@ -265,7 +304,7 @@ const NetworkAnalysisPage: React.FC = () => {
               >
                 APPLY PARAMS
               </button>
-              
+
               <div className="divider" style={{ margin: '12px 0' }} />
             </>
           )}
@@ -409,6 +448,22 @@ const NetworkAnalysisPage: React.FC = () => {
           )}
           {!isLive && fetchError && (
             <OfflineBanner onRetry={fetchGraph} message={fetchError} />
+          )}
+
+          {/* WebSocket Toast */}
+          {wsToast && (
+            <div style={{
+              position: 'absolute', top: '40px', left: '50%', transform: 'translateX(-50%)',
+              zIndex: 60, padding: '8px 16px', background: 'var(--accent-faint)',
+              border: '1px solid var(--accent)', color: 'var(--accent)',
+              fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
+              borderRadius: '2px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+              display: 'flex', alignItems: 'center', gap: '8px',
+              animation: 'fadeInUp 0.3s ease-out'
+            }}>
+              <RefreshCw size={14} className="animate-spin-slow" />
+              {wsToast}
+            </div>
           )}
 
           {/* Legend */}
