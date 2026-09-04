@@ -1,0 +1,43 @@
+from neo4j import GraphDatabase
+
+URI = "bolt://localhost:7687"
+USER = "neo4j"
+PASSWORD = "cricket@123"
+DATABASE = "chunktest"
+
+driver = GraphDatabase.driver(URI, auth=(USER, PASSWORD))
+
+query_delete = '''
+MATCH ()-[r:INFERRED_SIMILAR_CRIME]->()
+DELETE r
+'''
+
+query_infer = '''
+MATCH (a:Entity {case_id: 'CASE_A14047AB'})-[r]->()
+WHERE NOT type(r) IN ['HAS_DOCUMENT', 'HAS_CHUNK', 'NEXT', 'MENTIONS', 'BELONGS_TO']
+WITH a, collect(DISTINCT type(r)) AS crimes
+MATCH (b:Entity {case_id: 'CASE_A14047AB'})-[r2]->()
+WHERE NOT type(r2) IN ['HAS_DOCUMENT', 'HAS_CHUNK', 'NEXT', 'MENTIONS', 'BELONGS_TO']
+  AND elementId(a) < elementId(b)
+WITH a, b, crimes, collect(DISTINCT type(r2)) AS crimes_b
+WITH a, b, 
+     [x IN crimes WHERE x IN crimes_b] AS common_crimes,
+     crimes, crimes_b
+WHERE size(common_crimes) >= 1
+WITH a, b, common_crimes, crimes, crimes_b,
+     toFloat(size(common_crimes)) / (size(crimes) + size(crimes_b) - size(common_crimes)) AS score
+ORDER BY score DESC, size(common_crimes) DESC
+LIMIT 8
+MERGE (a)-[sim:INFERRED_SIMILAR_CRIME]->(b)
+SET sim.inferred = true,
+    sim.evidence = "Inferred based on similar relationships.",
+    sim.common_crimes = common_crimes,
+    sim.score = score,
+    sim.chunk_ids = [],
+    sim.chunk_text = "System Inferred Connection"
+'''
+with driver.session(database=DATABASE) as session:
+    session.run(query_delete)
+    session.run(query_infer)
+
+print("Restored exact graph shape and added limited inferences.")

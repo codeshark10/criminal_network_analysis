@@ -1,4 +1,4 @@
-import os
+﻿import os
 import shutil
 import uuid
 import json
@@ -34,7 +34,8 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 # Neo4j Connection Settings
 NEO4J_URI = os.getenv("NEO4J_URI", "bolt://localhost:7687")
 NEO4J_USER = os.getenv("NEO4J_USER", "neo4j")
-NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "crick#21")
+NEO4J_PASSWORD = os.getenv("NEO4J_PASSWORD", "cricket@123")
+NEO4J_DATABASE = os.getenv("NEO4J_DATABASE", "chunktest")
 driver: Optional[AsyncDriver] = None
 
 
@@ -229,7 +230,7 @@ def convert_dossier_to_table(file_path: str, output_csv: str):
 
     df = pd.DataFrame(rows)
     df.to_csv(output_csv, index=False)
-    print(f"[✓] Converted {len(df)} sections and saved to '{output_csv}'")
+    print(f"[âœ“] Converted {len(df)} sections and saved to '{output_csv}'")
     return df
 
 
@@ -272,7 +273,7 @@ def generate_blockchain_hash_table(
 
     blockchain_df = pd.DataFrame(chain)
     blockchain_df.to_csv(output_csv, index=False)
-    print(f"[✓] Successfully generated {len(blockchain_df)} blocks in '{output_csv}'")
+    print(f"[âœ“] Successfully generated {len(blockchain_df)} blocks in '{output_csv}'")
     return blockchain_df
 
 
@@ -352,6 +353,7 @@ class GraphNode(BaseModel):
     master_role: Optional[str] = None
     aliases: List[str] = []
     mentions: int = 1
+    source_chunks: Optional[str] = None
 
 
 class GraphEdge(BaseModel):
@@ -361,6 +363,8 @@ class GraphEdge(BaseModel):
     label: str
     evidence: Optional[str] = ""
     chunk_id: Optional[str] = ""
+    chunk_text: Optional[str] = ""
+    inferred: bool = False
 
 
 class GraphResponse(BaseModel):
@@ -515,19 +519,21 @@ def parse_graph_records(records: List[Dict[str, Any]]) -> GraphResponse:
         if not node:
             return None
         if isinstance(node, dict):
-            name = node.get("name")
-            n_type = node.get("type") or node.get("master_role") or "UNKNOWN"
+            name = node.get("name") or node.get("canonical_name")
+            n_type = node.get("type") or node.get("entity_type") or node.get("master_role") or "UNKNOWN"
             role = node.get("master_role", "UNKNOWN")
             aliases = list(node.get("aliases") or [])
             mentions = node.get("mention_count") or node.get("mentions") or 1
-            return name, n_type, role, aliases, mentions
+            source_chunks = node.get("source_chunks", "[]")
+            return name, n_type, role, aliases, mentions, source_chunks
         elif hasattr(node, "get"):
-            name = node.get("name")
-            n_type = node.get("type", node.get("master_role", "UNKNOWN"))
+            name = node.get("name") or node.get("canonical_name")
+            n_type = node.get("type", node.get("entity_type", node.get("master_role", "UNKNOWN")))
             role = node.get("master_role", "UNKNOWN")
             aliases = list(node.get("aliases", []))
             mentions = node.get("mention_count", 1)
-            return name, n_type, role, aliases, mentions
+            source_chunks = node.get("source_chunks", "[]")
+            return name, n_type, role, aliases, mentions, source_chunks
         return None
 
     for record in records:
@@ -543,7 +549,7 @@ def parse_graph_records(records: List[Dict[str, Any]]) -> GraphResponse:
             if s_name not in nodes_dict:
                 nodes_dict[s_name] = GraphNode(
                     id=s_name, label=s_name, type=s_info[1], master_role=s_info[2], aliases=s_info[3],
-                    mentions=s_info[4]
+                    mentions=s_info[4], source_chunks=s_info[5]
                 )
 
         if t_info and t_info[0]:
@@ -551,7 +557,7 @@ def parse_graph_records(records: List[Dict[str, Any]]) -> GraphResponse:
             if t_name not in nodes_dict:
                 nodes_dict[t_name] = GraphNode(
                     id=t_name, label=t_name, type=t_info[1], master_role=t_info[2], aliases=t_info[3],
-                    mentions=t_info[4]
+                    mentions=t_info[4], source_chunks=t_info[5]
                 )
 
         if s_info and t_info and s_info[0] and t_info[0] and rel:
@@ -562,25 +568,28 @@ def parse_graph_records(records: List[Dict[str, Any]]) -> GraphResponse:
                 rel_type = rel.type
                 evidence = rel.get("evidence", "")
                 chunk_id = rel.get("chunk_id", "")
+                chunk_text = rel.get("chunk_text", "")
             elif isinstance(rel, dict):
                 rel_type = rel.get("type") or rel.get("label") or "RELATED"
                 evidence = rel.get("evidence", "")
                 chunk_id = rel.get("chunk_id", "")
+                chunk_text = rel.get("chunk_text", "")
             elif isinstance(rel, (tuple, list)):
                 rel_type = str(rel[1]) if len(rel) > 1 else "RELATED"
                 props = rel[2] if len(rel) > 2 and isinstance(rel[2], dict) else {}
                 evidence = props.get("evidence", "")
                 chunk_id = props.get("chunk_id", "")
+                chunk_text = props.get("chunk_text", "")
             else:
                 rel_type = "RELATED"
-                evidence, chunk_id = "", ""
+                evidence, chunk_id, chunk_text = "", "", ""
 
             edge_id = f"{s_name}|{rel_type}|{t_name}"
             if edge_id not in seen_edges:
                 seen_edges.add(edge_id)
                 edges_list.append(GraphEdge(
                     id=edge_id, source=s_name, target=t_name, label=rel_type, evidence=str(evidence),
-                    chunk_id=str(chunk_id)
+                    chunk_id=str(chunk_id), chunk_text=str(chunk_text)
                 ))
 
     return GraphResponse(nodes=list(nodes_dict.values()), edges=edges_list)
@@ -712,28 +721,28 @@ async def run_ingestion_pipeline(case_id: str, file_paths: List[str]):
                                                        f"Step 1/5: Splitting {filename} into chunks...")
             path_step1 = run_step1(case_id, file_path)
             await ws_manager.broadcast_pipeline_status(case_id, 1, "Chunking",
-                                                       f"✓ Step 1/5 Complete: Chunking finished for {filename}")
+                                                       f"âœ“ Step 1/5 Complete: Chunking finished for {filename}")
 
             # --- STEP 2: COREFERENCE RESOLUTION ---
             await ws_manager.broadcast_pipeline_status(case_id, 2, "Coreference Resolution",
                                                        f"Step 2/5: Resolving pronouns & ambiguous entities...")
             path_step2 = run_step2(path_step1)
             await ws_manager.broadcast_pipeline_status(case_id, 2, "Coreference Resolution",
-                                                       f"✓ Step 2/5 Complete: Pronouns resolved")
+                                                       f"âœ“ Step 2/5 Complete: Pronouns resolved")
 
             # --- STEP 3: LLM EXTRACTION (ASYNC) ---
             await ws_manager.broadcast_pipeline_status(case_id, 3, "LLM Extraction",
                                                        f"Step 3/5: Extracting entities, events & triplets via Qwen2.5...")
             path_step3 = await run_step3(path_step2)
             await ws_manager.broadcast_pipeline_status(case_id, 3, "LLM Extraction",
-                                                       f"✓ Step 3/5 Complete: Triplets extracted")
+                                                       f"âœ“ Step 3/5 Complete: Triplets extracted")
 
             # --- STEP 4: RESOLUTION ---
             await ws_manager.broadcast_pipeline_status(case_id, 4, "Entity Resolution",
                                                        f"Step 4/5: Merging aliases & remapping relationships...")
             path_step4 = run_step4(path_step3)
             await ws_manager.broadcast_pipeline_status(case_id, 4, "Entity Resolution",
-                                                       f"✓ Step 4/5 Complete: Entities canonicalized")
+                                                       f"âœ“ Step 4/5 Complete: Entities canonicalized")
 
             # --- STEP 4.5: HYPERGRAPH GENERATION (WITH MANUAL TEST SUPPORT) ---
             try:
@@ -743,7 +752,7 @@ async def run_ingestion_pipeline(case_id: str, file_paths: List[str]):
                 if os.path.exists(hg_out_path):
                     with open(hg_out_path, 'r', encoding='utf-8') as hgf:
                         hg_data = json.load(hgf)
-                    print(f"[✓] Loaded manual test hypergraph JSON directly from: {hg_out_path}")
+                    print(f"[âœ“] Loaded manual test hypergraph JSON directly from: {hg_out_path}")
                 else:
                     # Otherwise, generate it dynamically from step 4 resolved data
                     with open(path_step4, 'r', encoding='utf-8') as sf:
@@ -756,7 +765,7 @@ async def run_ingestion_pipeline(case_id: str, file_paths: List[str]):
                         )
                         with open(hg_out_path, 'w', encoding='utf-8') as hgf:
                             json.dump(hg_data, hgf, indent=2)
-                    print(f"[✓] Generated and saved dynamic hypergraph JSON: {hg_out_path}")
+                    print(f"[âœ“] Generated and saved dynamic hypergraph JSON: {hg_out_path}")
 
             except Exception as hg_err:
                 print(f"[WARNING] Failed to load/generate hypergraph file: {hg_err}")
@@ -766,12 +775,12 @@ async def run_ingestion_pipeline(case_id: str, file_paths: List[str]):
                                                        f"Step 5/5: Building Neo4j graph nodes and edges...")
             run_step5(case_id, path_step4)
             await ws_manager.broadcast_pipeline_status(case_id, 5, "Neo4j Ingestion",
-                                                       f"✓ Step 5/5 Complete: Graph successfully updated!")
+                                                       f"âœ“ Step 5/5 Complete: Graph successfully updated!")
 
         except Exception as e:
             print(f"[PIPELINE ERROR] Failed processing {filename}: {str(e)}")
             await ws_manager.broadcast_pipeline_status(case_id, -1, "Error",
-                                                       f"❌ Pipeline Failed on {filename}: {str(e)}")
+                                                       f"âŒ Pipeline Failed on {filename}: {str(e)}")
             return
 
     # Trigger final notification to signal graph refresh on frontend
@@ -795,7 +804,7 @@ async def get_all_cases():
     OPTIONAL MATCH (c)<-[:BELONGS_TO]-(n)
     RETURN c.id AS case_id, c.name AS case_name, count(n) AS total_entities
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         result = await session.run(query)
         records = [record.data() async for record in result]
 
@@ -822,7 +831,7 @@ async def create_new_case(request: CaseCreateRequest):
         c.created_at = datetime()
     RETURN c.id AS case_id, c.name AS case_name, 0 AS total_entities
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         result = await session.run(
             query, case_id=case_id, case_name=request.case_name,
             description=request.description, status=request.status
@@ -927,7 +936,7 @@ async def upload_case_documents(
     MERGE (d)-[:BELONGS_TO]->(c)
     """
 
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         await session.run(query, case_id=case_id, files=file_metadata_for_db)
 
     # 4. Launch background processing with the Master Dossier path targeting the 5-stage pipeline
@@ -986,7 +995,7 @@ async def get_case_hypergraph(case_id: str):
 
     # 2. Fallback: Query Neo4j if resolved JSON files are missing
     if not triplets and driver:
-        async with driver.session(database="neo4j") as session:
+        async with driver.session(database=NEO4J_DATABASE) as session:
             # Fetch Case Name
             c_res = await session.run("MATCH (c:Case {id: $case_id}) RETURN c.name AS name", case_id=case_id)
             c_rec = await c_res.single()
@@ -1108,7 +1117,7 @@ async def process_natural_language_insight(case_id: str, request: RawInsightRequ
         raise HTTPException(status_code=500, detail=f"LLM failed to parse insight: {str(e)}")
 
     # 3. EXECUTE GRAPH MUTATIONS IN NEO4J
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
 
         # Remove False Relationships (Now undirected and checks all synonyms)
         if insight_data.get("relationships_to_remove"):
@@ -1180,7 +1189,7 @@ async def get_dashboard_metrics(case_id: str):
     WITH documents, chunks, entities, persons, alerts, COUNT(r) AS relationships, SUM(CASE WHEN coalesce(r.evidence, '') <> '' THEN 1 ELSE 0 END) AS evidence
     RETURN documents, chunks, entities, persons, evidence, relationships, alerts, (entities + relationships) AS network_size
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         result = await session.run(query, case_id=case_id)
         records = [record.data() async for record in result]
 
@@ -1212,7 +1221,7 @@ async def get_top_suspects(case_id: str, limit: int = Query(default=10, ge=1, le
         coalesce(s.mention_count, 1) AS mentions, connections AS degree_connections, associated_cases
     ORDER BY mentions DESC, degree_connections DESC LIMIT $limit
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id, limit=limit)).data()
 
     return [
@@ -1236,7 +1245,7 @@ async def get_full_relation_map(case_id: str, limit: int = Query(default=200, ge
     else:
         query = "MATCH (source {case_id: $case_id})-[rel]-(target {case_id: $case_id}) RETURN source, rel, target LIMIT $limit"
 
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id, limit=limit, entity_type=entity_type)).data()
     return parse_graph_records(records) if records else GraphResponse(nodes=[], edges=[])
 
@@ -1249,7 +1258,7 @@ async def get_available_entity_types(case_id: str):
     WHERE entity_type IS NOT NULL AND entity_type <> ''
     RETURN entity_type ORDER BY entity_type ASC
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id)).data()
     return [r["entity_type"] for r in records]
 
@@ -1264,7 +1273,7 @@ async def list_investigators(case_id: str):
     RETURN i.name AS name, coalesce(i.master_role, 'INVESTIGATOR') AS master_role, coalesce(i.aliases, []) AS aliases, coalesce(i.mention_count, 1) AS mentions, connections AS degree_connections
     ORDER BY mentions DESC, connections DESC
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id)).data()
     return [InvestigatorProfile(**r) for r in records]
 
@@ -1281,7 +1290,7 @@ async def get_investigator_cases(case_id: str, investigator_name: str):
     WHERE toUpper(source.name) CONTAINS toUpper($name) OR ANY(a IN source.aliases WHERE toUpper(a) CONTAINS toUpper($name))
     RETURN source, rel, target
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         case_records = await (await session.run(case_query, case_id=case_id, name=investigator_name)).data()
         graph_records = await (await session.run(graph_query, case_id=case_id, name=investigator_name)).data()
 
@@ -1314,7 +1323,7 @@ async def get_executive_case_summary(case_id: str, max_nodes: int = Query(defaul
     CALL { WITH source, major_nodes MATCH (source)-[rel]-(target) WHERE target IN major_nodes RETURN rel, target LIMIT $max_rels }
     RETURN source, rel, target
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id, max_nodes=max_nodes, min_connections=min_connections,
                                            max_rels=max_rels_per_node, allowed_types=allowed_types)).data()
     return parse_graph_records(records) if records else GraphResponse(nodes=[], edges=[])
@@ -1341,7 +1350,7 @@ async def get_major_entities(case_id: str, limit_per_category: int = Query(defau
     """
     grouped_data = {"locations": [], "phone_numbers": [], "organizations": [], "people": [], "financial": [],
                     "vehicles_and_weapons": []}
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id, limit=limit_per_category)).data()
     for record in records:
         cat = record.get("category")
@@ -1359,7 +1368,7 @@ async def get_suspect_relationships(case_id: str, suspect_name: str, limit: int 
     WHERE NOT toUpper(coalesce(target.type, target.master_role, '')) IN ['CHUNK', 'DOCUMENT', 'FILE_CHUNK', 'TEXT', 'PARAGRAPH']
     RETURN source, rel, target LIMIT $limit
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (await session.run(query, case_id=case_id, suspect_name=suspect_name, limit=limit)).data()
     return parse_graph_records(records) if records else GraphResponse(nodes=[], edges=[])
 
@@ -1378,7 +1387,7 @@ async def get_relationship_between_persons(
     UNWIND relationships(path) AS rel
     RETURN startNode(rel) AS source, rel, endNode(rel) AS target
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         records = await (
             await session.run(query, case_id=case_id, person1=person1, person2=person2, max_depth=max_depth)).data()
     return parse_graph_records(records) if records else GraphResponse(nodes=[], edges=[])
@@ -1449,7 +1458,7 @@ async def delete_multiple_cases(case_ids: List[str]):
     OPTIONAL MATCH (n {case_id: c.id})
     DETACH DELETE n, c
     """
-    async with driver.session(database="neo4j") as session:
+    async with driver.session(database=NEO4J_DATABASE) as session:
         await session.run(query, case_ids=case_ids)
 
     return {"status": "success",

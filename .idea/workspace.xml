@@ -5,64 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7c367fd-e004-438b-bdd2-1b3fab732934" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pdf_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/crimglass.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/step3_extraction.py" beforeDir="false" afterPath="$PROJECT_DIR$/step3_extraction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/CASE_2F3A2EAC_hypergraph.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh_step1_chunks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh_step2_coref.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh_step3_triplets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh_step4_resolved.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_2F3A2EAC/trimorkh_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_3617938A/CASE_3617938A_hypergraph.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_3617938A/random copy.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_3617938A/random copy_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_3617938A/random copy_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/CASE_47186001_hypergraph.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1_step1_chunks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1_step2_coref.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1_step3_triplets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1_step4_resolved.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_47186001/HARSHAD_MEHTA_SCAM_1.1_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_67840B1A/fbi_case_file_265A.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_67840B1A/fbi_case_file_265A_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_67840B1A/fbi_case_file_265A_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/CASE_8A3C3A75_hypergraph.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam_step1_chunks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam_step2_coref.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam_step3_triplets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam_step4_resolved.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8A3C3A75/drishyam_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/CASE_8E29491C_hypergraph.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced_step1_chunks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced_step2_coref.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced_step3_triplets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced_step4_resolved.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_8E29491C/Sabarmati_Express_Network_Enhanced_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_D00E5E64/fbi_case_file_265A.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_D00E5E64/fbi_case_file_265A_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_D00E5E64/fbi_case_file_265A_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_D00E5E64/random.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_D00E5E64/random_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_D00E5E64/random_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_E177AE55/randomshit.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_E177AE55/randomshit_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_E177AE55/randomshit_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_E9B41BB0/FBI_SINGLE_CASE_DOSSIER_100P.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_E9B41BB0/FBI_SINGLE_CASE_DOSSIER_100P_hash_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_E9B41BB0/FBI_SINGLE_CASE_DOSSIER_100P_table.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/fbi_case_file_265A.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uploaded_cases/gemini-code-1787685816425.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf_processor.py" beforeDir="false" afterPath="$PROJECT_DIR$/pdf_processor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uploaded_cases/CASE_A14047AB/CASE_A14047AB_hypergraph.json" beforeDir="false" afterPath="$PROJECT_DIR$/uploaded_cases/CASE_A14047AB/CASE_A14047AB_hypergraph.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +147,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-c59985aa861c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.24374.152" />
+        <option value="bundled-python-sdk-821f704e66d9-5bd6d13a2a75-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-262.9437.214" />
       </set>
     </attachedChunks>
   </component>
@@ -223,6 +172,13 @@
       <workItem from="1787986502640" duration="17378000" />
       <workItem from="1788011351943" duration="14023000" />
       <workItem from="1788067693922" duration="1217000" />
+      <workItem from="1788073037666" duration="1759000" />
+      <workItem from="1788108850659" duration="2641000" />
+      <workItem from="1788147422609" duration="2219000" />
+      <workItem from="1788167799151" duration="1978000" />
+      <workItem from="1788251974994" duration="25000" />
+      <workItem from="1788321045607" duration="931000" />
+      <workItem from="1788436450950" duration="644000" />
     </task>
     <servers />
   </component>
@@ -230,15 +186,16 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/crimglass$process_chunks.coverage" NAME="process_chunks Coverage Results" MODIFIED="1787650980971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$ingest_neo4j.coverage" NAME="ingest_neo4j Coverage Results" MODIFIED="1787986746428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$entity_resolution.coverage" NAME="entity_resolution Coverage Results" MODIFIED="1787719581799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$case.coverage" NAME="case Coverage Results" MODIFIED="1787675435389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$index.coverage" NAME="index Coverage Results" MODIFIED="1787649995492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$clean_db_relations.coverage" NAME="clean_db_relations Coverage Results" MODIFIED="1787986813002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utllity" />
     <SUITE FILE_PATH="coverage/crimglass$main.coverage" NAME="main Coverage Results" MODIFIED="1788034848257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$relation_extraction.coverage" NAME="relation_extraction Coverage Results" MODIFIED="1787662693468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/crimglass$clear_json.coverage" NAME="clear_json Coverage Results" MODIFIED="1787680380653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$index.coverage" NAME="index Coverage Results" MODIFIED="1787649995492" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/crimglass$run_pipeline.coverage" NAME="run_pipeline Coverage Results" MODIFIED="1788067823304" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$relation_extraction.coverage" NAME="relation_extraction Coverage Results" MODIFIED="1787662693468" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CNA_backend$main.coverage" NAME="main Coverage Results" MODIFIED="1788436464985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$entity_resolution.coverage" NAME="entity_resolution Coverage Results" MODIFIED="1787719581799" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$process_chunks.coverage" NAME="process_chunks Coverage Results" MODIFIED="1787650980971" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$clear_json.coverage" NAME="clear_json Coverage Results" MODIFIED="1787680380653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$ingest_neo4j.coverage" NAME="ingest_neo4j Coverage Results" MODIFIED="1787986746428" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/crimglass$case.coverage" NAME="case Coverage Results" MODIFIED="1787675435389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

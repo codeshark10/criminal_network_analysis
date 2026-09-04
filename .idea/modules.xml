@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/crimglass.iml" filepath="$PROJECT_DIR$/.idea/crimglass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/cna-backend.iml" filepath="$PROJECT_DIR$/.idea/cna-backend.iml" />
     </modules>
   </component>
 </project>
