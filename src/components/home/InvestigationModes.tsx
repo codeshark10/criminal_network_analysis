@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Investigation Modes Component
+// Crimeglass — Investigation Modes Component
 // Known Suspect + Unknown Suspect workflows
 // ============================================================
 

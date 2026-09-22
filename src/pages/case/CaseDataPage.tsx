@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Case Data Page
+// Crimeglass — Case Data Page
 // Shows source documents and chunk distribution for a case
 // Now powered by frontend-processed document data
 // ============================================================
@@ -76,12 +76,24 @@ const CaseDataPage: React.FC = () => {
         ))}
       </div>
 
+      {/* Universal CSV Upload Section */}
+      <div style={{ marginBottom: '24px' }}>
+        <StructuredDataUpload caseId={caseId || ''} />
+      </div>
+
       {/* Documents section */}
-      {(selectedCat === 'CDR' || selectedCat === 'FINANCIAL') ? (
+      {selectedCat !== 'ALL' && selectedCat !== 'CDR' && selectedCat !== 'FINANCIAL' && (
         <div style={{ marginBottom: '24px' }}>
-          <StructuredDataUpload caseId={caseId || ''} csvType={selectedCat as 'CDR' | 'FINANCIAL'} />
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+            <div className="section-header">SOURCE DOCUMENTS</div>
+            <button className="btn btn--accent" style={{ fontSize: '0.7rem' }} onClick={() => navigate('/cases?create=true')}>
+              <FileText size={11} /> UPLOAD NEW DOCUMENT
+            </button>
+          </div>
         </div>
-      ) : (
+      )}
+
+      {selectedCat === 'ALL' && (
         <div style={{ marginBottom: '24px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
             <div className="section-header">SOURCE DOCUMENTS</div>
@@ -99,53 +111,53 @@ const CaseDataPage: React.FC = () => {
                 UPLOAD INVESTIGATION DATA <ArrowRight size={12} />
               </button>
             </div>
-          ) : (
-            docs.map((doc) => (
-              <div
-                key={doc.id}
-                style={{
-                  background: 'var(--bg-surface)', border: '1px solid var(--border-dim)',
-                  padding: '14px 16px', display: 'grid',
-                  gridTemplateColumns: '1fr 100px 80px 100px 24px', gap: '12px',
-                  alignItems: 'center', cursor: 'pointer', transition: 'background 0.15s',
-                }}
-                onClick={() => navigate(`${base}/chunks`)}
-                onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--bg-raised)')}
-                onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--bg-surface)')}
-              >
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <FileText size={12} style={{ color: 'var(--accent-dim)' }} />
-                    <span style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: 500 }}>{doc.fileName}</span>
+            ) : (
+              docs.map((doc) => (
+                <div
+                  key={doc.id}
+                  style={{
+                    background: 'var(--bg-surface)', border: '1px solid var(--border-dim)',
+                    padding: '14px 16px', display: 'grid',
+                    gridTemplateColumns: '1fr 100px 80px 100px 24px', gap: '12px',
+                    alignItems: 'center', cursor: 'pointer', transition: 'background 0.15s',
+                  }}
+                  onClick={() => navigate(`${base}/chunks`)}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = 'var(--bg-raised)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--bg-surface)')}
+                >
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                      <FileText size={12} style={{ color: 'var(--accent-dim)' }} />
+                      <span style={{ fontSize: '0.82rem', color: 'var(--text-primary)', fontWeight: 500 }}>{doc.fileName}</span>
+                    </div>
+                    <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+                      Uploaded {new Date(doc.uploadedAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}
+                    </div>
                   </div>
-                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                    Uploaded {new Date(doc.uploadedAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' })}
+                  <div>
+                    <div className="intel-label" style={{ marginBottom: '2px' }}>CHUNKS</div>
+                    <div className="data-value">{doc.chunkCount ?? 0}</div>
                   </div>
+                  <div>
+                    <div className="intel-label" style={{ marginBottom: '2px' }}>SIZE</div>
+                    <div className="data-value">{(doc.size / 1024).toFixed(1)} KB</div>
+                  </div>
+                  <div>
+                    <span style={{
+                      fontFamily: 'var(--font-mono)', fontSize: '0.6rem', padding: '2px 8px',
+                      background: 'var(--operational-soft)',
+                      border: '1px solid var(--operational)',
+                      color: '#6A9E6A',
+                    }}>
+                      {doc.status}
+                    </span>
+                  </div>
+                  <ChevronRight size={13} style={{ color: 'var(--text-muted)' }} />
                 </div>
-                <div>
-                  <div className="intel-label" style={{ marginBottom: '2px' }}>CHUNKS</div>
-                  <div className="data-value">{doc.chunkCount ?? 0}</div>
-                </div>
-                <div>
-                  <div className="intel-label" style={{ marginBottom: '2px' }}>SIZE</div>
-                  <div className="data-value">{(doc.size / 1024).toFixed(1)} KB</div>
-                </div>
-                <div>
-                  <span style={{
-                    fontFamily: 'var(--font-mono)', fontSize: '0.6rem', padding: '2px 8px',
-                    background: 'var(--operational-soft)',
-                    border: '1px solid var(--operational)',
-                    color: '#6A9E6A',
-                  }}>
-                    {doc.status}
-                  </span>
-                </div>
-                <ChevronRight size={13} style={{ color: 'var(--text-muted)' }} />
-              </div>
-            ))
-          )}
+              ))
+            )}
+          </div>
         </div>
-      </div>
       )}
 
       {/* Category distribution — only show when there are chunks */}

@@ -56,29 +56,27 @@ const IntelCommandCenter: React.FC<IntelCommandCenterProps> = ({ caseId }) => {
       try {
         const data = JSON.parse(event.data);
         
-        // Listen for GRAPH_UPDATED events
-        if (data.event === 'GRAPH_UPDATED') {
-          // Extract investigator name from message if possible, else default to 'Team Member'
-          const investigatorMatch = data.message.match(/^([^ ]+ [^ ]+)/);
-          const investigator = investigatorMatch ? investigatorMatch[1] : 'Team Member';
+        // Listen for GRAPH_UPDATED / GRAPH_UPDATE events
+        if (data.event === 'GRAPH_UPDATED' || data.event === 'GRAPH_UPDATE') {
+          // Extract investigator name from message if possible, else default to 'Universal Ingestion Engine' / 'Team Member'
+          const investigatorMatch = data.message ? data.message.match(/^([^ ]+ [^ ]+)/) : null;
+          const investigator = investigatorMatch
+            ? investigatorMatch[1]
+            : (data.source === 'UNIVERSAL_CSV_UPLOAD' ? 'Universal Engine' : 'Team Member');
 
           const newFeedItem: FeedItem = {
             id: Date.now().toString() + Math.random().toString(),
             timestamp: new Date().toLocaleTimeString(),
             investigator: investigator,
-            message: data.message,
-            action: 'GRAPH_UPDATED',
+            message: data.message || 'Graph updated via Universal CSV Ingestion',
+            action: data.source || 'GRAPH_UPDATED',
           };
           
           // 1. Add message to the Live Operations Feed
           setFeed(prev => [...prev, newFeedItem]);
 
-          // 2. Trigger mock function fetchGraphData()
-          // fetchGraphData();
-          console.log('[Mock] fetchGraphData() called to refresh D3/React-Force-Graph component');
-
-          // 3. Show toast notification
-          showToast('Graph updated by team member');
+          // 2. Show toast notification
+          showToast(data.source === 'UNIVERSAL_CSV_UPLOAD' ? 'Universal CSV entities merged into graph' : 'Graph updated');
         }
       } catch (err) {
         console.error('Failed to parse WebSocket message', err);

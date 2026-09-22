@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Neo4j-Compatible Graph Types
+// Crimeglass — Neo4j-Compatible Graph Types
 // SIH26189 | SYNTHETIC DEMONSTRATION DATA
 // ============================================================
 
@@ -13,7 +13,8 @@ export type EntityType =
   | 'TRANSACTION'
   | 'EVENT'
   | 'EVIDENCE'
-  | 'CASE';
+  | 'CASE'
+  | (string & {});
 
 export type RelationshipType =
   | 'COMMUNICATED_WITH'
@@ -31,7 +32,8 @@ export type RelationshipType =
   | 'MENTIONED_IN'
   | 'CONNECTED_TO'
   | 'RELATED_TO'
-  | 'PART_OF';
+  | 'PART_OF'
+  | 'INFERRED_ASSOCIATE';
 
 // Compatible with Neo4j property graph model
 export interface GraphNode {
@@ -62,6 +64,7 @@ export interface GraphRelationship {
   directed: boolean;
   properties: {
     confidence?: number;
+    ai_confidence_score?: number;
     evidenceCount?: number;
     evidenceIds?: string[];
     firstObserved?: string;

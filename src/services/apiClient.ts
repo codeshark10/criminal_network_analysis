@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Centralised API Client
+// Crimeglass — Centralised API Client
 // All calls to the FastAPI backend (main.py) go through here.
 // Each function maps 1-to-1 to an endpoint in main.py.
 // ============================================================
@@ -10,9 +10,11 @@ export interface ApiGraphNode {
   id: string;
   label: string;
   type: string;
+  name?: string;
   master_role?: string | null;
   aliases: string[];
   mentions: number;
+  properties?: Record<string, unknown>;
 }
 
 export interface ApiGraphEdge {
@@ -22,6 +24,9 @@ export interface ApiGraphEdge {
   label: string;
   evidence?: string;
   chunk_id?: string;
+  ai_confidence_score?: number;
+  confidence?: number;
+  properties?: Record<string, unknown>;
 }
 
 export interface ApiGraphResponse {
@@ -231,6 +236,10 @@ export async function getTopSuspects(caseId: string, limit = 10): Promise<Suspec
 }
 
 // ── Endpoint: GET /api/cases/{case_id}/graph/full ─────────────
+/**
+ * Fetches the full Neo4j knowledge graph for a case targeting universal :Entity nodes:
+ * Cypher: MATCH (n:Entity {case_id: $case_id}) OPTIONAL MATCH (n)-[r]->(m:Entity {case_id: $case_id}) RETURN n, r, m
+ */
 export async function getFullGraph(
   caseId: string,
   limit = 200,
@@ -344,3 +353,20 @@ export async function getMastermindAnalysis(caseId: string): Promise<MastermindR
   const encoded = encodeURIComponent(caseId);
   return apiFetch<MastermindResponse>(buildUrl(`/api/cases/${encoded}/mastermind`));
 }
+
+// ── Endpoint: POST /api/cases/{case_id}/run-gnn-predictions ─
+export interface GnnPredictionResponse {
+  message: string;
+  predictions_count?: number;
+  status?: string;
+  new_edges_count?: number;
+}
+
+export async function runGnnPredictions(caseId: string): Promise<GnnPredictionResponse> {
+  const encoded = encodeURIComponent(caseId);
+  return apiFetch<GnnPredictionResponse>(buildUrl(`/api/cases/${encoded}/run-gnn-predictions`), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+}
+

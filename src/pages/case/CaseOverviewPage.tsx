@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Case Overview Page
+// Crimeglass — Case Overview Page
 // First page shown when entering a case workspace
 // ============================================================
 

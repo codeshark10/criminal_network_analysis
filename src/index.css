@@ -1,5 +1,5 @@
 /* ============================================================
-   NEXUS CRIMINAL NETWORK INTELLIGENCE SYSTEM
+   CRIMEGLASS CRIMINAL NETWORK INTELLIGENCE SYSTEM
    SIH26189 — AI-Powered Criminal Network Analysis System
    NCRB, Ministry of Home Affairs
    Design System: Near-Black + White + Muted Forensic Yellow
@@ -654,3 +654,23 @@ body {
 @media (max-width: 900px) {
   .hide-tablet { display: none !important; }
 }
+
+/* ── GNN Inferred Edges Animation ───────────────────────────── */
+@keyframes marchingAnts {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -20; }
+}
+
+.inferred-edge {
+  animation: marchingAnts 1.2s linear infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 3px rgba(255, 69, 0, 0.7)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 8px rgba(255, 69, 0, 0.95)); }
+}
+
+.gnn-pulse {
+  animation: marchingAnts 1.2s linear infinite, pulseGlow 2s ease-in-out infinite;
+}
+

@@ -1,7 +1,6 @@
 // ============================================================
-// NEXUS — Document Processing Engine
-// Semantic chunking + weighted classification + alert generation
-// Frontend-side processing for uploaded .txt case documents
+// Crimeglass — Document Processing Engine
+// Frontend document simulation: Chunking, NER, Signals & Alerts
 // ============================================================
 
 import type { ExtractedChunk, ChunkCategory, Alert } from '../types';
@@ -503,9 +502,9 @@ export function generateAlerts(
 
 // ── Persistence ───────────────────────────────────────────────
 
-const CHUNKS_PREFIX = 'nexus_chunks_';
-const ALERTS_PREFIX = 'nexus_alerts_';
-const DOCS_PREFIX = 'nexus_docs_';
+const CHUNKS_PREFIX = 'crimeglass_chunks_';
+const ALERTS_PREFIX = 'crimeglass_alerts_';
+const DOCS_PREFIX = 'crimeglass_docs_';
 
 export interface StoredDocument {
   id: string;
@@ -522,13 +521,13 @@ export function saveChunks(caseId: string, chunks: ExtractedChunk[]): void {
   try {
     localStorage.setItem(CHUNKS_PREFIX + caseId, JSON.stringify(chunks));
   } catch {
-    console.warn('[NEXUS] Could not persist chunks to localStorage');
+    console.warn('[Crimeglass] Could not persist chunks to localStorage');
   }
 }
 
 export function loadChunks(caseId: string): ExtractedChunk[] {
   try {
-    const raw = localStorage.getItem(CHUNKS_PREFIX + caseId);
+    const raw = localStorage.getItem(CHUNKS_PREFIX + caseId) || localStorage.getItem('nexus_chunks_' + caseId);
     return raw ? (JSON.parse(raw) as ExtractedChunk[]) : [];
   } catch {
     return [];
@@ -539,13 +538,13 @@ export function saveAlerts(caseId: string, alerts: Alert[]): void {
   try {
     localStorage.setItem(ALERTS_PREFIX + caseId, JSON.stringify(alerts));
   } catch {
-    console.warn('[NEXUS] Could not persist alerts to localStorage');
+    console.warn('[Crimeglass] Could not persist alerts to localStorage');
   }
 }
 
 export function loadAlerts(caseId: string): Alert[] {
   try {
-    const raw = localStorage.getItem(ALERTS_PREFIX + caseId);
+    const raw = localStorage.getItem(ALERTS_PREFIX + caseId) || localStorage.getItem('nexus_alerts_' + caseId);
     return raw ? (JSON.parse(raw) as Alert[]) : [];
   } catch {
     return [];
@@ -556,13 +555,13 @@ export function saveDocuments(caseId: string, docs: StoredDocument[]): void {
   try {
     localStorage.setItem(DOCS_PREFIX + caseId, JSON.stringify(docs));
   } catch {
-    console.warn('[NEXUS] Could not persist documents to localStorage');
+    console.warn('[Crimeglass] Could not persist documents to localStorage');
   }
 }
 
 export function loadDocuments(caseId: string): StoredDocument[] {
   try {
-    const raw = localStorage.getItem(DOCS_PREFIX + caseId);
+    const raw = localStorage.getItem(DOCS_PREFIX + caseId) || localStorage.getItem('nexus_docs_' + caseId);
     return raw ? (JSON.parse(raw) as StoredDocument[]) : [];
   } catch {
     return [];

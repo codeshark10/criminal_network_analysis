@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Mastermind Analysis Page
+// Crimeglass — Mastermind Analysis Page
 // Data from GET /api/cases/{caseId}/mastermind
 // ============================================================
 

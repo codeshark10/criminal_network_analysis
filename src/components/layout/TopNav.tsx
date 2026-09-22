@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Top Navigation Bar
+// Crimeglass — Top Navigation Bar
 // ============================================================
 
 import React, { useState } from 'react';
@@ -118,7 +118,7 @@ const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
                 lineHeight: 1.1,
               }}
             >
-              NEXUS
+              Crimeglass
             </div>
             <div className="intel-label" style={{ fontSize: '0.5rem', letterSpacing: '0.18em' }}>
               CRIMINAL NETWORK INTELLIGENCE

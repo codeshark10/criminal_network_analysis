@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Case Chunks Page
+// Crimeglass — Case Chunks Page
 // Displays all extracted chunks for a case with filters
 // Now powered by frontend-processed document data
 // ============================================================

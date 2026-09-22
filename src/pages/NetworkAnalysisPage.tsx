@@ -1,14 +1,14 @@
 // ============================================================
-// NEXUS — Network Analysis Page
+// Crimeglass — Network Analysis Page
 // Full-screen D3 knowledge graph — data from FastAPI/Neo4j
 // with graceful fallback to static demo data when backend offline
 // ============================================================
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight, Loader2, AlertTriangle, Database } from 'lucide-react';
+import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight, Loader2, AlertTriangle, Database, Sparkles } from 'lucide-react';
 import NetworkGraph from '../components/graph/NetworkGraph';
-import { getFullGraph, getSuspectRelationships, getExecutiveSummary } from '../services/apiClient';
+import { getFullGraph, getSuspectRelationships, getExecutiveSummary, runGnnPredictions } from '../services/apiClient';
 import { adaptApiGraph } from '../services/adapters';
 import { useCaseData } from '../context/CaseDataContext';
 import type { GraphNode, GraphRelationship, EntityType } from '../types/graph';
@@ -74,6 +74,7 @@ const NetworkAnalysisPage: React.FC = () => {
   const [isLive, setIsLive] = useState(false);   // true = real backend data
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [graphMode, setGraphMode] = useState<'full' | 'executive'>('full');
+  const [isPredicting, setIsPredicting] = useState(false);
 
   // ── Exec Summary Params ──────────────────────────────────
   const [execParams, setExecParams] = useState({ maxNodes: 20, maxRels: 6, minConnections: 1 });
@@ -126,6 +127,25 @@ const NetworkAnalysisPage: React.FC = () => {
 
   useEffect(() => { fetchGraph(); }, [fetchGraph]);
 
+  // ── Run AI GNN Prediction ────────────────────────────────
+  const handleRunGnnPredictions = useCallback(async () => {
+    if (!caseId || isPredicting) return;
+    setIsPredicting(true);
+    try {
+      const res = await runGnnPredictions(caseId);
+      const msg = res.message || (res.predictions_count !== undefined ? `Found ${res.predictions_count} hidden connections` : 'AI Link prediction completed.');
+      setWsToast(msg);
+      await fetchGraph();
+      setTimeout(() => setWsToast(null), 5000);
+    } catch (err) {
+      const errMsg = err instanceof Error ? err.message : 'GNN Prediction failed';
+      setWsToast(`Error: ${errMsg}`);
+      setTimeout(() => setWsToast(null), 5000);
+    } finally {
+      setIsPredicting(false);
+    }
+  }, [caseId, isPredicting, fetchGraph]);
+
   // ── WebSocket Integration ────────────────────────────────
   useEffect(() => {
     if (!caseId) return;
@@ -134,22 +154,30 @@ const NetworkAnalysisPage: React.FC = () => {
     ws.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        if (data.event === 'GRAPH_UPDATE' && data.source === 'STRUCTURED_CSV_UPLOAD') {
-          setWsToast('New structured data ingested. Refreshing graph...');
+        const isGraphUpdate = data.event === 'GRAPH_UPDATE' || data.event === 'GRAPH_UPDATED';
+        if (isGraphUpdate && (
+          data.source === 'UNIVERSAL_CSV_UPLOAD' || 
+          data.source === 'STRUCTURED_CSV_UPLOAD' || 
+          data.source === 'GNN_PREDICTION'
+        )) {
+          const toastMsg = data.source === 'GNN_PREDICTION'
+            ? (data.message || 'AI GNN Predictions updated. Refreshing graph...')
+            : (data.message || 'Universal CSV data ingested. Refreshing graph...');
+          setWsToast(toastMsg);
           fetchGraph();
           
           addCaseAlert(caseId, {
-            title: 'Structured Data Ingested',
-            description: 'New CSV data has been processed and added to the graph.',
+            title: data.source === 'GNN_PREDICTION' ? 'AI GNN Links Inferred' : 'Universal CSV Data Ingested',
+            description: data.message || 'Newly extracted entities and relationships merged into graph.',
             severity: 'MEDIUM',
-            category: 'DATA_INGESTION',
+            category: data.source === 'GNN_PREDICTION' ? 'AI_PREDICTION' : 'DATA_INGESTION',
             status: 'ACTIVE',
             caseId: caseId,
             evidenceIds: [],
             personIds: []
           });
 
-          setTimeout(() => setWsToast(null), 4000);
+          setTimeout(() => setWsToast(null), 5000);
         }
       } catch (err) {
         console.error('WebSocket parse error:', err);
@@ -394,7 +422,7 @@ const NetworkAnalysisPage: React.FC = () => {
           <div style={{ flex: 1 }} />
 
           {/* Mode Toggle */}
-          <div style={{ display: 'flex', background: 'var(--bg-raised)', border: '1px solid var(--border-dim)', borderRadius: '2px', overflow: 'hidden', marginRight: '12px' }}>
+          <div style={{ display: 'flex', background: 'var(--bg-raised)', border: '1px solid var(--border-dim)', borderRadius: '2px', overflow: 'hidden', marginRight: '8px' }}>
             <button
               className={`btn ${graphMode === 'full' ? 'btn--accent' : 'btn--ghost'}`}
               style={{ border: 'none', borderRadius: 0, padding: '4px 10px', fontSize: '0.62rem' }}
@@ -411,9 +439,48 @@ const NetworkAnalysisPage: React.FC = () => {
             </button>
           </div>
 
+          {/* AI Prediction Button */}
+          <button
+            className="btn"
+            disabled={isPredicting || !caseId}
+            onClick={handleRunGnnPredictions}
+            style={{
+              padding: '4px 10px',
+              fontSize: '0.62rem',
+              fontFamily: 'var(--font-mono)',
+              fontWeight: 600,
+              background: isPredicting
+                ? 'rgba(147, 51, 234, 0.2)'
+                : 'linear-gradient(135deg, #7C3AED 0%, #9333EA 100%)',
+              border: '1px solid #A855F7',
+              color: '#FFFFFF',
+              borderRadius: '2px',
+              cursor: isPredicting ? 'not-allowed' : 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              marginRight: '12px',
+              boxShadow: isPredicting ? 'none' : '0 0 10px rgba(147, 51, 234, 0.35)',
+              transition: 'all 0.2s ease',
+            }}
+            title="Run AI Graph Neural Network to predict hidden connections"
+          >
+            {isPredicting ? (
+              <>
+                <Loader2 size={12} className="animate-spin-slow" />
+                <span>Analyzing Network Topology...</span>
+              </>
+            ) : (
+              <>
+                <Sparkles size={12} style={{ color: '#FDE047' }} />
+                <span>Predict Hidden Links (AI)</span>
+              </>
+            )}
+          </button>
+
           <input
             className="intel-input"
-            style={{ width: '160px', padding: '4px 8px' }}
+            style={{ width: '150px', padding: '4px 8px' }}
             placeholder="Search nodes..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -485,6 +552,10 @@ const NetworkAnalysisPage: React.FC = () => {
                 <span style={{ fontSize: '0.62rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{label}</span>
               </div>
             ))}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '5px', paddingTop: '5px', borderTop: '1px solid var(--border-faint)' }}>
+              <div style={{ width: '12px', height: '0px', borderTop: '2px dashed #FF4500' }} />
+              <span style={{ fontSize: '0.62rem', color: '#FF5722', fontFamily: 'var(--font-mono)', fontWeight: 500 }}>INFERRED_ASSOCIATE (AI)</span>
+            </div>
           </div>
         </div>
       </div>

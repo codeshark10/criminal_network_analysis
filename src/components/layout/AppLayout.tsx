@@ -1,25 +1,36 @@
 // ============================================================
-// NEXUS — Global App Layout (Homepage + Cases List)
+// Crimeglass — Global App Layout (Homepage + Cases List)
 // No case-specific sidebar on global pages
 // ============================================================
 
-import React, { useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { Search, Bell, User, ChevronDown, X } from 'lucide-react';
 import { useCaseData } from '../../context/CaseDataContext';
+import { getCases } from '../../services/apiClient';
+import type { CaseItem } from '../../services/apiClient';
 
 const GlobalTopNav: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { getAlerts } = useCaseData();
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showNotifications, setShowNotifications] = useState(false);
+  const [cases, setCases] = useState<CaseItem[]>([]);
+
+  useEffect(() => {
+    getCases()
+      .then(setCases)
+      .catch((err) => console.error('Error fetching cases in GlobalTopNav:', err));
+  }, [location.pathname]);
 
   const alerts = getAlerts('global');
   const activeAlerts = alerts.filter(a => a.status === 'ACTIVE');
   const highAlerts = activeAlerts.filter(a => a.severity === 'HIGH');
 
-  const stats = { active: 0, total: 0 };
+  const activeCount = cases.filter(c => !c.status || c.status === 'ACTIVE').length;
+  const stats = { active: activeCount, total: cases.length };
 
   return (
     <>
@@ -47,7 +58,7 @@ const GlobalTopNav: React.FC = () => {
           </div>
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.87rem', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '0.12em', lineHeight: 1.1 }}>
-              NEXUS
+              Crimeglass
             </div>
             <div className="intel-label" style={{ fontSize: '0.5rem', letterSpacing: '0.18em' }}>
               CRIMINAL NETWORK INTELLIGENCE
@@ -60,9 +71,7 @@ const GlobalTopNav: React.FC = () => {
           {[
             { label: 'OVERVIEW',    path: '/' },
             { label: 'CASES',       path: '/cases' },
-            { label: 'PERSONS',     path: '/persons' },
             { label: 'ALERTS',      path: '/alerts' },
-            { label: 'ANALYTICS',   path: '/analytics' },
           ].map(({ label, path }) => (
             <button
               key={path}

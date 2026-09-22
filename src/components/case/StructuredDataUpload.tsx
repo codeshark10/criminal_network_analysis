@@ -4,10 +4,10 @@ import { useCaseData } from '../../context/CaseDataContext';
 
 interface StructuredDataUploadProps {
   caseId: string;
-  csvType: 'CDR' | 'FINANCIAL';
+  csvType?: string;
 }
 
-const StructuredDataUpload: React.FC<StructuredDataUploadProps> = ({ caseId, csvType }) => {
+const StructuredDataUpload: React.FC<StructuredDataUploadProps> = ({ caseId, csvType = 'Auto-Detect' }) => {
   const fileRef = useRef<HTMLInputElement>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isDragOver, setIsDragOver] = useState(false);
@@ -35,7 +35,7 @@ const StructuredDataUpload: React.FC<StructuredDataUploadProps> = ({ caseId, csv
     
     const formData = new FormData();
     formData.append('case_id', caseId);
-    formData.append('csv_type', csvType);
+    formData.append('csv_type', csvType || selectedFile.name || 'Auto-Detect');
     formData.append('file', selectedFile);
 
     try {
@@ -52,7 +52,7 @@ const StructuredDataUpload: React.FC<StructuredDataUploadProps> = ({ caseId, csv
       
       addCaseAlert(caseId, {
         title: 'Upload Successful',
-        description: data.message || `Successfully ingested ${csvType} records.`,
+        description: data.message || `Successfully ingested ${selectedFile.name} with Universal Intelligence Engine.`,
         severity: 'LOW',
         category: 'DATA_INGESTION',
         status: 'ACTIVE',
@@ -82,9 +82,9 @@ const StructuredDataUpload: React.FC<StructuredDataUploadProps> = ({ caseId, csv
     <div style={{ background: 'var(--bg-surface)', border: '1px solid var(--border-dim)', padding: '24px' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px' }}>
         <div>
-          <div className="section-header">STRUCTURED DATA UPLOAD</div>
+          <div className="section-header">UNIVERSAL CSV DATA UPLOAD</div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-            MODE: {csvType}
+            ENGINE: LLM UNIVERSAL SCHEMA-LESS INTELLIGENCE
           </div>
         </div>
         <Info size={16} style={{ color: 'var(--accent-dim)' }} />
@@ -114,9 +114,9 @@ const StructuredDataUpload: React.FC<StructuredDataUploadProps> = ({ caseId, csv
         <UploadCloud size={32} style={{ color: isDragOver ? 'var(--accent)' : 'var(--text-muted)' }} />
         <div style={{ textAlign: 'center' }}>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: isDragOver ? 'var(--accent)' : 'var(--text-secondary)', letterSpacing: '0.08em', marginBottom: '4px' }}>
-            DROP {csvType} .CSV FILE HERE OR CLICK TO BROWSE
+            DROP .CSV FILE HERE OR CLICK TO BROWSE
           </div>
-          <div className="intel-label" style={{ fontSize: '0.6rem' }}>ONLY .CSV FILES SUPPORTED FOR THIS INGESTION TYPE</div>
+          <div className="intel-label" style={{ fontSize: '0.6rem' }}>AUTOMATICALLY EXTRACTS AND MERGES GRAPH ENTITIES & RELATIONSHIPS</div>
         </div>
         <input
           ref={fileRef}

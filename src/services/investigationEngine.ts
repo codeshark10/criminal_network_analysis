@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Investigation Engine (Frontend Simulation)
+// Crimeglass — Investigation Engine (Frontend Simulation)
 // Deterministic analysis simulation for SIH26189 demo
 // ============================================================
 

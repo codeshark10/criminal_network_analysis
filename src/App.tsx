@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — App Router
+// Crimeglass — App Router
 // SIH26189 | AI-Powered Criminal Network Analysis System
 // Multi-Case Architecture: Global Layout + Case-Specific Layout
 // ============================================================

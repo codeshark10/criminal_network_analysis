@@ -1,7 +1,6 @@
 // ============================================================
-// NEXUS — Cases Page
-// SIH26189 | Active + Past + Create New Case
-// New: Single-document upload pipeline workflow
+// Crimeglass — Cases Page
+// Central case management interface
 // ============================================================
 
 import React, { useState, useRef, useEffect } from 'react';
@@ -491,7 +490,7 @@ const CreateCaseModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 <div>
                   <div style={{ fontSize: '0.8rem', color: 'var(--text-primary)', fontWeight: 500 }}>Uploading Documents</div>
                   <div className="intel-label" style={{ fontSize: '0.58rem' }}>
-                    TRANSMITTING {uploadedFiles.length} FILE{uploadedFiles.length !== 1 ? 'S' : ''} TO NEXUS CORE
+                    TRANSMITTING {uploadedFiles.length} FILE{uploadedFiles.length !== 1 ? 'S' : ''} TO CRIMEGLASS CORE
                   </div>
                 </div>
               </div>
@@ -719,7 +718,7 @@ const CasesPage: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px', gap: '12px', flexWrap: 'wrap' }}>
         <div>
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--accent)', letterSpacing: '0.1em', marginBottom: '4px' }}>
-            NEXUS // CASE INTELLIGENCE
+            CRIMEGLASS // CASE INTELLIGENCE
           </div>
           <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: 300, color: 'var(--text-primary)' }}>
             Investigation Cases

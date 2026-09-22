@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Intelligence Alerts Page
+// Crimeglass — Intelligence Alerts Page
 // Works in both global context and case-specific context.
 // When inside /cases/:caseId/alerts, loads case-specific alerts
 // generated from the uploaded documents.

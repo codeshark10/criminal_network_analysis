@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS CRIMINAL NETWORK INTELLIGENCE SYSTEM
+// CRIMEGLASS CRIMINAL NETWORK INTELLIGENCE SYSTEM
 // SIH26189 — AI-Powered Criminal Network Analysis System
 // NCRB, Ministry of Home Affairs
 // SYNTHETIC DEMONSTRATION DATA — Not real law enforcement data

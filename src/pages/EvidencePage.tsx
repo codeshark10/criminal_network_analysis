@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Evidence Intelligence Page
+// Crimeglass — Evidence Intelligence Page
 // ============================================================
 
 import React, { useState, useEffect } from 'react';

@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Persons of Interest Page
+// Crimeglass — Persons of Interest Page
 // Data from GET /api/suspects/top (FastAPI/Neo4j)
 // Falls back to static data when backend is offline
 // ============================================================

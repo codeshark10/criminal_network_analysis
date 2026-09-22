@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Collapsible Intelligence Sidebar
+// Crimeglass — Collapsible Intelligence Sidebar
 // ============================================================
 
 import React from 'react';
@@ -14,7 +14,6 @@ import {
   Clock,
   AlertTriangle,
   Database,
-  BarChart3,
   Settings,
 } from 'lucide-react';
 
@@ -32,7 +31,6 @@ const navItems = [
   { icon: Clock,           label: 'Timeline',          path: '/timeline' },
   { icon: AlertTriangle,   label: 'Alerts',            path: '/alerts' },
   { icon: Database,        label: 'Data Sources',      path: '/data-sources' },
-  { icon: BarChart3,       label: 'Analytics',         path: '/analytics' },
   { icon: Settings,        label: 'Settings',          path: '/settings' },
 ];
 
@@ -65,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed }) => {
         <div className="status-dot status-dot--operational animate-pulse-accent" />
         {!collapsed && (
           <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.55rem', color: 'var(--text-muted)', letterSpacing: '0.12em' }}>
-            NEXUS // ONLINE
+            Crimeglass // ONLINE
           </span>
         )}
       </div>

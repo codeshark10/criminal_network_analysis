@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Backend-to-Frontend Type Adapters
+// Crimeglass — Backend-to-Frontend Type Adapters
 // Converts ApiGraphNode/ApiGraphEdge (FastAPI backend format)
 // into GraphNode/GraphRelationship (D3 frontend format).
 // ============================================================
@@ -39,8 +39,9 @@ const ENTITY_TYPE_MAP: Record<string, EntityType> = {
 };
 
 export function mapEntityType(raw: string | null | undefined): EntityType {
-  if (!raw) return 'EVIDENCE';
-  return ENTITY_TYPE_MAP[raw.toUpperCase()] ?? 'EVIDENCE';
+  if (!raw) return 'UNKNOWN';
+  const upper = raw.toUpperCase().trim();
+  return ENTITY_TYPE_MAP[upper] ?? upper;
 }
 
 // ── Relationship type normalizer ─────────────────────────────
@@ -52,6 +53,7 @@ const KNOWN_RELATIONSHIP_TYPES = new Set<string>([
   'COMMUNICATED_WITH', 'ASSOCIATED_WITH', 'LOCATED_AT', 'USES', 'OWNS', 'OWNED_BY',
   'TRANSFERRED', 'RECEIVED', 'INVOLVED_IN', 'OBSERVED_AT', 'WORKS_FOR',
   'MEETING_WITH', 'MENTIONED_IN', 'CONNECTED_TO', 'RELATED_TO', 'PART_OF',
+  'INFERRED_ASSOCIATE',
 ]);
 
 export function mapRelationshipType(raw: string | null | undefined): RelationshipType {
@@ -63,29 +65,44 @@ export function mapRelationshipType(raw: string | null | undefined): Relationshi
 // ── Node adapter ─────────────────────────────────────────────
 
 export function adaptApiNode(apiNode: ApiGraphNode): GraphNode {
-  const resolvedType = mapEntityType(apiNode.master_role || apiNode.type);
+  const rawType = (apiNode.properties?.type as string) || apiNode.type || apiNode.master_role || 'UNKNOWN';
+  const resolvedType = mapEntityType(rawType);
+  const nameVal = (apiNode.properties?.name as string) ||
+                  (apiNode.properties?.identifier as string) ||
+                  apiNode.name ||
+                  apiNode.label ||
+                  apiNode.id;
+  
   return {
     id: apiNode.id,
-    labels: [apiNode.type || apiNode.master_role || 'UNKNOWN'],
+    labels: [rawType, 'Entity'],
     type: resolvedType,
-    displayName: apiNode.label || apiNode.id,
+    displayName: nameVal,
     properties: {
-      name: apiNode.label,
-      aliases: apiNode.aliases.join(', '),
-      mentions: apiNode.mentions,
+      ...(apiNode.properties || {}),
+      name: (apiNode.properties?.name as string) || nameVal,
+      identifier: (apiNode.properties?.identifier as string) || nameVal,
+      type: rawType,
+      aliases: apiNode.aliases ? apiNode.aliases.join(', ') : '',
+      mentions: apiNode.mentions ?? 0,
       role: apiNode.master_role,
     },
     caseIds: [],
     // Use mentions as a proxy for investigation priority
-    investigationPriority: Math.min(100, apiNode.mentions * 10),
-    evidenceCount: apiNode.mentions,
-    connectionCount: apiNode.mentions,
+    investigationPriority: Math.min(100, (apiNode.mentions ?? 0) * 10),
+    evidenceCount: apiNode.mentions ?? 0,
+    connectionCount: apiNode.mentions ?? 0,
   };
 }
 
 // ── Edge adapter ─────────────────────────────────────────────
 
 export function adaptApiEdge(apiEdge: ApiGraphEdge): GraphRelationship {
+  const aiConfidence = apiEdge.ai_confidence_score ??
+    (typeof apiEdge.properties?.ai_confidence_score === 'number' ? (apiEdge.properties.ai_confidence_score as number) : undefined) ??
+    apiEdge.confidence ??
+    (typeof apiEdge.properties?.confidence === 'number' ? (apiEdge.properties.confidence as number) : undefined);
+
   return {
     id: apiEdge.id,
     source: apiEdge.source,
@@ -93,8 +110,10 @@ export function adaptApiEdge(apiEdge: ApiGraphEdge): GraphRelationship {
     type: mapRelationshipType(apiEdge.label),
     directed: true,
     properties: {
-      description: apiEdge.evidence || undefined,
+      description: apiEdge.evidence || (apiEdge.properties?.description as string | undefined),
       evidenceCount: apiEdge.evidence ? 1 : 0,
+      confidence: aiConfidence,
+      ai_confidence_score: aiConfidence,
     },
   };
 }

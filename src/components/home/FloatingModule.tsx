@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Floating Intelligence Data Module
+// Crimeglass — Floating Intelligence Data Module
 // Orbiting intelligence panels around the CASES circle
 // ============================================================
 

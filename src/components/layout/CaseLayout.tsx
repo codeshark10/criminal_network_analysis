@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Case Layout
+// Crimeglass — Case Layout
 // Wraps individual case pages with case-specific navigation
 // ============================================================
 
@@ -178,7 +178,7 @@ const CaseTopNav: React.FC<{
               <div style={{ width: '3px', height: '3px', background: 'var(--accent)', borderRadius: '50%' }} />
             </div>
           </div>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '0.1em' }}>NEXUS</span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '0.1em' }}>Crimeglass</span>
         </div>
 
         {/* Case context pill */}

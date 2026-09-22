@@ -1,10 +1,10 @@
 // ============================================================
-// NEXUS — Case-Specific Sidebar
+// Crimeglass — Case-Specific Sidebar
 // Only shown inside an individual case workspace
 // ============================================================
 
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
   Database,
@@ -15,16 +15,11 @@ import {
   Clock,
   AlertTriangle,
   Target,
-  BarChart3,
-  ChevronDown,
-  Fingerprint,
-  Brain,
   ArrowLeftRight,
   FileSearch,
   Radio,
   CreditCard,
   Eye,
-  BookOpen,
   Globe,
   MessageSquare,
 } from 'lucide-react';
@@ -48,24 +43,20 @@ const CaseSidebar: React.FC<CaseSidebarProps> = ({ collapsed, caseId, onSwitchCa
     { icon: FileSearch, label: 'Source Data',       path: `${base}/data` },
     { icon: FileText,   label: 'FIR',               path: `${base}/data?cat=FIR` },
     { icon: Radio,      label: 'CDR',               path: `${base}/data?cat=CDR` },
-    { icon: CreditCard, label: 'Financial',          path: `${base}/data?cat=FINANCIAL` },
-    { icon: Eye,        label: 'Surveillance',       path: `${base}/data?cat=SURVEILLANCE` },
-    { icon: BookOpen,   label: 'Intelligence',       path: `${base}/data?cat=INTELLIGENCE` },
-    { icon: Shield,     label: 'Criminal History',   path: `${base}/data?cat=CRIMINAL_HISTORY` },
-    { icon: Globe,      label: 'Social Intelligence',path: `${base}/data?cat=SOCIAL_INTELLIGENCE` },
+    { icon: CreditCard, label: 'Financial',         path: `${base}/data?cat=FINANCIAL` },
+    { icon: Eye,        label: 'Surveillance',      path: `${base}/data?cat=SURVEILLANCE` },
+    { icon: Shield,     label: 'Criminal History',  path: `${base}/data?cat=CRIMINAL_HISTORY` },
+    { icon: Globe,      label: 'Social Intelligence', path: `${base}/data?cat=SOCIAL_INTELLIGENCE` },
   ];
 
   const investigationItems = [
-    { icon: Fingerprint,    label: 'Known Suspect',    path: `${base}/investigations/known-suspect` },
-    { icon: Brain,          label: 'Unknown Suspect',  path: `${base}/investigations/unknown-suspect` },
-    { icon: Network,        label: 'Network Analysis', path: `${base}/network` },
+    { icon: Network,        label: 'Network Analysis',    path: `${base}/network` },
     { icon: Target,         label: 'Mastermind Analysis', path: `${base}/mastermind` },
     { icon: Users,          label: 'Persons of Interest', path: `${base}/persons` },
-    { icon: FileText,       label: 'Evidence',         path: `${base}/evidence` },
-    { icon: Clock,          label: 'Timeline',         path: `${base}/timeline` },
-    { icon: AlertTriangle,  label: 'Alerts',           path: `${base}/alerts` },
-    { icon: MessageSquare,  label: 'Command Center',   path: `${base}/command-center` },
-    { icon: BarChart3,      label: 'Analytics',        path: `${base}/analytics` },
+    { icon: FileText,       label: 'Evidence',            path: `${base}/evidence` },
+    { icon: Clock,          label: 'Timeline',            path: `${base}/timeline` },
+    { icon: AlertTriangle,  label: 'Alerts',              path: `${base}/alerts` },
+    { icon: MessageSquare,  label: 'Command Center',      path: `${base}/command-center` },
   ];
 
   const priorityColor = caseData?.priority === 'CRITICAL' ? 'var(--critical)'

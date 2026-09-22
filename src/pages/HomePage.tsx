@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Homepage / Intelligence Dashboard
+// Crimeglass — Homepage / Intelligence Dashboard
 // SIH26189 | AI-Powered Criminal Network Analysis System
 // ============================================================
 

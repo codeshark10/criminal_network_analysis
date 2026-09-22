@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Analysis Animation Component
+// Crimeglass — Analysis Animation Component
 // Multi-step animated investigation sequence
 // ============================================================
 

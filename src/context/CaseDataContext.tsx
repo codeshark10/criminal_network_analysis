@@ -1,5 +1,5 @@
 // ============================================================
-// NEXUS — Case Data Context
+// Crimeglass — Case Data Context
 // Provides frontend-processed chunks, documents and alerts
 // to any page that imports useCaseData()
 // ============================================================
