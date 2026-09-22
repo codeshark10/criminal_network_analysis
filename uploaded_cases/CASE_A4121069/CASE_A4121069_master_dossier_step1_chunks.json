@@ -1,0 +1,41 @@
+[
+  {
+    "chunk_id": "CASE_A4121069_CHUNK_0000",
+    "case_id": "CASE_A4121069",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 0,
+    "text": "##################################################\nMASTER CASE DOSSIER: CASE_A4121069\nGENERATED TIMESTAMP: 2026-09-01T14:32:01.825914+00:00\nTOTAL SOURCE FILES COMPILED: 1\n##################################################\n\n\n==================================================\nSOURCE FILE: First Information Report.pdf\nSHA-256 HASH: 335b906086a087169778a09bc700608ce70f405c6801f1f613a2d6add43aaea9\n==================================================",
+    "metadata": {
+      "case_id": "CASE_A4121069",
+      "case_title": "CASE CASE_A4121069",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_A4121069_CHUNK_0001",
+    "case_id": "CASE_A4121069",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 1,
+    "text": "--- [PDF: First Information Report.pdf - PAGE 1] ---\nFirst Information Report\nP.S.: Shivaji Nagar FIR No: 0219/2026 | Date: 30-08.2026.\nSections: BNS 303 (2), 318(4) & Sec 111 (Organized crime )\non 30-08-2026 at 20:45 has, secret informer reporred\nthat apex suspect Rajesh @'Raju' Sharma and associare\nAnil Kulkarni were spotted near FC Road driving a Black\nTara Harrier (Reg. No: PH-12-AB- 4321)\nOn searching the vehicle, officers recovered:\n1. Cash amounting to Rs. 8,50,000/- in marked notes.\n2. Two unregistered SIm cards (Vi network)\n3. Fake Bank Receipts (BRS) Stamped Bank of Karad\nRaju sharma confessed to working under instructions\nof 'Bhai. Funds were being transferred into SBI account\nNo: 1092837401. Spot Panchnama done by Inspector\nR. Shinde in presence of witnesses. Both accused",
+    "metadata": {
+      "case_id": "CASE_A4121069",
+      "case_title": "CASE CASE_A4121069",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_A4121069_CHUNK_0002",
+    "case_id": "CASE_A4121069",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 2,
+    "text": "No: 1092837401. Spot Panchnama done by Inspector\nR. Shinde in presence of witnesses. Both accused\nremanded to police custody. Investigation ongoing.",
+    "metadata": {
+      "case_id": "CASE_A4121069",
+      "case_title": "CASE CASE_A4121069",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  }
+]

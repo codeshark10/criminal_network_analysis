@@ -1,0 +1,172 @@
+[
+  {
+    "chunk_id": "CASE_3E63DB6D_CHUNK_0000",
+    "case_id": "CASE_3E63DB6D",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "CASE_3E63DB6D",
+        "type": "EVENT",
+        "aliases": []
+      },
+      {
+        "name": "First Information Report.pdf",
+        "type": "FILE",
+        "aliases": []
+      },
+      {
+        "name": "335b906086a087169778a09bc700608ce70f405c6801f1f613a2d6add43aaea9",
+        "type": "HASH",
+        "aliases": []
+      }
+    ],
+    "triplets": []
+  },
+  {
+    "chunk_id": "CASE_3E63DB6D_CHUNK_0001",
+    "case_id": "CASE_3E63DB6D",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Rajesh Sharma",
+        "type": "PERSON",
+        "aliases": [
+          "Raju"
+        ]
+      },
+      {
+        "name": "Anil Kulkarni",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Bhai",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Inspector R. Shinde",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Bank of Karad",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "SBI",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "FC Road",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Tara Harrier",
+        "type": "VEHICLE",
+        "aliases": []
+      },
+      {
+        "name": "Vi network",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Black Tara Harrier",
+        "type": "VEHICLE",
+        "aliases": []
+      },
+      {
+        "name": "PH-12-AB- 4321",
+        "type": "VEHICLE_REGISTRATION_NUMBER",
+        "aliases": []
+      },
+      {
+        "name": "SIm cards",
+        "type": "ITEM",
+        "aliases": []
+      },
+      {
+        "name": "Fake Bank Receipts (BRS)",
+        "type": "ITEM",
+        "aliases": []
+      },
+      {
+        "name": "1092837401",
+        "type": "BANK_ACCOUNT",
+        "aliases": []
+      },
+      {
+        "name": "Spot Panchnama",
+        "type": "EVENT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Anil Kulkarni",
+        "evidence": "Rajesh @'Raju' Sharma and associare Anil Kulkarni were spotted near FC Road driving a Black Tara Harrier (Reg. No: PH-12-AB- 4321)"
+      },
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "OPERATED_VEHICLE",
+        "object": "Tara Harrier",
+        "evidence": "Rajesh @'Raju' Sharma and associare Anil Kulkarni were spotted near FC Road driving a Black Tara Harrier (Reg. No: PH-12-AB- 4321)"
+      },
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "CONFESSED_TO",
+        "object": "Working under instructions of 'Bhai'",
+        "evidence": "Raju sharma confessed to working under instructions of 'Bhai."
+      },
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "TRANSFERRED_FUNDS_TO",
+        "object": "SBI account No: 1092837401",
+        "evidence": "Funds were being transferred into SBI account No: 1092837401"
+      },
+      {
+        "subject": "Inspector R. Shinde",
+        "predicate": "CONDUCTED",
+        "object": "Spot Panchnama",
+        "evidence": "Spot Panchnama done by Inspector R. Shinde in presence of witnesses."
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_3E63DB6D_CHUNK_0002",
+    "case_id": "CASE_3E63DB6D",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Inspector R. Shinde",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Both accused",
+        "type": "PERSON",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Inspector R. Shinde",
+        "predicate": "INVESTIGATED",
+        "object": "Both accused",
+        "evidence": "Spot Panchnama done by Inspector R. Shinde in presence of witnesses."
+      },
+      {
+        "subject": "Both accused",
+        "predicate": "ARRESTED",
+        "object": "Police custody",
+        "evidence": "Both accused remanded to police custody."
+      }
+    ]
+  }
+]

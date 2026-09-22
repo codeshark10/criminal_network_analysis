@@ -1,0 +1,140 @@
+{
+  "case_id": "CASE_7697B9C0",
+  "case_name": "CASE_CASE_7697B9C0",
+  "pipeline_version": "4.2.0-Universal",
+  "total_events": 12,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_7697B9C0_CHUNK_0000",
+      "event_type": "Violent_Crime",
+      "participants": [
+        "Priya Nair",
+        "Bhai",
+        "Rajesh Sharma"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_7697B9C0_CHUNK_0001",
+      "event_type": "General_Operation",
+      "participants": [
+        "Mahmoud al-Mabhouh",
+        "Room 230",
+        "Dubai International Airport (DXB)"
+      ]
+    },
+    {
+      "event_id": "EVT_003_CASE_7697B9C0_CHUNK_0002",
+      "event_type": "Communication",
+      "participants": [
+        "Foreign Hit Squad",
+        "United Arab Emirates",
+        "International Telecom Hub in Austria"
+      ]
+    },
+    {
+      "event_id": "EVT_004_CASE_7697B9C0_CHUNK_0004",
+      "event_type": "General_Operation",
+      "participants": [
+        "Hotel",
+        "Room 230"
+      ]
+    },
+    {
+      "event_id": "EVT_005_CASE_7697B9C0_CHUNK_0005",
+      "event_type": "General_Operation",
+      "participants": [
+        "DXB",
+        "26 SUSPECTS",
+        "Red Notices",
+        "Interpol"
+      ]
+    },
+    {
+      "event_id": "EVT_006_CASE_7697B9C0_CHUNK_0010",
+      "event_type": "General_Operation",
+      "participants": [
+        "David Bernard",
+        "E-025",
+        "Automated switchboard and command center",
+        "Vienna"
+      ]
+    },
+    {
+      "event_id": "EVT_007_CASE_7697B9C0_CHUNK_0011",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Kevin Daveron",
+        "Peter Elvinger",
+        "Nicole Cleary",
+        "Austria Hub",
+        "Gail Folliard"
+      ]
+    },
+    {
+      "event_id": "EVT_008_CASE_7697B9C0_CHUNK_0012",
+      "event_type": "General_Operation",
+      "participants": [
+        "Hit completed",
+        "Jonathan Louis",
+        "Kevin Daveron",
+        "Nicole Cleary",
+        "Austria Hub",
+        "Target"
+      ]
+    },
+    {
+      "event_id": "EVT_009_CASE_7697B9C0_CHUNK_0013",
+      "event_type": "General_Operation",
+      "participants": [
+        "HASH-US-MIAMI-882",
+        "burner hardware purchases at Du kiosks",
+        "car rentals (Sixt/Hertz)",
+        "MetaBank USA Prepaid",
+        "hotel room deposits",
+        "PayPower MasterCard US",
+        "cash advances",
+        "BIN Cluster 2 (5200-XXXX)",
+        "airline tickets",
+        "BIN Cluster 1 (4532-XXXX)",
+        "HASH-US-DELAWARE-401"
+      ]
+    },
+    {
+      "event_id": "EVT_010_CASE_7697B9C0_CHUNK_0014",
+      "event_type": "General_Operation",
+      "participants": [
+        "Jonathan Louis",
+        "CCTV Al Bustan",
+        "Stephen Drake",
+        "Marc Sklar",
+        "M. Bodenheimer",
+        "Immigration DXB T1",
+        "Peter Elvinger",
+        "CCTV DXB Terminal 1",
+        "CCTV Sixt Counter",
+        "CCTV Wafi Mall",
+        "Elevator",
+        "Alexander Klein",
+        "CCTV Jumeirah Hotel"
+      ]
+    },
+    {
+      "event_id": "EVT_011_CASE_7697B9C0_CHUNK_0016",
+      "event_type": "General_Operation",
+      "participants": [
+        "Priya Nair",
+        "Tata Harrier",
+        "Rajesh Sharma"
+      ]
+    },
+    {
+      "event_id": "EVT_012_CASE_7697B9C0_CHUNK_0017",
+      "event_type": "General_Operation",
+      "participants": [
+        "HASH-US-MIAMI-882",
+        "HASH-US-DELAWARE-401",
+        "26 passport identities"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1114 @@
+{
+  "summary": {
+    "total_raw_chunks": 23,
+    "total_canonical_entities": 94,
+    "total_resolved_triplets": 63
+  },
+  "entities": [
+    {
+      "canonical_name": "Asymmetric Kinetic Engagements of November 2008",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hafiz Muhammad Saeed",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Lashkar-e-Taiba",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Zaki-ur-Rehman Lakhvi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "urban warfare operation",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "detailed planning, resource allocation, and final target selection protocols",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Sajid Mir",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "reconnaissance efforts",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "organization",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "deep-cover operatives",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "David Coleman Headley",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Daood Gilani"
+      ],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "international transits",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "high-fidelity geospatial data",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "GPS coordinates",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Tahawwur Hussain Rana",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "First World Immigration Services",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Major Iqbal",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "clandestine cash handover",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "establishment of operational cover and the procurement of military-grade intelligence regarding prospective target environments",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Garmin",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sony Ericsson",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "financial transfers",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "acquisition of specialized navigational hardware",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Yamaha outboard motor",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Quartermaster",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Militant organization",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Marine supplier",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Karachi",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Execution team",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ten individuals",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Al Hussaini",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Kuber",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "port of Karachi",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "four crew members",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Captain",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tactical Team",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Badhwar Park",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sassoon Docks",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Colaba district",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "hijacked craft",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "inflatable speedboats",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "amphibious landing",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "smaller, highly mobile assault pairs",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Ismail Khan",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Ajmal Kasab",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Shoaib",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Chhatrapati Shivaji Terminus",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Kalashnikov-pattern assault rifles",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Nazir",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Kasab",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Khan",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "civilian targets at the Leopold Cafe",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "ten fatalities",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "their mobile assault",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Hemant Karkare",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ashok Kamte",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Vijay Salaskar",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tukaram Omble",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ambush",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Capture of Kasab",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Tukaram",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "unprecedented intelligence windfall",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Rosetta Stone",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Zarar Shah",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Callphonex",
+      "entity_type": "ORGANIZATION",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Kharak",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "telecommunications vector",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "geographic origin of the control room",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "infrastructure",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "account",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Kharak Singh",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "telecommunications firm",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "financial operative",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Western Union branch",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "active communication",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Syed Zabiuddin Ansari",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Abu Jundal"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "deployment of incendiary devices and fragmentation grenades",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "tutoring the tactical team in Hindi linguistics",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "execution of hostages",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Operation Black Tornado",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Counter-terrorism commandos",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "tactical elements",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "November 29",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Tactical operative",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Network analysts",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Domestic intelligence agencies",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "VOIP communications",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "linguistic patterns, voice identifications, and specific tactical directives",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Yamaha",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Colaba",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Unknown Entity",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Saeed",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Lakhvi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mir",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    }
+  ],
+  "triplets": [
+    {
+      "subject": "Hafiz Muhammad Saeed",
+      "predicate": "FOUNDED",
+      "object": "Lashkar-e-Taiba",
+      "evidence": "The overarching directives, which provided the foundational operational latitude for the ensuing militant activities, were heavily influenced by the founder of the proscribed organization Lashkar-e-Taiba, an individual identified in global intelligence repositories as Hafiz Muhammad Saeed.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0001"
+    },
+    {
+      "subject": "Hafiz Muhammad Saeed",
+      "predicate": "SYSTEMATIC_RADICALIZATION",
+      "object": "urban warfare operation",
+      "evidence": "The systemic radicalization and strategic green-lighting of the urban warfare operation did not manifest in a vacuum",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0002"
+    },
+    {
+      "subject": "Zaki-ur-Rehman Lakhvi",
+      "predicate": "DIRECT_OVERIGHT",
+      "object": "detailed planning, resource allocation, and final target selection protocols",
+      "evidence": "who assumed direct oversight over the detailed planning, resource allocation, and final target selection protocols",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0002"
+    },
+    {
+      "subject": "Sajid Mir",
+      "predicate": "TRANSITIONED",
+      "object": "reconnaissance efforts",
+      "evidence": "Mir's role was paramount in transitioning the",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0003"
+    },
+    {
+      "subject": "Sajid Mir",
+      "predicate": "MASTERMIND_COMMAND",
+      "object": "organization",
+      "evidence": "Mir's role was paramount in transitioning the conceptual intent of the organization into actionable intelligence and logistical blueprints",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0004"
+    },
+    {
+      "subject": "Sajid Mir",
+      "predicate": "MASTERMIND_COMMAND",
+      "object": "deep-cover operatives",
+      "evidence": "acting as the primary conduit through which instructions flowed to deep-cover operatives deployed in foreign theaters",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0004"
+    },
+    {
+      "subject": "David Coleman Headley",
+      "predicate": "ENGAGED_IN",
+      "object": "international transits",
+      "evidence": "Over protracted period extending from the latter half of 2006 through the middle of 2008, this operative engaged in no fewer than five separate international transits to the primary target metropolis.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0005"
+    },
+    {
+      "subject": "David Coleman Headley",
+      "predicate": "ACQUIRED",
+      "object": "high-fidelity geospatial data",
+      "evidence": "The objective of these incursions was the covert acquisition of high-fidelity geospatial data, continuous video surveillance of potential entry vectors, and the recording of GPS coordinates",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0005"
+    },
+    {
+      "subject": "David Coleman Headley",
+      "predicate": "RECORDED",
+      "object": "GPS coordinates",
+      "evidence": "The objective of these incursions was the covert acquisition of high-fidelity geospatial data, continuous video surveillance of potential entry vectors, and the recording of GPS coordinates",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0005"
+    },
+    {
+      "subject": "Tahawwur Hussain Rana",
+      "predicate": "AUTHORIZED",
+      "object": "First World Immigration Services",
+      "evidence": "By leveraging legitimate commercial enterprises, specifically by authorizing the establishment of a localized branch of First World Immigration Services in the target city during November 2006",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0006"
+    },
+    {
+      "subject": "Major Iqbal",
+      "predicate": "EXECUTED",
+      "object": "clandestine cash handover",
+      "evidence": "wherein an intelligence officer operating under the designation of Major Iqbal executed a clandestine cash handover amounting to twenty-five thousand United States dollars.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0007"
+    },
+    {
+      "subject": "Major Iqbal",
+      "predicate": "EARMARKED",
+      "object": "establishment of operational cover and the procurement of military-grade intelligence regarding prospective target environments",
+      "evidence": "This capital was explicitly earmarked for the establishment of operational cover and the procurement of military-grade intelligence regarding prospective target environments.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0007"
+    },
+    {
+      "subject": "Sajid Mir",
+      "predicate": "ORCHESTRATED",
+      "object": "financial transfers",
+      "evidence": "In subsequent logistical iterations during mid-2008, the chief handler, Sajid Mir, orchestrated additional financial transfers",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0008"
+    },
+    {
+      "subject": "Sajid Mir",
+      "predicate": "ORCHESTRATED",
+      "object": "acquisition of specialized navigational hardware",
+      "evidence": "In subsequent logistical iterations during mid-2008, the chief handler, Sajid Mir, orchestrated additional financial transfers to facilitate the acquisition of specialized navigational hardware",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0008"
+    },
+    {
+      "subject": "acquisition of specialized navigational hardware",
+      "predicate": "FACILITATED",
+      "object": "financial transfers",
+      "evidence": "In subsequent logistical iterations during mid-2008, the chief handler, Sajid Mir, orchestrated additional financial transfers to facilitate the acquisition of specialized navigational hardware",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0008"
+    },
+    {
+      "subject": "Quartermaster",
+      "predicate": "SOURCED",
+      "object": "Yamaha outboard motor",
+      "evidence": "sourcing the hardware from a marine supplier situated in Karachi",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0009"
+    },
+    {
+      "subject": "Militant organization",
+      "predicate": "EMPLOYED",
+      "object": "Quartermaster",
+      "evidence": "an individual functioning as a quartermaster for the militant organization",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0009"
+    },
+    {
+      "subject": "Marine supplier",
+      "predicate": "LOCATED_IN",
+      "object": "Karachi",
+      "evidence": "a marine supplier situated in Karachi",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0009"
+    },
+    {
+      "subject": "Execution team",
+      "predicate": "COMPOSED_OF",
+      "object": "Ten individuals",
+      "evidence": "The execution team, comprising ten individuals heavily indoctrinated and trained in urban assault tactics",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0009"
+    },
+    {
+      "subject": "Execution team",
+      "predicate": "INITIATED_DEPLOYMENT",
+      "object": "port of Karachi",
+      "evidence": "The execution team, comprising ten individuals heavily indoctrinated and trained in urban assault tactics, initiated their deployment from the port of Karachi on November 21, 2008, utilizing a vessel registered under the name Al Hussaini.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0010"
+    },
+    {
+      "subject": "Execution team",
+      "predicate": "COMMANDEERED",
+      "object": "Kuber",
+      "evidence": "On November 23, the execution team intercepted and commandeered an Indian-registered fishing trawler identified as the Kuber.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0010"
+    },
+    {
+      "subject": "Execution team",
+      "predicate": "NEUTRALIZED",
+      "object": "four crew members",
+      "evidence": "This tactical acquisition resulted in the immediate lethal neutralization of four crew members, compelling the vessel's captain to",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0010"
+    },
+    {
+      "subject": "Tactical Team",
+      "predicate": "NAVIGATED",
+      "object": "hijacked craft",
+      "evidence": "navigate the hijacked craft toward the designated drop-off coordinates",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0011"
+    },
+    {
+      "subject": "Tactical Team",
+      "predicate": "EXECUTED",
+      "object": "Captain",
+      "evidence": "Upon reaching the proximity of the target metropolis on the afternoon of November 26, the captain was subsequently executed",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0011"
+    },
+    {
+      "subject": "Tactical Team",
+      "predicate": "TRANSITIONED",
+      "object": "inflatable speedboats",
+      "evidence": "and the tactical team transitioned to inflatable speedboats powered by the previously acquired outboard motor",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0011"
+    },
+    {
+      "subject": "Tactical Team",
+      "predicate": "EXECUTED",
+      "object": "amphibious landing",
+      "evidence": "The amphibious landing was executed successfully at Badhwar Park and Sassoon Docks in the Colaba district",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0011"
+    },
+    {
+      "subject": "Tactical Team",
+      "predicate": "FRACTIONALIZED",
+      "object": "smaller, highly mobile assault pairs",
+      "evidence": "at which point the ten-man element fractionalized into smaller, highly mobile assault pairs",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0011"
+    },
+    {
+      "subject": "Ismail Khan",
+      "predicate": "OPERATED_IN_TANDEM_WITH",
+      "object": "Ajmal Kasab",
+      "evidence": "operated in tandem with Ajmal Kasab",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0012"
+    },
+    {
+      "subject": "Ismail Khan",
+      "predicate": "DIRECTED",
+      "object": "Ajmal Kasab",
+      "evidence": "tactical leadership on the ground was exercised by an operative known as Ismail Khan",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0012"
+    },
+    {
+      "subject": "Ismail Khan",
+      "predicate": "ASSAULTED",
+      "object": "Chhatrapati Shivaji Terminus",
+      "evidence": "At precisely 21:30 Indian Standard Time, this specific assault pair initiated a mass casualty event at the Chhatrapati Shivaji Terminus railway station",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0012"
+    },
+    {
+      "subject": "Ajmal Kasab",
+      "predicate": "ASSAULTED",
+      "object": "Chhatrapati Shivaji Terminus",
+      "evidence": "At precisely 21:30 Indian Standard Time, this specific assault pair initiated a mass casualty event at the Chhatrapati Shivaji Terminus railway station",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0012"
+    },
+    {
+      "subject": "Ismail Khan",
+      "predicate": "UTILIZED",
+      "object": "Kalashnikov-pattern assault rifles",
+      "evidence": "utilizing standard-issue Kalashnikov-pattern assault rifles to inflict fatal injuries upon fifty-eight individuals",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0012"
+    },
+    {
+      "subject": "Shoaib",
+      "predicate": "ENGAGED",
+      "object": "civilian targets at the Leopold Cafe",
+      "evidence": "a secondary assault pair, identified as Shoaib and Nazir, engaged civilian targets at the Leopold Cafe",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0013"
+    },
+    {
+      "subject": "Nazir",
+      "predicate": "ENGAGED",
+      "object": "civilian targets at the Leopold Cafe",
+      "evidence": "a secondary assault pair, identified as Shoaib and Nazir, engaged civilian targets at the Leopold Cafe",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0013"
+    },
+    {
+      "subject": "Shoaib",
+      "predicate": "RESULTING_IN",
+      "object": "ten fatalities",
+      "evidence": "resulting in ten fatalities before tactically repositioning to the primary siege location at the Taj Mahal Palace Hotel.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0013"
+    },
+    {
+      "subject": "Nazir",
+      "predicate": "RESULTING_IN",
+      "object": "ten fatalities",
+      "evidence": "resulting in ten fatalities before tactically repositioning to the primary siege location at the Taj Mahal Palace Hotel.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0013"
+    },
+    {
+      "subject": "Kasab",
+      "predicate": "CONTINUED",
+      "object": "their mobile assault",
+      "evidence": "The ground leadership element, consisting of Kasab and Khan, continued their mobile assault, culminating in",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0013"
+    },
+    {
+      "subject": "Khan",
+      "predicate": "CONTINUED",
+      "object": "their mobile assault",
+      "evidence": "The ground leadership element, consisting of Kasab and Khan, continued their mobile assault, culminating in",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0013"
+    },
+    {
+      "subject": "Hemant Karkare",
+      "predicate": "KILLED_IN",
+      "object": "Ambush",
+      "evidence": "This engagement resulted in the deaths of high-ranking law enforcement officials, including the Chief of the Anti-Terrorism Squad, Hemant Karkare, alongside Ashok Kamte and Vijay Salaskar.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0014"
+    },
+    {
+      "subject": "Ashok Kamte",
+      "predicate": "KILLED_IN",
+      "object": "Ambush",
+      "evidence": "This engagement resulted in the deaths of high-ranking law enforcement officials, including the Chief of the Anti-Terrorism Squad, Hemant Karkare, alongside Ashok Kamte and Vijay Salaskar.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0014"
+    },
+    {
+      "subject": "Vijay Salaskar",
+      "predicate": "KILLED_IN",
+      "object": "Ambush",
+      "evidence": "This engagement resulted in the deaths of high-ranking law enforcement officials, including the Chief of the Anti-Terrorism Squad, Hemant Karkare, alongside Ashok Kamte and Vijay Salaskar.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0014"
+    },
+    {
+      "subject": "Tukaram Omble",
+      "predicate": "FACILITATED",
+      "object": "Capture of Kasab",
+      "evidence": "The capture of Kasab provided an unprecedented intelligence windfall, effectively serving as the Rosetta Stone",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0014"
+    },
+    {
+      "subject": "Kasab",
+      "predicate": "PROVIDED",
+      "object": "unprecedented intelligence windfall",
+      "evidence": "The capture of Kasab provided an unprecedented intelligence windfall",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0015"
+    },
+    {
+      "subject": "Kasab",
+      "predicate": "SERVING",
+      "object": "Rosetta Stone",
+      "evidence": "effectively serving as the Rosetta Stone",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0015"
+    },
+    {
+      "subject": "Zarar Shah",
+      "predicate": "ENGINEERED",
+      "object": "telecommunications vector",
+      "evidence": "The architecture of this telecommunications vector was engineered by the organization's communications chief, Zarar Shah.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0016"
+    },
+    {
+      "subject": "Zarar Shah",
+      "predicate": "OBFUSCATED",
+      "object": "geographic origin of the control room",
+      "evidence": "Shah successfully obfuscated the geographic origin of the control room by establishing a Voice over Internet Protocol network",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0016"
+    },
+    {
+      "subject": "Callphonex",
+      "predicate": "PROVIDED",
+      "object": "infrastructure",
+      "evidence": "utilizing infrastructure provided by a New Jersey-based telecommunications firm operating under the name Callphonex.",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0016"
+    },
+    {
+      "subject": "Kharak",
+      "predicate": "REGISTERED",
+      "object": "account",
+      "evidence": "The account facilitating this routing was registered under the deceptive alias of Kharak",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0016"
+    },
+    {
+      "subject": "Callphonex",
+      "predicate": "OPERATED",
+      "object": "telecommunications firm",
+      "evidence": "telecommunications firm operating under the name Callphonex",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0017"
+    },
+    {
+      "subject": "Kharak Singh",
+      "predicate": "REGISTERED",
+      "object": "account",
+      "evidence": "The account facilitating this routing was registered under the deceptive alias of Kharak Singh",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0017"
+    },
+    {
+      "subject": "financial operative",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Western Union branch",
+      "evidence": "initial funding for the service provided via a two hundred and fifty dollar wire transfer executed through a Western Union branch located in Pakistan",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0017"
+    },
+    {
+      "subject": "Sajid Mir",
+      "predicate": "MAINTAINED",
+      "object": "active communication",
+      "evidence": "The chief handler, Sajid Mir, maintained active",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0017"
+    },
+    {
+      "subject": "Syed Zabiuddin Ansari",
+      "predicate": "ORDERED",
+      "object": "deployment of incendiary devices and fragmentation grenades",
+      "evidence": "transmitting explicit instructions late in the evening of November 26 to deploy incendiary devices and fragmentation grenades",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0018"
+    },
+    {
+      "subject": "Syed Zabiuddin Ansari",
+      "predicate": "CONTRIBUTED",
+      "object": "tutoring the tactical team in Hindi linguistics",
+      "evidence": "who had previously contributed to the operation by tutoring the tactical team in Hindi linguistics",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0018"
+    },
+    {
+      "subject": "Syed Zabiuddin Ansari",
+      "predicate": "ORDERED",
+      "object": "execution of hostages",
+      "evidence": "In the early hours of November 27, Jundal utilized the VOIP network to order the execution of hostages following the failure of localized negotiations",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0018"
+    },
+    {
+      "subject": "Counter-terrorism commandos",
+      "predicate": "NEUTRALIZED",
+      "object": "tactical elements",
+      "evidence": "neutralized by specialized counter-terrorism commandos",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0019"
+    },
+    {
+      "subject": "Operation Black Tornado",
+      "predicate": "OCCURRED_ON",
+      "object": "November 29",
+      "evidence": "during Operation Black Tornado on the morning of November 29",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0019"
+    },
+    {
+      "subject": "Tactical operative",
+      "predicate": "CAPTURED_BY",
+      "object": "Domestic intelligence agencies",
+      "evidence": "The capture of the surviving tactical operative",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0020"
+    },
+    {
+      "subject": "Domestic intelligence agencies",
+      "predicate": "INTERCEPTED",
+      "object": "VOIP communications",
+      "evidence": "real-time interception of the VOIP communications",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0020"
+    },
+    {
+      "subject": "Network analysts",
+      "predicate": "CORRELATING",
+      "object": "linguistic patterns, voice identifications, and specific tactical directives",
+      "evidence": "Network analysts were tasked with sifting through thousands of hours of audio transcripts, correlating linguistic patterns, voice identifications, and specific tactical directives",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0020"
+    },
+    {
+      "subject": "Yamaha",
+      "predicate": "SOLD_TO",
+      "object": "Unknown Entity",
+      "evidence": "purchase of a Yamaha engine in Karachi",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0021"
+    },
+    {
+      "subject": "Unknown Entity",
+      "predicate": "USED_IN",
+      "object": "amphibious landing",
+      "evidence": "Yamaha engine in Karachi to the amphibious landing in Colaba",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0021"
+    },
+    {
+      "subject": "Unknown Entity",
+      "predicate": "EXECUTED_IN",
+      "object": "Colaba",
+      "evidence": "amphibious landing in Colaba",
+      "chunk_id": "CASE_9DD206D9_CHUNK_0021"
+    }
+  ]
+}

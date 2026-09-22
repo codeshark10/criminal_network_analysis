@@ -1,0 +1,30 @@
+{
+  "case_id": "CASE_3E63DB6D",
+  "case_name": "CASE_CASE_3E63DB6D",
+  "pipeline_version": "4.2.0-Universal",
+  "total_events": 2,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_3E63DB6D_CHUNK_0001",
+      "event_type": "Financial_Transaction",
+      "participants": [
+        "Inspector R. Shinde",
+        "SBI account No: 1092837401",
+        "Spot Panchnama",
+        "Tara Harrier",
+        "Anil Kulkarni",
+        "Working under instructions of 'Bhai'",
+        "Rajesh Sharma"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_3E63DB6D_CHUNK_0002",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Inspector R. Shinde",
+        "Both accused",
+        "Police custody"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,423 @@
+##################################################
+MASTER CASE DOSSIER: CASE_54CD7337
+GENERATED TIMESTAMP: 2026-08-31T12:41:14.038715+00:00
+TOTAL SOURCE FILES COMPILED: 1
+##################################################
+
+
+==================================================
+SOURCE FILE: Dubai_Assassination_Case_File.pdf
+SHA-256 HASH: fb87e3ebd9af38085446493cf60899381d31bacd0a011190e088db5d0e6e9961
+==================================================
+
+--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 1] ---
+DUBAI POLICE INTELLIGENCE DIVISION
+CASE FILE: OPERATION RED FALCON I/ ASSASSINATION ANALYSIS
+Case Ref: DXB-2010-8842-CID
+Date of Incident: Jan 19, 2010
+Classification:
+TOP SECRET / DEMO
+Target: Mahmoud al-Mabhouh (E-001)
+Location: Room 230, Al Bustan Rotana
+Operative Count:
+26 Confirmed Hits
+| 1. EXECUTIVE CASE SUMMARY
+On January 19, 2010, senior Hamas operative Mahmoud al-Mabhouh arrived at Dubai International Airport (DXB) at 14:00
+local time. Within five hours of checking into Room 230 at the Al Bustan Rotana Hotel, he was targeted and executed by a
+highly sophisticated, 26-member foreign hit squad operating under forged European and Australian identities.
+The operation represents a masterclass in counter-intelligence compartmentalization. The perpetrators operated in distinct
+sub-units (Airport Trackers, Mall Surveillance, Hotel Execution, Logistics, and Escapes) and maintained strict physical
+isolation. No team member placed direct phone calls to another team member within the United Arab Emirates. Instead, the
+entire operational network was coordinated remotely via an international telecom hub in Austria.
+CRITICAL INVESTIGATIVE BREAKTHROUGH
+Standard surveillance and localized call detail records (CDRs) yielded zero connections between suspects on the
+ground. The breakthrough was achieved by deploying multi-modal network graph analysis-combining spatial-temporal
+CCTV spottings, automated border control logs, international telecom relay analysis, and prepaid financial transaction
+clustering.
+2. POLICE INCIDENT REPORTS (FIR SUMMARY)
+The initial investigation produced four primary First Information Reports (FIRs) capturing the crime scene, forensic findings,
+border control anomalies, and telecom intercepts:
+FIR ID
+DATE &
+TIME
+REPORTING
+UNIT
+FIR-2010-001
+2010-01-20
+13:30
+Deira CID
+Division
+INCIDENT
+TYPE
+Unexplained
+Death
+FIR-2010-002
+FIR-2010-003
+2010-01-21
+09:15
+2010-01-22
+16:45
+Forensic
+Science Div.
+Customs &
+Border Ctrl
+FIR-2010-004
+2010-01-24
+11:00
+Telecom
+Intelligence
+KEY FINDINGS / ACTION
+Victim found dead in Room 230. Room locked from
+inside with latch attached. Initial appearance suggested
+natural cardiac arrest.
+Homicide /
+Poisoning
+Toxicology detected succinylcholine (rapid muscle
+relaxant causing asphyxiation). Door lock audit revealed
+electronic override via key card duplicator.
+Passport Fraud Audit flagged 26 European/Australian cloned passports
+entering DXB 24-48 hrs prior and departing within 4
+hours post-incident. Interpol Red Notices requested.
+Covert Comms
+Intercept
+TRA audit uncovered 26 burner numbers making zero
+local calls, exclusively transmitting encrypted micro-
+bursts to an Austrian landline (+43100000000 ).
+3. OPERATIVES & IDENTITY MATRIX (26 SUSPECTS)
+The 26 suspects utilized fraudulently cloned passports issued under UK, French, German, and Australian jurisdictions. The
+table below outlines the core team, their assigned roles, and operational movements:
+CONFIDENTIAL // LAW ENFORCEMENT DEMO DOSSIER
+Page 1 of 4
+
+--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 2] ---
+ID
+E-002
+E-003
+E- 004
+E-005
+E-006
+E- 007
+E-008
+E-009
+E-010
+E-011
+E-012
+E- 013
+E-014
+E-015
+E- 016
+E-017
+E- 018
+E-019
+E-020
+E-021
+E-022
+E-023
+E-024
+ALIAS / NAME
+Kevin Daveron
+Gail Folliard
+Evan Dennings
+Command Hub
+Peter Elvinger
+Michael Bodenheimer
+James Clarke
+Stephen Drake
+Paul Keeley
+Jonathan Louis
+Melvyn Mildiner
+Colin Berry
+Mark Daniel
+Daniel Schnur
+Nicole Cleary
+Roy Cannon
+Bruce Joshua
+Adam Korman
+Joshua Daniel
+Alexander Klein
+Christian
+Zimmermann
+Michael Lawrence
+Marc Sklar
+PASSPORT REF
+PASS-IRL-102 (IRL)
+PASS-IRL-103 (IRL)
+PASS-AUS-104
+(AUS)
+N/A (Vienna Landline)
+PASS-FRA-201
+(FRA)
+PASS-GER-202
+(GER)
+PASS-UK-203 (UK)
+PASS-UK-204 (UK)
+PASS-UK-205 (UK)
+PASS-UK-206 (UK)
+PASS-UK-207 (UK)
+PASS-UK-208 (UK)
+PASS-UK-209 (UK)
+PASS-GER-210
+(GER)
+PASS-AUS-211
+(AUS)
+PASS-UK-212 (UK)
+PASS-AUS-213
+(AUS)
+PASS-AUS-214
+(AUS)
+PASS-AUS-215
+(AUS)
+PASS-GER-216
+(GER)
+PASS-GER-217
+(GER)
+PASS-UK-218 (UK)
+PASS-UK-219 (UK)
+CONFIDENTIAL // LAW ENFORCEMENT DEMO DOSSIER
+OPERATIONAL
+ROLE
+Hit Team Leader
+Airport Tracker
+Execution Squad
+Communications Relay
+Logistics Coordinator
+Downtown Lookout
+Airport Surveillance
+Taxi Tracker
+Hotel Lobby Watch
+Execution Squad
+Extraction Driver
+Secondary Extraction
+Corridor Lookout
+Stairwell Guard
+Mall Tracker (Wafi)
+Comms Specialist
+Execution Squad
+Elevator Watch
+Ticketing / Finance
+Mall Tracker (Deira)
+Hotel Perimeter
+Garage Surveillance
+Primary Rental Driver l
+ORIGIN FLIGHT
+Paris (CDG)
+Frankfurt (FRA)
+Rome (FCO)
+Vienna, Austria
+Paris (CDG)
+Munich (MUC)
+London (LHR)
+London (LGW)
+Manchester
+(MAN)
+London (LHR)
+London (LHR)
+Birmingham
+(BHX)
+London (LHR)
+Frankfurt (FRA)
+Sydney (SYD)
+London (LHR)
+Melbourne (MEL)
+Perth (PER)
+Sydney (SYD)
+Berlin (TXL)
+Hamburg (HAM)
+London (LHR)
+London (LHR)
+EXIT
+DESTINATION
+Zurich (ZRH)
+Rome (FCO)
+Hong Kong (HKG)
+N/A
+Johannesburg (JNB)
+Doha (DOH)
+Bangkok (BKK)
+Milan (MXP)
+Paris (CDG)
+Hong Kong (HKG)
+Frankfurt (FRA)
+Amsterdam (AMS)
+Zurich (ZRH)
+Vienna (VIE)
+Kuala Lumpur (KUL)
+Athens (ATH)
+Hong Kong (HKG)
+Singapore (SIN)
+Bangkok (BKK)
+Istanbul (IST)
+Vienna (VIE)
+Cairo (CAI)
+London (LHR)
+Page 2 of 4
+
+--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 3] ---
+ID
+ALIAS / NAME
+PASSPORT REF
+OPERATIONAL
+ROLE
+ORIGIN FLIGHT
+EXIT
+DESTINATION
+E-025
+David Bernard
+PASS-FRA-220
+(FRA)
+Secondary Driver
+Nice (NCE)
+Paris (CDG)
+4. TELECOM ANALYSIS: THE AUSTRIAN COMMAND HUB
+Standard telecommunication analysis assumes local conspiracy members will call or text each other directly. In this case,
+cellular frequency logs across all UAE towers confirmed zero intra-network communications among the burner numbers.
+NETWORK TOPOLOGY: HUB-AND-SPOKE
+Every operative was issued an encrypted GSM handset programmed to dial a single international number:
++43100000000 (Vienna, Austria). The Austrian hub acted as an automated switchboard and command center,
+receiving status updates from field spotters and instantly relaying execution orders to the hotel team.
+Key Intercept Sequence (Jan 19, 2010):
+TIME
+(LOCAL)
+ORIGIN / CALLER
+RECIPIENT
+DURATION
+OPERATIONAL CONTEXT
+14:00:00
+Gail Folliard
+(+971550000003)
+Austria Hub
+(+43100000000)
+45s
+Target landed at DXB. Airport team
+confirms identification.
+14:05:00
+Austria Hub
+(+43100000000)
+Kevin Daveron
+(+971550000002)
+120s
+Relaying target arrival to Hit Team
+Leader.
+15:00:00
+Peter Elvinger
+(+971550000005)
+Austria Hub
+(+43100000000)
+60s
+Room 237 successfully booked opposite
+target's Room 230.
+16:20:00
+Nicole Cleary
+(+971550000015)
+Austria Hub
+(+43100000000)
+10s
+Target spotted leaving Wafi Mall
+returning to hotel.
+19:47:00
+Austria Hub
+(+43100000000)
+Jonathan Louis
+(+971550000010)
+15s
+Execution greenlight: Target entered
+elevator to 2nd floor.
+20:25:00
+Kevin Daveron
+(+971550000002)
+Austria Hub
+(+43100000000)
+15s
+Hit completed. Execution team vacating
+hotel premises.
+5. FINANCIAL INTELLIGENCE & PREPAID CARD AUDIT
+The hit squad attempted to obscure financial linkages by utilizing prepaid debit cards issued in the United States and funding
+hotel bookings via foreign online processing gateways.
+FINANCIAL CLUSTER ANALYSIS
+By ingesting merchant gateway logs from PayMate and credit card issuer BIN numbers, intelligence software identified
+two primary card clusters:
+• BIN Cluster 1 (4532-XXXX): Issued by MetaBank USA Prepaid. Used for hotel room deposits, airline tickets, and
+cash advances. All cards resolved to billing hash HASH-US-MIAMI-882 .
+• BIN Cluster 2 (5200-XXXX): Issued by PayPower MasterCard US. Used for car rentals (Sixt/Hertz) and burner
+hardware purchases at Du kiosks. All resolved to billing hash HASH-US-DELAWARE-401 .
+CONFIDENTIALI/ LAW ENFORCEMENT DEMO DOSSIER
+Page 3 of 4
+
+--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 4] ---
+6. GEOSPATIAL SURVEILLANCE & MULTI-SITE SPOTTINGS
+The power of the platform lies in proving that suspects physically dispersed across Dubai were acting in complete
+coordination:
+TIMESTAMP
+Jan 18 09:30
+Jan 18 11:00
+Jan 19 13:30
+Jan 19 14:10
+Jan 19 16:30
+Jan 19 19:45
+Jan 19 22:45
+SURVEILLANCE
+SOURCE
+Immigration DXB T1
+CCTV Jumeirah Hotel
+CCTV Sixt Counter
+CCTV DXB Terminal 1
+CCTV Wafi Mall
+CCTV Al Bustan
+Elevator
+Immigration DXB T3
+ENTITY
+SPOTTED
+Peter Elvinger
+(E-006)
+M. Bodenheimer
+(E-007)
+Marc Sklar (E-024)
+Stephen Drake
+(E-009)
+Alexander Klein
+(E-021)
+Jonathan Louis
+(E-011)
+Jonathan Louis
+(E-011)
+GEOGRAPHIC
+ZONE
+Airport Zone
+Downtown Zone
+Airport Rental Zone
+Airport Arrivals
+Retail Zone
+Crime Scene Zone
+Airport Exit Zone
+BEHAVIORAL OBSERVATION
+Arrives from Paris; pays for room with
+MetaBank prepaid card.
+Checks into secondary hotel; maintains
+distance from Al Bustan.
+Rents Audi getaway vehicle using
+Pay Power card.
+Tails target from taxi stand; dials Austrian
+hub ( C-203 ).
+Observed trailing target through shopping
+center.
+Enters floor wearing disguise and carrying
+tennis gear.
+Boards flight to Hong Kong less than 3
+hours post-hit.
+7. PLATFORM LIVE DEMO STRATEGY & QUERY PLAYBOOK
+Use this step-by-step workflow during the live presentation to demonstrate how the platform solves the case in real-time:
+STEP 1: LOAD PHYSICAL LAYER (SPATIAL ISOLATION)
+Show the map view with CCTV spottings loaded. Emphasize that the suspects are scattered across DXB Airport, Wafi
+Mall, Jumeirah, and Al Bustan Rotana. On paper, they have zero geographic overlap.
+STEP 2: LOAD TELECOM CDRS (ZERO DIRECT EDGES)
+Query direct phone connections between any of the 26 suspects. Point out that the system returns 0 edges. Explain
+how standard link analysis fails because no local calls were made.
+STEP 3: EXECUTE GRAPH CENTRALITY QUERY (THE 'AHA!' MOMENT)
+Run the Common Neighbor / Centrality Query on all active Dubai burner numbers. Watch the platform automatically
+collapse all 26 scattered nodes into the single central Austrian landline node (+43100000000).
+STEP 4: OVERLAY FINANCIAL INTELLIGENCE (LOCKING THE CASE)
+Add the financial transaction layer. The system instantly groups the 26 passport identities into two prepaid BIN clusters
+(HASH-US-MIAMI-882 and HASH-US-DELAWARE-401 ), proving that despite using 26 different passports and 4 different
+flight paths, they were financed by a single state-sponsored entity.
+CONFIDENTIALI/ LAW ENFORCEMENT DEMO DOSSIER
+Page 4 of 4

@@ -5,6 +5,7 @@ import json
 import re
 import hashlib
 import asyncio
+import traceback
 import collections
 import pandas as pd
 import numpy as np
@@ -19,6 +20,7 @@ from fastapi import FastAPI, UploadFile, File, HTTPException, BackgroundTasks, Q
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from neo4j import AsyncGraphDatabase, AsyncDriver
+from csv_processor import ingest_csv
 
 # --- IMPORT PIPELINE STEPS ---
 from step1_chunking import run_step1
@@ -62,7 +64,11 @@ class ConnectionManager:
         """Sends a generic JSON payload to all connected clients for a case."""
         if case_id in self.active_connections:
             for connection in self.active_connections[case_id]:
-                await connection.send_json(data)
+                try:
+                    await connection.send_json(data)
+                except Exception:
+                    # Ignore dead connections
+                    pass
 
     async def broadcast_graph_update(self, case_id: str, message: str):
         """Sends a refresh signal to all other investigators in this case."""
@@ -735,32 +741,6 @@ async def run_ingestion_pipeline(case_id: str, file_paths: List[str]):
             await ws_manager.broadcast_pipeline_status(case_id, 4, "Entity Resolution",
                                                        f"✓ Step 4/5 Complete: Entities canonicalized")
 
-            # --- STEP 4.5: HYPERGRAPH GENERATION (WITH MANUAL TEST SUPPORT) ---
-            try:
-                hg_out_path = os.path.join(os.path.dirname(file_path), f"{case_id}_hypergraph.json")
-
-                # TEST MODE: If you manually placed a hypergraph json file here, load it directly!
-                if os.path.exists(hg_out_path):
-                    with open(hg_out_path, 'r', encoding='utf-8') as hgf:
-                        hg_data = json.load(hgf)
-                    print(f"[✓] Loaded manual test hypergraph JSON directly from: {hg_out_path}")
-                else:
-                    # Otherwise, generate it dynamically from step 4 resolved data
-                    with open(path_step4, 'r', encoding='utf-8') as sf:
-                        step4_data = json.load(sf)
-                        hg_data = build_hypergraph_data(
-                            case_id,
-                            f"CASE_{case_id}",
-                            step4_data.get("entities", []),
-                            step4_data.get("triplets", [])
-                        )
-                        with open(hg_out_path, 'w', encoding='utf-8') as hgf:
-                            json.dump(hg_data, hgf, indent=2)
-                    print(f"[✓] Generated and saved dynamic hypergraph JSON: {hg_out_path}")
-
-            except Exception as hg_err:
-                print(f"[WARNING] Failed to load/generate hypergraph file: {hg_err}")
-
             # --- STEP 5: NEO4J INGESTION ---
             await ws_manager.broadcast_pipeline_status(case_id, 5, "Neo4j Ingestion",
                                                        f"Step 5/5: Building Neo4j graph nodes and edges...")
@@ -962,71 +942,54 @@ async def websocket_case_room(websocket: WebSocket, case_id: str):
 @app.get("/api/cases/{case_id}/hypergraph", response_model=HypergraphResponse)
 async def get_case_hypergraph(case_id: str):
     """
-    Generates and returns hypergraph data dynamically for a given case_id.
-    Reads resolved JSON files from the case directory or falls back to Neo4j.
+    Generates and returns hypergraph data dynamically for a given case_id
+    by querying the Neo4j database directly. This ensures CSV-ingested data
+    and NLP-extracted data are seamlessly combined.
     """
-    case_dir = os.path.join(UPLOAD_DIR, case_id)
-
     entities = []
     triplets = []
     case_name = f"CASE_{case_id}"
 
-    # 1. Try reading from disk first (_step4_resolved.json files)
-    if os.path.exists(case_dir):
-        resolved_files = [f for f in os.listdir(case_dir) if f.endswith("_step4_resolved.json")]
-        for rf in resolved_files:
-            file_path = os.path.join(case_dir, rf)
-            try:
-                with open(file_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    entities.extend(data.get('entities', []))
-                    triplets.extend(data.get('triplets', []))
-            except Exception as e:
-                print(f"[WARNING] Could not read resolved file {file_path}: {e}")
+    if not driver:
+        raise HTTPException(status_code=500, detail="Neo4j driver not initialized.")
 
-    # 2. Fallback: Query Neo4j if resolved JSON files are missing
-    if not triplets and driver:
-        async with driver.session(database="neo4j") as session:
-            # Fetch Case Name
-            c_res = await session.run("MATCH (c:Case {id: $case_id}) RETURN c.name AS name", case_id=case_id)
-            c_rec = await c_res.single()
-            if c_rec and c_rec.get("name"):
-                case_name = c_rec["name"]
+    async with driver.session(database="neo4j") as session:
+        # 1. Fetch Case Name
+        c_res = await session.run("MATCH (c:Case {id: $case_id}) RETURN c.name AS name", case_id=case_id)
+        c_rec = await c_res.single()
+        if c_rec and c_rec.get("name"):
+            case_name = c_rec["name"]
 
-            # Fetch Entities
-            e_res = await session.run(
-                "MATCH (e:Entity {case_id: $case_id}) RETURN e.name AS canonical_name, coalesce(e.aliases, []) AS aliases",
-                case_id=case_id)
-            e_recs = [r.data() async for r in e_res]
-            for er in e_recs:
-                entities.append({
-                    "canonical_name": er.get("canonical_name"),
-                    "aliases": er.get("aliases") or []
-                })
+        # 2. Fetch All Entities (from both CSVs and Text)
+        e_res = await session.run("""
+            MATCH (e:Entity {case_id: $case_id}) 
+            RETURN e.name AS canonical_name, coalesce(e.aliases, []) AS aliases
+        """, case_id=case_id)
+        e_recs = [r.data() async for r in e_res]
+        for er in e_recs:
+            entities.append({
+                "canonical_name": er.get("canonical_name"),
+                "aliases": er.get("aliases") or []
+            })
 
-            # Fetch Relationships
-            t_res = await session.run("""
-                MATCH (s:Entity {case_id: $case_id})-[r]->(o:Entity {case_id: $case_id})
-                WHERE type(r) <> 'BELONGS_TO'
-                RETURN s.name AS subject, type(r) AS predicate, o.name AS object, coalesce(r.evidence, '') AS evidence, coalesce(r.chunk_id, 'CHUNK_1') AS chunk_id
-            """, case_id=case_id)
-            t_recs = [r.data() async for r in t_res]
-            triplets.extend(t_recs)
+        # 3. Fetch All Relationships (Triplets)
+        t_res = await session.run("""
+            MATCH (s:Entity {case_id: $case_id})-[r]->(o:Entity {case_id: $case_id})
+            WHERE type(r) <> 'BELONGS_TO'
+            RETURN s.name AS subject, 
+                   type(r) AS predicate, 
+                   o.name AS object, 
+                   coalesce(r.evidence, 'CSV Record') AS evidence, 
+                   coalesce(r.chunk_id, 'STRUCTURED_DATA') AS chunk_id
+        """, case_id=case_id)
+        t_recs = [r.data() async for r in t_res]
+        triplets.extend(t_recs)
 
     if not entities and not triplets:
-        raise HTTPException(status_code=404, detail=f"No graph data found for case_id: {case_id}")
+        raise HTTPException(status_code=404, detail=f"No graph data found in Neo4j for case_id: {case_id}")
 
-    # Build the hypergraph dictionary dynamically
+    # Build the hypergraph dictionary dynamically from the complete Neo4j data
     hypergraph_data = build_hypergraph_data(case_id, case_name, entities, triplets)
-
-    # Save hypergraph JSON to disk for caching
-    if os.path.exists(case_dir):
-        output_file = os.path.join(case_dir, f"{case_id}_hypergraph.json")
-        try:
-            with open(output_file, 'w', encoding='utf-8') as f:
-                json.dump(hypergraph_data, f, indent=2)
-        except Exception as e:
-            print(f"[WARNING] Could not write hypergraph JSON file: {e}")
 
     return hypergraph_data
 
@@ -1092,7 +1055,7 @@ async def process_natural_language_insight(case_id: str, request: RawInsightRequ
     try:
         # 2. ASK OLLAMA TO PARSE THE SENTENCE
         response = ollama.chat(
-            model="gemma3:12b",
+            model="gemma2:9b",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Investigator Insight: {request.text}"}
@@ -1311,8 +1274,8 @@ async def get_executive_case_summary(case_id: str, max_nodes: int = Query(defaul
     WITH n, count(r) AS degree WHERE degree >= $min_connections ORDER BY degree DESC, coalesce(n.mention_count, 1) DESC LIMIT $max_nodes
     WITH collect(n) AS major_nodes
     UNWIND major_nodes AS source
-    CALL { WITH source, major_nodes MATCH (source)-[rel]-(target) WHERE target IN major_nodes RETURN rel, target LIMIT $max_rels }
-    RETURN source, rel, target
+CALL (source, major_nodes) { MATCH (source)-[rel]-(target) WHERE target IN major_nodes RETURN rel, target LIMIT $max_rels }
+RETURN source, rel, target
     """
     async with driver.session(database="neo4j") as session:
         records = await (await session.run(query, case_id=case_id, max_nodes=max_nodes, min_connections=min_connections,
@@ -1455,7 +1418,183 @@ async def delete_multiple_cases(case_ids: List[str]):
     return {"status": "success",
             "message": f"Successfully deleted {len(case_ids)} case(s) and their associated graph data."}
 
+
+@app.post("/api/cases/upload-structured-csv")
+async def upload_structured_csv(
+    case_id: str = Form(...),
+    csv_type: str = Form(default="Unknown File"), # Kept to prevent breaking frontend FormData
+    file: UploadFile = File(...)
+):
+    """
+    Ingests ANY CSV file (fir.csv, cctv.csv, persons.csv, etc.) into the intelligence graph.
+    The AI dynamically reads headers, matches them to the existing schema, and prevents duplicates.
+    """
+    if not file.filename.lower().endswith(".csv"):
+        raise HTTPException(status_code=400, detail="Only .csv files are supported.")
+
+    try:
+        file_bytes = await file.read()
+
+        # Route ALL CSVs through the single universal processor
+        count = await ingest_csv(driver, case_id, file_bytes, file.filename)
+
+        message = f"Successfully analyzed and ingested {count} records from '{file.filename}' into Case '{case_id}'."
+
+        # Broadcast real-time update
+        await ws_manager.broadcast_event(case_id, {
+            "event": "GRAPH_UPDATE",
+            "source": "UNIVERSAL_CSV_UPLOAD",
+            "case_id": case_id,
+            "records_ingested": count
+        })
+
+        return {
+            "status": "SUCCESS",
+            "case_id": case_id,
+            "file": file.filename,
+            "records_processed": count,
+            "message": message
+        }
+
+    except ValueError as ve:
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        print("\n" + "=" * 50)
+        print("🚨 CRITICAL ERROR IN UNIVERSAL CSV UPLOAD:")
+        import traceback
+        traceback.print_exc()
+        print("=" * 50 + "\n")
+        raise HTTPException(status_code=500, detail=f"CSV processing failed: {str(e)}")
+    finally:
+        await file.close()
+
+
+@app.post("/api/cases/{case_id}/run-gnn-predictions")
+async def run_gnn_link_prediction(case_id: str):
+    """
+    Executes the Neo4j GDS pipeline to generate structural embeddings (FastRP)
+    and predict hidden criminal links (KNN). Automatically filters out already-connected nodes.
+    """
+    graph_name = f"gnn_workspace_{case_id}"
+
+    # Cypher Query 1: Clean up any old in-memory graphs
+    drop_query = "CALL gds.graph.drop($graph_name, false) YIELD graphName;"
+
+    # Cypher Query 2: Project the ENTIRE case graph into Mac unified memory
+    project_query = """
+    CALL gds.graph.project.cypher(
+      $graph_name,
+      'MATCH (n {case_id: $case_id}) RETURN id(n) AS id',
+      'MATCH (n {case_id: $case_id})-[r]-(m {case_id: $case_id}) RETURN id(n) AS source, id(m) AS target',
+      {parameters: {case_id: $case_id}}
+    )
+    YIELD graphName AS graph, nodeCount AS nodes, relationshipCount AS rels
+    RETURN graph, nodes, rels
+    """
+
+    # Cypher Query 3: Fast Random Projection (FastRP)
+    fastrp_query = """
+    CALL gds.fastRP.mutate(
+      $graph_name,
+      {
+        embeddingDimension: 64,
+        randomSeed: 42,
+        mutateProperty: 'structural_embedding'
+      }
+    )
+    YIELD nodePropertiesWritten
+    RETURN nodePropertiesWritten
+    """
+
+    # Cypher Query 4: K-Nearest Neighbors (KNN) Link Prediction
+    knn_query = """
+    CALL gds.knn.write(
+      $graph_name,
+      {
+        nodeProperties: ['structural_embedding'],
+        writeRelationshipType: 'INFERRED_ASSOCIATE',
+        writeProperty: 'ai_confidence_score',
+        topK: 2,
+        sampleRate: 1.0,
+        concurrency: 1,
+        randomSeed: 42,
+        similarityCutoff: 1
+      }
+    )
+    YIELD relationshipsWritten
+    RETURN relationshipsWritten
+    """
+
+    # Cypher Query 5: Cleanup redundant AI predictions (Self-loops and already-connected nodes)
+    cleanup_self_loops = "MATCH (n {case_id: $case_id})-[r:INFERRED_ASSOCIATE]->(n) DELETE r"
+
+    cleanup_redundant_links = """
+    MATCH (n {case_id: $case_id})-[ai_link:INFERRED_ASSOCIATE]->(m {case_id: $case_id})
+    MATCH (n)-[real_link]-(m)
+    WHERE type(real_link) <> 'INFERRED_ASSOCIATE'
+    WITH DISTINCT ai_link
+    DELETE ai_link
+    RETURN count(ai_link) AS deleted_count
+    """
+
+    try:
+        async with driver.session(database="neo4j") as session:
+            # 1. Reset memory
+            await session.run(drop_query, graph_name=graph_name)
+
+            # 2. Project Graph
+            proj_res = await session.run(project_query, case_id=case_id, graph_name=graph_name)
+            proj_data = await proj_res.single()
+            if not proj_data or proj_data["nodes"] < 3:
+                return {"status": "SKIPPED", "message": "Not enough data points in the graph to run GNN predictions."}
+
+            # 3. Generate Embeddings
+            await session.run(fastrp_query, graph_name=graph_name)
+
+            # 4. Predict Hidden Links and write back to database
+            knn_res = await session.run(knn_query, graph_name=graph_name)
+            knn_data = await knn_res.single()
+            raw_inferred_links = knn_data["relationshipsWritten"] if knn_data else 0
+
+            # 5. POST-PROCESSING: Filter out redundant links!
+            await session.run(cleanup_self_loops, case_id=case_id)
+            cleanup_res = await session.run(cleanup_redundant_links, case_id=case_id)
+            cleanup_data = await cleanup_res.single()
+            deleted_links = cleanup_data["deleted_count"] if cleanup_data else 0
+
+            # Calculate truly novel discoveries
+            novel_links = raw_inferred_links - deleted_links
+
+            # 6. Clean up memory
+            await session.run(drop_query, graph_name=graph_name)
+
+        # Broadcast UI refresh ONLY if we found truly hidden links
+        if novel_links > 0:
+            await ws_manager.broadcast_event(case_id, {
+                "event": "GRAPH_UPDATE",
+                "source": "GNN_PREDICTION",
+                "case_id": case_id,
+                "message": f"AI identified {novel_links} hidden connections."
+            })
+
+        return {
+            "status": "SUCCESS",
+            "case_id": case_id,
+            "nodes_analyzed": proj_data["nodes"],
+            "raw_predictions": raw_inferred_links,
+            "redundant_filtered": deleted_links,
+            "hidden_links_discovered": novel_links,
+            "message": f"GNN pipeline complete. Discovered {novel_links} novel hidden connections."
+        }
+
+    except Exception as e:
+        # Failsafe memory cleanup
+        async with driver.session(database="neo4j") as session:
+            await session.run(drop_query, graph_name=graph_name)
+
+        print(f"[GNN ERROR]: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"GNN Link Prediction failed: {str(e)}")
+
 if __name__ == "__main__":
     import uvicorn
-
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

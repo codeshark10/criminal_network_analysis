@@ -1,0 +1,126 @@
+[
+  {
+    "chunk_id": "CASE_A4121069_CHUNK_0000",
+    "case_id": "CASE_A4121069",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Raju Sharma",
+        "type": "PERSON",
+        "aliases": [
+          "Raju"
+        ]
+      },
+      {
+        "name": "Bhai",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Priya Nair",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Tata Harrier",
+        "type": "VEHICLE",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Bhai",
+        "predicate": "DIRECTED",
+        "object": "Raju Sharma",
+        "evidence": "Raju confessed he acted on orders from Dubai handler Bhai"
+      },
+      {
+        "subject": "Raju Sharma",
+        "predicate": "OPERATED_VEHICLE",
+        "object": "Tata Harrier",
+        "evidence": "Inspector R. Shinde intercepted a Tata Harrier driven by suspect Rajesh \"Raju\" Sharma."
+      },
+      {
+        "subject": "Raju Sharma",
+        "predicate": "DEFRAUDED",
+        "object": "Priya Nair",
+        "evidence": "Raju confessed he acted on orders from Dubai handler Bhai and robbed teller Priya Nair."
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A4121069_CHUNK_0001",
+    "case_id": "CASE_A4121069",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Rajesh Sharma",
+        "type": "PERSON",
+        "aliases": [
+          "Raju",
+          "Raju Sharma"
+        ]
+      },
+      {
+        "name": "Anil Kulkarni",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Bhai",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Black Tara Harrier",
+        "type": "VEHICLE",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Anil Kulkarni",
+        "evidence": "Rajesh @'Raju' Sharma and associare Anil Kulkarni were spotted near FC Road"
+      },
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "OPERATED_VEHICLE",
+        "object": "Black Tara Harrier",
+        "evidence": "Rajesh @'Raju' Sharma and associare Anil Kulkarni were spotted near FC Road driving a Black Tara Harrier"
+      },
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "WORKED_UNDER",
+        "object": "Bhai",
+        "evidence": "Raju sharma confessed to working under instructions of 'Bhai."
+      },
+      {
+        "subject": "Bhai",
+        "predicate": "FINANCED",
+        "object": "Rajesh Sharma",
+        "evidence": "Raju sharma confessed to working under instructions of 'Bhai."
+      },
+      {
+        "subject": "Rajesh Sharma",
+        "predicate": "TRANSFERRED_FUNDS_TO",
+        "object": "SBI account No: 1092837401",
+        "evidence": "Funds were being transferred into SBI account No: 1092837401."
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_A4121069_CHUNK_0002",
+    "case_id": "CASE_A4121069",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Accused",
+        "type": "PERSON",
+        "aliases": []
+      }
+    ],
+    "triplets": []
+  }
+]

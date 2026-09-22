@@ -1,0 +1,1277 @@
+{
+  "summary": {
+    "total_raw_chunks": 20,
+    "total_canonical_entities": 115,
+    "total_resolved_triplets": 65
+  },
+  "entities": [
+    {
+      "canonical_name": "Harshvardhan Mehta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Operation Big Bull",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "1992 Securities Scam",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Pipeline Version 4.0.1 (Archival Edition)",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Harshad Shantilal Mehta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "The Big Bull"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Systemic financial fraud",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Criminal conspiracy",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Forgery",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Market manipulation",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Diversion of funds amounting to approximately \u20b94,025 crore to \u20b95,000 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Subject",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ready Forward (RF) deals",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bank Receipts (BRs)",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Statutory Liquidity Ratio (SLR)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "counter-party banks",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "broker accounts",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "targeted equities",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "capital out of the banking system",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "banks",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "funds",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Associated Cement Company (ACC)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sterlite Industries",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Videocon",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Sucheta Dalal",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "The Times of India",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Scam",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Sucheta Dalal's expose",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Harshad Mehta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Harshad bhai"
+      ],
+      "mention_count": 8
+    },
+    {
+      "canonical_name": "R. Sitaraman",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "State Bank of India (SBI)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Reserve Bank of India's Public Debt Office (PDO)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "SBI transactions",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "his account",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Standard Chartered Bank (SCB)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "WITNESS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bank of Karad (BOK)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Metropolitan Co-operative Bank (MCB)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hiten Dalal",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Broker"
+      ],
+      "mention_count": 6
+    },
+    {
+      "canonical_name": "Bhupendra Dalal",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "A.D. Narottam",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Kishan Kantilal Kapadia",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Arvind Mohanlal",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "unaccounted stock shortfall worth \u20b9300 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "securities",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "BRs",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Janakiraman Committee",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "RBI",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "National Housing Bank (NHB)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Standard Chartered",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "State Bank of Saurashtra",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Bank of Karad",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Metropolitan Co-operative Bank",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "M.J. Pherwani",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "SBI",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "NHB/BOK",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ashwin Mehta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Manu Manek",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Jyoti Mehta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "C.S. Raje",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Sudhakar Ail",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Cheque",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Pump ACC",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Manu Manek and the bear cartel",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Dry Cleaning",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Ajay Kayan",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Big Bull",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Apollo Tyres",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sterlite",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bear Syndicate",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bear Cartel",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "BOK",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Karad branch",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "BSE TRADING RING",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Manu bhai",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "TISCO",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Growmore Research and Asset Management",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Toyota Lexus",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Madhuli apartment complex",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Worli Sea Face",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Maker Chambers",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Growmore Research and Asset Management office at Maker Chambers",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Unknown individual",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Growmore Research and Asset Management office",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Courier",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Jaideep Jagdish Pathak",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "K. Margabandhu",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Growmore",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "UCO Bank",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Standard Chartered Bank HQ",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Taj Mahal Palace Hotel",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Briefcase",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Delivery boy",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "12 plates of Pav Bhaji",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Documents",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Bank",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Bank receipts for the \u20b9300 crore shortfall",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "T.B. Ruia",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "A.D. Narotttam",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Transfer of \u20b9125 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Securities Account",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Fraudulent transactions from Standard Chartered",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Two BRs of \u20b919.89 crore and four BRs of \u20b910 Lakhs",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Zero backing of genuine government securities",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Funds fraudulently obtained from Standard Chartered",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Harshad",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mehta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ramesh",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "40 cutting chais",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Kishan Kapadia",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "S. Ramaswamy",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Santosh Mulgaonkar",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Fraud",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "ACC",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Heart Ailment",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Real Estate",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Dalal Street",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    }
+  ],
+  "triplets": [
+    {
+      "subject": "Harshad Shantilal Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Systemic financial fraud",
+      "evidence": "NATURE OF OFFENSE: Systemic financial fraud, criminal conspiracy, forgery, and market manipulation.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0001"
+    },
+    {
+      "subject": "Harshad Shantilal Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Criminal conspiracy",
+      "evidence": "NATURE OF OFFENSE: Systemic financial fraud, criminal conspiracy, forgery, and market manipulation.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0001"
+    },
+    {
+      "subject": "Harshad Shantilal Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Forgery",
+      "evidence": "NATURE OF OFFENSE: Systemic financial fraud, criminal conspiracy, forgery, and market manipulation.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0001"
+    },
+    {
+      "subject": "Harshad Shantilal Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Market manipulation",
+      "evidence": "NATURE OF OFFENSE: Systemic financial fraud, criminal conspiracy, forgery, and market manipulation.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0001"
+    },
+    {
+      "subject": "Harshad Shantilal Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Diversion of funds amounting to approximately \u20b94,025 crore to \u20b95,000 crore",
+      "evidence": "ESTIMATED MAGNITUDE: Diversion of funds amounting to approximately \u20b94,025 crore to \u20b95,000 crore from the Indian banking system into the Bombay Stock Exchange (BSE).",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0001"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "MANIPULATED",
+      "object": "Ready Forward (RF) deals",
+      "evidence": "The subject exploited systemic loopholes in the inter-bank securities market, specifically manipulating Ready Forward (RF) deals and generating fake Bank Receipts (BRs).",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0002"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "GENERATED",
+      "object": "Bank Receipts (BRs)",
+      "evidence": "The subject exploited systemic loopholes in the inter-bank securities market, specifically manipulating Ready Forward (RF) deals and generating fake Bank Receipts (BRs).",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0002"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "SQUEEZED",
+      "object": "capital out of the banking system",
+      "evidence": "The subject squeezed capital out of the banking system by promising higher interest rates, convincing banks to issue cheques directly into his personal broker accounts rather than to counter-party banks.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0002"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "CONVINCED",
+      "object": "banks",
+      "evidence": "The subject squeezed capital out of the banking system by promising higher interest rates, convincing banks to issue cheques directly into his personal broker accounts rather than to counter-party banks.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0002"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "UTILIZED",
+      "object": "funds",
+      "evidence": "He utilized these funds to hyper-inflate targeted equities.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0002"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "HYPER-INFLATED",
+      "object": "targeted equities",
+      "evidence": "He utilized these funds to hyper-inflate targeted equities.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0002"
+    },
+    {
+      "subject": "Associated Cement Company (ACC)",
+      "predicate": "TARGETED",
+      "object": "Subject",
+      "evidence": "Other targeted stocks included Sterlite Industries and Videocon.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0003"
+    },
+    {
+      "subject": "Sterlite Industries",
+      "predicate": "TARGETED",
+      "object": "Subject",
+      "evidence": "Other targeted stocks included Sterlite Industries and Videocon.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0003"
+    },
+    {
+      "subject": "Videocon",
+      "predicate": "TARGETED",
+      "object": "Subject",
+      "evidence": "Other targeted stocks included Sterlite Industries and Videocon.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0003"
+    },
+    {
+      "subject": "Sucheta Dalal",
+      "predicate": "EXPOSED",
+      "object": "Scam",
+      "evidence": "When the scam was exposed on April 23, 1992, by journalist Sucheta Dalal in The Times of India, the market crashed.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0003"
+    },
+    {
+      "subject": "The Times of India",
+      "predicate": "PUBLISHED",
+      "object": "Sucheta Dalal's expose",
+      "evidence": "When the scam was exposed on April 23, 1992, by journalist Sucheta Dalal in The Times of India, the market crashed.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0003"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "INVOLVED_IN",
+      "object": "SBI transactions",
+      "evidence": "Further investigation revealed that between July 1, 1991, and April 6, 1992, Harshad Mehta was involved in SBI transactions totaling over \u20b917,000 crore",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0004"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "FUNDS_CREDITED",
+      "object": "his account",
+      "evidence": "with funds credited directly to his account without corresponding SGL entries in SBI's books",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0004"
+    },
+    {
+      "subject": "Standard Chartered Bank (SCB)",
+      "predicate": "REPORTED",
+      "object": "unaccounted stock shortfall worth \u20b9300 crore",
+      "evidence": "SCB reported an unaccounted stock shortfall worth \u20b9300 crore.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0005"
+    },
+    {
+      "subject": "Standard Chartered Bank (SCB)",
+      "predicate": "PAID_MONEY",
+      "object": "securities",
+      "evidence": "The bank paid money for securities but received neither the securities nor genuine BRs from counter-party banks.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0005"
+    },
+    {
+      "subject": "Bank of Karad (BOK)",
+      "predicate": "SIGNED_FRAUDULENT_BRS",
+      "object": "BRs",
+      "evidence": "It was discovered that fraudulent BRs were signed by officials at the Bank of Karad (BOK) and Metropolitan Co-operative Bank (MCB).",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0005"
+    },
+    {
+      "subject": "Metropolitan Co-operative Bank (MCB)",
+      "predicate": "SIGNED_FRAUDULENT_BRS",
+      "object": "BRs",
+      "evidence": "It was discovered that fraudulent BRs were signed by officials at the Bank of Karad (BOK) and Metropolitan Co-operative Bank (MCB).",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0005"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "R. Sitaraman",
+      "evidence": "Transcript: \"Sitaraman, I need the temporary float today. Issue the SGL clearance for \u20b950 Cr. I will cover the spread by Thursday.\"",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0007"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "M.J. Pherwani",
+      "evidence": "Transcript: \"Sitaraman, I need the temporary float today. Issue the SGL clearance for \u20b950 Cr. I will cover the spread by Thursday.\"",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0007"
+    },
+    {
+      "subject": "Bank of Karad",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Metropolitan Co-operative Bank",
+      "evidence": "Two smaller banks, Bank of Karad and Metropolitan Co-operative Bank, were central to issuing these fraudulent instruments.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0007"
+    },
+    {
+      "subject": "M.J. Pherwani",
+      "predicate": "ROUTED",
+      "object": "Cheque",
+      "evidence": "We are routing the cheque directly to your Growmore account.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0008"
+    },
+    {
+      "subject": "Ashwin Mehta",
+      "predicate": "ORDERED",
+      "object": "Pump ACC",
+      "evidence": "Pump ACC again.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0008"
+    },
+    {
+      "subject": "Ashwin Mehta",
+      "predicate": "SHORTING",
+      "object": "Manu Manek and the bear cartel",
+      "evidence": "Manu Manek and the bear cartel are shorting heavily.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0008"
+    },
+    {
+      "subject": "Jyoti Mehta",
+      "predicate": "REMINDED",
+      "object": "Dry Cleaning",
+      "evidence": "DO NOT FORGET TO PICK UP THE DRY CLEANING ON YOUR WAY BACK.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0008"
+    },
+    {
+      "subject": "C.S. Raje",
+      "predicate": "CONTACTED",
+      "object": "Sudhakar Ail",
+      "evidence": "CALL OUT: C.S. Raje (Manager, BOK) to Sudhakar Ail (Staff, BOK)",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0008"
+    },
+    {
+      "subject": "C.S. Raje",
+      "predicate": "DIRECTED",
+      "object": "Sudhakar Ail",
+      "evidence": "Sign the BRs for \u20b919.89 crore. No, we don't have the underlying securities. Just issue the cost memos and delivery orders to A.D. Narottam's account. The directors have cleared it.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0009"
+    },
+    {
+      "subject": "Manu Manek",
+      "predicate": "DIRECTED",
+      "object": "Ajay Kayan",
+      "evidence": "Big Bull is buying Apollo Tyres and Sterlite. Where is he getting the cash? Short it. Short everything. He can't absorb this.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0009"
+    },
+    {
+      "subject": "Manu bhai",
+      "predicate": "ORCHESTRATED",
+      "object": "Bear Syndicate",
+      "evidence": "Manu bhai, he just absorbed all of it. TISCO and Videocon are hitting upper circuits. We are bleeding. We have to cover our positions.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0010"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "DEPARTED",
+      "object": "Madhuli apartment complex",
+      "evidence": "08:30 HRS: Subject departs Madhuli apartment complex in a white Toyota Lexus.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0010"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "ARRIVED",
+      "object": "Growmore Research and Asset Management office at Maker Chambers",
+      "evidence": "09:15 HRS: Subject arrives at Growmore Research and Asset Management office at Maker Chambers.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0010"
+    },
+    {
+      "subject": "Unknown individual",
+      "predicate": "ENTERED",
+      "object": "Growmore Research and Asset Management office",
+      "evidence": "11:00 HRS: Unknown individual carrying a briefcase enters the premises.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0010"
+    },
+    {
+      "subject": "Courier",
+      "predicate": "WORKED_FOR",
+      "object": "Bank of Karad",
+      "evidence": "Identified later as a courier from Bank of Karad.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0010"
+    },
+    {
+      "subject": "Courier",
+      "predicate": "CARRIED",
+      "object": "Briefcase",
+      "evidence": "Unknown individual carrying a briefcase enters the premises.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0011"
+    },
+    {
+      "subject": "Delivery boy",
+      "predicate": "DROPPED_OFF",
+      "object": "12 plates of Pav Bhaji",
+      "evidence": "A delivery boy from a local Udipi restaurant drops off 12 plates of Pav Bhaji at the Growmore office.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0011"
+    },
+    {
+      "subject": "Subject",
+      "predicate": "MET_WITH",
+      "object": "K. Margabandhu",
+      "evidence": "Subject meets with K. Margabandhu (UCO Bank) in a private room at the Taj Mahal Palace Hotel.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0011"
+    },
+    {
+      "subject": "Arvind Mohanlal",
+      "predicate": "SHREDDED",
+      "object": "Documents",
+      "evidence": "Arvind Mohanlal (Chief Dealer) and Jaideep Jagdish Pathak (Manager) are seen shredding documents.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0011"
+    },
+    {
+      "subject": "Hiten Dalal",
+      "predicate": "ENTERED",
+      "object": "Bank",
+      "evidence": "Hiten Dalal (Broker) enters the bank.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0011"
+    },
+    {
+      "subject": "Hiten Dalal",
+      "predicate": "PROMISED",
+      "object": "Bank receipts for the \u20b9300 crore shortfall",
+      "evidence": "Intercepted audio confirms he promised to hand over bank receipts for the \u20b9300 crore shortfall.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0011"
+    },
+    {
+      "subject": "Hiten Dalal",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "SBI",
+      "evidence": "Intercepted audio confirms he promised to hand over bank receipts for the \u20b9300 crore shortfall.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0012"
+    },
+    {
+      "subject": "T.B. Ruia",
+      "predicate": "AUTHORIZED",
+      "object": "Transfer of \u20b9125 crore",
+      "evidence": "Transaction: Transfer of \u20b9125 crore from proceeds of defrauded money, authorized by T.B. Ruia.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0012"
+    },
+    {
+      "subject": "BOK",
+      "predicate": "MAINTAINED",
+      "object": "Securities Account",
+      "evidence": "Finding: BOK maintained its \"Securities Account\" in the name of broker A.D. Narottam. Fraudulent transactions from Standard Chartered were routed here.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0013"
+    },
+    {
+      "subject": "A.D. Narottam",
+      "predicate": "ROUTED",
+      "object": "Fraudulent transactions from Standard Chartered",
+      "evidence": "Finding: BOK maintained its \"Securities Account\" in the name of broker A.D. Narottam. Fraudulent transactions from Standard Chartered were routed here.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0013"
+    },
+    {
+      "subject": "Kishan Kantilal Kapadia",
+      "predicate": "ISSUED",
+      "object": "Two BRs of \u20b919.89 crore and four BRs of \u20b910 Lakhs",
+      "evidence": "RECORD_03: METROPOLITAN CO-OP BANK (MCB) - BR ISSUANCE\nDocument: Two BRs of \u20b919.89 crore and four BRs of \u20b910 Lakhs.\nSignatory: Kishan Kantilal Kapadia (Vice-President).",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0013"
+    },
+    {
+      "subject": "Kishan Kantilal Kapadia",
+      "predicate": "VERIFIED",
+      "object": "Zero backing of genuine government securities",
+      "evidence": "RECORD_03: METROPOLITAN CO-OP BANK (MCB) - BR ISSUANCE\nDocument: Two BRs of \u20b919.89 crore and four BRs of \u20b910 Lakhs.\nSignatory: Kishan Kantilal Kapadia (Vice-President).\nVerification: Zero backing of genuine government securities.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0013"
+    },
+    {
+      "subject": "Hiten Dalal",
+      "predicate": "CREDITED",
+      "object": "Funds fraudulently obtained from Standard Chartered",
+      "evidence": "RECORD_04: ANDHRA BANK - SECURITIES ACCOUNT (Hiten Dalal)\nTransaction: Funds fraudulently obtained from Standard Chartered were credited to this account.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0013"
+    },
+    {
+      "subject": "Bhupendra Dalal",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "C.S. Raje",
+      "evidence": "We were instructed by the directors, Bhupendra Dalal and A.D. Narottam, to facilitate the brokers.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0015"
+    },
+    {
+      "subject": "A.D. Narottam",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "C.S. Raje",
+      "evidence": "We were instructed by the directors, Bhupendra Dalal and A.D. Narottam, to facilitate the brokers.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0015"
+    },
+    {
+      "subject": "Mehta",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "R. Sitaraman",
+      "evidence": "Mehta promised us higher rates of return.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0015"
+    },
+    {
+      "subject": "R. Sitaraman",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Mehta",
+      "evidence": "We transferred the money into his personal account, assuming he was buying securities for us from other banks.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0015"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "ORDERED",
+      "object": "40 cutting chais",
+      "evidence": "They always paid in exact change. It has been raining very heavily lately, so business is down.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0016"
+    },
+    {
+      "subject": "Hiten Dalal",
+      "predicate": "CONVICTED",
+      "object": "Fraud",
+      "evidence": "In a related trial, the special CBI court convicted brokers Hiten Dalal, Kishan Kapadia, Sudhakar Ail, C.S. Raje, S. Ramaswamy, and Santosh Mulgaonkar, sentencing them to rigorous imprisonment and fines.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0017"
+    },
+    {
+      "subject": "Kishan Kapadia",
+      "predicate": "CONVICTED",
+      "object": "Fraud",
+      "evidence": "In a related trial, the special CBI court convicted brokers Hiten Dalal, Kishan Kapadia, Sudhakar Ail, C.S. Raje, S. Ramaswamy, and Santosh Mulgaonkar, sentencing them to rigorous imprisonment and fines.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0017"
+    },
+    {
+      "subject": "Sudhakar Ail",
+      "predicate": "CONVICTED",
+      "object": "Fraud",
+      "evidence": "In a related trial, the special CBI court convicted brokers Hiten Dalal, Kishan Kapadia, Sudhakar Ail, C.S. Raje, S. Ramaswamy, and Santosh Mulgaonkar, sentencing them to rigorous imprisonment and fines.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0017"
+    },
+    {
+      "subject": "C.S. Raje",
+      "predicate": "CONVICTED",
+      "object": "Fraud",
+      "evidence": "In a related trial, the special CBI court convicted brokers Hiten Dalal, Kishan Kapadia, Sudhakar Ail, C.S. Raje, S. Ramaswamy, and Santosh Mulgaonkar, sentencing them to rigorous imprisonment and fines.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0017"
+    },
+    {
+      "subject": "S. Ramaswamy",
+      "predicate": "CONVICTED",
+      "object": "Fraud",
+      "evidence": "In a related trial, the special CBI court convicted brokers Hiten Dalal, Kishan Kapadia, Sudhakar Ail, C.S. Raje, S. Ramaswamy, and Santosh Mulgaonkar, sentencing them to rigorous imprisonment and fines.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0017"
+    },
+    {
+      "subject": "Santosh Mulgaonkar",
+      "predicate": "CONVICTED",
+      "object": "Fraud",
+      "evidence": "In a related trial, the special CBI court convicted brokers Hiten Dalal, Kishan Kapadia, Sudhakar Ail, C.S. Raje, S. Ramaswamy, and Santosh Mulgaonkar, sentencing them to rigorous imprisonment and fines.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0017"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "DIED",
+      "object": "Heart Ailment",
+      "evidence": "He died following a brief heart ailment at the age of 47 on December 31, 2001.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0018"
+    },
+    {
+      "subject": "Harshad Mehta",
+      "predicate": "MASTERMIND",
+      "object": "ACC",
+      "evidence": "Big Bull is unstoppable. ACC will cross 10,000. Buy everything he touches.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0018"
+    },
+    {
+      "subject": "Manu Manek",
+      "predicate": "LIQUIDATING",
+      "object": "Real Estate",
+      "evidence": "Manu Manek is liquidating real estate to cover his short margins.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0018"
+    },
+    {
+      "subject": "Bear Cartel",
+      "predicate": "SWEATING",
+      "object": "Harshad Mehta",
+      "evidence": "Bear cartel is sweating. Manu Manek is liquidating real estate to cover his short margins.",
+      "chunk_id": "CASE_9BB311C9_CHUNK_0018"
+    }
+  ]
+}

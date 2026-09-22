@@ -1,0 +1,236 @@
+[
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0000",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 0,
+    "text": "##################################################\nMASTER CASE DOSSIER: CASE_54CD7337\nGENERATED TIMESTAMP: 2026-08-31T12:41:14.038715+00:00\nTOTAL SOURCE FILES COMPILED: 1\n##################################################\n\n\n==================================================\nSOURCE FILE: Dubai_Assassination_Case_File.pdf\nSHA-256 HASH: fb87e3ebd9af38085446493cf60899381d31bacd0a011190e088db5d0e6e9961\n==================================================",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0001",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 1,
+    "text": "--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 1] ---\nDUBAI POLICE INTELLIGENCE DIVISION\nCASE FILE: OPERATION RED FALCON I/ ASSASSINATION ANALYSIS\nCase Ref: DXB-2010-8842-CID\nDate of Incident: Jan 19, 2010\nClassification:\nTOP SECRET / DEMO\nTarget: Mahmoud al-Mabhouh (E-001)\nLocation: Room 230, Al Bustan Rotana\nOperative Count:\n26 Confirmed Hits\n| 1. EXECUTIVE CASE SUMMARY\nOn January 19, 2010, senior Hamas operative Mahmoud al-Mabhouh arrived at Dubai International Airport (DXB) at 14:00\nlocal time. Within five hours of checking into Room 230 at the Al Bustan Rotana Hotel, he was targeted and executed by a\nhighly sophisticated, 26-member foreign hit squad operating under forged European and Australian identities.",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0002",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 2,
+    "text": "highly sophisticated, 26-member foreign hit squad operating under forged European and Australian identities.\nThe operation represents a masterclass in counter-intelligence compartmentalization. The perpetrators operated in distinct\nsub-units (Airport Trackers, Mall Surveillance, Hotel Execution, Logistics, and Escapes) and maintained strict physical\nisolation. No team member placed direct phone calls to another team member within the United Arab Emirates. Instead, the\nentire operational network was coordinated remotely via an international telecom hub in Austria.\nCRITICAL INVESTIGATIVE BREAKTHROUGH\nStandard surveillance and localized call detail records (CDRs) yielded zero connections between suspects on the",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0003",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 3,
+    "text": "CRITICAL INVESTIGATIVE BREAKTHROUGH\nStandard surveillance and localized call detail records (CDRs) yielded zero connections between suspects on the\nground. The breakthrough was achieved by deploying multi-modal network graph analysis-combining spatial-temporal\nCCTV spottings, automated border control logs, international telecom relay analysis, and prepaid financial transaction\nclustering.\n2. POLICE INCIDENT REPORTS (FIR SUMMARY)\nThe initial investigation produced four primary First Information Reports (FIRs) capturing the crime scene, forensic findings,\nborder control anomalies, and telecom intercepts:\nFIR ID\nDATE &\nTIME\nREPORTING\nUNIT\nFIR-2010-001\n2010-01-20\n13:30\nDeira CID\nDivision\nINCIDENT\nTYPE\nUnexplained\nDeath\nFIR-2010-002\nFIR-2010-003\n2010-01-21\n09:15\n2010-01-22\n16:45\nForensic",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0004",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 4,
+    "text": "FIR-2010-001\n2010-01-20\n13:30\nDeira CID\nDivision\nINCIDENT\nTYPE\nUnexplained\nDeath\nFIR-2010-002\nFIR-2010-003\n2010-01-21\n09:15\n2010-01-22\n16:45\nForensic\nScience Div.\nCustoms &\nBorder Ctrl\nFIR-2010-004\n2010-01-24\n11:00\nTelecom\nIntelligence\nKEY FINDINGS / ACTION\nVictim found dead in Room 230. Room locked from\ninside with latch attached. Initial appearance suggested\nnatural cardiac arrest.\nHomicide /\nPoisoning\nToxicology detected succinylcholine (rapid muscle\nrelaxant causing asphyxiation). Door lock audit revealed\nelectronic override via key card duplicator.\nPassport Fraud Audit flagged 26 European/Australian cloned passports\nentering DXB 24-48 hrs prior and departing within 4\nhours post-incident. Interpol Red Notices requested.\nCovert Comms\nIntercept",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0005",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 5,
+    "text": "entering DXB 24-48 hrs prior and departing within 4\nhours post-incident. Interpol Red Notices requested.\nCovert Comms\nIntercept\nTRA audit uncovered 26 burner numbers making zero\nlocal calls, exclusively transmitting encrypted micro-\nbursts to an Austrian landline (+43100000000 ).\n3. OPERATIVES & IDENTITY MATRIX (26 SUSPECTS)\nThe 26 suspects utilized fraudulently cloned passports issued under UK, French, German, and Australian jurisdictions. The\ntable below outlines the core team, their assigned roles, and operational movements:\nCONFIDENTIAL // LAW ENFORCEMENT DEMO DOSSIER\nPage 1 of 4",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0006",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 6,
+    "text": "--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 2] ---\nID\nE-002\nE-003\nE- 004\nE-005\nE-006\nE- 007\nE-008\nE-009\nE-010\nE-011\nE-012\nE- 013\nE-014\nE-015\nE- 016\nE-017\nE- 018\nE-019\nE-020\nE-021\nE-022\nE-023\nE-024\nALIAS / NAME\nKevin Daveron\nGail Folliard\nEvan Dennings\nCommand Hub\nPeter Elvinger\nMichael Bodenheimer\nJames Clarke\nStephen Drake\nPaul Keeley\nJonathan Louis\nMelvyn Mildiner\nColin Berry\nMark Daniel\nDaniel Schnur\nNicole Cleary\nRoy Cannon\nBruce Joshua\nAdam Korman\nJoshua Daniel\nAlexander Klein\nChristian\nZimmermann\nMichael Lawrence\nMarc Sklar\nPASSPORT REF\nPASS-IRL-102 (IRL)\nPASS-IRL-103 (IRL)\nPASS-AUS-104\n(AUS)\nN/A (Vienna Landline)\nPASS-FRA-201\n(FRA)\nPASS-GER-202\n(GER)\nPASS-UK-203 (UK)\nPASS-UK-204 (UK)\nPASS-UK-205 (UK)\nPASS-UK-206 (UK)\nPASS-UK-207 (UK)\nPASS-UK-208 (UK)\nPASS-UK-209 (UK)",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0007",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 7,
+    "text": "(FRA)\nPASS-GER-202\n(GER)\nPASS-UK-203 (UK)\nPASS-UK-204 (UK)\nPASS-UK-205 (UK)\nPASS-UK-206 (UK)\nPASS-UK-207 (UK)\nPASS-UK-208 (UK)\nPASS-UK-209 (UK)\nPASS-GER-210\n(GER)\nPASS-AUS-211\n(AUS)\nPASS-UK-212 (UK)\nPASS-AUS-213\n(AUS)\nPASS-AUS-214\n(AUS)\nPASS-AUS-215\n(AUS)\nPASS-GER-216\n(GER)\nPASS-GER-217\n(GER)\nPASS-UK-218 (UK)\nPASS-UK-219 (UK)\nCONFIDENTIAL // LAW ENFORCEMENT DEMO DOSSIER\nOPERATIONAL\nROLE\nHit Team Leader\nAirport Tracker\nExecution Squad\nCommunications Relay\nLogistics Coordinator\nDowntown Lookout\nAirport Surveillance\nTaxi Tracker\nHotel Lobby Watch\nExecution Squad\nExtraction Driver\nSecondary Extraction\nCorridor Lookout\nStairwell Guard\nMall Tracker (Wafi)\nComms Specialist\nExecution Squad\nElevator Watch\nTicketing / Finance\nMall Tracker (Deira)\nHotel Perimeter\nGarage Surveillance",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0008",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 8,
+    "text": "Mall Tracker (Wafi)\nComms Specialist\nExecution Squad\nElevator Watch\nTicketing / Finance\nMall Tracker (Deira)\nHotel Perimeter\nGarage Surveillance\nPrimary Rental Driver l\nORIGIN FLIGHT\nParis (CDG)\nFrankfurt (FRA)\nRome (FCO)\nVienna, Austria\nParis (CDG)\nMunich (MUC)\nLondon (LHR)\nLondon (LGW)\nManchester\n(MAN)\nLondon (LHR)\nLondon (LHR)\nBirmingham\n(BHX)\nLondon (LHR)\nFrankfurt (FRA)\nSydney (SYD)\nLondon (LHR)\nMelbourne (MEL)\nPerth (PER)\nSydney (SYD)\nBerlin (TXL)\nHamburg (HAM)\nLondon (LHR)\nLondon (LHR)\nEXIT\nDESTINATION\nZurich (ZRH)\nRome (FCO)\nHong Kong (HKG)\nN/A\nJohannesburg (JNB)\nDoha (DOH)\nBangkok (BKK)\nMilan (MXP)\nParis (CDG)\nHong Kong (HKG)\nFrankfurt (FRA)\nAmsterdam (AMS)\nZurich (ZRH)\nVienna (VIE)\nKuala Lumpur (KUL)\nAthens (ATH)\nHong Kong (HKG)\nSingapore (SIN)\nBangkok (BKK)\nIstanbul (IST)",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0009",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 9,
+    "text": "Amsterdam (AMS)\nZurich (ZRH)\nVienna (VIE)\nKuala Lumpur (KUL)\nAthens (ATH)\nHong Kong (HKG)\nSingapore (SIN)\nBangkok (BKK)\nIstanbul (IST)\nVienna (VIE)\nCairo (CAI)\nLondon (LHR)\nPage 2 of 4",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0010",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 10,
+    "text": "--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 3] ---\nID\nALIAS / NAME\nPASSPORT REF\nOPERATIONAL\nROLE\nORIGIN FLIGHT\nEXIT\nDESTINATION\nE-025\nDavid Bernard\nPASS-FRA-220\n(FRA)\nSecondary Driver\nNice (NCE)\nParis (CDG)\n4. TELECOM ANALYSIS: THE AUSTRIAN COMMAND HUB\nStandard telecommunication analysis assumes local conspiracy members will call or text each other directly. In this case,\ncellular frequency logs across all UAE towers confirmed zero intra-network communications among the burner numbers.\nNETWORK TOPOLOGY: HUB-AND-SPOKE\nEvery operative was issued an encrypted GSM handset programmed to dial a single international number:\n+43100000000 (Vienna, Austria). The Austrian hub acted as an automated switchboard and command center,",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0011",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 11,
+    "text": "+43100000000 (Vienna, Austria). The Austrian hub acted as an automated switchboard and command center,\nreceiving status updates from field spotters and instantly relaying execution orders to the hotel team.\nKey Intercept Sequence (Jan 19, 2010):\nTIME\n(LOCAL)\nORIGIN / CALLER\nRECIPIENT\nDURATION\nOPERATIONAL CONTEXT\n14:00:00\nGail Folliard\n(+971550000003)\nAustria Hub\n(+43100000000)\n45s\nTarget landed at DXB. Airport team\nconfirms identification.\n14:05:00\nAustria Hub\n(+43100000000)\nKevin Daveron\n(+971550000002)\n120s\nRelaying target arrival to Hit Team\nLeader.\n15:00:00\nPeter Elvinger\n(+971550000005)\nAustria Hub\n(+43100000000)\n60s\nRoom 237 successfully booked opposite\ntarget's Room 230.\n16:20:00\nNicole Cleary\n(+971550000015)\nAustria Hub\n(+43100000000)\n10s\nTarget spotted leaving Wafi Mall",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0012",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 12,
+    "text": "target's Room 230.\n16:20:00\nNicole Cleary\n(+971550000015)\nAustria Hub\n(+43100000000)\n10s\nTarget spotted leaving Wafi Mall\nreturning to hotel.\n19:47:00\nAustria Hub\n(+43100000000)\nJonathan Louis\n(+971550000010)\n15s\nExecution greenlight: Target entered\nelevator to 2nd floor.\n20:25:00\nKevin Daveron\n(+971550000002)\nAustria Hub\n(+43100000000)\n15s\nHit completed. Execution team vacating\nhotel premises.\n5. FINANCIAL INTELLIGENCE & PREPAID CARD AUDIT\nThe hit squad attempted to obscure financial linkages by utilizing prepaid debit cards issued in the United States and funding\nhotel bookings via foreign online processing gateways.\nFINANCIAL CLUSTER ANALYSIS\nBy ingesting merchant gateway logs from PayMate and credit card issuer BIN numbers, intelligence software identified\ntwo primary card clusters:",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0013",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 13,
+    "text": "By ingesting merchant gateway logs from PayMate and credit card issuer BIN numbers, intelligence software identified\ntwo primary card clusters:\n\u2022 BIN Cluster 1 (4532-XXXX): Issued by MetaBank USA Prepaid. Used for hotel room deposits, airline tickets, and\ncash advances. All cards resolved to billing hash HASH-US-MIAMI-882 .\n\u2022 BIN Cluster 2 (5200-XXXX): Issued by PayPower MasterCard US. Used for car rentals (Sixt/Hertz) and burner\nhardware purchases at Du kiosks. All resolved to billing hash HASH-US-DELAWARE-401 .\nCONFIDENTIALI/ LAW ENFORCEMENT DEMO DOSSIER\nPage 3 of 4",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0014",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 14,
+    "text": "--- [PDF: Dubai_Assassination_Case_File.pdf - PAGE 4] ---\n6. GEOSPATIAL SURVEILLANCE & MULTI-SITE SPOTTINGS\nThe power of the platform lies in proving that suspects physically dispersed across Dubai were acting in complete\ncoordination:\nTIMESTAMP\nJan 18 09:30\nJan 18 11:00\nJan 19 13:30\nJan 19 14:10\nJan 19 16:30\nJan 19 19:45\nJan 19 22:45\nSURVEILLANCE\nSOURCE\nImmigration DXB T1\nCCTV Jumeirah Hotel\nCCTV Sixt Counter\nCCTV DXB Terminal 1\nCCTV Wafi Mall\nCCTV Al Bustan\nElevator\nImmigration DXB T3\nENTITY\nSPOTTED\nPeter Elvinger\n(E-006)\nM. Bodenheimer\n(E-007)\nMarc Sklar (E-024)\nStephen Drake\n(E-009)\nAlexander Klein\n(E-021)\nJonathan Louis\n(E-011)\nJonathan Louis\n(E-011)\nGEOGRAPHIC\nZONE\nAirport Zone\nDowntown Zone\nAirport Rental Zone\nAirport Arrivals\nRetail Zone\nCrime Scene Zone\nAirport Exit Zone",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0015",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 15,
+    "text": "Jonathan Louis\n(E-011)\nGEOGRAPHIC\nZONE\nAirport Zone\nDowntown Zone\nAirport Rental Zone\nAirport Arrivals\nRetail Zone\nCrime Scene Zone\nAirport Exit Zone\nBEHAVIORAL OBSERVATION\nArrives from Paris; pays for room with\nMetaBank prepaid card.\nChecks into secondary hotel; maintains\ndistance from Al Bustan.\nRents Audi getaway vehicle using\nPay Power card.\nTails target from taxi stand; dials Austrian\nhub ( C-203 ).\nObserved trailing target through shopping\ncenter.\nEnters floor wearing disguise and carrying\ntennis gear.\nBoards flight to Hong Kong less than 3\nhours post-hit.\n7. PLATFORM LIVE DEMO STRATEGY & QUERY PLAYBOOK\nUse this step-by-step workflow during the live presentation to demonstrate how the platform solves the case in real-time:\nSTEP 1: LOAD PHYSICAL LAYER (SPATIAL ISOLATION)",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0016",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 16,
+    "text": "STEP 1: LOAD PHYSICAL LAYER (SPATIAL ISOLATION)\nShow the map view with CCTV spottings loaded. Emphasize that the suspects are scattered across DXB Airport, Wafi\nMall, Jumeirah, and Al Bustan Rotana. On paper, they have zero geographic overlap.\nSTEP 2: LOAD TELECOM CDRS (ZERO DIRECT EDGES)\nQuery direct phone connections between any of the 26 suspects. Point out that the system returns 0 edges. Explain\nhow standard link analysis fails because no local calls were made.\nSTEP 3: EXECUTE GRAPH CENTRALITY QUERY (THE 'AHA!' MOMENT)\nRun the Common Neighbor / Centrality Query on all active Dubai burner numbers. Watch the platform automatically\ncollapse all 26 scattered nodes into the single central Austrian landline node (+43100000000).\nSTEP 4: OVERLAY FINANCIAL INTELLIGENCE (LOCKING THE CASE)",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  },
+  {
+    "chunk_id": "CASE_54CD7337_CHUNK_0017",
+    "case_id": "CASE_54CD7337",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 17,
+    "text": "STEP 4: OVERLAY FINANCIAL INTELLIGENCE (LOCKING THE CASE)\nAdd the financial transaction layer. The system instantly groups the 26 passport identities into two prepaid BIN clusters\n(HASH-US-MIAMI-882 and HASH-US-DELAWARE-401 ), proving that despite using 26 different passports and 4 different\nflight paths, they were financed by a single state-sponsored entity.\nCONFIDENTIALI/ LAW ENFORCEMENT DEMO DOSSIER\nPage 4 of 4",
+    "metadata": {
+      "case_id": "CASE_54CD7337",
+      "case_title": "CASE CASE_54CD7337",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    }
+  }
+]

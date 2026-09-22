@@ -1,0 +1,1260 @@
+{
+  "summary": {
+    "total_raw_chunks": 18,
+    "total_canonical_entities": 139,
+    "total_resolved_triplets": 39
+  },
+  "entities": [
+    {
+      "canonical_name": "Bhai",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Rajesh Sharma",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Raju",
+        "Raju Sharma"
+      ],
+      "mention_count": 5
+    },
+    {
+      "canonical_name": "Priya Nair",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Dubai",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mahmoud al-Mabhouh",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Al Bustan Rotana",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Dubai International Airport (DXB)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Room 230",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Foreign Hit Squad",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "United Arab Emirates",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "International Telecom Hub in Austria",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Hotel",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "DXB",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Interpol",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "26 SUSPECTS",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Red Notices",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Kevin Daveron",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Gail Folliard",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Evan Dennings",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Command Hub",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Peter Elvinger",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Michael Bodenheimer",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "James Clarke",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Stephen Drake",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Paul Keeley",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Jonathan Louis",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Melvyn Mildiner",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Colin Berry",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mark Daniel",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Daniel Schnur",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Nicole Cleary",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Roy Cannon",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bruce Joshua",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Adam Korman",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Joshua Daniel",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Alexander Klein",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Christian Zimmermann",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Michael Lawrence",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Marc Sklar",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Hit Team Leader",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Airport Tracker",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Execution Squad",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Communications Relay",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Logistics Coordinator",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Downtown Lookout",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Airport Surveillance",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Taxi Tracker",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hotel Lobby Watch",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Extraction Driver",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Secondary Extraction",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Corridor Lookout",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Stairwell Guard",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mall Tracker (Wafi)",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Comms Specialist",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Elevator Watch",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Ticketing / Finance",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Mall Tracker (Deira)",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Hotel Perimeter",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Garage Surveillance",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Primary Rental Driver",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Paris (CDG)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Frankfurt (FRA)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Rome (FCO)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Vienna, Austria",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Munich (MUC)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "London (LHR)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "London (LGW)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Manchester (MAN)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Birmingham (BHX)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Zurich (ZRH)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hong Kong (HKG)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "N/A",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Johannesburg (JNB)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Doha (DOH)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bangkok (BKK)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Milan (MXP)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Amsterdam (AMS)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Vienna (VIE)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Kuala Lumpur (KUL)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Athens (ATH)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Singapore (SIN)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Istanbul (IST)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sydney (SYD)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Melbourne (MEL)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Perth (PER)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Berlin (TXL)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hamburg (HAM)",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "David Bernard",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Vienna",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "E-025",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Automated switchboard and command center",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Austria Hub",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Target",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Wafi Mall",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "PayMate",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hit completed",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "MetaBank USA Prepaid",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "PayPower MasterCard US",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Sixt",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hertz",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Du kiosks",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "BIN Cluster 1 (4532-XXXX)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "hotel room deposits",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "airline tickets",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "cash advances",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "HASH-US-MIAMI-882",
+      "entity_type": "CRYPTO_WALLET",
+      "master_role": "CRYPTO_WALLET",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "BIN Cluster 2 (5200-XXXX)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "car rentals (Sixt/Hertz)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "burner hardware purchases at Du kiosks",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "HASH-US-DELAWARE-401",
+      "entity_type": "CRYPTO_WALLET",
+      "master_role": "CRYPTO_WALLET",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "M. Bodenheimer",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Immigration DXB T1",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "CCTV Jumeirah Hotel",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "CCTV Sixt Counter",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "CCTV DXB Terminal 1",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "CCTV Wafi Mall",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "CCTV Al Bustan",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Elevator",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Al Bustan",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "MetaBank",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Pay Power",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Audi",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Paris",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hong Kong",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Airport Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Downtown Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Airport Rental Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Airport Arrivals",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Retail Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Crime Scene Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Airport Exit Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "C-203",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Secondary hotel",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Taxi stand",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Shopping center",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Austrian Landline",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Dubai Burner Numbers",
+      "entity_type": "PHONE",
+      "master_role": "PHONE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tata Harrier",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "26 passport identities",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    }
+  ],
+  "triplets": [
+    {
+      "subject": "Bhai",
+      "predicate": "DIRECTED",
+      "object": "Rajesh Sharma",
+      "evidence": "Dubai handler Bhai",
+      "chunk_id": "CASE_54CD7337_CHUNK_0000"
+    },
+    {
+      "subject": "Rajesh Sharma",
+      "predicate": "ASSAULTED",
+      "object": "Priya Nair",
+      "evidence": "Raju was hired to assassinate Priya Nair",
+      "chunk_id": "CASE_54CD7337_CHUNK_0000"
+    },
+    {
+      "subject": "Mahmoud al-Mabhouh",
+      "predicate": "ARRIVED_AT",
+      "object": "Dubai International Airport (DXB)",
+      "evidence": "On January 19, 2010, senior Hamas operative Mahmoud al-Mabhouh arrived at Dubai International Airport (DXB) at 14:00 local time.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0001"
+    },
+    {
+      "subject": "Mahmoud al-Mabhouh",
+      "predicate": "CHECKED_INTO",
+      "object": "Room 230",
+      "evidence": "Within five hours of checking into Room 230 at the Al Bustan Rotana Hotel, he was targeted and executed by a highly sophisticated, 26-member foreign hit squad operating under forged European and Australian identities.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0001"
+    },
+    {
+      "subject": "Foreign Hit Squad",
+      "predicate": "OPERATED_IN",
+      "object": "United Arab Emirates",
+      "evidence": "The perpetrators operated in distinct sub-units (Airport Trackers, Mall Surveillance, Hotel Execution, Logistics, and Escapes) and maintained strict physical isolation. No team member placed direct phone calls to another team member within the United Arab Emirates.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0002"
+    },
+    {
+      "subject": "Foreign Hit Squad",
+      "predicate": "COORDINATED_VIA",
+      "object": "International Telecom Hub in Austria",
+      "evidence": "Instead, the entire operational network was coordinated remotely via an international telecom hub in Austria.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0002"
+    },
+    {
+      "subject": "Room 230",
+      "predicate": "LOCATED_IN",
+      "object": "Hotel",
+      "evidence": "Victim found dead in Room 230.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0004"
+    },
+    {
+      "subject": "DXB",
+      "predicate": "ENTERING",
+      "object": "26 SUSPECTS",
+      "evidence": "entering DXB 24-48 hrs prior and departing within 4 hours post-incident",
+      "chunk_id": "CASE_54CD7337_CHUNK_0005"
+    },
+    {
+      "subject": "Interpol",
+      "predicate": "REQUESTED",
+      "object": "Red Notices",
+      "evidence": "Interpol Red Notices requested",
+      "chunk_id": "CASE_54CD7337_CHUNK_0005"
+    },
+    {
+      "subject": "David Bernard",
+      "predicate": "OPERATED_VEHICLE",
+      "object": "E-025",
+      "evidence": "Secondary Driver",
+      "chunk_id": "CASE_54CD7337_CHUNK_0010"
+    },
+    {
+      "subject": "Vienna",
+      "predicate": "ACTED_AS",
+      "object": "Automated switchboard and command center",
+      "evidence": "The Austrian hub acted as an automated switchboard and command center",
+      "chunk_id": "CASE_54CD7337_CHUNK_0010"
+    },
+    {
+      "subject": "Gail Folliard",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Austria Hub",
+      "evidence": "Gail Folliard (+971550000003) Austria Hub (+43100000000) 45s Target landed at DXB. Airport team confirms identification.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0011"
+    },
+    {
+      "subject": "Austria Hub",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Kevin Daveron",
+      "evidence": "Austria Hub (+43100000000) Kevin Daveron (+971550000002) 120s Relaying target arrival to Hit Team Leader.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0011"
+    },
+    {
+      "subject": "Peter Elvinger",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Austria Hub",
+      "evidence": "Peter Elvinger (+971550000005) Austria Hub (+43100000000) 60s Room 237 successfully booked opposite target's Room 230.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0011"
+    },
+    {
+      "subject": "Nicole Cleary",
+      "predicate": "COMMUNICATED_WITH",
+      "object": "Austria Hub",
+      "evidence": "Nicole Cleary (+971550000015) Austria Hub (+43100000000) 10s Target spotted leaving Wafi Mall",
+      "chunk_id": "CASE_54CD7337_CHUNK_0011"
+    },
+    {
+      "subject": "Nicole Cleary",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Austria Hub",
+      "evidence": "Austria Hub (+43100000000)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0012"
+    },
+    {
+      "subject": "Jonathan Louis",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Austria Hub",
+      "evidence": "Austria Hub (+43100000000)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0012"
+    },
+    {
+      "subject": "Kevin Daveron",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Austria Hub",
+      "evidence": "Austria Hub (+43100000000)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0012"
+    },
+    {
+      "subject": "Target",
+      "predicate": "TARGETED",
+      "object": "Hit completed",
+      "evidence": "Hit completed. Execution team vacating hotel premises.",
+      "chunk_id": "CASE_54CD7337_CHUNK_0012"
+    },
+    {
+      "subject": "BIN Cluster 1 (4532-XXXX)",
+      "predicate": "ISSUED_BY",
+      "object": "MetaBank USA Prepaid",
+      "evidence": "Issued by MetaBank USA Prepaid",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 1 (4532-XXXX)",
+      "predicate": "USED_FOR",
+      "object": "hotel room deposits",
+      "evidence": "Used for hotel room deposits, airline tickets, and cash advances",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 1 (4532-XXXX)",
+      "predicate": "USED_FOR",
+      "object": "airline tickets",
+      "evidence": "Used for hotel room deposits, airline tickets, and cash advances",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 1 (4532-XXXX)",
+      "predicate": "USED_FOR",
+      "object": "cash advances",
+      "evidence": "Used for hotel room deposits, airline tickets, and cash advances",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 1 (4532-XXXX)",
+      "predicate": "RESOLVED_TO",
+      "object": "HASH-US-MIAMI-882",
+      "evidence": "All cards resolved to billing hash HASH-US-MIAMI-882",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 2 (5200-XXXX)",
+      "predicate": "ISSUED_BY",
+      "object": "PayPower MasterCard US",
+      "evidence": "Issued by PayPower MasterCard US",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 2 (5200-XXXX)",
+      "predicate": "USED_FOR",
+      "object": "car rentals (Sixt/Hertz)",
+      "evidence": "Used for car rentals (Sixt/Hertz) and burner hardware purchases at Du kiosks",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 2 (5200-XXXX)",
+      "predicate": "USED_FOR",
+      "object": "burner hardware purchases at Du kiosks",
+      "evidence": "Used for car rentals (Sixt/Hertz) and burner hardware purchases at Du kiosks",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "BIN Cluster 2 (5200-XXXX)",
+      "predicate": "RESOLVED_TO",
+      "object": "HASH-US-DELAWARE-401",
+      "evidence": "All resolved to billing hash HASH-US-DELAWARE-401",
+      "chunk_id": "CASE_54CD7337_CHUNK_0013"
+    },
+    {
+      "subject": "Peter Elvinger",
+      "predicate": "SPOTTED",
+      "object": "Immigration DXB T1",
+      "evidence": "TIMESTAMP Jan 18 09:30\nSURVEILLANCE SOURCE Immigration DXB T1\nENTITY SPOTTED Peter Elvinger (E-006)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "M. Bodenheimer",
+      "predicate": "SPOTTED",
+      "object": "CCTV Jumeirah Hotel",
+      "evidence": "TIMESTAMP Jan 18 11:00\nSURVEILLANCE SOURCE CCTV Jumeirah Hotel\nENTITY SPOTTED M. Bodenheimer (E-007)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "Marc Sklar",
+      "predicate": "SPOTTED",
+      "object": "CCTV Sixt Counter",
+      "evidence": "TIMESTAMP Jan 19 13:30\nSURVEILLANCE SOURCE CCTV Sixt Counter\nENTITY SPOTTED Marc Sklar (E-024)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "Stephen Drake",
+      "predicate": "SPOTTED",
+      "object": "CCTV DXB Terminal 1",
+      "evidence": "TIMESTAMP Jan 19 14:10\nSURVEILLANCE SOURCE CCTV DXB Terminal 1\nENTITY SPOTTED Stephen Drake (E-009)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "Alexander Klein",
+      "predicate": "SPOTTED",
+      "object": "CCTV Wafi Mall",
+      "evidence": "TIMESTAMP Jan 19 16:30\nSURVEILLANCE SOURCE CCTV Wafi Mall\nENTITY SPOTTED Alexander Klein (E-021)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "Jonathan Louis",
+      "predicate": "SPOTTED",
+      "object": "CCTV Al Bustan",
+      "evidence": "TIMESTAMP Jan 19 19:45\nSURVEILLANCE SOURCE CCTV Al Bustan\nENTITY SPOTTED Jonathan Louis (E-011)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "Jonathan Louis",
+      "predicate": "SPOTTED",
+      "object": "Elevator",
+      "evidence": "TIMESTAMP Jan 19 22:45\nSURVEILLANCE SOURCE Elevator\nENTITY SPOTTED Jonathan Louis (E-011)",
+      "chunk_id": "CASE_54CD7337_CHUNK_0014"
+    },
+    {
+      "subject": "Rajesh Sharma",
+      "predicate": "OPERATED_VEHICLE",
+      "object": "Tata Harrier",
+      "evidence": "Rajesh Sharma operated the Tata Harrier",
+      "chunk_id": "CASE_54CD7337_CHUNK_0016"
+    },
+    {
+      "subject": "Rajesh Sharma",
+      "predicate": "DEFRAUDED",
+      "object": "Priya Nair",
+      "evidence": "Rajesh Sharma defrauded Priya Nair",
+      "chunk_id": "CASE_54CD7337_CHUNK_0016"
+    },
+    {
+      "subject": "HASH-US-MIAMI-882",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "26 passport identities",
+      "evidence": "proving that despite using 26 different passports and 4 different flight paths, they were financed by a single state-sponsored entity",
+      "chunk_id": "CASE_54CD7337_CHUNK_0017"
+    },
+    {
+      "subject": "HASH-US-DELAWARE-401",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "26 passport identities",
+      "evidence": "proving that despite using 26 different passports and 4 different flight paths, they were financed by a single state-sponsored entity",
+      "chunk_id": "CASE_54CD7337_CHUNK_0017"
+    }
+  ]
+}

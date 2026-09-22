@@ -1,0 +1,123 @@
+{
+  "case_id": "CASE_E3DDD4B3",
+  "case_name": "CASE_CASE_E3DDD4B3",
+  "pipeline_version": "4.2.0-Universal",
+  "total_events": 9,
+  "events": [
+    {
+      "event_id": "EVT_001_CASE_E3DDD4B3_CHUNK_0000",
+      "event_type": "General_Operation",
+      "participants": [
+        "Priya Nair",
+        "Rajesh Sharma",
+        "Bhai",
+        "Tata Harrier"
+      ]
+    },
+    {
+      "event_id": "EVT_002_CASE_E3DDD4B3_CHUNK_0003",
+      "event_type": "General_Operation",
+      "participants": [
+        "Kar Sevaks",
+        "Fire"
+      ]
+    },
+    {
+      "event_id": "EVT_003_CASE_E3DDD4B3_CHUNK_0007",
+      "event_type": "General_Operation",
+      "participants": [
+        "violent crowd",
+        "140 liters of petrol",
+        "resulting in 59 fatalities",
+        "passengers",
+        "attack",
+        "Coach S-6",
+        "crowd",
+        "petrol"
+      ]
+    },
+    {
+      "event_id": "EVT_004_CASE_E3DDD4B3_CHUNK_0008",
+      "event_type": "General_Operation",
+      "participants": [
+        "Farooq Bhana",
+        "Haji Bilal",
+        "Procurement of 140 liters of petrol",
+        "Physical altercation",
+        "Razzak Kurkur",
+        "Aman Guest House",
+        "Salim Zarda"
+      ]
+    },
+    {
+      "event_id": "EVT_005_CASE_E3DDD4B3_CHUNK_0009",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Physical altercation",
+        "Salim Zarda",
+        "Maulvi Umarji",
+        "ideological instigator"
+      ]
+    },
+    {
+      "event_id": "EVT_006_CASE_E3DDD4B3_CHUNK_0010",
+      "event_type": "General_Operation",
+      "participants": [
+        "Mehboob Yakub Mitha",
+        "mobilization and direct attack",
+        "Imran Sheri",
+        "Hasan Charkha",
+        "cut the vestibule",
+        "Jabir Binyamin Behera",
+        "fuel transport",
+        "breaking into the coach",
+        "Shaukat Lalu",
+        "fuel transport and pouring",
+        "Rafiq Bhatuk"
+      ]
+    },
+    {
+      "event_id": "EVT_007_CASE_E3DDD4B3_CHUNK_0011",
+      "event_type": "General_Operation",
+      "participants": [
+        "Farooq Bhana",
+        "Haji Bilal",
+        "Hasan Charkha",
+        "Train",
+        "Fuel pouring and ignition",
+        "Fuel cart",
+        "Rafiq Bhatuk",
+        "Salim Paanwala"
+      ]
+    },
+    {
+      "event_id": "EVT_008_CASE_E3DDD4B3_CHUNK_0013",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Mob_Signal_Falia",
+        "Kalabhai_Fuel_Pump",
+        "Aman_Guest_House",
+        "Hasan_Charkha",
+        "Rafiq_Bhatuk",
+        "Haji_Bilal",
+        "Coach_S6_Vestibule",
+        "Farooq_Bhana",
+        "Salim_Paanwala",
+        "Sabarmati_Express_Platform",
+        "Razzak_Kurkur"
+      ]
+    },
+    {
+      "event_id": "EVT_009_CASE_E3DDD4B3_CHUNK_0014",
+      "event_type": "Legal_Action",
+      "participants": [
+        "Farooq Bhana",
+        "Coach S6 Vestibule",
+        "Hasan Charkha",
+        "Maulvi Umarji",
+        "Jabir Behera",
+        "Rafiq Bhatuk"
+      ]
+    }
+  ]
+}
