@@ -85,18 +85,18 @@ const HypergraphViewer: React.FC<HypergraphViewerProps> = ({ caseId, onNodeSelec
       .attr('orient', 'auto')
       .append('path')
       .attr('d', 'M0,-4L8,0L0,4')
-      .attr('fill', 'rgba(155, 89, 182, 0.4)');
+      .attr('fill', 'var(--hyper-arrow)');
 
     // Background grid
     const gridSize = 40;
     const grid = svg.append('g').attr('class', 'grid');
     for (let x = 0; x < width; x += gridSize) {
       grid.append('line').attr('x1', x).attr('y1', 0).attr('x2', x).attr('y2', height)
-        .attr('stroke', 'rgba(155, 89, 182, 0.03)').attr('stroke-width', 0.5);
+        .attr('stroke', 'var(--hyper-grid)').attr('stroke-width', 0.5);
     }
     for (let y = 0; y < height; y += gridSize) {
       grid.append('line').attr('x1', 0).attr('y1', y).attr('x2', width).attr('y2', y)
-        .attr('stroke', 'rgba(155, 89, 182, 0.03)').attr('stroke-width', 0.5);
+        .attr('stroke', 'var(--hyper-grid)').attr('stroke-width', 0.5);
     }
 
     const g = svg.append('g');
@@ -118,8 +118,8 @@ const HypergraphViewer: React.FC<HypergraphViewerProps> = ({ caseId, onNodeSelec
     const hulls = hullGroup.selectAll('path')
       .data(eventNodes)
       .join('path')
-      .attr('fill', d => selectedNodeId === d.id ? 'rgba(155, 89, 182, 0.4)' : 'rgba(155, 89, 182, 0.12)')
-      .attr('stroke', d => selectedNodeId === d.id ? '#FFF' : '#9B59B6')
+      .attr('fill', d => selectedNodeId === d.id ? 'var(--hyper-hull-fill-selected)' : 'var(--hyper-hull-fill)')
+      .attr('stroke', d => selectedNodeId === d.id ? 'var(--hyper-hull-stroke-selected)' : 'var(--hyper-hull-stroke)')
       .attr('stroke-width', d => selectedNodeId === d.id ? 3 : 1)
       .attr('stroke-dasharray', '4 4')
       .style('cursor', 'pointer')
@@ -128,10 +128,10 @@ const HypergraphViewer: React.FC<HypergraphViewerProps> = ({ caseId, onNodeSelec
         if (onNodeSelect) onNodeSelect(d);
       })
       .on('mouseenter', function() {
-        d3.select(this).attr('fill', 'rgba(155, 89, 182, 0.25)');
+        d3.select(this).attr('fill', 'var(--hyper-hull-fill-hover)');
       })
       .on('mouseleave', function(event, d) {
-        d3.select(this).attr('fill', selectedNodeId === d.id ? 'rgba(155, 89, 182, 0.4)' : 'rgba(155, 89, 182, 0.12)');
+        d3.select(this).attr('fill', selectedNodeId === d.id ? 'var(--hyper-hull-fill-selected)' : 'var(--hyper-hull-fill)');
       });
 
     // Nodes
@@ -165,12 +165,12 @@ const HypergraphViewer: React.FC<HypergraphViewerProps> = ({ caseId, onNodeSelec
         // Event nodes are now invisible centers for the hull, but we can draw a tiny dot
         el.append('circle')
           .attr('r', 2)
-          .attr('fill', 'rgba(155,89,182,0.3)');
+          .attr('fill', 'var(--hyper-node-event)');
       } else {
         el.append('circle')
           .attr('r', 18)
-          .attr('fill', isSelected ? 'rgba(201,184,106,0.2)' : '#C9B86A')
-          .attr('stroke', isSelected ? '#FFF' : '#D4C374')
+          .attr('fill', isSelected ? 'var(--hyper-node-participant-selected)' : 'var(--hyper-node-participant)')
+          .attr('stroke', isSelected ? 'var(--hyper-node-participant-stroke-selected)' : 'var(--hyper-node-participant-stroke)')
           .attr('stroke-width', isSelected ? 3 : 2);
       }
     });
@@ -187,11 +187,14 @@ const HypergraphViewer: React.FC<HypergraphViewerProps> = ({ caseId, onNodeSelec
       .attr('x', 0)
       .attr('y', 26)
       .attr('text-anchor', 'middle')
-      .attr('fill', 'var(--text-secondary)')
+      .attr('fill', 'var(--text-primary)')
       .attr('font-size', '10px')
       .attr('font-family', 'var(--font-mono)')
+      .attr('stroke', 'var(--hyper-text-stroke)')
+      .attr('stroke-width', '2px')
+      .attr('paint-order', 'stroke')
       .attr('pointer-events', 'none')
-      .style('text-shadow', '0 1px 3px rgba(0,0,0,0.8)');
+      .style('text-shadow', 'var(--hyper-text-shadow)');
 
     const simulation = d3.forceSimulation<BipartiteNode>(nodes)
       .force('link', d3.forceLink<BipartiteNode, BipartiteLink>(links).id(d => d.id).distance(120))
@@ -261,30 +264,30 @@ const HypergraphViewer: React.FC<HypergraphViewerProps> = ({ caseId, onNodeSelec
   }
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative', background: 'var(--bg-base)', overflow: 'hidden' }} ref={containerRef}>
+    <div style={{ width: '100%', height: '100%', position: 'relative', background: 'var(--bg-canvas)', overflow: 'hidden' }} ref={containerRef}>
       <div style={{ position: 'absolute', top: 16, left: 16, zIndex: 10, pointerEvents: 'none' }}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#9B59B6', letterSpacing: '0.1em', marginBottom: '4px' }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--hyper-hull-stroke)', letterSpacing: '0.1em', marginBottom: '4px' }}>
           HYPERGRAPH MODE
         </div>
         <div style={{ fontSize: '1.2rem', fontWeight: 300, color: 'var(--text-primary)', marginBottom: '12px' }}>
           {data?.case_name || caseId}
         </div>
-        <div style={{ display: 'flex', gap: '16px', background: 'var(--bg-elevated)', padding: '12px', border: '1px solid var(--border-dim)' }}>
+        <div style={{ display: 'flex', gap: '16px', background: 'var(--bg-panel)', padding: '12px 14px', border: '1px solid var(--border-base)', borderRadius: '4px', boxShadow: 'var(--shadow-panel)' }}>
           <div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.55rem', color: 'var(--text-faint)', marginBottom: '4px' }}>TOTAL EVENTS</div>
-            <div style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>{data?.total_events || 0}</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.55rem', color: 'var(--text-secondary)', marginBottom: '4px', fontWeight: 600 }}>TOTAL EVENTS</div>
+            <div style={{ fontSize: '1.2rem', color: 'var(--text-primary)' }}>{data?.total_events || 0}</div>
           </div>
         </div>
       </div>
 
-      <div style={{ position: 'absolute', bottom: 16, left: 16, zIndex: 10, pointerEvents: 'none', display: 'flex', gap: '16px' }}>
+      <div style={{ position: 'absolute', bottom: 16, left: 16, zIndex: 10, pointerEvents: 'none', display: 'flex', gap: '16px', background: 'var(--bg-panel)', padding: '10px 14px', border: '1px solid var(--border-base)', borderRadius: '4px', boxShadow: 'var(--shadow-panel)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <div style={{ width: '12px', height: '12px', background: '#8E44AD', borderRadius: '2px' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)' }}>MULTI-PARTICIPANT EVENT</span>
+          <div style={{ width: '10px', height: '10px', border: '2px dashed var(--hyper-hull-stroke)', background: 'var(--hyper-hull-fill)', borderRadius: '2px' }} />
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-secondary)' }}>MULTI-PARTICIPANT EVENT</span>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-          <div style={{ width: '12px', height: '12px', background: '#C9B86A', borderRadius: '50%' }} />
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--text-muted)' }}>PARTICIPANT</span>
+          <div style={{ width: '10px', height: '10px', background: 'var(--hyper-node-participant)', border: '1.5px solid var(--hyper-node-participant-stroke)', borderRadius: '50%' }} />
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-secondary)' }}>PARTICIPANT</span>
         </div>
       </div>
 

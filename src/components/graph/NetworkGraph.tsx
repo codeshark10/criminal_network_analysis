@@ -19,16 +19,16 @@ interface NetworkGraphProps {
 
 // Node visual config by type
 const nodeConfig: Record<string, { color: string; size: number; shape: 'circle' | 'rect' }> = {
-  PERSON:       { color: '#C9B86A', size: 20, shape: 'circle' },
-  ORGANIZATION: { color: '#8A7E45', size: 18, shape: 'rect' },
-  LOCATION:     { color: '#6B6040', size: 16, shape: 'circle' },
-  PHONE:        { color: '#5A5348', size: 12, shape: 'circle' },
-  VEHICLE:      { color: '#4A4840', size: 14, shape: 'circle' },
-  BANK_ACCOUNT: { color: '#8A7E45', size: 14, shape: 'circle' },
-  TRANSACTION:  { color: '#9A7E35', size: 13, shape: 'circle' },
-  EVIDENCE:     { color: '#5E5040', size: 12, shape: 'circle' },
-  EVENT:        { color: '#4A4840', size: 12, shape: 'circle' },
-  CASE:         { color: '#C9B86A', size: 24, shape: 'circle' },
+  PERSON:       { color: 'var(--graph-person)', size: 20, shape: 'circle' },
+  ORGANIZATION: { color: 'var(--graph-org)', size: 18, shape: 'rect' },
+  LOCATION:     { color: 'var(--graph-location)', size: 16, shape: 'circle' },
+  PHONE:        { color: 'var(--graph-device)', size: 12, shape: 'circle' },
+  VEHICLE:      { color: 'var(--graph-device)', size: 14, shape: 'circle' },
+  BANK_ACCOUNT: { color: 'var(--graph-org)', size: 14, shape: 'circle' },
+  TRANSACTION:  { color: 'var(--graph-financial)', size: 13, shape: 'circle' },
+  EVIDENCE:     { color: 'var(--graph-evidence)', size: 12, shape: 'circle' },
+  EVENT:        { color: 'var(--graph-device)', size: 12, shape: 'circle' },
+  CASE:         { color: 'var(--graph-person)', size: 24, shape: 'circle' },
 };
 
 /**
@@ -107,7 +107,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       .attr('orient', 'auto')
       .append('path')
       .attr('d', 'M0,-4L8,0L0,4')
-      .attr('fill', 'rgba(201,184,106,0.35)');
+      .attr('fill', 'var(--accent-glow)');
 
     // Inferred arrow marker
     defs.append('marker')
@@ -120,7 +120,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       .attr('orient', 'auto')
       .append('path')
       .attr('d', 'M0,-4L8,0L0,4')
-      .attr('fill', '#FF4500');
+      .attr('fill', 'var(--graph-inferred)');
 
     // Selected glow filter
     defs.append('filter')
@@ -149,11 +149,11 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
     const grid = svg.append('g').attr('class', 'grid');
     for (let x = 0; x < width; x += gridSize) {
       grid.append('line').attr('x1', x).attr('y1', 0).attr('x2', x).attr('y2', height)
-        .attr('stroke', 'rgba(201,184,106,0.02)').attr('stroke-width', 0.5);
+        .attr('stroke', 'var(--border-faint)').attr('stroke-width', 0.5);
     }
     for (let y = 0; y < height; y += gridSize) {
       grid.append('line').attr('x1', 0).attr('y1', y).attr('x2', width).attr('y2', y)
-        .attr('stroke', 'rgba(201,184,106,0.02)').attr('stroke-width', 0.5);
+        .attr('stroke', 'var(--border-faint)').attr('stroke-width', 0.5);
     }
 
     // Zoom container
@@ -204,7 +204,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       .data(simLinks)
       .join('line')
       .attr('class', (d) => d.type === 'INFERRED_ASSOCIATE' ? 'inferred-edge gnn-pulse' : '')
-      .attr('stroke', (d) => d.type === 'INFERRED_ASSOCIATE' ? '#FF4500' : 'rgba(201,184,106,0.15)')
+      .attr('stroke', (d) => d.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--graph-edge)')
       .attr('stroke-width', (d) => {
         if (d.type === 'INFERRED_ASSOCIATE') return 2;
         return Math.max(0.5, ((d.properties.confidence || d.properties.ai_confidence_score || 0.7) * 1.5));
@@ -219,7 +219,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       .on('mouseenter', function (event, d) {
         const isGnn = d.type === 'INFERRED_ASSOCIATE';
         d3.select(this)
-          .attr('stroke', isGnn ? '#FF5722' : 'rgba(201,184,106,0.6)')
+          .attr('stroke', isGnn ? 'var(--graph-inferred)' : 'var(--graph-edge-highlight)')
           .attr('stroke-width', isGnn ? 3 : 2);
 
         if (svgRef.current) {
@@ -250,7 +250,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       .on('mouseleave', function (event, d) {
         const isGnn = d.type === 'INFERRED_ASSOCIATE';
         d3.select(this)
-          .attr('stroke', isGnn ? '#FF4500' : 'rgba(201,184,106,0.15)')
+          .attr('stroke', isGnn ? 'var(--graph-inferred)' : 'var(--graph-edge)')
           .attr('stroke-width', isGnn ? 2 : 0.8);
 
         setEdgeTooltip(null);
@@ -301,8 +301,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
           .attr('x', -30).attr('y', -10)
           .attr('width', 60).attr('height', 20)
           .attr('rx', 2)
-          .attr('fill', isSelected ? 'rgba(201,184,106,0.15)' : 'rgba(13,16,18,0.9)')
-          .attr('stroke', isSelected ? '#C9B86A' : isCenter ? '#8A7E45' : cfg.color)
+          .attr('fill', isSelected ? 'var(--accent-soft)' : 'var(--bg-panel)')
+          .attr('stroke', isSelected ? 'var(--accent)' : isCenter ? 'var(--graph-org)' : cfg.color)
           .attr('stroke-width', isSelected ? 1.5 : 0.8)
           .attr('filter', isSelected ? 'url(#glow)' : '');
       } else {
@@ -311,15 +311,15 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
           el.append('circle')
             .attr('r', cfg.size + 6)
             .attr('fill', 'none')
-            .attr('stroke', 'rgba(201,184,106,0.15)')
+            .attr('stroke', 'var(--accent-soft)')
             .attr('stroke-width', 0.5)
             .attr('stroke-dasharray', '4 4');
         }
 
         el.append('circle')
           .attr('r', isCenter ? cfg.size + 4 : cfg.size)
-          .attr('fill', isSelected ? 'rgba(201,184,106,0.12)' : 'rgba(13,16,18,0.92)')
-          .attr('stroke', isSelected ? '#C9B86A' : isCenter ? '#C9B86A' : cfg.color)
+          .attr('fill', isSelected ? 'var(--accent-faint)' : 'var(--bg-panel)')
+          .attr('stroke', isSelected ? 'var(--accent)' : isCenter ? 'var(--accent)' : cfg.color)
           .attr('stroke-width', isSelected ? 2 : isCenter ? 1.5 : 0.8)
           .attr('filter', isSelected ? 'url(#glow)' : '');
       }
@@ -331,7 +331,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
         .attr('text-anchor', 'middle')
         .attr('font-family', "'JetBrains Mono', monospace")
         .attr('font-size', cfg.shape === 'rect' ? '7px' : '8px')
-        .attr('fill', isSelected ? '#C9B86A' : '#A5A49B')
+        .attr('fill', isSelected ? 'var(--accent)' : 'var(--text-primary)')
+        .attr('stroke', 'var(--bg-canvas)')
+        .attr('stroke-width', '2px')
+        .attr('paint-order', 'stroke')
         .attr('pointer-events', 'none')
         .text(() => {
           const name = (d.properties?.name as string) || (d.properties?.identifier as string) || d.displayName || d.id;
@@ -345,7 +348,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
           .attr('text-anchor', 'middle')
           .attr('font-family', "'JetBrains Mono', monospace")
           .attr('font-size', '6px')
-          .attr('fill', 'rgba(201,184,106,0.5)')
+          .attr('fill', 'var(--accent-dim)')
+          .attr('stroke', 'var(--bg-canvas)')
+          .attr('stroke-width', '1.5px')
+          .attr('paint-order', 'stroke')
           .attr('pointer-events', 'none')
           .text(`${d.investigationPriority}/100`);
       }
@@ -366,9 +372,9 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
             const s = typeof l.source === 'object' ? (l.source as SimulationNode).id : l.source;
             const t = typeof l.target === 'object' ? (l.target as SimulationNode).id : l.target;
             if (s === d.id || t === d.id) {
-              return l.type === 'INFERRED_ASSOCIATE' ? '#FF5722' : 'rgba(201,184,106,0.7)';
+              return l.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--graph-edge-highlight)';
             }
-            return l.type === 'INFERRED_ASSOCIATE' ? 'rgba(255,69,0,0.25)' : 'rgba(201,184,106,0.06)';
+            return l.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--graph-edge-faint)';
           })
           .attr('stroke-width', (l) => {
             const s = typeof l.source === 'object' ? (l.source as SimulationNode).id : l.source;
@@ -379,7 +385,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
       .on('mouseleave', function () {
         setTooltip(null);
         link
-          .attr('stroke', (l) => l.type === 'INFERRED_ASSOCIATE' ? '#FF4500' : 'rgba(201,184,106,0.15)')
+          .attr('stroke', (l) => l.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--graph-edge)')
           .attr('stroke-width', (l) => l.type === 'INFERRED_ASSOCIATE' ? 2 : 0.8);
       })
       .on('click', function (event, d) {
@@ -426,7 +432,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
     <div ref={containerRef} style={{ position: 'relative', width: '100%', height: '100%' }}>
       <svg
         ref={svgRef}
-        style={{ width: '100%', height: '100%', background: 'var(--bg-void)' }}
+        style={{ width: '100%', height: '100%', background: 'var(--bg-canvas)' }}
       />
 
       {/* Node Tooltip */}
@@ -478,14 +484,14 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
           style={{
             left: Math.min(edgeTooltip.x + 12, window.innerWidth - 250),
             top: edgeTooltip.y + 12,
-            border: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? '1px solid #FF4500' : '1px solid var(--accent)',
-            background: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'rgba(20, 10, 10, 0.95)' : 'rgba(13, 16, 18, 0.95)',
+            border: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? '1px solid var(--graph-inferred)' : '1px solid var(--accent)',
+            background: 'var(--bg-panel)',
           }}
         >
           <div style={{
             fontFamily: 'var(--font-mono)',
             fontSize: '0.62rem',
-            color: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? '#FF5722' : 'var(--accent)',
+            color: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--accent)',
             letterSpacing: '0.12em',
             marginBottom: '4px',
             display: 'flex',
@@ -503,8 +509,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
             <div style={{
               marginTop: '6px',
               padding: '4px 8px',
-              background: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'rgba(255, 69, 0, 0.15)' : 'rgba(201,184,106,0.1)',
-              border: `1px solid ${edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'rgba(255, 69, 0, 0.4)' : 'var(--accent-dim)'}`,
+              background: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'var(--accent-faint)' : 'var(--accent-faint)',
+              border: `1px solid ${edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--accent-dim)'}`,
               borderRadius: '2px'
             }}>
               <div style={{ fontSize: '0.58rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', letterSpacing: '0.08em' }}>
@@ -514,7 +520,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({
                 fontFamily: 'var(--font-mono)',
                 fontSize: '0.85rem',
                 fontWeight: 700,
-                color: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? '#FF5722' : 'var(--accent)',
+                color: edgeTooltip.rel.type === 'INFERRED_ASSOCIATE' ? 'var(--graph-inferred)' : 'var(--accent)',
                 marginTop: '2px'
               }}>
                 {(() => {

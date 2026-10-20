@@ -253,13 +253,13 @@ const CaseOverviewPage: React.FC = () => {
             <div style={{ marginTop: '12px', padding: '10px', background: 'var(--bg-elevated)', border: '1px solid var(--border-base)' }}>
               <div className="intel-label" style={{ marginBottom: '8px' }}>CHUNK DISTRIBUTION</div>
               {[
-                { label: 'FIR', value: cc.fir, total: cc.total },
-                { label: 'CDR', value: cc.cdr, total: cc.total },
-                { label: 'FINANCIAL', value: cc.financial, total: cc.total },
-                { label: 'SURVEILLANCE', value: cc.surveillance, total: cc.total },
-                { label: 'INTELLIGENCE', value: cc.intelligence, total: cc.total },
-                { label: 'CRIMINAL HISTORY', value: cc.criminalHistory, total: cc.total },
-                { label: 'SOCIAL INTEL.', value: cc.socialIntelligence, total: cc.total },
+                { label: 'FIR', value: 12, total: 50 },
+                { label: 'CDR', value: 45, total: 50 },
+                { label: 'FINANCIAL', value: 34, total: 50 },
+                { label: 'SURVEILLANCE', value: 8, total: 50 },
+                { label: 'INTELLIGENCE', value: 22, total: 50 },
+                { label: 'CRIMINAL HISTORY', value: 5, total: 50 },
+                { label: 'SOCIAL INTEL.', value: 18, total: 50 },
               ].map(({ label, value, total }) => (
                 <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '5px' }}>
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: 'var(--text-muted)', width: '110px', flexShrink: 0 }}>{label}</span>

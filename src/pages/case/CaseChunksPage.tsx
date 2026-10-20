@@ -13,13 +13,13 @@ import { useCaseData } from '../../context/CaseDataContext';
 import { computeChunkCounts } from '../../services/documentProcessor';
 
 const categoryColors: Record<string, string> = {
-  FIR: '#C07070',
-  CDR: '#7090C0',
-  FINANCIAL: '#C9B86A',
-  SURVEILLANCE: '#80B060',
-  INTELLIGENCE: '#B08060',
-  CRIMINAL_HISTORY: '#9070B0',
-  SOCIAL_INTELLIGENCE: '#60A0A0',
+  FIR: 'var(--cat-fir)',
+  CDR: 'var(--cat-cdr)',
+  FINANCIAL: 'var(--cat-financial)',
+  SURVEILLANCE: 'var(--cat-surveillance)',
+  INTELLIGENCE: 'var(--cat-intelligence)',
+  CRIMINAL_HISTORY: 'var(--cat-history)',
+  SOCIAL_INTELLIGENCE: 'var(--cat-social)',
 };
 
 const ChunkDetail: React.FC<{ chunk: ExtractedChunk; onClose: () => void }> = ({ chunk, onClose }) => (

@@ -45,7 +45,7 @@ const HypergraphPage: React.FC = () => {
             <h1 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 300, color: 'var(--text-primary)' }}>
               Hypergraph Analysis
             </h1>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
               BIPARTITE MULTI-ENTITY EVENT VISUALIZATION
             </div>
           </div>
@@ -101,16 +101,9 @@ const HypergraphPage: React.FC = () => {
                 <button
                   className="btn btn--ghost"
                   style={{ width: '100%', justifyContent: 'center' }}
-                  onClick={() => {
-                    // Try to navigate to person profile if it looks like a participant, or back to network
-                    if (selectedNode.type === 'PARTICIPANT') {
-                      navigate(`/cases/${caseId}/persons/${selectedNode.id}`);
-                    } else {
-                      navigate(`/cases/${caseId}/network`);
-                    }
-                  }}
+                  onClick={() => navigate(`/cases/${caseId}/nodes/${selectedNode.id}/profile`)}
                 >
-                  {selectedNode.type === 'PARTICIPANT' ? 'VIEW PROFILE' : 'VIEW IN NETWORK'}
+                  VIEW FULL PROFILE
                 </button>
               </div>
             )}

@@ -28,23 +28,23 @@ const CaseDataPage: React.FC = () => {
 
   const categories = [
     { key: 'ALL', label: 'ALL', color: 'var(--accent)' },
-    { key: 'FIR', label: 'FIR', color: '#C07070' },
-    { key: 'CDR', label: 'CDR', color: '#7090C0' },
-    { key: 'FINANCIAL', label: 'FINANCIAL', color: 'var(--accent)' },
-    { key: 'SURVEILLANCE', label: 'SURVEILLANCE', color: '#80B060' },
-    { key: 'INTELLIGENCE', label: 'INTELLIGENCE', color: '#B08060' },
-    { key: 'CRIMINAL_HISTORY', label: 'CRIM. HISTORY', color: '#9070B0' },
-    { key: 'SOCIAL_INTELLIGENCE', label: 'SOCIAL INTEL.', color: '#60A0A0' },
+    { key: 'FIR', label: 'FIR', color: 'var(--cat-fir)' },
+    { key: 'CDR', label: 'CDR', color: 'var(--cat-cdr)' },
+    { key: 'FINANCIAL', label: 'FINANCIAL', color: 'var(--cat-financial)' },
+    { key: 'SURVEILLANCE', label: 'SURVEILLANCE', color: 'var(--cat-surveillance)' },
+    { key: 'INTELLIGENCE', label: 'INTELLIGENCE', color: 'var(--cat-intelligence)' },
+    { key: 'CRIMINAL_HISTORY', label: 'CRIM. HISTORY', color: 'var(--cat-history)' },
+    { key: 'SOCIAL_INTELLIGENCE', label: 'SOCIAL INTEL.', color: 'var(--cat-social)' },
   ];
 
   const categoryData = [
-    { key: 'FIR', label: 'First Information Report', value: cc.fir, color: '#C07070' },
-    { key: 'CDR', label: 'Call Detail Records', value: cc.cdr, color: '#7090C0' },
-    { key: 'FINANCIAL', label: 'Financial Intelligence', value: cc.financial, color: 'var(--accent)' },
-    { key: 'SURVEILLANCE', label: 'Surveillance Reports', value: cc.surveillance, color: '#80B060' },
-    { key: 'INTELLIGENCE', label: 'Intelligence Reports', value: cc.intelligence, color: '#B08060' },
-    { key: 'CRIMINAL_HISTORY', label: 'Criminal History', value: cc.criminalHistory, color: '#9070B0' },
-    { key: 'SOCIAL_INTELLIGENCE', label: 'Social Intelligence', value: cc.socialIntelligence, color: '#60A0A0' },
+    { key: 'FIR', label: 'First Information Report', value: cc.fir, color: 'var(--cat-fir)' },
+    { key: 'CDR', label: 'Call Detail Records', value: cc.cdr, color: 'var(--cat-cdr)' },
+    { key: 'FINANCIAL', label: 'Financial Intelligence', value: cc.financial, color: 'var(--cat-financial)' },
+    { key: 'SURVEILLANCE', label: 'Surveillance Reports', value: cc.surveillance, color: 'var(--cat-surveillance)' },
+    { key: 'INTELLIGENCE', label: 'Intelligence Reports', value: cc.intelligence, color: 'var(--cat-intelligence)' },
+    { key: 'CRIMINAL_HISTORY', label: 'Criminal History', value: cc.criminalHistory, color: 'var(--cat-history)' },
+    { key: 'SOCIAL_INTELLIGENCE', label: 'Social Intelligence', value: cc.socialIntelligence, color: 'var(--cat-social)' },
   ];
 
   return (

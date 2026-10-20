@@ -5,9 +5,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Search, Bell, User, ChevronDown, Shield, Zap, Database
+  Search, Bell, User, ChevronDown, Shield, Zap, Database, Sun, Moon
 } from 'lucide-react';
 import { useCaseData } from '../../context/CaseDataContext';
+import { useTheme } from '../../context/ThemeContext';
 
 interface TopNavProps {
   onToggleSidebar: () => void;
@@ -19,6 +20,7 @@ const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const navigate = useNavigate();
   const { getAlerts } = useCaseData();
+  const { theme, toggleTheme } = useTheme();
 
   const alerts = getAlerts('global');
   const activeAlerts = alerts.filter((a) => a.status === 'ACTIVE');
@@ -201,6 +203,24 @@ const TopNav: React.FC<TopNavProps> = ({ onToggleSidebar }) => {
             CASE-2026-014 ACTIVE
           </span>
         </div>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'var(--text-muted)',
+            cursor: 'pointer',
+            padding: '5px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
+        </button>
 
         {/* Notifications */}
         <button

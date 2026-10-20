@@ -27,6 +27,7 @@ import IntelCommandCenterPage from './pages/case/IntelCommandCenterPage';
 import NetworkAnalysisPage from './pages/NetworkAnalysisPage';
 import HypergraphPage from './pages/HypergraphPage';
 import MastermindAnalysisPage from './pages/case/MastermindAnalysisPage';
+import NodeProfilePage from './pages/case/NodeProfilePage';
 import KnownSuspectPage from './pages/KnownSuspectPage';
 import UnknownSuspectPage from './pages/UnknownSuspectPage';
 import EvidencePage from './pages/EvidencePage';
@@ -70,6 +71,7 @@ const App: React.FC = () => (
 
         {/* Investigation pages */}
         <Route path="network" element={<NetworkAnalysisPage />} />
+        <Route path="nodes/:nodeId/profile" element={<NodeProfilePage />} />
         <Route path="hypergraph" element={<HypergraphPage />} />
         <Route path="mastermind" element={<MastermindAnalysisPage />} />
         <Route path="persons" element={<PersonsPage />} />

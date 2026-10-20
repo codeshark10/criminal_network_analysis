@@ -5,8 +5,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Search, Bell, User, ChevronDown, X } from 'lucide-react';
+import { Search, Bell, User, ChevronDown, X, Sun, Moon } from 'lucide-react';
 import { useCaseData } from '../../context/CaseDataContext';
+import { useTheme } from '../../context/ThemeContext';
 import { getCases } from '../../services/apiClient';
 import type { CaseItem } from '../../services/apiClient';
 
@@ -14,6 +15,7 @@ const GlobalTopNav: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { getAlerts } = useCaseData();
+  const { theme, toggleTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [showNotifications, setShowNotifications] = useState(false);
@@ -120,6 +122,15 @@ const GlobalTopNav: React.FC = () => {
         >
           <Search size={12} />
           <span className="hide-mobile">SEARCH ALL CASES</span>
+        </button>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', padding: '5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {theme === 'dark' ? <Sun size={14} /> : <Moon size={14} />}
         </button>
 
         {/* Notifications */}

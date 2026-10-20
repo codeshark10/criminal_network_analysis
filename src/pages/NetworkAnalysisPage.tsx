@@ -5,10 +5,10 @@
 // ============================================================
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
-import { useParams } from 'react-router-dom';
-import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight, Loader2, AlertTriangle, Database, Sparkles } from 'lucide-react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { ZoomIn, ZoomOut, RefreshCw, Filter, X, ChevronRight, Loader2, AlertTriangle, Database, Sparkles, Trash2, ArrowLeft } from 'lucide-react';
 import NetworkGraph from '../components/graph/NetworkGraph';
-import { getFullGraph, getSuspectRelationships, getExecutiveSummary, runGnnPredictions } from '../services/apiClient';
+import { getFullGraph, getSuspectRelationships, getExecutiveSummary, runGnnPredictions, deleteGnnLinks } from '../services/apiClient';
 import { adaptApiGraph } from '../services/adapters';
 import { useCaseData } from '../context/CaseDataContext';
 import type { GraphNode, GraphRelationship, EntityType } from '../types/graph';
@@ -32,16 +32,16 @@ const OfflineBanner: React.FC<{ onRetry: () => void, message?: string }> = ({ on
   <div style={{
     position: 'absolute', top: '8px', left: '50%', transform: 'translateX(-50%)',
     zIndex: 50, display: 'flex', alignItems: 'center', gap: '8px',
-    padding: '6px 14px', background: 'rgba(107,90,42,0.92)',
+    padding: '6px 14px', background: 'var(--warning-soft)',
     border: '1px solid var(--warning)', fontSize: '0.68rem',
-    fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: '#D4B86A',
+    fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: 'var(--warning)',
     backdropFilter: 'blur(4px)',
   }}>
     <AlertTriangle size={11} />
     {message ? message.toUpperCase() : 'NO DATA / BACKEND OFFLINE'}
     <button
       onClick={onRetry}
-      style={{ background: 'none', border: '1px solid var(--warning)', padding: '2px 8px', cursor: 'pointer', color: '#D4B86A', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', marginLeft: '4px' }}
+      style={{ background: 'none', border: '1px solid var(--warning)', padding: '2px 8px', cursor: 'pointer', color: 'var(--warning)', fontFamily: 'var(--font-mono)', fontSize: '0.62rem', marginLeft: '4px' }}
     >
       RETRY
     </button>
@@ -52,9 +52,9 @@ const LiveBanner: React.FC<{ nodeCount: number; edgeCount: number }> = ({ nodeCo
   <div style={{
     position: 'absolute', top: '8px', left: '50%', transform: 'translateX(-50%)',
     zIndex: 50, display: 'flex', alignItems: 'center', gap: '6px',
-    padding: '4px 12px', background: 'rgba(58,94,58,0.88)',
+    padding: '4px 12px', background: 'var(--operational-soft)',
     border: '1px solid var(--operational)', fontSize: '0.6rem',
-    fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: '#6A9E6A',
+    fontFamily: 'var(--font-mono)', letterSpacing: '0.08em', color: 'var(--operational)',
     backdropFilter: 'blur(4px)',
   }}>
     <Database size={10} />
@@ -66,6 +66,7 @@ const LiveBanner: React.FC<{ nodeCount: number; edgeCount: number }> = ({ nodeCo
 
 const NetworkAnalysisPage: React.FC = () => {
   const { caseId } = useParams<{ caseId?: string }>();
+  const navigate = useNavigate();
 
   // ── Data state ───────────────────────────────────────────
   const [allNodes, setAllNodes] = useState<GraphNode[]>([]);
@@ -75,6 +76,7 @@ const NetworkAnalysisPage: React.FC = () => {
   const [fetchError, setFetchError] = useState<string | null>(null);
   const [graphMode, setGraphMode] = useState<'full' | 'executive'>('full');
   const [isPredicting, setIsPredicting] = useState(false);
+  const [isClearingAI, setIsClearingAI] = useState(false);
 
   // ── Exec Summary Params ──────────────────────────────────
   const [execParams, setExecParams] = useState({ maxNodes: 20, maxRels: 6, minConnections: 1 });
@@ -145,6 +147,24 @@ const NetworkAnalysisPage: React.FC = () => {
       setIsPredicting(false);
     }
   }, [caseId, isPredicting, fetchGraph]);
+
+  // ── Remove AI GNN Predictions ────────────────────────────
+  const handleClearAILinks = useCallback(async () => {
+    if (!caseId || isClearingAI) return;
+    setIsClearingAI(true);
+    try {
+      const res = await deleteGnnLinks(caseId);
+      setWsToast(`Successfully removed ${res.deleted_count} AI predictions.`);
+      await fetchGraph();
+      setTimeout(() => setWsToast(null), 5000);
+    } catch (err) {
+      const errMsg = err instanceof Error ? err.message : 'Failed to remove AI links';
+      setWsToast(`Error: ${errMsg}`);
+      setTimeout(() => setWsToast(null), 5000);
+    } finally {
+      setIsClearingAI(false);
+    }
+  }, [caseId, isClearingAI, fetchGraph]);
 
   // ── WebSocket Integration ────────────────────────────────
   useEffect(() => {
@@ -229,6 +249,8 @@ const NetworkAnalysisPage: React.FC = () => {
     );
     return { nodes, relationships };
   }, [allNodes, allRelationships, filterTypes, searchQuery]);
+
+  const hasAILinks = allRelationships.some(r => r.type === 'INFERRED_ASSOCIATE' || r.source === 'GNN_PREDICTION');
 
   // ── Sidebar: connected entities for selected node ─────────
   const connectedEntities = useMemo(() => {
@@ -401,6 +423,12 @@ const NetworkAnalysisPage: React.FC = () => {
           borderBottom: '1px solid var(--border-dim)',
           display: 'flex', alignItems: 'center', padding: '0 12px', gap: '8px', flexShrink: 0,
         }}>
+          <button className="btn btn--ghost" style={{ padding: '4px 8px', fontSize: '0.62rem' }} onClick={() => navigate(`/cases/${caseId}/overview`)}>
+            <ArrowLeft size={11} /> OVERVIEW
+          </button>
+
+          <div className="divider" style={{ width: '1px', height: '20px' }} />
+
           <button className="btn btn--ghost" style={{ padding: '4px 8px', fontSize: '0.62rem' }} onClick={() => setShowFilters(!showFilters)}>
             <Filter size={11} /> FILTERS
           </button>
@@ -439,6 +467,38 @@ const NetworkAnalysisPage: React.FC = () => {
             </button>
           </div>
 
+          {/* AI Clear Button */}
+          <button
+            className="btn btn--ghost"
+            disabled={isClearingAI || !caseId || !hasAILinks}
+            onClick={handleClearAILinks}
+            style={{
+              padding: '4px 10px',
+              fontSize: '0.62rem',
+              color: 'var(--warning)',
+              border: '1px solid var(--warning)',
+              marginRight: '8px',
+              opacity: (!caseId || !hasAILinks) ? 0.5 : 1,
+              cursor: (!caseId || !hasAILinks || isClearingAI) ? 'not-allowed' : 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+            }}
+            title={hasAILinks ? "Remove AI predictions from the graph" : "No AI predictions found"}
+          >
+            {isClearingAI ? (
+              <>
+                <Loader2 size={12} className="animate-spin-slow" />
+                <span>Removing...</span>
+              </>
+            ) : (
+              <>
+                <Trash2 size={12} />
+                <span>Clear AI Links</span>
+              </>
+            )}
+          </button>
+
           {/* AI Prediction Button */}
           <button
             className="btn"
@@ -450,9 +510,9 @@ const NetworkAnalysisPage: React.FC = () => {
               fontFamily: 'var(--font-mono)',
               fontWeight: 600,
               background: isPredicting
-                ? 'rgba(147, 51, 234, 0.2)'
-                : 'linear-gradient(135deg, #7C3AED 0%, #9333EA 100%)',
-              border: '1px solid #A855F7',
+                ? 'var(--ai-purple-light)'
+                : 'var(--ai-purple)',
+              border: '1px solid var(--ai-purple-light)',
               color: '#FFFFFF',
               borderRadius: '2px',
               cursor: isPredicting ? 'not-allowed' : 'pointer',
@@ -460,7 +520,7 @@ const NetworkAnalysisPage: React.FC = () => {
               alignItems: 'center',
               gap: '6px',
               marginRight: '12px',
-              boxShadow: isPredicting ? 'none' : '0 0 10px rgba(147, 51, 234, 0.35)',
+              boxShadow: isPredicting ? 'none' : '0 0 10px var(--ai-purple-light)',
               transition: 'all 0.2s ease',
             }}
             title="Run AI Graph Neural Network to predict hidden connections"
@@ -536,25 +596,27 @@ const NetworkAnalysisPage: React.FC = () => {
           {/* Legend */}
           <div style={{
             position: 'absolute', bottom: '12px', left: '12px',
-            background: 'rgba(13,16,18,0.9)', border: '1px solid var(--border-dim)', padding: '10px 12px',
+            background: 'var(--bg-panel)', border: '1px solid var(--border-base)', 
+            padding: '12px 14px', borderRadius: '4px',
+            boxShadow: 'var(--shadow-panel)'
           }}>
-            <div className="intel-label" style={{ marginBottom: '6px' }}>LEGEND</div>
+            <div className="intel-label" style={{ marginBottom: '8px', color: 'var(--text-secondary)', fontWeight: 600 }}>LEGEND</div>
             {[
-              { color: '#C9B86A', label: 'Person / Suspect' },
-              { color: '#8A7E45', label: 'Organization' },
-              { color: '#6B6040', label: 'Location' },
-              { color: '#5A5348', label: 'Phone / Vehicle' },
-              { color: '#9A7E35', label: 'Financial' },
-              { color: '#5E5040', label: 'Evidence / Other' },
+              { color: 'var(--graph-person)', label: 'Person / Suspect' },
+              { color: 'var(--graph-org)', label: 'Organization' },
+              { color: 'var(--graph-location)', label: 'Location' },
+              { color: 'var(--graph-device)', label: 'Phone / Vehicle' },
+              { color: 'var(--graph-financial)', label: 'Financial' },
+              { color: 'var(--graph-evidence)', label: 'Evidence / Other' },
             ].map(({ color, label }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '3px' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', border: `1px solid ${color}`, background: 'transparent' }} />
-                <span style={{ fontSize: '0.62rem', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{label}</span>
+                <div style={{ width: '8px', height: '8px', borderRadius: '50%', border: `1.5px solid ${color}`, background: 'transparent' }} />
+                <span style={{ fontSize: '0.65rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>{label}</span>
               </div>
             ))}
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '5px', paddingTop: '5px', borderTop: '1px solid var(--border-faint)' }}>
-              <div style={{ width: '12px', height: '0px', borderTop: '2px dashed #FF4500' }} />
-              <span style={{ fontSize: '0.62rem', color: '#FF5722', fontFamily: 'var(--font-mono)', fontWeight: 500 }}>INFERRED_ASSOCIATE (AI)</span>
+              <div style={{ width: '12px', height: '0px', borderTop: '2px dashed var(--graph-inferred)' }} />
+              <span style={{ fontSize: '0.62rem', color: 'var(--graph-inferred)', fontFamily: 'var(--font-mono)', fontWeight: 500 }}>INFERRED_ASSOCIATE (AI)</span>
             </div>
           </div>
         </div>
@@ -642,6 +704,13 @@ const NetworkAnalysisPage: React.FC = () => {
               {/* Actions */}
               <div className="divider" style={{ margin: '10px 0' }} />
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <button
+                  className="btn btn--accent"
+                  style={{ justifyContent: 'center', width: '100%', fontSize: '0.62rem' }}
+                  onClick={() => navigate(`/cases/${caseId}/nodes/${selectedNode.id}/profile`)}
+                >
+                  VIEW FULL PROFILE
+                </button>
                 {selectedNode.type === 'PERSON' && (
                   <>
                     <button
