@@ -28,6 +28,7 @@ from step2_coref import run_step2
 from step3_extraction import run_step3
 from step4_resolution import run_step4
 from step5_ingest import run_step5
+from step4_gat_pipeline import AsyncMastermindGATPipeline
 
 # Directory where uploaded case text files are stored
 UPLOAD_DIR = "./uploaded_cases"
@@ -508,6 +509,21 @@ class MastermindResponse(BaseModel):
     case_id: str
     top_suspect: str
     suspects: List[SuspectMetrics]
+
+class NodeProfileConnection(BaseModel):
+    relationship_type: str
+    target_id: str
+    target_name: str
+    properties: Dict[str, Any]
+
+class NodeProfileResponse(BaseModel):
+    id: str
+    name: str
+    type: str
+    properties: Dict[str, Any]
+    centralities: Dict[str, float]
+    total_funds_transferred: float
+    connections: List[NodeProfileConnection]
 
 
 # --- HELPER FUNCTIONS ---
@@ -1055,7 +1071,7 @@ async def process_natural_language_insight(case_id: str, request: RawInsightRequ
     try:
         # 2. ASK OLLAMA TO PARSE THE SENTENCE
         response = ollama.chat(
-            model="gemma2:9b",
+            model="gemma2-graphrag",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": f"Investigator Insight: {request.text}"}
@@ -1347,6 +1363,54 @@ async def get_relationship_between_persons(
     return parse_graph_records(records) if records else GraphResponse(nodes=[], edges=[])
 
 
+@app.get("/api/cases/{case_id}/nodes/{node_id}/profile", response_model=NodeProfileResponse)
+async def get_node_profile(case_id: str, node_id: str):
+    """
+    Fetches detailed profile for a specific node including its properties, centralities, and connections.
+    """
+    query = """
+    MATCH (n:Entity {case_id: $case_id})
+    WHERE elementId(n) = $node_id OR n.identifier = $node_id OR n.name = $node_id
+    OPTIONAL MATCH (n)-[r]-(m:Entity {case_id: $case_id})
+    RETURN elementId(n) as element_id, n, collect(CASE WHEN r IS NOT NULL THEN {
+        relationship_type: type(r),
+        target_id: elementId(m),
+        target_name: coalesce(m.name, m.identifier),
+        properties: properties(r)
+    } ELSE null END) AS connections
+    LIMIT 1
+    """
+    async with driver.session(database="neo4j") as session:
+        records = await (await session.run(query, case_id=case_id, node_id=node_id)).data()
+        if not records:
+            raise HTTPException(status_code=404, detail=f"Node {node_id} not found in case {case_id}")
+            
+        record = records[0]
+        n_props = dict(record["n"])
+        
+        # Extract specific structured data
+        centralities = {
+            "degree": float(n_props.pop("degree", 0.0) or 0.0),
+            "betweenness": float(n_props.pop("betweenness", 0.0) or 0.0),
+            "closeness": float(n_props.pop("closeness", 0.0) or 0.0),
+            "pagerank": float(n_props.pop("pagerank", 0.0) or 0.0)
+        }
+        total_funds = float(n_props.pop("total_funds_transferred", 0.0) or 0.0)
+        
+        # Format connections, filtering out nulls
+        raw_conns = [c for c in record["connections"] if c is not None]
+        
+        return NodeProfileResponse(
+            id=record["element_id"],
+            name=n_props.get("name") or n_props.get("identifier") or "Unknown",
+            type=n_props.get("type", "ENTITY"),
+            properties=n_props,
+            centralities=centralities,
+            total_funds_transferred=total_funds,
+            connections=raw_conns
+        )
+
+
 @app.get("/api/cases/{case_id}/verify", response_model=CaseVerificationResponse)
 async def verify_case_integrity(case_id: str):
     """
@@ -1472,128 +1536,63 @@ async def upload_structured_csv(
 @app.post("/api/cases/{case_id}/run-gnn-predictions")
 async def run_gnn_link_prediction(case_id: str):
     """
-    Executes the Neo4j GDS pipeline to generate structural embeddings (FastRP)
-    and predict hidden criminal links (KNN). Automatically filters out already-connected nodes.
+    Executes the PyTorch Geometric GAT pipeline to generate structural embeddings
+    and predict hidden criminal links. Automatically filters out already-connected nodes.
     """
-    graph_name = f"gnn_workspace_{case_id}"
-
-    # Cypher Query 1: Clean up any old in-memory graphs
-    drop_query = "CALL gds.graph.drop($graph_name, false) YIELD graphName;"
-
-    # Cypher Query 2: Project the ENTIRE case graph into Mac unified memory
-    project_query = """
-    CALL gds.graph.project.cypher(
-      $graph_name,
-      'MATCH (n {case_id: $case_id}) RETURN id(n) AS id',
-      'MATCH (n {case_id: $case_id})-[r]-(m {case_id: $case_id}) RETURN id(n) AS source, id(m) AS target',
-      {parameters: {case_id: $case_id}}
-    )
-    YIELD graphName AS graph, nodeCount AS nodes, relationshipCount AS rels
-    RETURN graph, nodes, rels
-    """
-
-    # Cypher Query 3: Fast Random Projection (FastRP)
-    fastrp_query = """
-    CALL gds.fastRP.mutate(
-      $graph_name,
-      {
-        embeddingDimension: 64,
-        randomSeed: 42,
-        mutateProperty: 'structural_embedding'
-      }
-    )
-    YIELD nodePropertiesWritten
-    RETURN nodePropertiesWritten
-    """
-
-    # Cypher Query 4: K-Nearest Neighbors (KNN) Link Prediction
-    knn_query = """
-    CALL gds.knn.write(
-      $graph_name,
-      {
-        nodeProperties: ['structural_embedding'],
-        writeRelationshipType: 'INFERRED_ASSOCIATE',
-        writeProperty: 'ai_confidence_score',
-        topK: 2,
-        sampleRate: 1.0,
-        concurrency: 1,
-        randomSeed: 42,
-        similarityCutoff: 1
-      }
-    )
-    YIELD relationshipsWritten
-    RETURN relationshipsWritten
-    """
-
-    # Cypher Query 5: Cleanup redundant AI predictions (Self-loops and already-connected nodes)
-    cleanup_self_loops = "MATCH (n {case_id: $case_id})-[r:INFERRED_ASSOCIATE]->(n) DELETE r"
-
-    cleanup_redundant_links = """
-    MATCH (n {case_id: $case_id})-[ai_link:INFERRED_ASSOCIATE]->(m {case_id: $case_id})
-    MATCH (n)-[real_link]-(m)
-    WHERE type(real_link) <> 'INFERRED_ASSOCIATE'
-    WITH DISTINCT ai_link
-    DELETE ai_link
-    RETURN count(ai_link) AS deleted_count
-    """
-
     try:
-        async with driver.session(database="neo4j") as session:
-            # 1. Reset memory
-            await session.run(drop_query, graph_name=graph_name)
-
-            # 2. Project Graph
-            proj_res = await session.run(project_query, case_id=case_id, graph_name=graph_name)
-            proj_data = await proj_res.single()
-            if not proj_data or proj_data["nodes"] < 3:
-                return {"status": "SKIPPED", "message": "Not enough data points in the graph to run GNN predictions."}
-
-            # 3. Generate Embeddings
-            await session.run(fastrp_query, graph_name=graph_name)
-
-            # 4. Predict Hidden Links and write back to database
-            knn_res = await session.run(knn_query, graph_name=graph_name)
-            knn_data = await knn_res.single()
-            raw_inferred_links = knn_data["relationshipsWritten"] if knn_data else 0
-
-            # 5. POST-PROCESSING: Filter out redundant links!
-            await session.run(cleanup_self_loops, case_id=case_id)
-            cleanup_res = await session.run(cleanup_redundant_links, case_id=case_id)
-            cleanup_data = await cleanup_res.single()
-            deleted_links = cleanup_data["deleted_count"] if cleanup_data else 0
-
-            # Calculate truly novel discoveries
-            novel_links = raw_inferred_links - deleted_links
-
-            # 6. Clean up memory
-            await session.run(drop_query, graph_name=graph_name)
-
+        pipeline = AsyncMastermindGATPipeline(driver, case_id)
+        result = await pipeline.run_pipeline()
+        
         # Broadcast UI refresh ONLY if we found truly hidden links
+        novel_links = result.get("hidden_links_discovered", 0)
         if novel_links > 0:
             await ws_manager.broadcast_event(case_id, {
                 "event": "GRAPH_UPDATE",
-                "source": "GNN_PREDICTION",
+                "source": "GAT_PREDICTION",
                 "case_id": case_id,
-                "message": f"AI identified {novel_links} hidden connections."
+                "message": f"AI identified {novel_links} hidden connections using GAT Architecture."
             })
-
-        return {
-            "status": "SUCCESS",
-            "case_id": case_id,
-            "nodes_analyzed": proj_data["nodes"],
-            "raw_predictions": raw_inferred_links,
-            "redundant_filtered": deleted_links,
-            "hidden_links_discovered": novel_links,
-            "message": f"GNN pipeline complete. Discovered {novel_links} novel hidden connections."
-        }
-
+            
+        return result
     except Exception as e:
-        # Failsafe memory cleanup
-        async with driver.session(database="neo4j") as session:
-            await session.run(drop_query, graph_name=graph_name)
+        print(f"[GAT ERROR]: {str(e)}")
+        # Failsafe drop in case of error
+        try:
+            async with driver.session(database="neo4j") as session:
+                await session.run("CALL gds.graph.drop($gname, false) YIELD graphName;", gname=f"gat_crimenet_{case_id}")
+        except:
+            pass
+        raise HTTPException(status_code=500, detail=f"GAT Link Prediction failed: {str(e)}")
 
-        print(f"[GNN ERROR]: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"GNN Link Prediction failed: {str(e)}")
+
+@app.delete("/api/cases/{case_id}/gnn-links")
+async def delete_gnn_links(case_id: str):
+    """
+    Removes all GNN inferred links for a specific case.
+    """
+    query = """
+    MATCH (n {case_id: $case_id})-[r:INFERRED_ASSOCIATE]->(m)
+    DELETE r
+    RETURN count(r) AS deleted_count
+    """
+    try:
+        async with driver.session(database="neo4j") as session:
+            result = await session.run(query, case_id=case_id)
+            record = await result.single()
+            deleted = record["deleted_count"] if record else 0
+            
+            # Broadcast UI refresh
+            await ws_manager.broadcast_event(case_id, {
+                "event": "GRAPH_UPDATE",
+                "source": "GAT_PREDICTION_REMOVAL",
+                "case_id": case_id,
+                "message": f"Removed {deleted} GNN inferred connections."
+            })
+            
+        return {"status": "success", "deleted_count": deleted}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to delete GNN links: {str(e)}")
+
 
 if __name__ == "__main__":
     import uvicorn

@@ -69,7 +69,7 @@ class ChunkExtractionResult(BaseModel):
 # -------------------------------------------------------------------
 
 class AsyncM5GemmaExtractor:
-    def __init__(self, model_name: str = "gemma2:9b", max_concurrent: int = 1):
+    def __init__(self, model_name: str = "gemma2-graphrag", max_concurrent: int = 1):
         self.model_name = model_name
         self.semaphore = asyncio.Semaphore(max_concurrent)
         self.client = instructor.from_openai(

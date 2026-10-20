@@ -1,0 +1,1900 @@
+{
+  "summary": {
+    "total_raw_chunks": 54,
+    "total_canonical_entities": 150,
+    "total_resolved_triplets": 116
+  },
+  "entities": [
+    {
+      "canonical_name": "Case_36966302",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Nirav Modi",
+      "entity_type": "PERSON",
+      "master_role": "INVESTIGATOR",
+      "aliases": [
+        "P001"
+      ],
+      "mention_count": 19
+    },
+    {
+      "canonical_name": "Mehul Choksi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P004"
+      ],
+      "mention_count": 15
+    },
+    {
+      "canonical_name": "PNB",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 9
+    },
+    {
+      "canonical_name": "Gitanjali Gems",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Firestar Diamond",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Brady House",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mumbai",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Dubai",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Hong Kong",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Bank Account",
+      "entity_type": "BANK_ACCOUNT",
+      "master_role": "BANK_ACCOUNT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "UK",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Belgium",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "NCLT",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "NCLAT",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "RBI",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Reuters",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "PTI",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "ANI",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "IANS",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Business Standard",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "LiveLaw",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "The Wire",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Punjab National Bank",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Brady House Branch",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Fort, Mumbai",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mumbai Zone",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Firms",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "applicant firms",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "buyers",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Letters of Undertaking (LoUs)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "fresh LoU",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Interpol",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Fugitive Economic Offenders Act",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Letter of Undertaking",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Indian importer",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "overseas branch",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "buyers' credit",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "issuing bank",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Core Banking System",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Finacle",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "SWIFT",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Gokulnath Shetty",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P005"
+      ],
+      "mention_count": 5
+    },
+    {
+      "canonical_name": "Manoj Kharat",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P006"
+      ],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Modi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Choksi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 7
+    },
+    {
+      "canonical_name": "SWIFT password with Level-5 rights",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "LoUs on SWIFT",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Firms controlled by Modi and Choksi",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Finacle/CBS entry",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Diamond R US",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Solar Exports",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Stellar Diamonds",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Modi group",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Choksi group",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Debajyoti Dutta",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Rishika Financials",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Gitanjali group",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 6
+    },
+    {
+      "canonical_name": "Shetty",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "\u20b91.08 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Raju Sharma",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Raju"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Bhai",
+      "entity_type": "PERSON",
+      "master_role": "SUSPECT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Priya Nair",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Tata Harrier",
+      "entity_type": "VEHICLE",
+      "master_role": "VEHICLE",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "First fraudulent LoUs",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Pattern of fraudulent LoUs",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Antiguan citizenship",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "from PNB",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "India",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Neeshal Modi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "Nishal Modi",
+        "P003"
+      ],
+      "mention_count": 5
+    },
+    {
+      "canonical_name": "Purvi Modi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Mihir Bhansali",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Aditya Nanavati",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Gitanjali Gems Ltd",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 5
+    },
+    {
+      "canonical_name": "41 properties",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b9170 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b9255 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b912,000 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "ICICI Bank",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "HMP Wandsworth",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Samuel Goozee",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Fugitive Economic Offender",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "London",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Corporate Insolvency Resolution Process (CIRP)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Mallya",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Antigua",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Dominica",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Nakshatra World",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Firestar International Ltd",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 4
+    },
+    {
+      "canonical_name": "Lord Justice Stuart-Smith",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Justice Robert Jay",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Arthur Road Jail",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Red Corner Notice",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Santanu T. Ray",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 3
+    },
+    {
+      "canonical_name": "Liquidator",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "CIRP",
+      "entity_type": "EVENT",
+      "master_role": "EVENT",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Ami Modi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P002"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Firestar group",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Usha Ananthasubramanian",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Hemant Bhat",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P007"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Vipul Ambani",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P008"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Kavita Mankikar",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P009"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Arjun Patil",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P013"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Kapil Khandelwal",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P010"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Niten Shahi",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [
+        "P011"
+      ],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Modi group of firms",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "LoU-funding quotes for the Gitanjali group",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "a portion of his brokerage to Shetty",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "O001",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "O002",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "O003",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "O004",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "O005",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Nakshatra Brands Ltd",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Gili India Ltd",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Prevention of Money Laundering Act, 2002",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Enforcement Directorate",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Kingfisher",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "~\u20b91,217.2 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "~\u20b9170 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "~\u20b94,744 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Modi + Choksi",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b918,170.02 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Modi + Choksi + Mallya",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b922,585.83 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b99,041.5 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Government of India",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Vijay Mallya",
+      "entity_type": "PERSON",
+      "master_role": "PERSON",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Kingfisher Airlines",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Fugitive Economic Offenders Act (FEOA)",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "United Kingdom",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "assets",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "FEO proceedings",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Antigua & Barbuda",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "NCLT Mumbai",
+      "entity_type": "LOCATION",
+      "master_role": "LOCATION",
+      "aliases": [],
+      "mention_count": 2
+    },
+    {
+      "canonical_name": "Choksi-linked",
+      "entity_type": "ALIAS",
+      "master_role": "ALIAS",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "\u20b911,386 crore (financial creditors) + \u20b9673 crore (operational creditors)",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "July 2021",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "40 kg of gold and diamond stock",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "Gitanjali/Choksi group",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Mallya/Kingfisher cases",
+      "entity_type": "ORGANIZATION",
+      "master_role": "ORGANIZATION",
+      "aliases": [],
+      "mention_count": 1
+    },
+    {
+      "canonical_name": "Nirav Modi group",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "FIR-1",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "FIR-2",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b96,498.20 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b94,886.72 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b911,384.92 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b96,400 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b911,386 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    },
+    {
+      "canonical_name": "\u20b9673 crore",
+      "entity_type": "UNKNOWN",
+      "master_role": "UNKNOWN",
+      "aliases": [],
+      "mention_count": 0
+    }
+  ],
+  "triplets": [
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Mehul Choksi",
+      "evidence": "Nirav Modi and Mehul Choksi were the masterminds behind the PNB fraud.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Gitanjali Gems",
+      "evidence": "Nirav Modi used Gitanjali Gems as a front for the fraud.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Firestar Diamond",
+      "evidence": "Nirav Modi used Firestar Diamond as a front for the fraud.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Gitanjali Gems",
+      "evidence": "Mehul Choksi used Gitanjali Gems as a front for the fraud.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Firestar Diamond",
+      "evidence": "Mehul Choksi used Firestar Diamond as a front for the fraud.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "PARTICIPATED_IN",
+      "object": "Bank Account",
+      "evidence": "Nirav Modi opened fraudulent bank accounts.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "PARTICIPATED_IN",
+      "object": "Bank Account",
+      "evidence": "Mehul Choksi opened fraudulent bank accounts.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Gitanjali Gems",
+      "predicate": "PARTICIPATED_IN",
+      "object": "Bank Account",
+      "evidence": "Gitanjali Gems used fraudulent bank accounts.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Firestar Diamond",
+      "predicate": "PARTICIPATED_IN",
+      "object": "Bank Account",
+      "evidence": "Firestar Diamond used fraudulent bank accounts.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Brady House",
+      "evidence": "Nirav Modi transferred funds to Brady House.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Brady House",
+      "evidence": "Mehul Choksi transferred funds to Brady House.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Gitanjali Gems",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Brady House",
+      "evidence": "Gitanjali Gems transferred funds to Brady House.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Firestar Diamond",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Brady House",
+      "evidence": "Firestar Diamond transferred funds to Brady House.",
+      "chunk_id": "CASE_36966302_CHUNK_0001"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "CONTROLLED",
+      "object": "Firms",
+      "evidence": "firms controlled by diamond jeweller Nirav Modi",
+      "chunk_id": "CASE_36966302_CHUNK_0004"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "CONTROLLED",
+      "object": "Firms",
+      "evidence": "and his uncle Mehul Choksi",
+      "chunk_id": "CASE_36966302_CHUNK_0004"
+    },
+    {
+      "subject": "PNB",
+      "predicate": "CREATED",
+      "object": "Letters of Undertaking (LoUs)",
+      "evidence": "Because the LoUs never appeared in PNB's internal ledgers",
+      "chunk_id": "CASE_36966302_CHUNK_0005"
+    },
+    {
+      "subject": "applicant firms",
+      "predicate": "REQUESTED",
+      "object": "fresh LoU",
+      "evidence": "The fraud surfaced in January 2018 when the applicant firms sought a fresh LoU without the usual cash margin",
+      "chunk_id": "CASE_36966302_CHUNK_0005"
+    },
+    {
+      "subject": "buyers",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Letters of Undertaking (LoUs)",
+      "evidence": "Because the LoUs never appeared in PNB's internal ledgers, new guarantees were routinely raised to repay the buyers'-credit obligations created by earlier ones",
+      "chunk_id": "CASE_36966302_CHUNK_0005"
+    },
+    {
+      "subject": "Gokulnath Shetty",
+      "predicate": "OBTAINED_UNAUTHORIZED_ACCESS",
+      "object": "SWIFT password with Level-5 rights",
+      "evidence": "obtained an unauthorised SWIFT password with Level-5 (authorising) rights",
+      "chunk_id": "CASE_36966302_CHUNK_0009"
+    },
+    {
+      "subject": "Gokulnath Shetty",
+      "predicate": "COLLABORATED_WITH",
+      "object": "Manoj Kharat",
+      "evidence": "Working with Single Window Operator Manoj Kharat",
+      "chunk_id": "CASE_36966302_CHUNK_0009"
+    },
+    {
+      "subject": "Gokulnath Shetty",
+      "predicate": "ISSUED_LOUS",
+      "object": "LoUs on SWIFT",
+      "evidence": "issued LoUs on SWIFT directly to the overseas branches of client banks",
+      "chunk_id": "CASE_36966302_CHUNK_0009"
+    },
+    {
+      "subject": "Gokulnath Shetty",
+      "predicate": "NAMED_BENEFICIARIES",
+      "object": "Firms controlled by Modi and Choksi",
+      "evidence": "naming firms controlled by Modi and Choksi as beneficiaries",
+      "chunk_id": "CASE_36966302_CHUNK_0009"
+    },
+    {
+      "subject": "Gokulnath Shetty",
+      "predicate": "AVOIDED_INTERNAL_RED_FLAG",
+      "object": "Finacle/CBS entry",
+      "evidence": "without creating a matching Finacle/CBS entry, so no internal red flag was ever raised",
+      "chunk_id": "CASE_36966302_CHUNK_0009"
+    },
+    {
+      "subject": "Debajyoti Dutta",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Rishika Financials",
+      "evidence": "A broker, Debajyoti Dutta (`P012`) of Rishika Financials (`O008`), is alleged to have shopped competitive LoU-funding quotes to overseas bank branches on behalf of the Gitanjali group",
+      "chunk_id": "CASE_36966302_CHUNK_0011"
+    },
+    {
+      "subject": "Debajyoti Dutta",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Gitanjali group",
+      "evidence": "A broker, Debajyoti Dutta (`P012`) of Rishika Financials (`O008`), is alleged to have shopped competitive LoU-funding quotes to overseas bank branches on behalf of the Gitanjali group",
+      "chunk_id": "CASE_36966302_CHUNK_0011"
+    },
+    {
+      "subject": "Debajyoti Dutta",
+      "predicate": "POSSESSED_ITEM",
+      "object": "\u20b91.08 crore",
+      "evidence": "a portion of which \u2014 reported at approximately \u20b91.08 crore between 2014 and 2017 \u2014 was allegedly passed on to Shetty",
+      "chunk_id": "CASE_36966302_CHUNK_0011"
+    },
+    {
+      "subject": "Debajyoti Dutta",
+      "predicate": "TRANSFERRED_FUNDS_TO",
+      "object": "Shetty",
+      "evidence": "a portion of which \u2014 reported at approximately \u20b91.08 crore between 2014 and 2017 \u2014 was allegedly passed on to Shetty",
+      "chunk_id": "CASE_36966302_CHUNK_0011"
+    },
+    {
+      "subject": "Bhai",
+      "predicate": "DIRECTED",
+      "object": "Raju Sharma",
+      "evidence": "Raju confessed he acted on orders from Dubai handler Bhai",
+      "chunk_id": "CASE_36966302_CHUNK_0013"
+    },
+    {
+      "subject": "Raju Sharma",
+      "predicate": "OPERATED_VEHICLE",
+      "object": "Tata Harrier",
+      "evidence": "Inspector R. Shinde intercepted a Tata Harrier driven by suspect Rajesh \"Raju\" Sharma",
+      "chunk_id": "CASE_36966302_CHUNK_0013"
+    },
+    {
+      "subject": "Raju Sharma",
+      "predicate": "DEFRAUDED",
+      "object": "Priya Nair",
+      "evidence": "Raju confessed he acted on orders from Dubai handler Bhai and robbed teller Priya Nair",
+      "chunk_id": "CASE_36966302_CHUNK_0013"
+    },
+    {
+      "subject": "Diamond R US",
+      "predicate": "BENEFITED_FROM",
+      "object": "First fraudulent LoUs",
+      "evidence": "First fraudulent LoUs reportedly issued via the Brady House branch, benefiting Diamond R US, Solar Exports and Stellar Diamonds.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Solar Exports",
+      "predicate": "BENEFITED_FROM",
+      "object": "First fraudulent LoUs",
+      "evidence": "First fraudulent LoUs reportedly issued via the Brady House branch, benefiting Diamond R US, Solar Exports and Stellar Diamonds.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Stellar Diamonds",
+      "predicate": "BENEFITED_FROM",
+      "object": "First fraudulent LoUs",
+      "evidence": "First fraudulent LoUs reportedly issued via the Brady House branch, benefiting Diamond R US, Solar Exports and Stellar Diamonds.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Gitanjali group",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Pattern of fraudulent LoUs",
+      "evidence": "Pattern continues and expands to the Gitanjali group; roughly 150 LoUs eventually issued without CBS entries.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "ACQUIRED",
+      "object": "Antiguan citizenship",
+      "evidence": "Nov 2017 | Mehul Choksi acquires Antiguan citizenship under the Citizenship by Investment (CIP) programme.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Gokulnath Shetty",
+      "predicate": "RETIRED",
+      "object": "from PNB",
+      "evidence": "May 2017 | Gokulnath Shetty retires from PNB.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "LEFT",
+      "object": "India",
+      "evidence": "~Jan 1, 2018 | Nirav Modi and family reportedly leave India.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "LEFT",
+      "object": "India",
+      "evidence": "Jan 4, 2018 | Mehul Choksi reportedly leaves India.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "TOOK_OATH",
+      "object": "Antiguan citizenship",
+      "evidence": "Jan 15, 2018 | Choksi takes the citizenship oath in Antigua.",
+      "chunk_id": "CASE_36966302_CHUNK_0014"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Diamond R US",
+      "evidence": "CBI registers FIR-1 against Nirav Modi, family, and Diamond R US/Solar Exports/Stellar Diamonds group",
+      "chunk_id": "CASE_36966302_CHUNK_0015"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Gitanjali group",
+      "evidence": "CBI registers FIR-2 against Mehul Choksi and the Gitanjali group",
+      "chunk_id": "CASE_36966302_CHUNK_0015"
+    },
+    {
+      "subject": "Gitanjali group",
+      "predicate": "LAUNDERED_VIA",
+      "object": "41 properties",
+      "evidence": "ED attaches ~\u20b91,217 crore of Gitanjali Group assets (41 properties).",
+      "chunk_id": "CASE_36966302_CHUNK_0016"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "LAUNDERED_VIA",
+      "object": "\u20b9170 crore",
+      "evidence": "ED attaches \u20b9170 crore of Nirav Modi's assets.",
+      "chunk_id": "CASE_36966302_CHUNK_0016"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "LAUNDERED_VIA",
+      "object": "\u20b9255 crore",
+      "evidence": "ED attaches a further \u20b9255 crore of Nirav Modi\u2013linked valuables held in Hong Kong; cumulative attachment against Modi reaches ~\u20b94,744 crore.",
+      "chunk_id": "CASE_36966302_CHUNK_0016"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "LIABILITIES_EXCEED",
+      "object": "\u20b912,000 crore",
+      "evidence": "Gitanjali Gems Ltd's liabilities exceed \u20b912,000 crore; company moves toward insolvency proceedings.",
+      "chunk_id": "CASE_36966302_CHUNK_0016"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "ASSAULTED",
+      "object": "\u20b912,000 crore",
+      "evidence": "Gitanjali Gems Ltd's liabilities exceed \u20b912,000 crore",
+      "chunk_id": "CASE_36966302_CHUNK_0017"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "DECLARED_FUGITIVE",
+      "object": "Fugitive Economic Offender",
+      "evidence": "Nirav Modi declared a Fugitive Economic Offender",
+      "chunk_id": "CASE_36966302_CHUNK_0017"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "ARRESTED",
+      "object": "London",
+      "evidence": "Nirav Modi arrested in London",
+      "chunk_id": "CASE_36966302_CHUNK_0017"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "HELD_AT",
+      "object": "HMP Wandsworth",
+      "evidence": "held at HMP Wandsworth",
+      "chunk_id": "CASE_36966302_CHUNK_0017"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "ADMITTED_TO_CIRP",
+      "object": "Corporate Insolvency Resolution Process (CIRP)",
+      "evidence": "NCLT Mumbai admits Gitanjali Gems Ltd to Corporate Insolvency Resolution Process (CIRP)",
+      "chunk_id": "CASE_36966302_CHUNK_0017"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "EXTRADAITED",
+      "object": "India",
+      "evidence": "Westminster Magistrates' Court rules in favour of Nirav Modi's extradition on all grounds",
+      "chunk_id": "CASE_36966302_CHUNK_0017"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "REPORTED_MISSING",
+      "object": "Antigua",
+      "evidence": "Mehul Choksi reported missing from Antigua",
+      "chunk_id": "CASE_36966302_CHUNK_0018"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "FOUND",
+      "object": "Dominica",
+      "evidence": "found days later in Dominica",
+      "chunk_id": "CASE_36966302_CHUNK_0018"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "LINKED_TO",
+      "object": "Nakshatra World",
+      "evidence": "Nakshatra World, another Choksi-linked entity",
+      "chunk_id": "CASE_36966302_CHUNK_0018"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "OWNERSHIP",
+      "object": "Firestar International Ltd",
+      "evidence": "Nirav Modi's flagship export company",
+      "chunk_id": "CASE_36966302_CHUNK_0018"
+    },
+    {
+      "subject": "Firestar International Ltd",
+      "predicate": "ADMITTED_TO_CIRP",
+      "object": "PNB",
+      "evidence": "NCLT Mumbai admits Firestar International Ltd to CIRP on a petition by PNB itself",
+      "chunk_id": "CASE_36966302_CHUNK_0018"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "OWNED",
+      "object": "Firestar International Ltd",
+      "evidence": "Nirav Modi's flagship export company",
+      "chunk_id": "CASE_36966302_CHUNK_0019"
+    },
+    {
+      "subject": "PNB",
+      "predicate": "FILED_CIRP",
+      "object": "Firestar International Ltd",
+      "evidence": "petition by PNB itself",
+      "chunk_id": "CASE_36966302_CHUNK_0019"
+    },
+    {
+      "subject": "Interpol",
+      "predicate": "WITHDREW",
+      "object": "Red Corner Notice",
+      "evidence": "Interpol withdraws its Red Corner Notice against Mehul Choksi",
+      "chunk_id": "CASE_36966302_CHUNK_0019"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "SUBJECT_OF",
+      "object": "Red Corner Notice",
+      "evidence": "Interpol withdraws its Red Corner Notice against Mehul Choksi",
+      "chunk_id": "CASE_36966302_CHUNK_0019"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "TARGETED",
+      "object": "Gitanjali Gems Ltd",
+      "evidence": "NCLT Mumbai orders liquidation of Gitanjali Gems Ltd (CIRP having failed to attract a resolution plan)",
+      "chunk_id": "CASE_36966302_CHUNK_0020"
+    },
+    {
+      "subject": "Santanu T. Ray",
+      "predicate": "APPOINTED_AS",
+      "object": "Liquidator",
+      "evidence": "Santanu T. Ray appointed liquidator",
+      "chunk_id": "CASE_36966302_CHUNK_0020"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Ami Modi",
+      "evidence": "spouse and brother of Nirav Modi respectively, named accused in FIR-1",
+      "chunk_id": "CASE_36966302_CHUNK_0025"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Neeshal Modi",
+      "evidence": "spouse and brother of Nirav Modi respectively, named accused in FIR-1",
+      "chunk_id": "CASE_36966302_CHUNK_0025"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Gitanjali Gems Ltd",
+      "evidence": "Managing Director, Gitanjali Gems Ltd",
+      "chunk_id": "CASE_36966302_CHUNK_0025"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "MASTERMIND_COMMAND_CONTROL",
+      "object": "Firestar group",
+      "evidence": "Diamond jeweller; Managing Director of the Firestar group",
+      "chunk_id": "CASE_36966302_CHUNK_0025"
+    },
+    {
+      "subject": "Hemant Bhat",
+      "predicate": "AUTHORISED_SIGNATORY",
+      "object": "Modi group of firms",
+      "evidence": "authorised signatories/executives of the Modi group of firms",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Vipul Ambani",
+      "predicate": "AUTHORISED_SIGNATORY",
+      "object": "Modi group of firms",
+      "evidence": "authorised signatories/executives of the Modi group of firms",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Kavita Mankikar",
+      "predicate": "AUTHORISED_SIGNATORY",
+      "object": "Modi group of firms",
+      "evidence": "authorised signatories/executives of the Modi group of firms",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Arjun Patil",
+      "predicate": "AUTHORISED_SIGNATORY",
+      "object": "Modi group of firms",
+      "evidence": "authorised signatories/executives of the Modi group of firms",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Kapil Khandelwal",
+      "predicate": "CFO",
+      "object": "Gitanjali group",
+      "evidence": "CFO and manager respectively of the Gitanjali Group",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Niten Shahi",
+      "predicate": "MANAGER",
+      "object": "Gitanjali group",
+      "evidence": "CFO and manager respectively of the Gitanjali Group",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Mihir Bhansali",
+      "predicate": "BUSINESS_PARTNER",
+      "object": "Nirav Modi",
+      "evidence": "US-based business partner of Nirav Modi",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Aditya Nanavati",
+      "predicate": "ASSOCIATE",
+      "object": "Nirav Modi",
+      "evidence": "associate of Nirav Modi",
+      "chunk_id": "CASE_36966302_CHUNK_0028"
+    },
+    {
+      "subject": "Debajyoti Dutta",
+      "predicate": "BROKERED",
+      "object": "LoU-funding quotes for the Gitanjali group",
+      "evidence": "brokered LoU-funding quotes for the Gitanjali group",
+      "chunk_id": "CASE_36966302_CHUNK_0029"
+    },
+    {
+      "subject": "Debajyoti Dutta",
+      "predicate": "PASSED_ON",
+      "object": "a portion of his brokerage to Shetty",
+      "evidence": "passed on a portion of his brokerage to Shetty",
+      "chunk_id": "CASE_36966302_CHUNK_0029"
+    },
+    {
+      "subject": "Gitanjali group",
+      "predicate": "ASSETS_ATTACHED",
+      "object": "~\u20b91,217.2 crore",
+      "evidence": "Assets attached, Gitanjali Group (41 properties: flats, offices, a mall, farmland, a Hyderabad park)",
+      "chunk_id": "CASE_36966302_CHUNK_0036"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "ASSETS_ATTACHED",
+      "object": "~\u20b9170 crore",
+      "evidence": "Assets attached, Nirav Modi (bank accounts, immovable assets, shares)",
+      "chunk_id": "CASE_36966302_CHUNK_0036"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "CUMULATIVE_ATTACHMENT",
+      "object": "~\u20b94,744 crore",
+      "evidence": "Cumulative attachment, Nirav Modi (incl. Hong Kong valuables)",
+      "chunk_id": "CASE_36966302_CHUNK_0036"
+    },
+    {
+      "subject": "Modi + Choksi",
+      "predicate": "COMBINED_ATTACHMENT",
+      "object": "\u20b918,170.02 crore",
+      "evidence": "Combined attachment, Modi + Choksi + (Mallya, Kingfisher case)",
+      "chunk_id": "CASE_36966302_CHUNK_0036"
+    },
+    {
+      "subject": "Modi + Choksi + Mallya",
+      "predicate": "COMBINED_LOSS",
+      "object": "\u20b922,585.83 crore",
+      "evidence": "Combined attachment, Modi + Choksi + (Mallya, Kingfisher case) | \u20b918,170.02 crore (80.45% of combined \u20b922,585.83 crore bank loss across all three matters)",
+      "chunk_id": "CASE_36966302_CHUNK_0036"
+    },
+    {
+      "subject": "Modi + Choksi + Mallya",
+      "predicate": "RECOVERY",
+      "object": "\u20b99,041.5 crore",
+      "evidence": "Combined recovery/hand-over to public-sector banks, all three matters | \u20b99,041.5 crore (~40% of combined loss)",
+      "chunk_id": "CASE_36966302_CHUNK_0036"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "CONFISCATED_ASSET_PROCEEDS_TO",
+      "object": "Government of India",
+      "evidence": "Confiscated-asset proceeds to Government of India (Nirav Modi, post-FEO confiscation)",
+      "chunk_id": "CASE_36966302_CHUNK_0037"
+    },
+    {
+      "subject": "Modi",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Choksi",
+      "evidence": "Modi/Choksi PNB case",
+      "chunk_id": "CASE_36966302_CHUNK_0038"
+    },
+    {
+      "subject": "Modi",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "PNB",
+      "evidence": "Modi/Choksi PNB case",
+      "chunk_id": "CASE_36966302_CHUNK_0038"
+    },
+    {
+      "subject": "Choksi",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "PNB",
+      "evidence": "Modi/Choksi PNB case",
+      "chunk_id": "CASE_36966302_CHUNK_0038"
+    },
+    {
+      "subject": "Vijay Mallya",
+      "predicate": "ASSOCIATED_WITH",
+      "object": "Kingfisher Airlines",
+      "evidence": "Vijay Mallya/Kingfisher Airlines case",
+      "chunk_id": "CASE_36966302_CHUNK_0038"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "DECLARED_FUGITIVE_ECONOMIC_OFFENDER",
+      "object": "Fugitive Economic Offenders Act (FEOA)",
+      "evidence": "Nirav Modi became the first person declared a Fugitive Economic Offender under this Act",
+      "chunk_id": "CASE_36966302_CHUNK_0039"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "CONFISCATION_PROCEEDINGS_TRIGGERED",
+      "object": "assets",
+      "evidence": "triggering confiscation proceedings against his assets",
+      "chunk_id": "CASE_36966302_CHUNK_0039"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "FACED_FEO_PROCEEDINGS",
+      "object": "Fugitive Economic Offenders Act (FEOA)",
+      "evidence": "Mehul Choksi faced parallel FEO proceedings",
+      "chunk_id": "CASE_36966302_CHUNK_0039"
+    },
+    {
+      "subject": "Mehul Choksi",
+      "predicate": "PLEA_REJECTED",
+      "object": "FEO proceedings",
+      "evidence": "on November 29, 2025, a Mumbai special court rejected his plea to have those proceedings dropped",
+      "chunk_id": "CASE_36966302_CHUNK_0039"
+    },
+    {
+      "subject": "Modi",
+      "predicate": "REMAINED_IN_CUSTODY",
+      "object": "UK",
+      "evidence": "Modi has remained in custody in the UK",
+      "chunk_id": "CASE_36966302_CHUNK_0041"
+    },
+    {
+      "subject": "Modi",
+      "predicate": "PENDING_EXTRADITION",
+      "object": "India",
+      "evidence": "while the final steps toward physical extradition are pending",
+      "chunk_id": "CASE_36966302_CHUNK_0041"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "ADMITTED_TO_CIRP",
+      "object": "NCLT Mumbai",
+      "evidence": "Admitted to CIRP by NCLT Mumbai (petition by ICICI Bank",
+      "chunk_id": "CASE_36966302_CHUNK_0048"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "LIQUIDATION_ORDERED",
+      "object": "NCLT Mumbai",
+      "evidence": "NCLT formally ordered liquidation on February 7, 2024",
+      "chunk_id": "CASE_36966302_CHUNK_0048"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "LIQUIDATOR_APPOINTED",
+      "object": "Santanu T. Ray",
+      "evidence": "appointing Santanu T. Ray as liquidator",
+      "chunk_id": "CASE_36966302_CHUNK_0048"
+    },
+    {
+      "subject": "Gitanjali Gems Ltd",
+      "predicate": "LIQUIDATION_CLAIM_AMOUNT",
+      "object": "\u20b911,386 crore (financial creditors) + \u20b9673 crore (operational creditors)",
+      "evidence": "Admitted claims: \u20b911,386 crore (financial creditors) + \u20b9673 crore (operational creditors)",
+      "chunk_id": "CASE_36966302_CHUNK_0048"
+    },
+    {
+      "subject": "Nakshatra World",
+      "predicate": "ADMITTED_TO_LIQUIDATION",
+      "object": "NCLT Mumbai",
+      "evidence": "admitted to liquidation, July 2021",
+      "chunk_id": "CASE_36966302_CHUNK_0048"
+    },
+    {
+      "subject": "Nakshatra World",
+      "predicate": "ADMITTED_TO_LIQUIDATION",
+      "object": "July 2021",
+      "evidence": "admitted to liquidation, July 2021",
+      "chunk_id": "CASE_36966302_CHUNK_0049"
+    },
+    {
+      "subject": "Firestar International Ltd",
+      "predicate": "ADMITTED_TO_CIRP",
+      "object": "NCLT Mumbai",
+      "evidence": "Admitted to CIRP by NCLT Mumbai on August 10, 2021",
+      "chunk_id": "CASE_36966302_CHUNK_0049"
+    },
+    {
+      "subject": "Firestar International Ltd",
+      "predicate": "FILED_PETITION_BY",
+      "object": "PNB",
+      "evidence": "on a petition filed by PNB itself",
+      "chunk_id": "CASE_36966302_CHUNK_0049"
+    },
+    {
+      "subject": "Liquidator",
+      "predicate": "E_AUCTIONING",
+      "object": "40 kg of gold and diamond stock",
+      "evidence": "As of September 2025, the liquidator was e-auctioning approximately 40 kg of gold and diamond stock to satisfy creditor claims.",
+      "chunk_id": "CASE_36966302_CHUNK_0049"
+    },
+    {
+      "subject": "Nirav Modi group",
+      "predicate": "RELATED_TO",
+      "object": "FIR-1",
+      "evidence": "FIR-1 amount (Nirav Modi group)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Gitanjali/Choksi group",
+      "predicate": "RELATED_TO",
+      "object": "FIR-2",
+      "evidence": "FIR-2 amount (Gitanjali/Choksi group)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Nirav Modi group",
+      "predicate": "RELATED_TO",
+      "object": "\u20b96,498.20 crore",
+      "evidence": "FIR-1 amount (Nirav Modi group)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Gitanjali/Choksi group",
+      "predicate": "RELATED_TO",
+      "object": "\u20b94,886.72 crore",
+      "evidence": "FIR-2 amount (Gitanjali/Choksi group)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Nirav Modi group",
+      "predicate": "RELATED_TO",
+      "object": "\u20b911,384.92 crore",
+      "evidence": "Sum of original FIRs",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Choksi",
+      "predicate": "RELATED_TO",
+      "object": "\u20b96,400 crore",
+      "evidence": "Choksi's alleged individual share (per CBI chargesheet, as reported Nov 2025)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "RELATED_TO",
+      "object": "\u20b918,170.02 crore",
+      "evidence": "Combined ED attachment, Modi + Choksi + Mallya/Kingfisher cases",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Choksi",
+      "predicate": "RELATED_TO",
+      "object": "\u20b918,170.02 crore",
+      "evidence": "Combined ED attachment, Modi + Choksi + Mallya/Kingfisher cases",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Mallya/Kingfisher cases",
+      "predicate": "RELATED_TO",
+      "object": "\u20b918,170.02 crore",
+      "evidence": "Combined ED attachment, Modi + Choksi + Mallya/Kingfisher cases",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Nirav Modi",
+      "predicate": "RELATED_TO",
+      "object": "\u20b99,041.5 crore",
+      "evidence": "Combined recovery/hand-over to banks (all three matters)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Choksi",
+      "predicate": "RELATED_TO",
+      "object": "\u20b99,041.5 crore",
+      "evidence": "Combined recovery/hand-over to banks (all three matters)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Mallya/Kingfisher cases",
+      "predicate": "RELATED_TO",
+      "object": "\u20b99,041.5 crore",
+      "evidence": "Combined recovery/hand-over to banks (all three matters)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Gitanjali Gems",
+      "predicate": "RELATED_TO",
+      "object": "\u20b911,386 crore",
+      "evidence": "Gitanjali Gems admitted creditor claims (CIRP)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    },
+    {
+      "subject": "Gitanjali Gems",
+      "predicate": "RELATED_TO",
+      "object": "\u20b9673 crore",
+      "evidence": "Gitanjali Gems admitted creditor claims (CIRP)",
+      "chunk_id": "CASE_36966302_CHUNK_0052"
+    }
+  ]
+}

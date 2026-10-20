@@ -1,0 +1,498 @@
+[
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0000",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "PNB_NMODI_2018",
+        "type": "CASE_ID",
+        "aliases": []
+      },
+      {
+        "name": "Brady House Branch",
+        "type": "LOCATION",
+        "aliases": []
+      },
+      {
+        "name": "Mumbai",
+        "type": "LOCATION",
+        "aliases": []
+      }
+    ],
+    "triplets": []
+  },
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0001",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Nirav Modi",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Mehul Choksi",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Gokulnath Shetty",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Manoj Kharat",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Firestar Diamond International Pvt Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Gitanjali Gems Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Punjab National Bank Brady House Branch",
+        "type": "ORGANIZATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Nirav Modi",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Firestar Diamond International Pvt Ltd",
+        "evidence": "primary perpetrators, Nirav Modi (Owner of Firestar Diamond International Pvt Ltd)"
+      },
+      {
+        "subject": "Mehul Choksi",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Gitanjali Gems Ltd",
+        "evidence": "primary perpetrators, Nirav Modi (Owner of Firestar Diamond International Pvt Ltd) and his uncle Mehul Choksi (Chairman of Gitanjali Gems Ltd)"
+      },
+      {
+        "subject": "Nirav Modi",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Gokulnath Shetty",
+        "evidence": "conspired with bank officials Gokulnath Shetty (Deputy General Manager, PNB) and Manoj Kharat (Single Window Operator, PNB)"
+      },
+      {
+        "subject": "Mehul Choksi",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Manoj Kharat",
+        "evidence": "conspired with bank officials Gokulnath Shetty (Deputy General Manager, PNB) and Manoj Kharat (Single Window Operator, PNB)"
+      },
+      {
+        "subject": "Gokulnath Shetty",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Letters of Undertaking (LoUs)",
+        "evidence": "fraudulently issue unauthorized Letters of Undertaking (LoUs) and Foreign Letters of Credit (FLCs)"
+      },
+      {
+        "subject": "Manoj Kharat",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Foreign Letters of Credit (FLCs)",
+        "evidence": "fraudulently issue unauthorized Letters of Undertaking (LoUs) and Foreign Letters of Credit (FLCs)"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0002",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Nirav Modi",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Vipul Ambani",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Hemant Bhatt",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Gokulnath Shetty",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Manoj Kharat",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Aditya Nanavati",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Diamonds R US",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Solar Exports",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Stellar Diamonds",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Tri-Star Diamond HK Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Pacific Diamonds Dubai Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Punjab National Bank Brady House Branch",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "PNB Nostro Account NOSTRO-NO-892112",
+        "type": "BANK_ACCOUNT",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Nirav Modi",
+        "predicate": "DIRECTED",
+        "object": "Vipul Ambani",
+        "evidence": "Mastermind Nirav Modi directed his President Finance Vipul Ambani"
+      },
+      {
+        "subject": "Nirav Modi",
+        "predicate": "DIRECTED",
+        "object": "Hemant Bhatt",
+        "evidence": "Mastermind Nirav Modi directed his President Finance Vipul Ambani and Executive Director Hemant Bhatt"
+      },
+      {
+        "subject": "Vipul Ambani",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Diamonds R US",
+        "evidence": "establish partnership front firms, namely Diamonds R US"
+      },
+      {
+        "subject": "Hemant Bhatt",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Diamonds R US",
+        "evidence": "establish partnership front firms, namely Diamonds R US"
+      },
+      {
+        "subject": "Vipul Ambani",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Solar Exports",
+        "evidence": "establish partnership front firms, namely Diamonds R US, Solar Exports, and Stellar Diamonds"
+      },
+      {
+        "subject": "Hemant Bhatt",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Solar Exports",
+        "evidence": "establish partnership front firms, namely Diamonds R US, Solar Exports, and Stellar Diamonds"
+      },
+      {
+        "subject": "Vipul Ambani",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Stellar Diamonds",
+        "evidence": "establish partnership front firms, namely Diamonds R US, Solar Exports, and Stellar Diamonds"
+      },
+      {
+        "subject": "Hemant Bhatt",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Stellar Diamonds",
+        "evidence": "establish partnership front firms, namely Diamonds R US, Solar Exports, and Stellar Diamonds"
+      },
+      {
+        "subject": "Gokulnath Shetty",
+        "predicate": "BYPASSED",
+        "object": "Core Banking System (CBS)",
+        "evidence": "Gokulnath Shetty and Manoj Kharat bypassed the internal Core Banking System (CBS) of Punjab National Bank Brady House Branch"
+      },
+      {
+        "subject": "Manoj Kharat",
+        "predicate": "BYPASSED",
+        "object": "Core Banking System (CBS)",
+        "evidence": "Gokulnath Shetty and Manoj Kharat bypassed the internal Core Banking System (CBS) of Punjab National Bank Brady House Branch"
+      },
+      {
+        "subject": "Gokulnath Shetty",
+        "predicate": "TRANSMITTED",
+        "object": "SWIFT financial messages (MT799/MT700)",
+        "evidence": "They transmitted unauthorized SWIFT financial messages (MT799/MT700) to overseas Nostro accounts"
+      },
+      {
+        "subject": "Manoj Kharat",
+        "predicate": "TRANSMITTED",
+        "object": "SWIFT financial messages (MT799/MT700)",
+        "evidence": "They transmitted unauthorized SWIFT financial messages (MT799/MT700) to overseas Nostro accounts"
+      },
+      {
+        "subject": "Gokulnath Shetty",
+        "predicate": "TRANSMITTED",
+        "object": "PNB Nostro Account NOSTRO-NO-892112",
+        "evidence": "They transmitted unauthorized SWIFT financial messages (MT799/MT700) to overseas Nostro accounts, specifically PNB Nostro Account NOSTRO-NO-892112"
+      },
+      {
+        "subject": "Manoj Kharat",
+        "predicate": "TRANSMITTED",
+        "object": "PNB Nostro Account NOSTRO-NO-892112",
+        "evidence": "They transmitted unauthorized SWIFT financial messages (MT799/MT700) to overseas Nostro accounts, specifically PNB Nostro Account NOSTRO-NO-892112"
+      },
+      {
+        "subject": "Nirav Modi",
+        "predicate": "CONTROLLED",
+        "object": "Tri-Star Diamond HK Ltd",
+        "evidence": "Funds were fraudulently siphoned to overseas shell entities controlled by Nirav Modi, including Tri-Star Diamond HK Ltd in Hong Kong (managed by Director Aditya Nanavati)"
+      },
+      {
+        "subject": "Nirav Modi",
+        "predicate": "CONTROLLED",
+        "object": "Pacific Diamonds Dubai Ltd",
+        "evidence": "Funds were fraudulently siphoned to overseas shell entities controlled by Nirav Modi, including Tri-Star Diamond HK Ltd in Hong Kong (managed by Director Aditya Nanavati) and Pacific Diamonds Dubai Ltd in Dubai"
+      },
+      {
+        "subject": "Aditya Nanavati",
+        "predicate": "MANAGED",
+        "object": "Tri-Star Diamond HK Ltd",
+        "evidence": "Funds were fraudulently siphoned to overseas shell entities controlled by Nirav Modi, including Tri-Star Diamond HK Ltd in Hong Kong (managed by Director Aditya Nanavati)"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0003",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Mehul Choksi",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Gitanjali Gems Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Mehul Choksi",
+        "predicate": "LAUNDERED_VIA",
+        "object": "Gitanjali Gems Ltd",
+        "evidence": "utilized Gitanjali Gems Ltd to launder diverted trade credit capital"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0004",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [],
+    "triplets": []
+  },
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0005",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Nirav Modi",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Mehul Choksi",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Gokulnath Shetty",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Manoj Kharat",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Vipul Ambani",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Hemant Bhatt",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Aditya Nanavati",
+        "type": "PERSON",
+        "aliases": []
+      },
+      {
+        "name": "Firestar Diamond International Pvt Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Gitanjali Gems Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Diamonds R US",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Solar Exports",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Stellar Diamonds",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Tri-Star Diamond HK Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Pacific Diamonds Dubai Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Punjab National Bank Brady House Branch",
+        "type": "LOCATION",
+        "aliases": []
+      }
+    ],
+    "triplets": [
+      {
+        "subject": "Nirav Modi",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Firestar Diamond International Pvt Ltd",
+        "evidence": "Primary Suspect / Mastermind"
+      },
+      {
+        "subject": "Mehul Choksi",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Gitanjali Gems Ltd",
+        "evidence": "Co-Conspirator"
+      },
+      {
+        "subject": "Gokulnath Shetty",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Punjab National Bank Brady House Branch",
+        "evidence": "Internal Facilitator / PNB Official"
+      },
+      {
+        "subject": "Manoj Kharat",
+        "predicate": "MASTERMIND_COMMAND_CONTROL",
+        "object": "Punjab National Bank Brady House Branch",
+        "evidence": "Internal Operator / PNB Official"
+      },
+      {
+        "subject": "Vipul Ambani",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Financial Executive / Associate"
+      },
+      {
+        "subject": "Hemant Bhatt",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Executive Director / Associate"
+      },
+      {
+        "subject": "Aditya Nanavati",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Overseas Director / Proxy"
+      },
+      {
+        "subject": "Diamonds R US",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Front Partnership Firm"
+      },
+      {
+        "subject": "Solar Exports",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Front Partnership Firm"
+      },
+      {
+        "subject": "Stellar Diamonds",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Front Partnership Firm"
+      },
+      {
+        "subject": "Tri-Star Diamond HK Ltd",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Hong Kong Shell Entity"
+      },
+      {
+        "subject": "Pacific Diamonds Dubai Ltd",
+        "predicate": "ASSOCIATED_WITH",
+        "object": "Nirav Modi",
+        "evidence": "Dubai Shell Entity"
+      },
+      {
+        "subject": "Punjab National Bank Brady House Branch",
+        "predicate": "VICTIM_OF",
+        "object": "Nirav Modi",
+        "evidence": "Victim Bank Branch"
+      }
+    ]
+  },
+  {
+    "chunk_id": "CASE_D20D5DAC_CHUNK_0006",
+    "case_id": "CASE_D20D5DAC",
+    "section_type": "GENERAL_LOG",
+    "entities": [
+      {
+        "name": "Pacific Diamonds Dubai Ltd",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "Punjab National Bank Brady House Branch",
+        "type": "ORGANIZATION",
+        "aliases": []
+      },
+      {
+        "name": "PNB Nostro Account NOSTRO-NO-892112",
+        "type": "BANK_ACCOUNT",
+        "aliases": []
+      }
+    ],
+    "triplets": []
+  }
+]

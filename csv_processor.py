@@ -99,7 +99,7 @@ Format strictly like this JSON template:
     try:
         client = AsyncClient(host="http://127.0.0.1:11434")
         response = await client.chat(
-            model="gemma2:9b",
+            model="gemma2-graphrag",
             messages=[{"role": "user", "content": prompt}],
             format="json",
             options={"temperature": 0.0}

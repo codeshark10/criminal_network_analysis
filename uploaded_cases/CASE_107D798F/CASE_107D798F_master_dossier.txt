@@ -1,0 +1,228 @@
+##################################################
+MASTER CASE DOSSIER: CASE_107D798F
+GENERATED TIMESTAMP: 2026-09-25T21:26:11.358910+00:00
+TOTAL SOURCE FILES COMPILED: 1
+##################################################
+
+
+==================================================
+SOURCE FILE: Detailed_Case_File_PNB_LoU_Fraud.txt
+SHA-256 HASH: 61f02f509626a8b12bf7d4c36cb381b9458d338692efce76fb9dc7f99eb8a37b
+==================================================
+> **SOURCE NOTE** — Unlike the fabricated FIR-1/FIR-2 dossier and the synthetic `edges_calls.csv` / `edges_financial.csv` files generated earlier for platform testing, **this document is a factual compilation** drawn from CBI/ED public statements, UK and Belgian court rulings, NCLT/NCLAT orders, RBI notices, and mainstream reporting (Reuters, PTI, ANI, IANS, Business Standard, LiveLaw, The Wire, and others), current to late September 2026. It contains no invented facts. Where sources differ on a figure or date, both are noted. It is provided as a dense, realistic text corpus for entity-extraction/NLP testing on your SIH 2026 platform, and as background for extending `nodes.csv` if you want to add the additional figures named here (see the final section).
+
+---
+
+# DETAILED CASE FILE
+## Punjab National Bank Letter-of-Undertaking (LoU) Fraud — "The Nirav Modi–Mehul Choksi Case"
+
+**Case also known as:** PNB Scam, PNB Brady House Fraud, PNB LoU Scam, ₹13,000–14,000 crore PNB fraud
+**Complainant Institution:** Punjab National Bank, Brady House Branch, Fort, Mumbai (`O009`)
+**Investigating Agencies:** Central Bureau of Investigation (CBI) — Anti-Corruption Branch, Mumbai; Enforcement Directorate (ED) — Mumbai Zone (Prevention of Money Laundering Act, 2002)
+**Reported Quantum:** approximately ₹13,000–14,000 crore (~US$2 billion); the two original FIRs together total ₹11,384.92 crore (₹6,498.20 cr + ₹4,886.72 cr), with the higher headline figure reflecting the full scale established as investigation progressed
+
+---
+
+## 1. Executive Summary
+
+Between 2011 and January 2018, officials at Punjab National Bank's Brady House branch in Mumbai fraudulently issued Letters of Undertaking (LoUs) — bank guarantees used to raise short-term "buyers' credit" financing for imports — on behalf of firms controlled by diamond jeweller Nirav Modi (`P001`) and his uncle Mehul Choksi (`P004`), without sanctioned credit limits, collateral margin, or entries in the bank's core banking system. The guarantees were transmitted over the SWIFT interbank messaging network to overseas branches of other Indian banks, which lent against them in good faith. Because the LoUs never appeared in PNB's internal ledgers, new guarantees were routinely raised to repay the buyers'-credit obligations created by earlier ones — an "evergreening" pattern that let the exposure balloon for years without detection. The fraud surfaced in January 2018 when the applicant firms sought a fresh LoU without the usual cash margin from bank staff unfamiliar with the informal arrangement, and were refused. Both principal accused had already left India days earlier. What followed became India's largest bank fraud case: two CBI FIRs, parallel ED money-laundering cases, Interpol Red Corner Notices, the country's first use of the Fugitive Economic Offenders Act, the collapse and liquidation of two major listed companies, and extradition litigation in the UK and Belgium that is still working its way to a physical handover as of this writing.
+
+---
+
+## 2. Background — How a Letter of Undertaking Fraud Works
+
+A **Letter of Undertaking (LoU)** is a bank guarantee that lets an Indian importer obtain short-term foreign-currency financing — "buyers' credit" — from the overseas branch of another bank, with the issuing bank guaranteeing repayment. Ordinarily, an LoU requires: (a) a sanctioned credit limit for the applicant, (b) cash margin or approved collateral, and (c) an entry in the issuing bank's Core Banking System (CBS — PNB used Finacle) so the exposure is tracked and reconciled.
+
+LoUs are transmitted to the correspondent bank's overseas branch via **SWIFT**, the global interbank messaging network. Critically, at the time, PNB's Brady House branch had **no integration between its SWIFT terminal and its Core Banking System** — a SWIFT message could be sent without any corresponding CBS entry, and without the multi-level authorisation a normal loan would require. This gap is what the fraud exploited.
+
+---
+
+## 3. Modus Operandi — Step by Step
+
+1. **Password-level access.** Gokulnath Shetty (`P005`), then Deputy Manager at the Brady House branch, is alleged to have obtained an unauthorised SWIFT password with Level-5 (authorising) rights — a level of access well beyond his sanctioned role — reportedly by exploiting weak internal password-rotation controls after a colleague's transfer.
+2. **Off-books LoU issuance.** Working with Single Window Operator Manoj Kharat (`P006`), Shetty issued LoUs on SWIFT directly to the overseas branches of client banks (mainly other Indian banks' Hong Kong, Dubai, Antwerp and Frankfurt branches), naming firms controlled by Modi and Choksi as beneficiaries, **without** creating a matching Finacle/CBS entry, so no internal red flag was ever raised.
+3. **No collateral, no sanction.** Because the transactions never touched the CBS, the mandatory 100% cash margin and credit-committee sanction that would normally accompany an LoU were never obtained.
+4. **Drawdown.** The receiving overseas bank branch, trusting the SWIFT-authenticated guarantee, extended buyers'-credit loans to the applicant firms — Diamond R US (`O001`), Solar Exports (`O002`), Stellar Diamonds (`O003`) for the Modi group, and Gitanjali Gems (`O005`) and related entities for the Choksi group.
+5. **Evergreening.** As each LoU's buyers'-credit obligation neared maturity, a **new** LoU was issued to raise fresh financing, part of which was used to settle the prior obligation. This rollover pattern let liabilities compound for roughly seven years without ever surfacing on PNB's books. (This is the pattern encoded in the `prior_lou_reference` field of `edges_financial.csv`.)
+6. **Alleged bribery conduit.** A broker, Debajyoti Dutta (`P012`) of Rishika Financials (`O008`), is alleged to have shopped competitive LoU-funding quotes to overseas bank branches on behalf of the Gitanjali group and taken a brokerage of roughly 0.05% of the LoU value, a portion of which — reported at approximately ₹1.08 crore between 2014 and 2017 — was allegedly passed on to Shetty.
+7. **Detection.** Shetty retired in May 2017. In January 2018, when the applicant firms sought a further LoU without margin money, the new officials at the branch — unaware of the prior arrangement — declined, and the fraud came to light. By then, roughly 150 fraudulent LoUs are reported to have been issued since 2011.
+8. **Flight.** Nirav Modi and his family reportedly left India around January 1, 2018, and Mehul Choksi around January 4, 2018 — in both cases before the fraud became public knowledge.
+
+---
+
+## 4. Timeline
+
+| Date | Event |
+|---|---|
+| 2011 | First fraudulent LoUs reportedly issued via the Brady House branch, benefiting Diamond R US, Solar Exports and Stellar Diamonds. |
+| 2011–2017 | Pattern continues and expands to the Gitanjali group; roughly 150 LoUs eventually issued without CBS entries. |
+| Nov 2017 | Mehul Choksi acquires Antiguan citizenship under the Citizenship by Investment (CIP) programme. |
+| May 2017 | Gokulnath Shetty retires from PNB. |
+| ~Jan 1, 2018 | Nirav Modi and family reportedly leave India. |
+| Jan 4, 2018 | Mehul Choksi reportedly leaves India. |
+| Jan 15, 2018 | Choksi takes the citizenship oath in Antigua. |
+| Jan 2018 | Applicant firms seek a fresh LoU without margin; new branch staff refuse; fraud surfaces internally. |
+| Jan 29, 2018 | PNB formally reports the fraud to investigating agencies. |
+| **Feb 14, 2018** | **CBI registers FIR-1** against Nirav Modi, family, and Diamond R US/Solar Exports/Stellar Diamonds group — ₹6,498.20 crore. |
+| **Feb 15, 2018** | **CBI registers FIR-2** against Mehul Choksi and the Gitanjali group — ₹4,886.72 crore. |
+| Feb 2018 | ED opens parallel money-laundering cases (ECIRs) under PMLA. |
+| Mar 13, 2018 | RBI bars Indian banks from issuing LoUs/Letters of Comfort for trade-credit imports (standby LCs remain permitted for limited cases). |
+| May 2018 | ED attaches ~₹1,217 crore of Gitanjali Group assets (41 properties). ED attaches ₹170 crore of Nirav Modi's assets. |
+| May 24 & 26, 2018 | ED files chargesheets against Modi and Choksi respectively. |
+| 2018 | Interpol issues Red Corner Notices against Nirav Modi, his brother Nishal/Neeshal Modi (`P003`) and sister Purvi Modi (both Belgian citizens), business partner Mihir Bhansali, and associate Aditya Nanavati. |
+| Oct 2018 | ED attaches a further ₹255 crore of Nirav Modi–linked valuables held in Hong Kong; cumulative attachment against Modi reaches ~₹4,744 crore. |
+| Oct 2018 | Gitanjali Gems Ltd's liabilities exceed ₹12,000 crore; company moves toward insolvency proceedings. |
+| Jan 2019 | Nirav Modi declared a **Fugitive Economic Offender** — the first person declared under the newly enacted Fugitive Economic Offenders Act, 2018 — by a special PMLA court in Mumbai; his assets become liable to confiscation. |
+| Mar 2019 | Nirav Modi arrested in London on India's extradition warrant; held at HMP Wandsworth. |
+| Jan 15, 2020 | NCLT Mumbai admits Gitanjali Gems Ltd to Corporate Insolvency Resolution Process (CIRP) on a petition by ICICI Bank. |
+| Feb 25, 2021 | Westminster Magistrates' Court (District Judge Samuel Goozee) rules **in favour of Nirav Modi's extradition** on all grounds, finding no bar to a fair trial in India. |
+| May 23, 2021 | Mehul Choksi reported missing from Antigua; found days later in Dominica; alleges abduction — the incident becomes a central plank of his later legal defence against extradition. |
+| Jun 2021 | ED reports combined assets of ₹18,170.02 crore attached across the Modi/Choksi/Mallya cases (80.45% of the ₹22,585.83 crore combined bank loss across all three matters); ₹9,041.5 crore (40%) already realised and handed to public-sector banks. |
+| Jul 2021 | Nakshatra World, another Choksi-linked entity, admitted to liquidation. |
+| Aug 10, 2021 | NCLT Mumbai admits Firestar International Ltd (Nirav Modi's flagship export company) to CIRP on a petition by PNB itself. |
+| Nov 9, 2022 | UK High Court (Lord Justice Stuart-Smith and Justice Robert Jay) **dismisses Modi's appeal** against extradition on mental-health/suicide-risk grounds, finding the proposed Arthur Road Jail arrangements adequate. |
+| Dec 15, 2022 | UK High Court **refuses Modi permission to appeal to the UK Supreme Court**, closing his principal domestic legal avenue; orders him to pay ~£150,247 in costs. |
+| 2023 | Interpol withdraws its Red Corner Notice against Mehul Choksi, citing concerns raised about the Dominica incident and fair-trial risk. |
+| Aug 27, 2024 | India formally requests Choksi's extradition from Belgium, based on Mumbai special-court arrest warrants dated May 2018 and June 2021. |
+| Nov 29, 2024 | Pre-trial chamber of the Antwerp district court rules the Indian arrest warrants against Choksi "enforceable." |
+| Feb 7, 2024 | NCLT Mumbai orders **liquidation of Gitanjali Gems Ltd** (CIRP having failed to attract a resolution plan); Santanu T. Ray appointed liquidator; ₹11,386 crore in financial-creditor claims and ₹673 crore in operational-creditor claims admitted. |
+| Apr 3, 2025 | Antwerp Court of Appeal's chamber of accusation gives positive advice to the Belgian government clearing Choksi's extradition on six of seven counts, finding dual criminality satisfied. |
+| Apr 11–12, 2025 | Mehul Choksi arrested by Antwerp police, reportedly while in Belgium for medical treatment. |
+| Sep 2025 | Extradition hearings begin before the Antwerp Court of Appeal; India submits formal assurances on prison conditions at Arthur Road Jail. |
+| Sep 4–5, 2025 | Liquidators begin e-auctioning Firestar International's remaining gold/diamond stock and Gitanjali-linked flats to satisfy creditor claims. |
+| Oct 17, 2025 | Antwerp Court of Appeal (four-member indictment chamber) rules Choksi's extradition **"enforceable,"** finding "no risk" of denial of a fair trial or ill-treatment in India. |
+| Oct 30, 2025 | Choksi appeals to Belgium's Court of Cassation (Supreme Court); extradition execution is suspended pending the appeal, which is limited to points of law. |
+| Nov 29, 2025 | A Mumbai special court rejects Choksi's separate plea to drop the domestic Fugitive Economic Offender proceedings against him. |
+| Dec 9, 2025 | Court of Cassation hears Choksi's appeal. |
+| ~Dec 17–18, 2025 | Court of Cassation **rejects Choksi's appeal**, upholding the extradition order and imposing costs of €104 on him. |
+| 2026 (ongoing) | Formal governmental sign-off and logistics for Choksi's physical transfer to India reported pending as of mid-2026; Nirav Modi remains in UK custody, having separately been denied bail while his case awaits the final steps toward extradition. |
+
+*Note on dates:* a small number of sources give slightly different admission dates for Gitanjali Gems' CIRP (October 2018 vs. January 15, 2020) — this likely reflects different procedural stages (an initial petition versus the one that was ultimately admitted); both are noted here for completeness.
+
+---
+
+## 5. Entities Involved — Extended Profiles
+
+*(ID codes match `nodes.csv` where the entity already exists there; new entities appearing only in this document are marked "not yet in dataset.")*
+
+**Principal Accused**
+- **Nirav Modi (`P001`)** — Diamond jeweller; Managing Director of the Firestar group; main accused in FIR-1; declared India's first Fugitive Economic Offender (Jan 2019); in UK custody since March 2019 fighting extradition.
+- **Mehul Choksi (`P004`)** — Managing Director, Gitanjali Gems Ltd; uncle of Nirav Modi; main accused in FIR-2; obtained Antiguan citizenship in 2017–18; arrested in Belgium in April 2025; extradition to India upheld through Belgium's Court of Cassation.
+- **Ami Modi (`P002`)** and **Nishal/Neeshal Modi (`P003`)** — spouse and brother of Nirav Modi respectively, named accused in FIR-1; Nishal Modi holds Belgian citizenship and was named in an Interpol Red Corner Notice.
+- **Purvi Modi** *(not yet in dataset)* — sister of Nirav Modi, Belgian citizen, named in an Interpol Red Corner Notice.
+
+**Bank Officials**
+- **Gokulnath Shetty (`P005`)** — Deputy Manager, PNB Brady House branch (retired May 2017); alleged to have originated the fraudulent SWIFT messages using an unauthorised Level-5 password; named in both FIRs.
+- **Manoj Kharat (`P006`)** — Single Window Operator, PNB Brady House branch; co-accused in both FIRs.
+- **Usha Ananthasubramanian** *(not yet in dataset)* — PNB's Managing Director & CEO during part of the fraud period, later MD & CEO of Allahabad Bank; faced CBI scrutiny and government action over alleged supervisory lapses; the litigation over her removal and reinstatement was contested in Indian courts.
+
+**Corporate Signatories / Executives**
+- **Hemant Bhat (`P007`)**, **Vipul Ambani (`P008`)**, **Kavita Mankikar (`P009`)**, **Arjun Patil (`P013`)** — authorised signatories/executives of the Modi group of firms, named accused in FIR-1.
+- **Kapil Khandelwal (`P010`)**, **Niten Shahi (`P011`)** — CFO and manager respectively of the Gitanjali Group, named accused in FIR-2.
+- **Mihir Bhansali** *(not yet in dataset)* — US-based business partner of Nirav Modi, summoned by ED, named in an Interpol Red Corner Notice.
+- **Aditya Nanavati** *(not yet in dataset)* — associate of Nirav Modi named in an Interpol Red Corner Notice.
+
+**Alleged Bribery Conduit**
+- **Debajyoti Dutta (`P012`)**, proprietor of **Rishika Financials (`O008`)** — alleged to have brokered LoU-funding quotes for the Gitanjali group and passed on a portion of his brokerage to Shetty.
+
+**Corporate Entities**
+- **Diamond R US (`O001`)**, **Solar Exports (`O002`)**, **Stellar Diamonds (`O003`)** — Modi-family partnership firms used as LoU applicants.
+- **Firestar International Ltd (`O004`)** — Nirav Modi's flagship export company; admitted to CIRP Aug 2021 on PNB's own petition; no resolution plan found; now in liquidation with assets (including ~40 kg of gold and diamond stock) being auctioned to satisfy creditors.
+- **Gitanjali Gems Ltd (`O005`)** — Choksi's flagship listed company; admitted to CIRP (ICICI Bank petition); over ₹12,000 crore in admitted claims; ordered into liquidation Feb 7, 2024, with Santanu T. Ray as liquidator; assets (including promoter-linked flats) under active auction as of September 2025.
+- **Nakshatra Brands Ltd (`O006`)**, **Gili India Ltd (`O007`)** — Gitanjali group jewellery brands; Nakshatra World (a related entity) was separately admitted to liquidation in July 2021.
+- **PNB, Brady House Branch, Mumbai (`O009`)** — the branch where the fraud occurred; PNB itself is the complainant in both FIRs and later became a petitioning financial creditor in the Firestar International insolvency case.
+
+---
+
+## 6. Investigating Agencies, Charges and Court Proceedings
+
+- **CBI** registered the two FIRs described above under Sections 120-B (criminal conspiracy), 420 (cheating), 409 (criminal breach of trust by a public servant/banker), 467, 468, 471 (forgery-related offences) of the Indian Penal Code, 1860, read with Section 13(2) r/w 13(1)(d) of the Prevention of Corruption Act, 1988 — reflecting both the fraud itself and the alleged corrupt conduct of bank officials. A first chargesheet was filed in May 2018, with supplementary chargesheets filed in the following years as the investigation identified further transactions and additional accused.
+- **ED** opened parallel Enforcement Case Information Reports (ECIRs) under the Prevention of Money Laundering Act, 2002, treating the fraud proceeds as the predicate offence for a money-laundering investigation, and filed its own chargesheets (Prosecution Complaints) in May 2018.
+- The matter is tried before a **Special PMLA/CBI Court in Mumbai**, which has also handled the Fugitive Economic Offender proceedings against both principal accused.
+
+---
+
+## 7. Enforcement Directorate — Asset Attachment and Recovery
+
+| Action | Amount | Date/Status |
+|---|---|---|
+| Assets attached, Gitanjali Group (41 properties: flats, offices, a mall, farmland, a Hyderabad park) | ~₹1,217.2 crore | May 2018 |
+| Assets attached, Nirav Modi (bank accounts, immovable assets, shares) | ~₹170 crore | May 2018 |
+| Cumulative attachment, Nirav Modi (incl. Hong Kong valuables) | ~₹4,744 crore | by Oct 2018 |
+| Combined attachment, Modi + Choksi + (Mallya, Kingfisher case) | ₹18,170.02 crore (80.45% of combined ₹22,585.83 crore bank loss across all three matters) | as of Jun 2021 |
+| Combined recovery/hand-over to public-sector banks, all three matters | ₹9,041.5 crore (~40% of combined loss) | as of Jun 2021 |
+| Confiscated-asset proceeds to Government of India (Nirav Modi, post-FEO confiscation) | ~₹329.67 crore | reported 2020 |
+
+*Note: the ₹18,170 crore and ₹9,041.5 crore figures are combined ED totals across the Modi/Choksi PNB case **and** the separate Vijay Mallya/Kingfisher Airlines case, not PNB-only; they are included here because ED reported them jointly.*
+
+---
+
+## 8. Fugitive Economic Offenders Act (FEOA), 2018
+
+The FEOA was enacted in 2018 specifically to allow confiscation of a fugitive's assets when they flee India to avoid facing economic-offence charges and refuse to return despite summons. Nirav Modi became the **first person declared a Fugitive Economic Offender** under this Act, by a special PMLA court in Mumbai in January 2019, triggering confiscation proceedings against his assets. Mehul Choksi faced parallel FEO proceedings; on November 29, 2025, a Mumbai special court rejected his plea to have those proceedings dropped, keeping the domestic confiscation track active alongside the Belgian extradition case.
+
+---
+
+## 9. International Legal Proceedings — Nirav Modi (United Kingdom)
+
+- **Mar 2019:** Arrested in London on an Indian extradition warrant; held at HMP Wandsworth, a category-B men's prison.
+- **Feb 25, 2021:** Westminster Magistrates' Court rules in favour of extradition on all grounds — fraud, money laundering, and no human-rights bar to a fair trial in India.
+- **2021–2022:** Modi appeals on mental-health grounds, arguing a high risk of suicide if extradited.
+- **Nov 9, 2022:** UK High Court dismisses the appeal, finding that safeguards at Arthur Road Jail, Mumbai would adequately manage his condition.
+- **Dec 15, 2022:** High Court refuses permission to appeal further to the UK Supreme Court, effectively exhausting his ordinary domestic remedies; he is left with the option of an application to the European Court of Human Rights.
+- **Since then:** Modi has remained in custody in the UK; a UK court has more recently denied him bail while the final steps toward physical extradition are pending, and no confirmed transfer to India has been reported as of this writing.
+
+## 10. International Legal Proceedings — Mehul Choksi (Antigua & Barbuda, Dominica, Belgium)
+
+- **Jan 2018:** Flees India for Antigua, having obtained citizenship there in late 2017 under its Citizenship-by-Investment programme; takes the citizenship oath Jan 15, 2018.
+- **2018–2021:** India pursues extradition from Antigua & Barbuda; the request is examined for years without resolution amid Choksi's legal challenges.
+- **May 23, 2021:** Choksi goes missing from Antigua and is found in Dominica days later; he alleges he was abducted, a claim that becomes central to his later defence and is litigated in Dominica and Antigua.
+- **2023:** Interpol withdraws its Red Corner Notice against him, citing concerns about the alleged abduction and fair-trial risk.
+- **2024–early 2025:** Choksi is later located in Belgium, reportedly while seeking medical treatment (cancer treatment has been cited by his legal team). India formally requests extradition from Belgium (Aug 27, 2024, based on Mumbai court warrants of May 2018 and June 2021).
+- **Nov 29, 2024:** Antwerp district court's pre-trial chamber rules the Indian arrest warrants enforceable.
+- **Apr 3, 2025:** Antwerp Court of Appeal's chamber of accusation gives a positive advisory opinion on extradition, on six of seven counts, finding the alleged offences satisfy Belgium's dual-criminality requirement.
+- **Apr 11–12, 2025:** Choksi is formally arrested by Antwerp police.
+- **Sep 2025:** Extradition hearings proceed; India formally assures Belgium of humane custody conditions at Arthur Road Jail.
+- **Oct 17, 2025:** Antwerp Court of Appeal rules the extradition enforceable, rejecting claims of political persecution, torture risk, or an unfair trial.
+- **Oct 30, 2025:** Choksi appeals to Belgium's Court of Cassation; extradition execution is suspended pending this appeal, which is confined to legal/procedural review (no new facts or evidence may be introduced).
+- **Dec 9, 2025:** Court of Cassation hearing.
+- **~Dec 17–18, 2025:** Court of Cassation rejects the appeal, upholding the extradition order; Choksi is ordered to pay court costs of €104.
+- **2026:** Formal government-to-government sign-off and logistics for physical transfer to India are reported as pending as of mid-2026, with no confirmed handover date publicly reported as of late September 2026.
+
+---
+
+## 11. Corporate Insolvency Proceedings
+
+- **Gitanjali Gems Ltd (`O005`):** Admitted to CIRP by NCLT Mumbai (petition by ICICI Bank; sources differ on the exact admission date, citing either October 2018 or January 15, 2020). No resolution plan was found viable, partly because most of the company's assets were already under ED/PMLA attachment. The Committee of Creditors voted 90.16% in favour of liquidation as early as April 2019; NCLT formally ordered liquidation on February 7, 2024, appointing Santanu T. Ray as liquidator. Admitted claims: ₹11,386 crore (financial creditors) + ₹673 crore (operational creditors). As of September 2025, the liquidator was auctioning promoter-linked flats to raise funds for creditors.
+- **Nakshatra World** (Choksi-linked): admitted to liquidation, July 2021.
+- **Firestar International Ltd (`O004`):** Admitted to CIRP by NCLT Mumbai on August 10, 2021, on a petition filed by PNB itself. No resolution plan emerged; the company proceeded to liquidation. As of September 2025, the liquidator was e-auctioning approximately 40 kg of gold and diamond stock to satisfy creditor claims.
+
+---
+
+## 12. Regulatory and Systemic Reforms Following the Case
+
+- **March 13, 2018:** The Reserve Bank of India barred Indian banks from issuing Letters of Undertaking and Letters of Comfort for trade-credit financing of imports into India, closing off the specific instrument the fraud relied on (standby letters of credit remain permitted in limited circumstances).
+- Banks were separately pushed toward tighter integration between SWIFT messaging terminals and each branch's Core Banking System, so that any SWIFT-originated guarantee automatically creates a corresponding CBS entry and cannot bypass sanction/collateral checks — directly closing the specific control gap this fraud exploited.
+- The case is widely cited as the direct trigger for the **Fugitive Economic Offenders Act, 2018**, enacted later that year.
+
+---
+
+## 13. Financial Impact Summary
+
+| Metric | Figure |
+|---|---|
+| FIR-1 amount (Nirav Modi group) | ₹6,498.20 crore |
+| FIR-2 amount (Gitanjali/Choksi group) | ₹4,886.72 crore |
+| Sum of original FIRs | ₹11,384.92 crore |
+| Commonly cited headline total (incl. later-identified exposure) | ₹13,000–14,000 crore (~US$2 billion) |
+| Choksi's alleged individual share (per CBI chargesheet, as reported Nov 2025) | ~₹6,400 crore |
+| Combined ED attachment, Modi + Choksi + Mallya/Kingfisher cases | ₹18,170.02 crore |
+| Combined recovery/hand-over to banks (all three matters) | ₹9,041.5 crore (~40%) |
+| Gitanjali Gems admitted creditor claims (CIRP) | ₹11,386 crore (financial) + ₹673 crore (operational) |
+
+---
+
+## 14. Notes for Dataset Extension
+
+This document names several individuals not currently present in `nodes.csv`: **Purvi Modi** (Nirav Modi's sister), **Mihir Bhansali** and **Aditya Nanavati** (associates named in Interpol notices), and **Usha Ananthasubramanian** (former PNB MD & CEO). If your platform's demo would benefit from a richer graph — e.g., surfacing the Interpol Red Corner Notice cluster, or a supervisory-failure angle around bank leadership — these can be appended to `nodes.csv` with new `P0xx` IDs, and corresponding rows added to the edge files, following the same source-of-truth rule described in that file's data dictionary (names live only in `nodes.csv`; all other files reference entities by `id`).
+

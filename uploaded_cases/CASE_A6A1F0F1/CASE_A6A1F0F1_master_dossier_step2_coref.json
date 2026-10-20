@@ -1,0 +1,107 @@
+[
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0000",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 0,
+    "text": "##################################################\nMASTER CASE DOSSIER: CASE_A6A1F0F1\nGENERATED TIMESTAMP: 2026-09-26T18:28:54.431771+00:00\nTOTAL SOURCE FILES COMPILED: 1\n##################################################\n\n\n==================================================\nSOURCE FILE: gemini-code-1790369288917.txt\nSHA-256 HASH: 81d8900db2590c492a76d34e32db39416727e499a91250be2a7be9bc19d5d89d\n==================================================\nFIRST INFORMATION REPORT & INVESTIGATIVE DOSSIER\nCASE ID: PNB_NMODI_2018 | LOCATION: Brady House Branch, Mumbai",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "##################################################\nMASTER CASE DOSSIER: CASE_A6A1F0F1\nGENERATED TIMESTAMP: 2026-09-26T18:28:54.431771+00:00\nTOTAL SOURCE FILES COMPILED: 1\n##################################################\n\n\n==================================================\nSOURCE FILE: gemini-code-1790369288917.txt\nSHA-256 HASH: 81d8900db2590c492a76d34e32db39416727e499a91250be2a7be9bc19d5d89d\n==================================================\nFIRST INFORMATION REPORT & INVESTIGATIVE DOSSIER\nCASE ID: PNB_NMODI_2018 | LOCATION: Brady House Branch, Mumbai",
+    "coref_resolved": true
+  },
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0001",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 1,
+    "text": "SUMMARY OF ALLEGATIONS:\nA criminal conspiracy was hatched between private diamond merchants and serving officials of Punjab National Bank Brady House Branch, Mumbai. The primary perpetrators, Nirav Modi (Owner of Firestar Diamond International Pvt Ltd) and his uncle Mehul Choksi (Chairman of Gitanjali Gems Ltd), conspired with bank officials Gokulnath Shetty (Deputy General Manager, PNB) and Manoj Kharat (Single Window Operator, PNB) to fraudulently issue unauthorized Letters of Undertaking (LoUs) and Foreign Letters of Credit (FLCs).",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "SUMMARY OF ALLEGATIONS:\nA criminal conspiracy was hatched between private diamond merchants and serving officials of Punjab National Bank Brady House Branch, Mumbai. The primary perpetrators, Nirav Modi (Owner of Firestar Diamond International Pvt Ltd) and his uncle Mehul Choksi (Chairman of Gitanjali Gems Ltd), conspired with bank officials Gokulnath Shetty (Deputy General Manager, PNB) and Manoj Kharat (Single Window Operator, PNB) to fraudulently issue unauthorized Letters of Undertaking (LoUs) and Foreign Letters of Credit (FLCs).",
+    "coref_resolved": true
+  },
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0002",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 2,
+    "text": "OPERATIONAL MODUS OPERANDI:\n1. Mastermind Nirav Modi directed his President Finance Vipul Ambani and Executive Director Hemant Bhatt to establish partnership front firms, namely Diamonds R US, Solar Exports, and Stellar Diamonds.\n2. Gokulnath Shetty and Manoj Kharat bypassed the internal Core Banking System (CBS) of Punjab National Bank Brady House Branch. They transmitted unauthorized SWIFT financial messages (MT799/MT700) to overseas Nostro accounts, specifically PNB Nostro Account NOSTRO-NO-892112.\n3. Funds were fraudulently siphoned to overseas shell entities controlled by Nirav Modi, including Tri-Star Diamond HK Ltd in Hong Kong (managed by Director Aditya Nanavati) and Pacific Diamonds Dubai Ltd in Dubai.",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "OPERATIONAL MODUS OPERANDI:\n1. Mastermind Nirav Modi directed his President Finance Vipul Ambani and Executive Director Hemant Bhatt to establish partnership front firms, namely Diamonds R US, Solar Exports, and Stellar Diamonds.\n2. Gokulnath Shetty and Manoj Kharat bypassed the internal Core Banking System (CBS) of Punjab National Bank Brady House Branch. They transmitted unauthorized SWIFT financial messages (MT799/MT700) to overseas Nostro accounts, specifically PNB Nostro Account NOSTRO-NO-892112.\n3. Funds were fraudulently siphoned to overseas shell entities controlled by Nirav Modi, including Tri-Star Diamond HK Ltd in Hong Kong (managed by Director Aditya Nanavati) and Pacific Diamonds Dubai Ltd in Dubai.",
+    "coref_resolved": true
+  },
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0003",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 3,
+    "text": "4. Co-conspirator Mehul Choksi utilized Gitanjali Gems Ltd to launder diverted trade credit capital back into domestic jewellery retail networks.",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "4. Co-conspirator Mehul Choksi utilized Gitanjali Gems Ltd to launder diverted trade credit capital back into domestic jewellery retail networks.",
+    "coref_resolved": true
+  },
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0004",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 4,
+    "text": "INVESTIGATIVE ACTIONS & POLICE RECORD:\nOn 29th January 2018, Inspector S. K. Roy of the Central Bureau of Investigation intercepted documents at PNB Brady House Branch. DSP Ramesh Varma conducted a raid on the residential premises of Gokulnath Shetty. PSI K. L. Patil recorded the initial statement of the complainant. Spot Panchnama was executed by Inspector S. K. Roy in the presence of independent witnesses.",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "INVESTIGATIVE ACTIONS & POLICE RECORD:\nOn 29th January 2018, Inspector S. K. Roy of the Central Bureau of Investigation intercepted documents at PNB Brady House Branch. DSP Ramesh Varma conducted a raid on the residential premises of Gokulnath Shetty. PSI K. L. Patil recorded the initial statement of the complainant. Spot Panchnama was executed by Inspector S. K. Roy in the presence of independent witnesses.",
+    "coref_resolved": true
+  },
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0005",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 5,
+    "text": "KEY ACTORS & ASSETS IDENTIFIED:\n- Nirav Modi (Primary Suspect / Mastermind)\n- Mehul Choksi (Co-Conspirator)\n- Gokulnath Shetty (Internal Facilitator / PNB Official)\n- Manoj Kharat (Internal Operator / PNB Official)\n- Vipul Ambani (Financial Executive / Associate)\n- Hemant Bhatt (Executive Director / Associate)\n- Aditya Nanavati (Overseas Director / Proxy)\n- Firestar Diamond International Pvt Ltd (Primary Domestic Enterprise)\n- Gitanjali Gems Ltd (Co-Conspiring Enterprise)\n- Diamonds R US (Front Partnership Firm)\n- Solar Exports (Front Partnership Firm)\n- Stellar Diamonds (Front Partnership Firm)\n- Tri-Star Diamond HK Ltd (Hong Kong Shell Entity)\n- Pacific Diamonds Dubai Ltd (Dubai Shell Entity)\n- Punjab National Bank Brady House Branch (Victim Bank Branch)",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "KEY ACTORS & ASSETS IDENTIFIED:\n- Nirav Modi (Primary Suspect / Mastermind)\n- Mehul Choksi (Co-Conspirator)\n- Gokulnath Shetty (Internal Facilitator / PNB Official)\n- Manoj Kharat (Internal Operator / PNB Official)\n- Vipul Ambani (Financial Executive / Associate)\n- Hemant Bhatt (Executive Director / Associate)\n- Aditya Nanavati (Overseas Director / Proxy)\n- Firestar Diamond International Pvt Ltd (Primary Domestic Enterprise)\n- Gitanjali Gems Ltd (Co-Conspiring Enterprise)\n- Diamonds R US (Front Partnership Firm)\n- Solar Exports (Front Partnership Firm)\n- Stellar Diamonds (Front Partnership Firm)\n- Tri-Star Diamond HK Ltd (Hong Kong Shell Entity)\n- Pacific Diamonds Dubai Ltd (Dubai Shell Entity)\n- Punjab National Bank Brady House Branch (Victim Bank Branch)",
+    "coref_resolved": true
+  },
+  {
+    "chunk_id": "CASE_A6A1F0F1_CHUNK_0006",
+    "case_id": "CASE_A6A1F0F1",
+    "section_type": "GENERAL_LOG",
+    "chunk_index": 6,
+    "text": "- Pacific Diamonds Dubai Ltd (Dubai Shell Entity)\n- Punjab National Bank Brady House Branch (Victim Bank Branch)\n- PNB Nostro Account NOSTRO-NO-892112 (Target Nostro Account)",
+    "metadata": {
+      "case_id": "CASE_A6A1F0F1",
+      "case_title": "CASE CASE_A6A1F0F1",
+      "classification": "UNKNOWN",
+      "field_office": "UNKNOWN"
+    },
+    "original_text": "- Pacific Diamonds Dubai Ltd (Dubai Shell Entity)\n- Punjab National Bank Brady House Branch (Victim Bank Branch)\n- PNB Nostro Account NOSTRO-NO-892112 (Target Nostro Account)",
+    "coref_resolved": true
+  }
+]
